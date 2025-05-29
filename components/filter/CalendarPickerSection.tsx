@@ -34,12 +34,12 @@ const ITALIAN_MONTHS = [
   'Dicembre',
 ];
 
-const CalendarPickerSection: React.FC<CalendarPickerSectionProps> = ({
+const CalendarPickerSection = ({
   tempDateRange,
   handleDateChange,
   confirmDateRange,
   setShowDatePicker,
-}) => {
+}: CalendarPickerSectionProps) => {
   return (
     <>
       <Text className="text-lg font-medium mb-6">
