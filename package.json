@@ -1,5 +1,5 @@
 {
-  "name": "AppSos",
+  "name": "app-sos",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,21 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^8.4.1",
+    "@react-native-vector-icons/fontawesome6": "^12.0.0",
+    "@react-navigation/bottom-tabs": "^7.3.13",
+    "@react-navigation/drawer": "^7.3.12",
+    "@react-navigation/native": "^7.1.9",
+    "@react-navigation/stack": "^7.3.2",
+    "date-fns": "^4.1.0",
+    "nativewind": "^4.1.23",
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-native": "0.79.2",
+    "react-native-gesture-handler": "^2.25.0",
+    "react-native-reanimated": "^3.17.5",
+    "react-native-safe-area-context": "^5.4.1",
+    "react-native-screens": "^4.10.0",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

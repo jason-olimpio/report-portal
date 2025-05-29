@@ -1,11 +1,32 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const path = require('path');
+const {getDefaultConfig} = require('@react-native/metro-config');
+const {withNativeWind} = require('nativewind/metro');
+const {
+  wrapWithReanimatedMetroConfig,
+} = require('react-native-reanimated/metro-config');
 
 /**
  * Metro configuration
- * https://reactnative.dev/docs/metro
+ * https://facebook.github.io/metro/docs/configuration
  *
- * @type {import('@react-native/metro-config').MetroConfig}
+ * @type {import('metro-config').MetroConfig}
  */
-const config = {};
+const config = getDefaultConfig(__dirname);
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+const aliases = [
+  ['@components', 'components'],
+  ['@assets', 'assets'],
+  ['@types', 'types'],
+  ['@screens', 'screens'],
+  ['@config', 'config'],
+  ['@store', 'store'],
+  ['@constants', 'constants'],
+];
+
+config.resolver.extraNodeModules = Object.fromEntries(
+  aliases.map(([alias, dir]) => [alias, path.resolve(__dirname, dir)]),
+);
+
+const enhancedConfig = withNativeWind(config, {input: './global.css'});
+
+module.exports = wrapWithReanimatedMetroConfig(enhancedConfig);
