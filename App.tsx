@@ -4,6 +4,8 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 
+import './i18n';
+
 import './gesture-handler';
 
 import {RootNavigator} from '@components';

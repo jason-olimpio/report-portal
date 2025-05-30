@@ -1,4 +1,5 @@
 import {Text, ScrollView} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import {
   CommunityImpactSection,
@@ -9,10 +10,13 @@ import {
 } from '@components';
 
 const HomeScreen = () => {
+  const {t} = useTranslation();
+
   return (
     <>
       <ScrollView className="px-8">
         <Text className="text-neutral-gray-500 text-center font-light text-sm mt-4 mb-6">
+          {t('welcome')},
           Mercoledì 23 aprile 2025
         </Text>
 

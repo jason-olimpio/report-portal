@@ -48,7 +48,7 @@ const ACTIONS: Action[] = [
 const QuickActions = () => {
   return (
     <>
-      <Text className="text-xl font-light my-2">Azioni rapide</Text>
+      <Text className="text-xl font-light mb-2 mt-6">Azioni rapide</Text>
 
       <View className="flex-row justify-between mt-2 mb-6">
         {ACTIONS.map(({icon, iconColor, title, bgColorClass, onPress}) => (
