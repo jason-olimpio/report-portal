@@ -2,5 +2,14 @@
   "appName": "SOS Segnalazioni",
   "personalArea": "Area personale",
   "reports": "Segnalazioni",
-  "stats": "Statistiche"
+  "stats": "Statistiche",
+  "environmentalStatus": "Stato ambientale",
+  "updatedToday": "Aggiornato oggi",
+  "quickActions": "Azioni rapide",
+  "communityImpact": "Impatto della Comunità",
+  "solved": "Risolte",
+  "successRate": "Tasso di successo",
+  "allReports": "Tutte le segnalazioni",
+  "filter": "Filtra",
+  "noReportFound": "Nessuna segnalazione trovata."
 }

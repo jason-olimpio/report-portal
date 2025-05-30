@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import {ReportCard} from '@components';
 import {Report} from '@types';
@@ -9,10 +10,12 @@ type ReportListProps = {
 };
 
 const ReportList = ({reports}: ReportListProps) => {
+  const {t} = useTranslation();
+
   if (reports.length === 0) {
     return (
       <Text className="text-center mt-5 text-base text-gray-500">
-        Nessuna segnalazione trovata.
+        {t('noReportFound')}
       </Text>
     );
   }

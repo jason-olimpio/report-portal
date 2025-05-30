@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {View, Text} from 'react-native';
 
 type CommunityImpactSectionProps = {
@@ -17,15 +18,17 @@ const CommunityImpactSection = ({
   solvedReports,
   successRate,
 }: CommunityImpactSectionProps) => {
+  const {t} = useTranslation();
+
   const stats: Stat[] = [
-    {value: reports, label: 'Segnalazioni'},
-    {value: solvedReports, label: 'Risolte'},
-    {value: `${successRate}%`, label: 'Tasso di successo'},
+    {value: reports, label: t('reports')},
+    {value: solvedReports, label: t('solved')},
+    {value: `${successRate}%`, label: t('successRate')},
   ];
 
   return (
     <View className="mb-6">
-      <Text className="text-xl font-light mb-5">Impatto della Comunità</Text>
+      <Text className="text-xl font-light mb-5">{t('communityImpact')}</Text>
 
       <View className="bg-white p-4 shadow-lg rounded-lg">
         <View className="flex-row flex-wrap justify-between mb-4">

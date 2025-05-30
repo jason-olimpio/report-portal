@@ -20,6 +20,7 @@ const aliases = [
   ['@screens', 'screens'],
   ['@config', 'config'],
   ['@translations', 'translations'],
+  ['@utils', 'utils'],
   ['@store', 'store'],
   ['@constants', 'constants'],
 ];

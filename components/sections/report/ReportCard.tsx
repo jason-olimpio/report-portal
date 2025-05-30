@@ -2,13 +2,15 @@ import React from 'react';
 import {Image, Text, View, ImageSourcePropType} from 'react-native';
 
 import {formatDistanceToNow} from 'date-fns';
-import {it} from 'date-fns/locale';
 
 import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import {useTranslation} from 'react-i18next';
 
 import {ReportStatusBadge} from '@components';
 
 import {ReportStatus} from '@types';
+
+import {getLocaleForDateFns} from '@utils';
 
 type ReportCardProps = {
   image: ImageSourcePropType;
@@ -19,16 +21,19 @@ type ReportCardProps = {
 };
 
 const ReportCard = ({image, title, address, date, status}: ReportCardProps) => {
-  const getTimeAgo = (reportDate: Date): string => {
-    try {
-      if (isNaN(reportDate.getTime())) {
-        throw new Error('Invalid date');
-      }
+  const {i18n} = useTranslation();
 
-      return formatDistanceToNow(reportDate, {addSuffix: true, locale: it});
-    } catch (error) {
+  const getTimeAgo = (reportDate: Date): string => {
+    if (!(reportDate instanceof Date) || isNaN(reportDate.getTime())) {
       return 'Invalid date';
     }
+
+    const locale = getLocaleForDateFns(i18n.resolvedLanguage);
+
+    return formatDistanceToNow(reportDate, {
+      addSuffix: true,
+      locale,
+    });
   };
 
   return (

@@ -9,6 +9,7 @@
       "@types": ["types/index"],
       "@config": ["config/index"],
       "@translations": ["translations/index"],
+      "@utils": ["utils/index"],
       "@store": ["store/index"],
       "@constants": ["constants/index"]
     }

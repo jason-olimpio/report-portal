@@ -1,6 +1,7 @@
-import React, { ComponentProps } from 'react';
+import React, {ComponentProps} from 'react';
 import {View} from 'react-native';
 import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import {useTranslation} from 'react-i18next';
 
 import {SectionHeader, InfoCardWidget} from '@components';
 
@@ -56,11 +57,13 @@ const CARDS: Card[] = [
 ];
 
 const EnvironmentalStatusSection = () => {
+  const {t} = useTranslation();
+
   return (
     <View className="bg-white p-4 rounded-lg shadow-lg">
       <SectionHeader
-        title="Stato ambientale"
-        action="Aggiornato oggi"
+        title={t('environmentalStatus')}
+        action={t('updatedToday')}
         onPress={() => console.log('Section pressed')}
         className="mb-2"
       />

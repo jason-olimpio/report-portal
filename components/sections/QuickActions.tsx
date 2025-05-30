@@ -1,10 +1,11 @@
-import React, { ComponentProps } from 'react';
+import React, {ComponentProps} from 'react';
 import {View, Text} from 'react-native';
 import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import {useTranslation} from 'react-i18next';
 
 import {IconActionButton} from '@components';
 
-import { appColors } from '@config';
+import {appColors} from '@config';
 
 type Action = {
   icon: ComponentProps<typeof FontAwesome6>['name'];
@@ -46,9 +47,11 @@ const ACTIONS: Action[] = [
 ];
 
 const QuickActions = () => {
+  const {t} = useTranslation();
+
   return (
     <>
-      <Text className="text-xl font-light mb-2 mt-6">Azioni rapide</Text>
+      <Text className="text-xl font-light mb-2 mt-6">{t('quickActions')}</Text>
 
       <View className="flex-row justify-between mt-2 mb-6">
         {ACTIONS.map(({icon, iconColor, title, bgColorClass, onPress}) => (

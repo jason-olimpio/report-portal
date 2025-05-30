@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import {SectionHeader, ReportList, FilterModal} from '@components';
 import {reportData} from '@store';
@@ -12,6 +13,8 @@ const AllReportsWithFilter = () => {
     start: Date | null;
     end: Date | null;
   }>({start: null, end: null});
+
+  const {t} = useTranslation();
 
   const filteredReports = reportData.filter(({status, date}) => {
     const isStatusMatch = selectedStatus === 'All' || status === selectedStatus;
@@ -32,8 +35,8 @@ const AllReportsWithFilter = () => {
   return (
     <View className="mb-10">
       <SectionHeader
-        title="Tutte le segnalazioni"
-        action="Filtra"
+        title={t('allReports')}
+        action={t('filter')}
         onPress={openFilterModal}
         className="mb-6"
       />

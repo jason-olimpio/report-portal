@@ -2,5 +2,14 @@
   "appName": "SOS Segnalazioni",
   "personalArea": "Personal area",
   "reports": "Reports",
-  "stats": "Stats"
+  "stats": "Stats",
+  "environmentalStatus": "Environmental status",
+  "updatedToday": "Updated today",
+  "quickActions": "Quick actions",
+  "communityImpact": "Community impact",
+  "solved": "Solved",
+  "successRate": "Success rate",
+  "allReports": "All reports",
+  "filter": "Filter",
+  "noReportFound": "No report found"
 }
