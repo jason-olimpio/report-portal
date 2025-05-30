@@ -46,7 +46,7 @@ const FilterSection = ({
       <TouchableOpacity
         onPress={onPress}
         className=" bg-gray-100 rounded-lg p-4 flex-row items-center justify-between">
-        <Text className="font-medium">{getDateRangeText()}</Text>
+        <Text>{getDateRangeText()}</Text>
 
         {hasSelectedDate && (
           <TouchableOpacity onPress={onResetDateRange} className="ml-2">
@@ -55,7 +55,7 @@ const FilterSection = ({
         )}
       </TouchableOpacity>
 
-      <View className="flex-row justify-between mt-4">
+      <View className="flex-row justify-between mt-3">
         <TouchableOpacity
           onPress={onResetFilter}
           className="px-4 py-2 rounded-lg">

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { View } from 'react-native';
 
 import {SectionHeader, ReportList, FilterModal} from '@components';
 import {reportData} from '@store';
@@ -29,7 +30,7 @@ const AllReportsWithFilter = () => {
   };
 
   return (
-    <>
+    <View className="mb-10">
       <SectionHeader
         title="Tutte le segnalazioni"
         action="Filtra"
@@ -48,7 +49,7 @@ const AllReportsWithFilter = () => {
         onDateRangeChange={setDateRange}
         onResetFilter={resetFilters}
       />
-    </>
+    </View>
   );
 };
 

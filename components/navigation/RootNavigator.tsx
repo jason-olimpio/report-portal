@@ -1,6 +1,7 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
 import {Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import Tabs from './Tabs';
 
@@ -12,9 +13,13 @@ const Drawer = createDrawerNavigator();
 
 const headerRightStyle = {marginRight: 16};
 
-const HeaderTitle = () => (
-  <Text className="text-white font-light text-[20px]">SOS Segnalazioni</Text>
-);
+const HeaderTitle = () => {
+  const {t} = useTranslation();
+
+  return (
+    <Text className="text-white font-light text-[20px]">{t('appName')}</Text>
+  );
+};
 
 const HeaderRight = () => (
   <FontAwesome6
@@ -27,6 +32,8 @@ const HeaderRight = () => (
 );
 
 const RootNavigator = () => {
+  const {t} = useTranslation();
+
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -37,6 +44,7 @@ const RootNavigator = () => {
         headerTitle: HeaderTitle,
         headerTintColor: 'white',
         headerRight: HeaderRight,
+        swipeEnabled: true,
       }}>
       <Drawer.Screen
         name="Tabs"
@@ -50,7 +58,7 @@ const RootNavigator = () => {
         name="PersonalArea"
         component={PersonalAreaScreen}
         options={{
-          drawerLabel: 'Area personale',
+          drawerLabel: t('personalArea'),
         }}
       />
     </Drawer.Navigator>

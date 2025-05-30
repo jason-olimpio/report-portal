@@ -10,7 +10,7 @@ const resources = {
   it: {
     translation: it,
   },
-};
+} as const;
 
 i18n.use(initReactI18next).init({
   resources,

@@ -1,11 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 
-import {ReportList, SectionHeader} from '@components';
+import {ReportList, SectionHeader, RootStackParamList} from '@components';
 
 import {reportData} from '@store';
 
 const RecentReports = () => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const recentReports = reportData.slice(0, 3);
 
   return (
@@ -13,7 +15,7 @@ const RecentReports = () => {
       <SectionHeader
         title="Segnalazioni recenti"
         action="Vedi tutte"
-        onPress={() => console.log('Section pressed')}
+        onPress={() => navigation.navigate('Reports')}
         className="mb-6"
       />
 

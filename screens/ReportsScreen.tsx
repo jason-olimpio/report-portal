@@ -1,12 +1,12 @@
-import {View} from 'react-native';
+import {ScrollView} from 'react-native';
 
 import {AllReportsWithFilter} from '@components';
 
 const ReportsScreen = () => {
   return (
-    <View className="flex-1 p-8">
+    <ScrollView className="flex-1 p-8">
       <AllReportsWithFilter />
-    </View>
+    </ScrollView>
   );
 };
 

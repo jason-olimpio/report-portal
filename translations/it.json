@@ -1,4 +1,6 @@
 {
-  "welcome": "Benvenuto",
-  "greeting": "Ciao, {{name}}!"
+  "appName": "SOS Segnalazioni",
+  "personalArea": "Area personale",
+  "reports": "Segnalazioni",
+  "stats": "Statistiche"
 }
