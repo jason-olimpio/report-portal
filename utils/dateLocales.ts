@@ -14,15 +14,11 @@ export const getLocaleForDateFns = (language: string | undefined): Locale => {
     return enUS;
   }
 
-  if (dateFnsLocales[language]) {
-    return dateFnsLocales[language];
-  }
-
   const primaryLanguage = language.split('-')[0];
 
-  if (dateFnsLocales[primaryLanguage]) {
-    return dateFnsLocales[primaryLanguage];
+  if (!dateFnsLocales[primaryLanguage]) {
+    return enUS;
   }
 
-  return enUS;
+  return dateFnsLocales[primaryLanguage];
 };
