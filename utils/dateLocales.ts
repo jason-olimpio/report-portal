@@ -2,7 +2,6 @@ import {enUS, it, es, fr, de, type Locale} from 'date-fns/locale';
 
 export const dateFnsLocales: {[key: string]: Locale} = {
   en: enUS,
-  'en-US': enUS,
   it: it,
   es: es,
   fr: fr,
@@ -14,11 +13,9 @@ export const getLocaleForDateFns = (language: string | undefined): Locale => {
     return enUS;
   }
 
-  const primaryLanguage = language.split('-')[0];
-
-  if (!dateFnsLocales[primaryLanguage]) {
+  if (!dateFnsLocales[language]) {
     return enUS;
   }
 
-  return dateFnsLocales[primaryLanguage];
+  return dateFnsLocales[language];
 };
