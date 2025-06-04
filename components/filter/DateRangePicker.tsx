@@ -2,7 +2,7 @@ import {appColors} from '@config';
 import {Text, TouchableOpacity, View} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 
-type CalendarPickerSectionProps = {
+type DateRangePickerProps = {
   tempDateRange: {start: Date | null; end: Date | null};
   handleDateChange: (date: Date, type: 'START_DATE' | 'END_DATE') => void;
   confirmDateRange: () => void;
@@ -34,12 +34,12 @@ const ITALIAN_MONTHS = [
   'Dicembre',
 ];
 
-const CalendarPickerSection = ({
+const DateRangePicker = ({
   tempDateRange,
   handleDateChange,
   confirmDateRange,
   setShowDatePicker,
-}: CalendarPickerSectionProps) => {
+}: DateRangePickerProps) => {
   return (
     <>
       <Text className="text-lg font-medium mb-6">
@@ -79,4 +79,4 @@ const CalendarPickerSection = ({
   );
 };
 
-export default CalendarPickerSection;
+export default DateRangePicker;

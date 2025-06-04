@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import React, {ComponentProps} from 'react';
 import {TouchableOpacity, Text, View} from 'react-native';
 import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
 

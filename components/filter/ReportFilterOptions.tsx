@@ -3,7 +3,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {ALL_STATUSES, REPORT_STATUS_LABELS} from '@constants';
 import {StatusOption} from '@types';
 
-type FilterSectionProps = {
+type ReportFilterOptionsProps = {
   selectedStatus: StatusOption;
   onSelectStatus: (status: StatusOption) => void;
   getDateRangeText: () => string;
@@ -14,7 +14,7 @@ type FilterSectionProps = {
   hasSelectedDate: boolean;
 };
 
-const FilterSection = ({
+const ReportFilterOptions = ({
   selectedStatus,
   onSelectStatus,
   getDateRangeText,
@@ -23,7 +23,7 @@ const FilterSection = ({
   onClose,
   onPress,
   hasSelectedDate,
-}: FilterSectionProps) => {
+}: ReportFilterOptionsProps) => {
   return (
     <>
       <Text className="font-bold mb-4">Filtra per stato</Text>
@@ -74,4 +74,4 @@ const FilterSection = ({
   );
 };
 
-export default FilterSection;
+export default ReportFilterOptions;

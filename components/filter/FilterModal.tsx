@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Modal, Pressable} from 'react-native';
 
-import {CalendarPickerSection, FilterSection} from '@components';
+import {DateRangePicker, ReportFilterOptions} from '@components';
 import {StatusOption} from '@types';
 
 type FilterModalProps = {
@@ -67,7 +67,7 @@ const FilterModal = ({
           className="bg-white rounded-xl p-6 shadow-lg"
           onPress={event => event.stopPropagation()}>
           {!showDatePicker ? (
-            <FilterSection
+            <ReportFilterOptions
               selectedStatus={selectedStatus}
               onSelectStatus={onSelectStatus}
               getDateRangeText={getDateRangeText}
@@ -78,7 +78,7 @@ const FilterModal = ({
               hasSelectedDate={hasSelectedDate}
             />
           ) : (
-            <CalendarPickerSection
+            <DateRangePicker
               tempDateRange={tempDateRange}
               handleDateChange={handleDateChange}
               confirmDateRange={confirmDateRange}

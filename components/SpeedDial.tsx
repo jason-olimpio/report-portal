@@ -22,7 +22,7 @@ const SpeedDial = () => {
         className="bg-white rounded-full p-4 mb-2 absolute right-1 shadow-lg"
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
-          bottom: 50 + idx * 50,
+          bottom: 50 * (1 + idx),
           elevation: 5,
         }}
         onPress={() => {

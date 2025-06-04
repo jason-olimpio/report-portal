@@ -7,7 +7,7 @@ import {HomeScreen, ReportsScreen, StatsScreen} from '@screens';
 
 import {appColors} from '@config';
 
-export type RootStackParamList = {
+export type TabsParamList = {
   Home: undefined;
   Reports: undefined;
   Stats: undefined;
