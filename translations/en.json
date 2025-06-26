@@ -2,6 +2,8 @@
   "appName": "SOS Segnalazioni",
   "personalArea": "Personal area",
   "reports": "Reports",
+  "recentReports": "Recent reports",
+  "viewAll": "View all",
   "stats": "Stats",
   "environmentalStatus": "Environmental status",
   "updatedToday": "Updated today",
@@ -20,6 +22,7 @@
   "close": "Close",
   "cancel": "Cancel",
   "confirm": "Confirm",
+  "invalidDate": "Invalid date format",
   "status": {
     "all": "All",
     "pending": "Pending",

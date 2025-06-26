@@ -21,11 +21,11 @@ type ReportCardProps = {
 };
 
 const ReportCard = ({image, title, address, date, status}: ReportCardProps) => {
-  const {i18n} = useTranslation();
+  const {t, i18n} = useTranslation();
 
   const getTimeAgo = (reportDate: Date): string => {
     if (!(reportDate instanceof Date) || isNaN(reportDate.getTime())) {
-      return 'Invalid date';
+      return t('invalidDate');
     }
 
     const locale = getLocaleForDateFns(i18n.resolvedLanguage);
