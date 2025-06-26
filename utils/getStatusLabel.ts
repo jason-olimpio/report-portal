@@ -12,11 +12,7 @@ const statusTranslationKeys: Record<StatusOption, string> = {
 const getStatusLabel = (status: StatusOption, t: TFunction): string => {
   const key = statusTranslationKeys[status];
 
-  if (typeof key === 'string') {
-    return t(key);
-  }
-
-  return status.toString();
+  return t(key);
 };
 
 export default getStatusLabel;
