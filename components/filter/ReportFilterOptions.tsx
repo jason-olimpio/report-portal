@@ -48,12 +48,12 @@ const ReportFilterOptions = ({
     return `${formattedStartDate} - ${formattedEndDate}`;
   };
 
-  const resetDateRange = () => setDateRange({start: null, end: null});
-
   const resetFilters = () => {
     setSelectedStatus(StatusOption.All);
     resetDateRange();
   };
+
+  const resetDateRange = () => setDateRange({start: null, end: null});
 
   return (
     <>
