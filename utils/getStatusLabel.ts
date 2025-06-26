@@ -1,6 +1,5 @@
-import {TFunction} from 'i18next';
-
 import {StatusOption} from '@types';
+import {TFunction} from 'i18next';
 
 const statusTranslationKeys: Record<StatusOption, string> = {
   [StatusOption.All]: 'status.all',
@@ -12,7 +11,11 @@ const statusTranslationKeys: Record<StatusOption, string> = {
 const getStatusLabel = (status: StatusOption, t: TFunction): string => {
   const key = statusTranslationKeys[status];
 
-  return key ? t(key) : status.toString();
+  if (typeof key === 'string') {
+    return t(key);
+  }
+
+  return status.toString();
 };
 
 export default getStatusLabel;
