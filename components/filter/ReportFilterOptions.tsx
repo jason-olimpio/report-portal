@@ -42,10 +42,10 @@ const ReportFilterOptions = ({
       return t('selectDateRange');
     }
 
-    const formattedStartDate = start.toLocaleDateString('it-IT');
-    const formattedEndDate = end.toLocaleDateString('it-IT');
+    const startDate = start.toLocaleDateString('it-IT');
+    const endDate = end.toLocaleDateString('it-IT');
 
-    return `${formattedStartDate} - ${formattedEndDate}`;
+    return `${startDate} - ${endDate}`;
   };
 
   const resetFilters = () => {
