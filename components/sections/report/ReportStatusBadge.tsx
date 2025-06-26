@@ -1,35 +1,41 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
-import {ReportStatus} from '@types';
-import {REPORT_STATUS_LABELS} from '@constants';
+import {getStatusLabel} from '@utils';
 
-const REPORT_STATUS_COLORS: Record<ReportStatus, {bg: string; text: string}> = {
-  [ReportStatus.Pending]: {
-    bg: 'bg-utility-yellow-50',
-    text: 'text-utility-yellow-600',
+import {StatusOption} from '@types';
+
+type StatusColor = Exclude<StatusOption, StatusOption.All>;
+
+const REPORT_STATUS_COLORS: Record<StatusColor, {bg: string; text: string}> = {
+  [StatusOption.Pending]: {
+    bg: 'bg-system-orange-50',
+    text: 'text-system-orange-600',
   },
-  [ReportStatus.Completed]: {
-    bg: 'bg-utility-green-50',
-    text: 'text-primary',
+  [StatusOption.Completed]: {
+    bg: 'bg-system-emerald-50',
+    text: 'text-system-emerald-600',
   },
-  [ReportStatus.Working]: {
-    bg: 'bg-utility-blue-50',
-    text: 'text-utility-blue-600',
+  [StatusOption.Working]: {
+    bg: 'bg-system-teal-50',
+    text: 'text-system-teal-600',
   },
 };
 
 type ReportStatusBadgeProps = {
-  status: ReportStatus;
+  status: StatusOption;
 };
 
 const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
-  const colors = REPORT_STATUS_COLORS[status] || {
-    bg: 'bg-gray-600',
-    text: 'text-white',
-  };
+  const {t} = useTranslation();
 
-  const label = REPORT_STATUS_LABELS[status] || 'Sconosciuto';
+  const colors =
+    status in REPORT_STATUS_COLORS
+      ? REPORT_STATUS_COLORS[status as StatusColor]
+      : {bg: 'bg-gray-600', text: 'text-white'};
+
+  const label = getStatusLabel(status, t) || t('unknown');
 
   return (
     <View

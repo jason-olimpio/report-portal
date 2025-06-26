@@ -8,7 +8,7 @@ import {useTranslation} from 'react-i18next';
 
 import {ReportStatusBadge} from '@components';
 
-import {ReportStatus} from '@types';
+import {StatusOption} from '@types';
 
 import {getLocaleForDateFns} from '@utils';
 
@@ -17,7 +17,7 @@ type ReportCardProps = {
   title: string;
   address: string;
   date: Date;
-  status: ReportStatus;
+  status: StatusOption;
 };
 
 const ReportCard = ({image, title, address, date, status}: ReportCardProps) => {

@@ -24,7 +24,7 @@ const HomeScreen = () => {
   return (
     <>
       <ScrollView className="px-8">
-        <Text className="text-neutral-gray-500 text-center font-light text-sm mt-4 mb-6">
+        <Text className="text-neutral-gray-500 text-center font-titillium-light text-sm mt-4 mb-6">
           {formattedDate}
         </Text>
 

@@ -1,5 +1,6 @@
-import {CommunityImpactSection} from '@components';
 import {View} from 'react-native';
+
+import {CommunityImpactSection} from '@components';
 
 const StatsScreen = () => {
   return (

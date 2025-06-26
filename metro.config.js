@@ -22,7 +22,6 @@ const aliases = [
   ['@translations', 'translations'],
   ['@utils', 'utils'],
   ['@store', 'store'],
-  ['@constants', 'constants'],
 ];
 
 config.resolver.extraNodeModules = Object.fromEntries(

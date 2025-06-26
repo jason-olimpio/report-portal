@@ -32,14 +32,14 @@ const InfoCardWidget = ({
             iconStyle="solid"
           />
 
-          <Text className="text-lg font-light text-gray-800 ml-2">{title}</Text>
+          <Text className="text-lg font-titillium-light text-gray-800 ml-2">{title}</Text>
         </View>
 
-        <Text className={`text-2xl font-normal mb-1 ${valueColorClass}`}>
+        <Text className={`text-2xl mb-1 ${valueColorClass}`}>
           {value}
         </Text>
 
-        <Text className="text-xs font-light text-gray-600">{subInfo}</Text>
+        <Text className="text-xs font-titillium-light text-gray-600">{subInfo}</Text>
       </View>
     </View>
   );

@@ -17,7 +17,7 @@ const HeaderTitle = () => {
   const {t} = useTranslation();
 
   return (
-    <Text className="text-white font-light text-[20px]">{t('appName')}</Text>
+    <Text className="text-white font-titillium-light text-[20px]">{t('appName')}</Text>
   );
 };
 

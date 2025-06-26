@@ -6,7 +6,7 @@ import {ReportCard} from '@components';
 import {Report} from '@types';
 
 type ReportListProps = {
-  reports: Report[];
+  reports: Report[]
 };
 
 const ReportList = ({reports}: ReportListProps) => {

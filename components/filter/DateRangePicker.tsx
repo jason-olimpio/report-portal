@@ -1,23 +1,16 @@
-import {appColors} from '@config';
+import {useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 
+import {appColors} from '@config';
+
 type DateRangePickerProps = {
-  tempDateRange: {start: Date | null; end: Date | null};
-  handleDateChange: (date: Date, type: 'START_DATE' | 'END_DATE') => void;
-  confirmDateRange: () => void;
-  setShowDatePicker: (show: boolean) => void;
+  dateRange: {start: Date | null; end: Date | null};
+  setDateRange: (range: {start: Date | null; end: Date | null}) => void;
+  toggleDatePicker: () => void;
 };
 
-const ITALIAN_WEEKS = [
-  'Lun',
-  'Mar',
-  'Mer',
-  'Gio',
-  'Ven',
-  'Sab',
-  'Dom',
-];
+const ITALIAN_WEEKS = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
 
 const ITALIAN_MONTHS = [
   'Gennaio',
@@ -35,14 +28,28 @@ const ITALIAN_MONTHS = [
 ];
 
 const DateRangePicker = ({
-  tempDateRange,
-  handleDateChange,
-  confirmDateRange,
-  setShowDatePicker,
+  dateRange,
+  setDateRange,
+  toggleDatePicker,
 }: DateRangePickerProps) => {
+  const [tempDateRange, setTempDateRange] = useState(dateRange);
+
+  const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') => {
+    setTempDateRange(previousState => ({
+      ...previousState,
+      start: type === 'START_DATE' ? date : previousState.start,
+      end: type === 'START_DATE' ? null : date,
+    }));
+  };
+
+  const confirmDateRange = () => {
+    setDateRange(tempDateRange);
+    toggleDatePicker();
+  };
+
   return (
     <>
-      <Text className="text-lg font-medium mb-6">
+      <Text className="text-lg font-titillium-semibold mb-6">
         Seleziona intervallo date
       </Text>
 
@@ -67,7 +74,7 @@ const DateRangePicker = ({
       </View>
 
       <View className="flex-row justify-between mt-6">
-        <TouchableOpacity onPress={() => setShowDatePicker(false)}>
+        <TouchableOpacity onPress={toggleDatePicker}>
           <Text className="ml-4 text-medium text-red-500">Annulla</Text>
         </TouchableOpacity>
 

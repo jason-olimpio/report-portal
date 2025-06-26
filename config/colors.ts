@@ -6,19 +6,20 @@ type AppColors = {
       500: string;
     };
   };
-  utility: {
-    blue: {
+  system: {
+    red: {
       50: string;
       600: string;
     };
-    green: {
-      50: string;
-    };
-    yellow: {
+    emerald: {
       50: string;
       600: string;
     };
-    purple: {
+    orange: {
+      50: string;
+      600: string;
+    };
+    teal: {
       50: string;
       600: string;
     };
@@ -26,28 +27,29 @@ type AppColors = {
 };
 
 const appColors: AppColors = {
-  primary: '#16a34a',
+  primary: '#0066cc',
   neutral: {
     gray: {
-      100: '#E5E7EB',
-      500: '#7d8390',
+      100: '#d9dadb',
+      500: '#6c6f82',
     },
   },
-  utility: {
-    blue: {
-      50: '#eff6ff',
-      600: '#2563eb',
+  system: {
+    red: {
+      50: '#fbeff1',
+      600: '#cc334d',
     },
-    green: {
-      50: '#f0fdf4',
+    emerald: {
+      50: '#c8f6e7',
+      600: '#008055',
     },
-    yellow: {
-      50: '#fefce8',
-      600: '#d97706',
+    orange: {
+      50: '#f6e4c8',
+      600: '#cc7a00',
     },
-    purple: {
-      50: '#f5f3ff',
-      600: '#7c3aed',
+    teal: {
+      50: '#ccfffd',
+      600: '#089994',
     },
   },
 };

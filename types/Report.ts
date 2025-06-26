@@ -1,13 +1,13 @@
 import {ImageSourcePropType} from 'react-native';
 
-import {ReportStatus} from '@types';
+import {StatusOption} from '@types';
 
 type Report = {
   image: ImageSourcePropType;
   title: string;
   address: string;
   date: Date;
-  status: ReportStatus;
+  status: StatusOption;
 };
 
 export default Report;

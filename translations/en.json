@@ -11,5 +11,18 @@
   "successRate": "Success rate",
   "allReports": "All reports",
   "filter": "Filter",
-  "noReportFound": "No report found"
+  "noReportFound": "No report found",
+  "selectDateRange": "Select date range",
+  "all": "All",
+  "filterByDate": "Filter by date",
+  "filterByStatus": "Filter by status",
+  "resetFilters": "Reset filters",
+  "close": "Close",
+  "status": {
+    "all": "All",
+    "pending": "Pending",
+    "working": "In progress",
+    "completed": "Completed"
+  },
+  "unknown": "Unknown"
 }

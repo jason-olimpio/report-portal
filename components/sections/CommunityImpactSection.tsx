@@ -28,7 +28,7 @@ const CommunityImpactSection = ({
 
   return (
     <View className="mb-6">
-      <Text className="text-xl font-light mb-5">{t('communityImpact')}</Text>
+      <Text className="text-xl font-titillium-light mb-5">{t('communityImpact')}</Text>
 
       <View className="bg-white p-4 shadow-lg rounded-lg">
         <View className="flex-row flex-wrap justify-between mb-4">

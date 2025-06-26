@@ -1,56 +1,55 @@
 import React, {useState} from 'react';
-import { View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import {View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import {SectionHeader, ReportList, FilterModal} from '@components';
 import {reportData} from '@store';
+
 import {StatusOption} from '@types';
 
 const AllReportsWithFilter = () => {
-  const [filterModalVisible, setFilterModalVisible] = useState(false);
-  const [selectedStatus, setSelectedStatus] = useState<StatusOption>('All');
+  const {t} = useTranslation();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [selectedStatus, setSelectedStatus] = useState<StatusOption>(
+    StatusOption.All,
+  );
   const [dateRange, setDateRange] = useState<{
     start: Date | null;
     end: Date | null;
   }>({start: null, end: null});
 
-  const {t} = useTranslation();
-
   const filteredReports = reportData.filter(({status, date}) => {
-    const isStatusMatch = selectedStatus === 'All' || status === selectedStatus;
+    const isStatusMatch =
+      selectedStatus === StatusOption.All || status === selectedStatus;
     const isStartDateValid = !dateRange.start || date >= dateRange.start;
     const isEndDateValid = !dateRange.end || date <= dateRange.end;
 
     return isStatusMatch && isStartDateValid && isEndDateValid;
   });
 
-  const openFilterModal = () => setFilterModalVisible(true);
-  const closeFilterModal = () => setFilterModalVisible(false);
-
-  const resetFilters = () => {
-    setSelectedStatus('All');
-    setDateRange({start: null, end: null});
-  };
+  const openModal = () => setModalVisible(true);
+  const closeModal = () => setModalVisible(false);
 
   return (
     <View className="mb-10">
       <SectionHeader
         title={t('allReports')}
         action={t('filter')}
-        onPress={openFilterModal}
+        onPress={openModal}
         className="mb-6"
       />
 
       <ReportList reports={filteredReports} />
 
       <FilterModal
-        visible={filterModalVisible}
-        onClose={closeFilterModal}
+        visible={modalVisible}
+        closeModal={closeModal}
         selectedStatus={selectedStatus}
-        onSelectStatus={setSelectedStatus}
+        setSelectedStatus={setSelectedStatus}
         dateRange={dateRange}
-        onDateRangeChange={setDateRange}
-        onResetFilter={resetFilters}
+        setDateRange={setDateRange}
       />
     </View>
   );

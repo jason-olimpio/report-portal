@@ -18,30 +18,30 @@ type Action = {
 const ACTIONS: Action[] = [
   {
     icon: 'list',
-    iconColor: appColors.utility.blue[600],
+    iconColor: appColors.system.red[600],
     title: 'Le mie',
-    bgColorClass: 'bg-utility-blue-50',
+    bgColorClass: 'bg-system-red-50',
     onPress: () => console.log('Vento segnalato!'),
   },
   {
     icon: 'calendar',
-    iconColor: appColors.utility.purple[600],
+    iconColor: appColors.system.emerald[600],
     title: 'Calendario',
-    bgColorClass: 'bg-utility-purple-50',
+    bgColorClass: 'bg-system-emerald-50',
     onPress: () => console.log('Area verde segnalata!'),
   },
   {
     icon: 'star',
-    iconColor: appColors.utility.yellow[600],
+    iconColor: appColors.system.orange[600],
     title: 'Preferiti',
-    bgColorClass: 'bg-utility-yellow-50',
+    bgColorClass: 'bg-system-orange-50',
     onPress: () => console.log('Riciclo segnalato!'),
   },
   {
     icon: 'chart-line',
-    iconColor: appColors.primary,
+    iconColor: appColors.system.teal[600],
     title: 'Analisi',
-    bgColorClass: 'bg-utility-green-50',
+    bgColorClass: 'bg-system-teal-50',
     onPress: () => console.log('Acqua segnalata!'),
   },
 ];
@@ -51,7 +51,7 @@ const QuickActions = () => {
 
   return (
     <>
-      <Text className="text-xl font-light mb-2 mt-6">{t('quickActions')}</Text>
+      <Text className="text-xl font-titillium-light mb-2 mt-6">{t('quickActions')}</Text>
 
       <View className="flex-row justify-between mt-2 mb-6">
         {ACTIONS.map(({icon, iconColor, title, bgColorClass, onPress}) => (

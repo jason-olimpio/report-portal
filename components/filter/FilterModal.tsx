@@ -2,87 +2,56 @@ import React, {useState} from 'react';
 import {Modal, Pressable} from 'react-native';
 
 import {DateRangePicker, ReportFilterOptions} from '@components';
+
 import {StatusOption} from '@types';
 
 type FilterModalProps = {
   visible: boolean;
-  onClose: () => void;
+  closeModal: () => void;
   selectedStatus: StatusOption;
-  onSelectStatus: (status: StatusOption) => void;
+  setSelectedStatus: (status: StatusOption) => void;
   dateRange: {start: Date | null; end: Date | null};
-  onDateRangeChange: (range: {start: Date | null; end: Date | null}) => void;
-  onResetFilter: () => void;
+  setDateRange: (range: {start: Date | null; end: Date | null}) => void;
 };
 
 const FilterModal = ({
   visible,
-  onClose,
+  closeModal,
   selectedStatus,
-  onSelectStatus,
+  setSelectedStatus,
   dateRange,
-  onDateRangeChange,
-  onResetFilter,
+  setDateRange,
 }: FilterModalProps) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [tempDateRange, setTempDateRange] = useState(dateRange);
 
-  const hasSelectedDate = dateRange.start !== null && dateRange.end !== null;
-
-  const getDateRangeText = () => {
-    return dateRange.start && dateRange.end
-      ? `${dateRange.start.toLocaleDateString(
-          'it-IT',
-        )} - ${dateRange.end.toLocaleDateString('it-IT')}`
-      : 'Seleziona intervallo date';
-  };
-
-  const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') => {
-    setTempDateRange(previousState => ({
-      ...previousState,
-      start: type === 'START_DATE' ? date : previousState.start,
-      end: type === 'START_DATE' ? null : date,
-    }));
-  };
-
-  const confirmDateRange = () => {
-    onDateRangeChange(tempDateRange);
-    setShowDatePicker(false);
-  };
-
-  const resetDateRange = () => {
-    onDateRangeChange({start: null, end: null});
-    setTempDateRange({start: null, end: null});
-  };
+  const toggleDatePicker = () => setShowDatePicker(wasVisible => !wasVisible);
 
   return (
     <Modal
       animationType="slide"
       transparent={true}
       visible={visible}
-      onRequestClose={onClose}>
+      onRequestClose={closeModal}>
       <Pressable
         className="flex-1 bg-black/40 justify-center px-8"
-        onPress={onClose}>
+        onPress={closeModal}>
         <Pressable
           className="bg-white rounded-xl p-6 shadow-lg"
           onPress={event => event.stopPropagation()}>
           {!showDatePicker ? (
             <ReportFilterOptions
               selectedStatus={selectedStatus}
-              onSelectStatus={onSelectStatus}
-              getDateRangeText={getDateRangeText}
-              onResetDateRange={resetDateRange}
-              onResetFilter={onResetFilter}
-              onClose={onClose}
-              onPress={() => setShowDatePicker(true)}
-              hasSelectedDate={hasSelectedDate}
+              setSelectedStatus={setSelectedStatus}
+              dateRange={dateRange}
+              setDateRange={setDateRange}
+              closeModal={closeModal}
+              toggleDatePicker={toggleDatePicker}
             />
           ) : (
             <DateRangePicker
-              tempDateRange={tempDateRange}
-              handleDateChange={handleDateChange}
-              confirmDateRange={confirmDateRange}
-              setShowDatePicker={setShowDatePicker}
+              dateRange={dateRange}
+              setDateRange={setDateRange}
+              toggleDatePicker={toggleDatePicker}
             />
           )}
         </Pressable>

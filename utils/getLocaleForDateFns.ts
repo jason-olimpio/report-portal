@@ -9,11 +9,7 @@ export const dateFnsLocales: {[key: string]: Locale} = {
 };
 
 export const getLocaleForDateFns = (language: string | undefined): Locale => {
-  if (!language) {
-    return enUS;
-  }
-
-  if (!dateFnsLocales[language]) {
+  if (!language || !dateFnsLocales[language]) {
     return enUS;
   }
 

@@ -1,72 +1,103 @@
 import {Text, TouchableOpacity, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
-import {ALL_STATUSES, REPORT_STATUS_LABELS} from '@constants';
+import {getStatusLabel} from '@utils';
+
 import {StatusOption} from '@types';
 
 type ReportFilterOptionsProps = {
   selectedStatus: StatusOption;
-  onSelectStatus: (status: StatusOption) => void;
-  getDateRangeText: () => string;
-  onResetDateRange: () => void;
-  onResetFilter: () => void;
-  onClose: () => void;
-  onPress: () => void;
-  hasSelectedDate: boolean;
+  setSelectedStatus: (status: StatusOption) => void;
+  dateRange: {start: Date | null; end: Date | null};
+  setDateRange: (range: {start: Date | null; end: Date | null}) => void;
+  closeModal: () => void;
+  toggleDatePicker: () => void;
 };
+
+const STATUS_OPTIONS: StatusOption[] = [
+  StatusOption.All,
+  StatusOption.Pending,
+  StatusOption.Working,
+  StatusOption.Completed,
+];
 
 const ReportFilterOptions = ({
   selectedStatus,
-  onSelectStatus,
-  getDateRangeText,
-  onResetDateRange,
-  onResetFilter,
-  onClose,
-  onPress,
-  hasSelectedDate,
+  setSelectedStatus,
+  dateRange,
+  setDateRange,
+  closeModal,
+  toggleDatePicker,
 }: ReportFilterOptionsProps) => {
+  const {t} = useTranslation();
+
+  const hasSelectedDate = dateRange.start !== null && dateRange.end !== null;
+
+  const toggleStatus = (status: StatusOption) => setSelectedStatus(status);
+
+  const getDateRangeText = () => {
+    const {start, end} = dateRange;
+
+    if (!start || !end) {
+      return t('selectDateRange');
+    }
+
+    const formattedStartDate = start.toLocaleDateString('it-IT');
+    const formattedEndDate = end.toLocaleDateString('it-IT');
+
+    return `${formattedStartDate} - ${formattedEndDate}`;
+  };
+
+  const resetDateRange = () => setDateRange({start: null, end: null});
+
+  const resetFilters = () => {
+    setSelectedStatus(StatusOption.All);
+    resetDateRange();
+  };
+
   return (
     <>
-      <Text className="font-bold mb-4">Filtra per stato</Text>
+      <Text className="font-titillium-bold mb-4">{t('filterByStatus')}</Text>
 
-      {ALL_STATUSES.map(status => (
+      {STATUS_OPTIONS.map(status => (
         <TouchableOpacity
           key={status}
-          onPress={() => onSelectStatus(status)}
+          onPress={toggleStatus.bind(null, status)}
           className={`py-3 px-4 rounded-full ${
             selectedStatus === status && 'bg-gray-200'
           }`}>
           <Text>
-            {status === 'All' ? 'Tutti' : REPORT_STATUS_LABELS[status]}
+            {status === StatusOption.All ? t('all') : getStatusLabel(status, t)}
           </Text>
         </TouchableOpacity>
       ))}
 
-      <Text className="font-bold mt-6 mb-4">Filtra per data</Text>
+      <Text className="font-bold mt-6 mb-4">{t('filterByDate')}</Text>
 
       <TouchableOpacity
-        onPress={onPress}
+        onPress={toggleDatePicker}
         className=" bg-gray-100 rounded-lg p-4 flex-row items-center justify-between">
         <Text>{getDateRangeText()}</Text>
 
         {hasSelectedDate && (
-          <TouchableOpacity onPress={onResetDateRange} className="ml-2">
-            <Text className="text-red-600 text-sm font-medium">X</Text>
+          <TouchableOpacity onPress={resetDateRange} className="ml-2">
+            <Text className="text-red-600 text-sm">X</Text>
           </TouchableOpacity>
         )}
       </TouchableOpacity>
 
       <View className="flex-row justify-between mt-3">
         <TouchableOpacity
-          onPress={onResetFilter}
+          onPress={resetFilters}
           className="px-4 py-2 rounded-lg">
-          <Text className="text-base text-red-600 font-medium">
-            Resetta filtri
+          <Text className="text-base font-titillium-semibold text-system-red-600">
+            {t('resetFilters')}
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onClose} className="px-4 py-2">
-          <Text className="text-base text-utility-blue-600 font-medium">
-            Chiudi
+        <TouchableOpacity onPress={closeModal} className="px-4 py-2">
+          <Text className="text-base font-titillium-semibold text-system-teal-600">
+            {t('close')}
           </Text>
         </TouchableOpacity>
       </View>

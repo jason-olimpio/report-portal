@@ -9,6 +9,16 @@ const config: Config = {
   ],
   presets: [require('nativewind/preset')],
   theme: {
+    fontFamily: {
+      sans: ['TitilliumWeb-Regular'],
+      'titillium-light': ['TitilliumWeb-Light'],
+      'titillium-regular': ['TitilliumWeb-Regular'],
+      'titillium-bold': ['TitilliumWeb-Bold'],
+      'titillium-semibold': ['TitilliumWeb-SemiBold'],
+      'titillium-extralight': ['TitilliumWeb-ExtraLight'],
+      'titillium-black': ['TitilliumWeb-Black'],
+      'titillium-italic': ['TitilliumWeb-Italic'],
+    },
     extend: {
       colors: {
         ...appColors,

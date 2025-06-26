@@ -11,5 +11,18 @@
   "successRate": "Tasso di successo",
   "allReports": "Tutte le segnalazioni",
   "filter": "Filtra",
-  "noReportFound": "Nessuna segnalazione trovata."
+  "noReportFound": "Nessuna segnalazione trovata.",
+  "selectDateRange": "Seleziona intervallo di date",
+  "all": "Tutti",
+  "filterByDate": "Filtra per data",
+  "filterByStatus": "Filtra per stato",
+  "resetFilters": "Resetta filtri",
+  "close": "Chiudi",
+  "status": {
+    "all": "Tutti",
+    "pending": "In attesa",
+    "working": "In lavorazione",
+    "completed": "Completata"
+  },
+  "unknown": "Sconosciuto"
 }

@@ -1,9 +1,6 @@
-import {ALL_STATUSES} from '@constants';
-
-export enum ReportStatus {
+export enum StatusOption {
+  All,
   Pending,
   Working,
   Completed,
 }
-
-export type StatusOption = (typeof ALL_STATUSES)[number];
