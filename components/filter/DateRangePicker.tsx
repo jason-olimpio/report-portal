@@ -20,13 +20,12 @@ const DateRangePicker = ({
 
   const [tempDateRange, setTempDateRange] = useState(dateRange);
 
-  const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') => {
+  const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') =>
     setTempDateRange(previousRange => ({
       ...previousRange,
       start: type === 'START_DATE' ? date : previousRange.start,
       end: type === 'START_DATE' ? null : date,
     }));
-  };
 
   const confirmDateRange = () => {
     setDateRange(tempDateRange);
