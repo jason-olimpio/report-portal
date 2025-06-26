@@ -29,15 +29,14 @@ const AllReportsWithFilter = () => {
     return isStatusMatch && isStartDateValid && isEndDateValid;
   });
 
-  const openModal = () => setModalVisible(true);
-  const closeModal = () => setModalVisible(false);
+  const toggleModal = (visible: boolean) => setModalVisible(visible);
 
   return (
     <View className="mb-10">
       <SectionHeader
         title={t('allReports')}
         action={t('filter')}
-        onPress={openModal}
+        onPress={toggleModal.bind(null, true)}
         className="mb-6"
       />
 
@@ -45,7 +44,7 @@ const AllReportsWithFilter = () => {
 
       <FilterModal
         visible={modalVisible}
-        closeModal={closeModal}
+        closeModal={toggleModal.bind(null, false)}
         selectedStatus={selectedStatus}
         setSelectedStatus={setSelectedStatus}
         dateRange={dateRange}
