@@ -18,11 +18,38 @@
   "filterByStatus": "Filter by status",
   "resetFilters": "Reset filters",
   "close": "Close",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
   "status": {
     "all": "All",
     "pending": "Pending",
     "working": "In progress",
     "completed": "Completed"
   },
-  "unknown": "Unknown"
+  "unknown": "Unknown",
+  "weekdays": {
+    "monday": "Mon",
+    "tuesday": "Tue",
+    "wednesday": "Wed",
+    "thursday": "Thu",
+    "friday": "Fri",
+    "saturday": "Sat",
+    "sunday": "Sun"
+  },
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "previous": "Previous",
+  "next": "Next"
 }

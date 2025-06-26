@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
+import {useTranslation} from 'react-i18next';
 
 import {appColors} from '@config';
 
@@ -10,34 +11,19 @@ type DateRangePickerProps = {
   toggleDatePicker: () => void;
 };
 
-const ITALIAN_WEEKS = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
-
-const ITALIAN_MONTHS = [
-  'Gennaio',
-  'Febbraio',
-  'Marzo',
-  'Aprile',
-  'Maggio',
-  'Giugno',
-  'Luglio',
-  'Agosto',
-  'Settembre',
-  'Ottobre',
-  'Novembre',
-  'Dicembre',
-];
-
 const DateRangePicker = ({
   dateRange,
   setDateRange,
   toggleDatePicker,
 }: DateRangePickerProps) => {
+  const {t} = useTranslation();
+
   const [tempDateRange, setTempDateRange] = useState(dateRange);
 
   const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') => {
-    setTempDateRange(previousState => ({
-      ...previousState,
-      start: type === 'START_DATE' ? date : previousState.start,
+    setTempDateRange(previousRange => ({
+      ...previousRange,
+      start: type === 'START_DATE' ? date : previousRange.start,
       end: type === 'START_DATE' ? null : date,
     }));
   };
@@ -47,10 +33,35 @@ const DateRangePicker = ({
     toggleDatePicker();
   };
 
+  const weekdays = [
+    t('weekdays.monday'),
+    t('weekdays.tuesday'),
+    t('weekdays.wednesday'),
+    t('weekdays.thursday'),
+    t('weekdays.friday'),
+    t('weekdays.saturday'),
+    t('weekdays.sunday'),
+  ];
+
+  const months = [
+    t('months.january'),
+    t('months.february'),
+    t('months.march'),
+    t('months.april'),
+    t('months.may'),
+    t('months.june'),
+    t('months.july'),
+    t('months.august'),
+    t('months.september'),
+    t('months.october'),
+    t('months.november'),
+    t('months.december'),
+  ];
+
   return (
     <>
       <Text className="text-lg font-titillium-semibold mb-6">
-        Seleziona intervallo date
+        {t('selectDateRange')}
       </Text>
 
       <View className="max-h-96 w-full">
@@ -62,10 +73,10 @@ const DateRangePicker = ({
           selectedDayColor={appColors.primary}
           selectedDayTextColor="#FFFFFF"
           onDateChange={handleDateChange}
-          weekdays={ITALIAN_WEEKS}
-          months={ITALIAN_MONTHS}
-          previousTitle="Precedente"
-          nextTitle="Prossimo"
+          weekdays={weekdays}
+          months={months}
+          previousTitle={t('previous')}
+          nextTitle={t('next')}
           selectedStartDate={tempDateRange.start as DateParsable}
           selectedEndDate={tempDateRange.end as DateParsable}
           width={350}
@@ -75,11 +86,11 @@ const DateRangePicker = ({
 
       <View className="flex-row justify-between mt-6">
         <TouchableOpacity onPress={toggleDatePicker}>
-          <Text className="ml-4 text-medium text-red-500">Annulla</Text>
+          <Text className="ml-4 text-medium text-red-500">{t('cancel')}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={confirmDateRange}>
-          <Text className="mr-4 text-medium text-primary">Conferma</Text>
+          <Text className="mr-4 text-medium text-primary">{t('confirm')}</Text>
         </TouchableOpacity>
       </View>
     </>

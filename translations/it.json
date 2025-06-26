@@ -18,11 +18,38 @@
   "filterByStatus": "Filtra per stato",
   "resetFilters": "Resetta filtri",
   "close": "Chiudi",
+  "cancel": "Annulla",
+  "confirm": "Conferma",
   "status": {
     "all": "Tutti",
     "pending": "In attesa",
     "working": "In lavorazione",
     "completed": "Completata"
   },
-  "unknown": "Sconosciuto"
+  "unknown": "Sconosciuto",
+  "weekdays": {
+    "monday": "Lun",
+    "tuesday": "Mar",
+    "wednesday": "Mer",
+    "thursday": "Gio",
+    "friday": "Ven",
+    "saturday": "Sab",
+    "sunday": "Dom"
+  },
+  "months": {
+    "january": "Gennaio",
+    "february": "Febbraio",
+    "march": "Marzo",
+    "april": "Aprile",
+    "may": "Maggio",
+    "june": "Giugno",
+    "july": "Luglio",
+    "august": "Agosto",
+    "september": "Settembre",
+    "october": "Ottobre",
+    "november": "Novembre",
+    "december": "Dicembre"
+  },
+  "previous": "Precedente",
+  "next": "Prossimo"
 }
