@@ -1,5 +1,6 @@
-import {StatusOption} from '@types';
 import {TFunction} from 'i18next';
+
+import {StatusOption} from '@types';
 
 const statusTranslationKeys: Record<StatusOption, string> = {
   [StatusOption.All]: 'status.all',
