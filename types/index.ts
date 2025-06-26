@@ -1,2 +1,2 @@
 export type { default as Report } from './Report';
-export * from './status.types';
+export {default as StatusOption} from './StatusOption';
