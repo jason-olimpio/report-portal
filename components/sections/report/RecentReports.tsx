@@ -13,12 +13,14 @@ const RecentReports = () => {
   const navigation = useNavigation<NavigationProp<TabsParamList>>();
   const recentReports = reportData.slice(0, 3);
 
+  const handleViewAllReports = () => navigation.navigate('Reports');
+
   return (
     <View className="mb-2">
       <SectionHeader
         title={t('recentReports')}
         action={t('viewAll')}
-        onPress={() => navigation.navigate('Reports')}
+        onPress={handleViewAllReports}
         className="mb-6"
       />
 
