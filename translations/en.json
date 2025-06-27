@@ -54,5 +54,18 @@
     "december": "December"
   },
   "previous": "Previous",
-  "next": "Next"
+  "next": "Next",
+  "name": "Name",
+  "email": "Email",
+  "currentPassword": "Current password",
+  "confirmPassword": "Confirm password",
+  "saving": "Saving...",
+  "save": "Save",
+  "errors": {
+    "nameRequired": "Name is required",
+    "emailInvalid": "Invalid email address",
+    "currentPasswordRequired": "Current password is required",
+    "confirmPasswordRequired": "Confirm password is required",
+    "passwordsMustMatch": "Passwords must match"
+  }
 }

@@ -11,7 +11,7 @@ type IconActionButtonProps = {
 };
 
 const IconActionButton = ({
-  icon: iconName,
+  icon,
   iconColor,
   title,
   bgColorClass,
@@ -24,7 +24,7 @@ const IconActionButton = ({
         className={`p-5 rounded-full ${bgColorClass}`}
         activeOpacity={0.8}>
         <FontAwesome6
-          name={iconName as any}
+          name={icon as any}
           size={18}
           color={iconColor}
           iconStyle="solid"

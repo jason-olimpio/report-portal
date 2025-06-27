@@ -54,5 +54,18 @@
     "december": "Dicembre"
   },
   "previous": "Precedente",
-  "next": "Prossimo"
+  "next": "Prossimo",
+  "name": "Nome",
+  "email": "Email",
+  "currentPassword": "Password attuale",
+  "confirmPassword": "Conferma password",
+  "saving": "Salvataggio...",
+  "save": "Salva",
+  "errors": {
+    "nameRequired": "Il nome è obbligatorio",
+    "emailInvalid": "Indirizzo email non valido",
+    "currentPasswordRequired": "La password attuale è obbligatoria",
+    "confirmPasswordRequired": "La conferma della password è obbligatoria",
+    "passwordsMustMatch": "Le password devono corrispondere"
+  }
 }
