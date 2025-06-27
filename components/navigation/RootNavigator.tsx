@@ -17,7 +17,9 @@ const HeaderTitle = () => {
   const {t} = useTranslation();
 
   return (
-    <Text className="text-white font-titillium-light text-[20px]">{t('appName')}</Text>
+    <Text className="text-white font-titillium-light text-[20px]">
+      {t('appName')}
+    </Text>
   );
 };
 
@@ -59,6 +61,14 @@ const RootNavigator = () => {
         component={PersonalAreaScreen}
         options={{
           drawerLabel: t('personalArea'),
+        }}
+      />
+
+      <Drawer.Screen
+        name="Logout"
+        component={() => null}
+        options={{
+          drawerLabel: 'Logout',
         }}
       />
     </Drawer.Navigator>
