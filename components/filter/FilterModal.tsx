@@ -7,7 +7,7 @@ import {StatusOption} from '@types';
 
 type FilterModalProps = {
   visible: boolean;
-  closeModal: () => void;
+  toggleModal: (visible: boolean) => void;
   selectedStatus: StatusOption;
   setSelectedStatus: (status: StatusOption) => void;
   dateRange: {start: Date | null; end: Date | null};
@@ -16,7 +16,7 @@ type FilterModalProps = {
 
 const FilterModal = ({
   visible,
-  closeModal,
+  toggleModal,
   selectedStatus,
   setSelectedStatus,
   dateRange,
@@ -31,10 +31,10 @@ const FilterModal = ({
       animationType="slide"
       transparent={true}
       visible={visible}
-      onRequestClose={closeModal}>
+      onRequestClose={() => toggleModal(false)}>
       <Pressable
         className="flex-1 bg-black/40 justify-center px-8"
-        onPress={closeModal}>
+        onPress={() => toggleModal(false)}>
         <Pressable
           className="bg-white rounded-xl p-6 shadow-lg"
           onPress={event => event.stopPropagation()}>
@@ -44,7 +44,7 @@ const FilterModal = ({
               setSelectedStatus={setSelectedStatus}
               dateRange={dateRange}
               setDateRange={setDateRange}
-              closeModal={closeModal}
+              toggleModal={toggleModal}
               toggleDatePicker={toggleDatePicker}
             />
           ) : (

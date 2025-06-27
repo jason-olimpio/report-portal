@@ -10,7 +10,7 @@ type ReportFilterOptionsProps = {
   setSelectedStatus: (status: StatusOption) => void;
   dateRange: {start: Date | null; end: Date | null};
   setDateRange: (range: {start: Date | null; end: Date | null}) => void;
-  closeModal: () => void;
+  toggleModal: (visible: boolean) => void;
   toggleDatePicker: () => void;
 };
 
@@ -26,7 +26,7 @@ const ReportFilterOptions = ({
   setSelectedStatus,
   dateRange,
   setDateRange,
-  closeModal,
+  toggleModal,
   toggleDatePicker,
 }: ReportFilterOptionsProps) => {
   const {t} = useTranslation();
@@ -95,7 +95,7 @@ const ReportFilterOptions = ({
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={closeModal} className="px-4 py-2">
+        <TouchableOpacity onPress={() => toggleModal(false)} className="px-4 py-2">
           <Text className="text-base font-titillium-semibold text-system-teal-600">
             {t('close')}
           </Text>

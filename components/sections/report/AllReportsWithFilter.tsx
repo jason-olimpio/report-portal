@@ -36,7 +36,7 @@ const AllReportsWithFilter = () => {
       <SectionHeader
         title={t('allReports')}
         action={t('filter')}
-        onPress={toggleModal.bind(null, true)}
+        onPress={() => toggleModal(true)}
         className="mb-6"
       />
 
@@ -44,7 +44,7 @@ const AllReportsWithFilter = () => {
 
       <FilterModal
         visible={modalVisible}
-        closeModal={toggleModal.bind(null, false)}
+        toggleModal={toggleModal}
         selectedStatus={selectedStatus}
         setSelectedStatus={setSelectedStatus}
         dateRange={dateRange}
