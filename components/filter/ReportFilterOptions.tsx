@@ -1,5 +1,6 @@
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import {getStatusLabel} from '@utils';
 
@@ -56,7 +57,7 @@ const ReportFilterOptions = ({
   const resetDateRange = () => setDateRange({start: null, end: null});
 
   return (
-    <>
+    <ScrollView>
       <Text className="font-titillium-bold mb-4">{t('filterByStatus')}</Text>
 
       {STATUS_OPTIONS.map(status => (
@@ -101,7 +102,7 @@ const ReportFilterOptions = ({
           </Text>
         </TouchableOpacity>
       </View>
-    </>
+    </ScrollView>
   );
 };
 

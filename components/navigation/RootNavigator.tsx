@@ -66,11 +66,11 @@ const RootNavigator = () => {
 
       <Drawer.Screen
         name="Logout"
-        component={() => null}
         options={{
           drawerLabel: 'Logout',
-        }}
-      />
+        }}>
+        {() => null}
+      </Drawer.Screen>
     </Drawer.Navigator>
   );
 };

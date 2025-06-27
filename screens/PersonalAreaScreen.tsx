@@ -11,6 +11,7 @@ import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
 
 import {z} from 'zod';
 import {launchImageLibrary} from 'react-native-image-picker';
+import {ScrollView} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 
 import {appColors} from '@config';
@@ -129,7 +130,7 @@ const PersonalAreaScreen = () => {
   ] as const;
 
   return (
-    <View className="bg-white p-6 h-full">
+    <ScrollView className="bg-white p-6 h-full">
       <Text className="text-xl text-center font-titillium-semibold">
         {t('personalArea')}
       </Text>
@@ -171,13 +172,13 @@ const PersonalAreaScreen = () => {
 
       <TouchableOpacity
         onPress={handleSave}
-        className="bg-system-emerald-600 rounded-full py-2 px-8 shadow-lg mt-4 items-center self-center w-auto min-w-[120px]"
+        className="bg-system-emerald-600 rounded-full py-2 px-8 shadow-lg mt-4 mb-12 items-center self-center w-auto min-w-[120px]"
         disabled={uploading}>
         <Text className="text-white font-titillium-bold text-base">
           {uploading ? t('saving') : t('save')}
         </Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 

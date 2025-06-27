@@ -17,31 +17,24 @@ type Action = {
 
 const ACTIONS: Action[] = [
   {
-    icon: 'list',
-    iconColor: appColors.system.red[600],
-    title: 'Le mie',
-    bgColorClass: 'bg-system-red-50',
+    icon: 'plus',
+    iconColor: appColors.system.orange[600],
+    title: 'Agg. segnalazione',
+    bgColorClass: 'bg-system-orange-50',
     onPress: () => console.log('Vento segnalato!'),
   },
   {
     icon: 'calendar',
-    iconColor: appColors.system.emerald[600],
+    iconColor: appColors.system.teal[600],
     title: 'Calendario',
-    bgColorClass: 'bg-system-emerald-50',
+    bgColorClass: 'bg-system-teal-50',
     onPress: () => console.log('Area verde segnalata!'),
   },
   {
-    icon: 'star',
-    iconColor: appColors.system.orange[600],
-    title: 'Preferiti',
-    bgColorClass: 'bg-system-orange-50',
-    onPress: () => console.log('Riciclo segnalato!'),
-  },
-  {
     icon: 'chart-line',
-    iconColor: appColors.system.teal[600],
+    iconColor: appColors.system.emerald[600],
     title: 'Analisi',
-    bgColorClass: 'bg-system-teal-50',
+    bgColorClass: 'bg-system-emerald-50',
     onPress: () => console.log('Acqua segnalata!'),
   },
 ];
