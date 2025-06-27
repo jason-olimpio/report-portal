@@ -129,7 +129,7 @@ const PersonalAreaScreen = () => {
   ] as const;
 
   return (
-    <View className="bg-white p-6">
+    <View className="bg-white p-6 h-full">
       <Text className="text-xl text-center font-titillium-semibold">
         {t('personalArea')}
       </Text>
