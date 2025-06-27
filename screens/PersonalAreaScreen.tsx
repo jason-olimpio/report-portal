@@ -1,4 +1,4 @@
-import React, {ComponentProps, Fragment, useState} from 'react';
+import {ComponentProps, Fragment, useState} from 'react';
 import {
   Text,
   TextInput,
