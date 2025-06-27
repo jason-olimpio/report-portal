@@ -97,7 +97,7 @@ const PersonalAreaScreen = () => {
       <TextInput
         value={value}
         onChangeText={onChange}
-        className="border border-gray-300 rounded-lg px-4 py-3"
+        className="border border-neutral-gray-100 rounded-lg px-4 py-3"
         {...props}
       />
 
