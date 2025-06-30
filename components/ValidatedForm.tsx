@@ -33,13 +33,13 @@ export type ValidatedFormProps<T extends Record<string, any>> = {
   imageFieldKey?: keyof T;
 };
 
-export function ValidatedForm<T extends Record<string, any>>({
+export const ValidatedForm = <T extends Record<string, any>>({
   schema,
   initialState,
   fields,
   onSave,
   imageFieldKey,
-}: ValidatedFormProps<T>) {
+}: ValidatedFormProps<T>) => {
   const {t} = useTranslation();
   const [form, setForm] = useState<T>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
@@ -242,4 +242,4 @@ export function ValidatedForm<T extends Record<string, any>>({
       </TouchableOpacity>
     </View>
   );
-}
+};
