@@ -46,6 +46,12 @@ export function ValidatedForm<T extends Record<string, any>>({
   const [touched, setTouched] = useState<Partial<Record<keyof T, boolean>>>({});
   const [uploading, setUploading] = useState(false);
 
+  const handleChange = (field: keyof T, value: any) => {
+    setForm(currentForm => ({...currentForm, [field]: value}));
+    setTouched(currentTouched => ({...currentTouched, [field]: true}));
+    validate(field, value);
+  };
+
   const validate = (field: keyof T, value: any) => {
     const validationResult = schema.safeParse({...form, [field]: value});
 
@@ -63,12 +69,6 @@ export function ValidatedForm<T extends Record<string, any>>({
       ...currentErrors,
       [field]: zodFieldError ? zodFieldError[0] : undefined,
     }));
-  };
-
-  const handleChange = (field: keyof T, value: any) => {
-    setForm(currentForm => ({...currentForm, [field]: value}));
-    setTouched(currentTouched => ({...currentTouched, [field]: true}));
-    validate(field, value);
   };
 
   const handlePickImage = async () => {
