@@ -60,14 +60,14 @@ export function ValidatedForm<T extends Record<string, any>>({
       return;
     }
 
-    const zodFieldError =
+    const fieldError =
       validationResult.error.formErrors.fieldErrors[
         field as keyof typeof validationResult.error.formErrors.fieldErrors
       ];
 
     setErrors(currentErrors => ({
       ...currentErrors,
-      [field]: zodFieldError ? zodFieldError[0] : undefined,
+      [field]: fieldError ? fieldError[0] : undefined,
     }));
   };
 
