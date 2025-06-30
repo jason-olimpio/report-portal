@@ -33,7 +33,7 @@ const HeaderRight = () => (
   />
 );
 
-const RootNavigator = () => {
+const DrawerNavigator = () => {
   const {t} = useTranslation();
 
   return (
@@ -75,4 +75,4 @@ const RootNavigator = () => {
   );
 };
 
-export default RootNavigator;
+export default DrawerNavigator;

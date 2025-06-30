@@ -8,12 +8,12 @@ import './i18n';
 
 import './gesture-handler';
 
-import {RootNavigator} from '@components';
+import {AppStack} from '@components';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <RootNavigator />
+      <AppStack />
     </NavigationContainer>
   );
 };
