@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {ComponentProps, useState} from 'react';
 import {
   View,
   Text,
@@ -21,7 +21,7 @@ import {appColors} from '@config';
 export type FieldConfig = {
   key: string;
   label: string;
-  inputProps?: Partial<React.ComponentProps<typeof TextInput>>;
+  inputProps?: Partial<ComponentProps<typeof TextInput>>;
   isImage?: boolean;
 };
 

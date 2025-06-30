@@ -1,4 +1,3 @@
-import React from 'react';
 import {Alert, TouchableOpacity, Text, View} from 'react-native';
 import {z} from 'zod';
 import {useTranslation} from 'react-i18next';
