@@ -1,5 +1,5 @@
 {
-  "appName": "SOS Segnalazioni",
+  "appName": "SOS Reports",
   "personalArea": "Personal area",
   "reports": "Reports",
   "recentReports": "Recent reports",
@@ -74,5 +74,6 @@
   },
   "title": "Title",
   "description": "Description",
-  "back": "Back"
+  "back": "Back",
+  "image": "Image"
 }

@@ -23,7 +23,7 @@ const NewReportScreen: React.FC = () => {
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: 'Image', isImage: true},
+    {key: 'image', label: t('image'), isImage: true},
     {key: 'title', label: t('title')},
     {
       key: 'description',
@@ -45,7 +45,6 @@ const NewReportScreen: React.FC = () => {
         schema={reportSchema}
         initialState={initialState}
         fields={fields}
-        imageFieldKey="image"
         onSave={async () => Alert.alert(t('reportSaved'))}
       />
     </View>

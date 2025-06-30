@@ -29,7 +29,7 @@ const PersonalAreaScreen = () => {
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: 'Image', isImage: true},
+    {key: 'image', label: t('image'), isImage: true},
     {key: 'name', label: t('name')},
     {
       key: 'email',
@@ -53,7 +53,6 @@ const PersonalAreaScreen = () => {
       schema={schema}
       initialState={initialState}
       fields={fields}
-      imageFieldKey="image"
       onSave={async () => Alert.alert('Saved!')}
     />
   );
