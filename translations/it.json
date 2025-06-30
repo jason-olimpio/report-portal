@@ -67,7 +67,7 @@
     "currentPasswordRequired": "La password attuale è obbligatoria",
     "confirmPasswordRequired": "La conferma della password è obbligatoria",
     "passwordsMustMatch": "Le password devono corrispondere",
-    "errorPermissionDenied": "Permesso negato",
+    "permissionDenied": "Permesso negato",
     "titleTooShort": "Il titolo deve essere lungo almeno 3 caratteri",
     "descriptionTooShort": "La descrizione deve essere lunga almeno 10 caratteri",
     "imageRequired": "L'immagine è obbligatoria"

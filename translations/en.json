@@ -67,7 +67,7 @@
     "currentPasswordRequired": "Current password is required",
     "confirmPasswordRequired": "Confirm password is required",
     "passwordsMustMatch": "Passwords must match",
-    "errorPermissionDenied": "Permission denied",
+    "permissionDenied": "Permission denied",
     "titleTooShort": "Title must be at least 3 characters long",
     "descriptionTooShort": "Description must be at least 10 characters long",
     "imageRequired": "Image is required"

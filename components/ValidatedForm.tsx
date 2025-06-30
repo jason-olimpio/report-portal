@@ -76,23 +76,23 @@ export function ValidatedForm<T extends Record<string, any>>({
       return;
     }
 
-    const pickerOptions: ImageLibraryOptions = {
+    const options: ImageLibraryOptions = {
       mediaType: 'photo',
       quality: 1,
       selectionLimit: 1,
     };
 
-    launchImageLibrary(pickerOptions, pickerResponse => {
-      if (pickerResponse.didCancel) {
+    await launchImageLibrary(options, response => {
+      if (response.didCancel) {
         return;
       }
 
-      if (pickerResponse.errorCode) {
+      if (response.errorCode) {
         Alert.alert(t('errors.permissionDenied'));
         return;
       }
 
-      const selectedUri = pickerResponse.assets?.[0]?.uri;
+      const selectedUri = response.assets?.[0]?.uri;
 
       if (!selectedUri) {
         return;
