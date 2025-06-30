@@ -209,7 +209,7 @@ export function ValidatedForm<T extends Record<string, any>>({
           value={form[fieldKey]?.toString() ?? ''}
           onChangeText={text => handleChange(fieldKey, text)}
           onBlur={() => setTouched({...touched, [key]: true})}
-          className="border border-neutral-gray-100 rounded-lg p-4 mb-4"
+          className="border border-neutral-gray-100 rounded-lg p-4 mb-2"
           placeholderTextColor={appColors.neutral.gray[500]}
           {...inputProps}
         />
@@ -232,7 +232,7 @@ export function ValidatedForm<T extends Record<string, any>>({
       <TouchableOpacity
         onPress={handleSave}
         disabled={uploading}
-        className="rounded-full items-center mt-2 p-4 bg-primary"
+        className="rounded-full w-full self-center items-center mt-2 p-3 bg-primary"
         accessibilityLabel={t('save')}>
         {uploading ? (
           <ActivityIndicator color="#fff" />
