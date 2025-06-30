@@ -1,5 +1,6 @@
 import {ComponentProps, useState} from 'react';
 import {
+  ScrollView,
   View,
   Text,
   TextInput,
@@ -30,15 +31,15 @@ export type ValidatedFormProps<T extends Record<string, any>> = {
   initialState: T;
   fields: FieldConfig[];
   onSave?: (data: T) => Promise<void> | void;
-  imageFieldKey?: keyof T;
 };
+
+export const IMAGE_FIELD_KEY = 'image';
 
 export const ValidatedForm = <T extends Record<string, any>>({
   schema,
   initialState,
   fields,
   onSave,
-  imageFieldKey,
 }: ValidatedFormProps<T>) => {
   const {t} = useTranslation();
   const [form, setForm] = useState<T>(initialState);
@@ -72,16 +73,12 @@ export const ValidatedForm = <T extends Record<string, any>>({
   };
 
   const handlePickImage = async () => {
-    if (!imageFieldKey) {
-      return;
-    }
-
+    const imageFieldKey = IMAGE_FIELD_KEY as keyof T;
     const options: ImageLibraryOptions = {
       mediaType: 'photo',
       quality: 1,
       selectionLimit: 1,
     };
-
     await launchImageLibrary(options, response => {
       if (response.didCancel) {
         return;
@@ -97,7 +94,6 @@ export const ValidatedForm = <T extends Record<string, any>>({
       if (!selectedUri) {
         return;
       }
-
       setForm(currentForm => ({...currentForm, [imageFieldKey]: selectedUri}));
     });
   };
@@ -158,12 +154,13 @@ export const ValidatedForm = <T extends Record<string, any>>({
     );
 
   const renderImageField = ({key, label}: FieldConfig) => {
-    if (!imageFieldKey) {
+    if (key !== IMAGE_FIELD_KEY) {
       return null;
     }
 
-    const imageUri = form[imageFieldKey] as string | undefined;
-    const error = touched[imageFieldKey] && errors[imageFieldKey];
+    const imageUri = form[IMAGE_FIELD_KEY as keyof T] as string | undefined;
+    const error =
+      touched[IMAGE_FIELD_KEY as keyof T] && errors[IMAGE_FIELD_KEY as keyof T];
 
     return (
       <View key={key} className="items-center mb-4">
@@ -220,7 +217,7 @@ export const ValidatedForm = <T extends Record<string, any>>({
   };
 
   return (
-    <View className="flex-1 p-5 bg-white">
+    <ScrollView className="flex-1 p-5 bg-white">
       {fields.map(field => {
         if (field.isImage) {
           return renderImageField(field);
@@ -232,7 +229,7 @@ export const ValidatedForm = <T extends Record<string, any>>({
       <TouchableOpacity
         onPress={handleSave}
         disabled={uploading}
-        className="rounded-full w-full self-center items-center mt-2 p-3 bg-primary"
+        className="rounded-full w-full self-center items-center mt-2 mb-10 p-3 bg-primary"
         accessibilityLabel={t('save')}>
         {uploading ? (
           <ActivityIndicator color="#fff" />
@@ -240,6 +237,6 @@ export const ValidatedForm = <T extends Record<string, any>>({
           <Text className="text-white font-titillium-bold">{t('save')}</Text>
         )}
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
