@@ -9,7 +9,7 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export const AppStack = () => (
+export const RootStack = () => (
   <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Drawer" component={DrawerNavigator} />
     <Stack.Screen name="NewReport" component={NewReportScreen} />
