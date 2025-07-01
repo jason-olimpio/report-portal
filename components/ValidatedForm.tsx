@@ -94,7 +94,6 @@ export const ValidatedForm = <T extends Record<string, any>>({
       if (!selectedUri) {
         return;
       }
-
       setForm(currentForm => ({...currentForm, [imageFieldKey]: selectedUri}));
     });
   };
