@@ -1,5 +1,5 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
@@ -24,11 +24,10 @@ const HeaderTitle = () => {
 };
 
 const HeaderRight = () => (
-  <FontAwesome6
-    name="bell"
+  <MaterialIcons
+    name="notifications"
     color="white"
-    size={20}
-    iconStyle="solid"
+    size={25}
     style={headerRightStyle}
   />
 );

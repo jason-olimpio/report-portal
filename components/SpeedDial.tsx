@@ -1,15 +1,15 @@
 import {ComponentProps, useState} from 'react';
 import {View, TouchableOpacity} from 'react-native';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 type Action = {
-  icon: ComponentProps<typeof FontAwesome6>['name'];
+  icon: ComponentProps<typeof MaterialIcons>['name'];
   onPress: () => void;
 };
 
 const ACTIONS: Action[] = [
-  {icon: 'envelope', onPress: () => {}},
-  {icon: 'bell', onPress: () => {}},
+  {icon: 'plus-one', onPress: () => {}},
+  {icon: 'bedtime', onPress: () => {}},
 ];
 
 const SpeedDial = () => {
@@ -20,7 +20,6 @@ const SpeedDial = () => {
       <TouchableOpacity
         key={icon}
         className="bg-white rounded-full p-4 mb-2 absolute right-1 shadow-lg"
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           bottom: 50 * (1 + idx),
           elevation: 5,
@@ -29,7 +28,7 @@ const SpeedDial = () => {
           setOpen(false);
           onPress();
         }}>
-        <FontAwesome6 name={icon as any} size={15} color="black" />
+        <MaterialIcons name={icon} size={15} color="black" />
       </TouchableOpacity>
     ));
 
@@ -41,15 +40,13 @@ const SpeedDial = () => {
         className="w-14 h-14 rounded-full bg-primary justify-center items-center shadow-lg"
         onPress={() => setOpen(previousState => !previousState)}
         activeOpacity={0.85}
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           elevation: 5,
         }}>
-        <FontAwesome6
-          name={open ? 'xmark' : ('plus' as any)}
+        <MaterialIcons
+          name={open ? 'close' : 'add'}
           size={12}
           color="white"
-          iconStyle="solid"
         />
       </TouchableOpacity>
     </View>

@@ -3,14 +3,14 @@ import {View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 import {IconActionButton, type RootStackParamList} from '@components';
 
 import {appColors} from '@config';
 
 type QuickAction = {
-  icon: ComponentProps<typeof FontAwesome6>['name'];
+  icon: ComponentProps<typeof MaterialIcons>['name'];
   iconColor: string;
   title: string;
   bgColorClass: string;
@@ -23,21 +23,21 @@ const QuickActions = () => {
 
   const actions: QuickAction[] = [
     {
-      icon: 'plus',
+      icon: 'report',
       iconColor: appColors.system.orange[600],
       title: 'Agg. segnalazione',
       bgColorClass: 'bg-system-orange-50',
       onPress: () => navigation.navigate('NewReport'),
     },
     {
-      icon: 'calendar',
+      icon: 'calendar-month',
       iconColor: appColors.system.teal[600],
       title: 'Calendario',
       bgColorClass: 'bg-system-teal-50',
       onPress: () => console.log('Area verde segnalata!'),
     },
     {
-      icon: 'chart-line',
+      icon: 'bar-chart',
       iconColor: appColors.system.emerald[600],
       title: 'Analisi',
       bgColorClass: 'bg-system-emerald-50',

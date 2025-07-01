@@ -1,6 +1,6 @@
 import React, {ComponentProps} from 'react';
 import {View} from 'react-native';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 
 import {SectionHeader, InfoCardWidget} from '@components';
@@ -8,7 +8,7 @@ import {SectionHeader, InfoCardWidget} from '@components';
 import {appColors} from '@config';
 
 type Card = {
-  icon: ComponentProps<typeof FontAwesome6>['name'];
+  icon: ComponentProps<typeof MaterialIcons>['name'];
   iconColor: string;
   title: string;
   value: string;
@@ -19,7 +19,7 @@ type Card = {
 
 const CARDS: Card[] = [
   {
-    icon: 'wind',
+    icon: 'air',
     iconColor: appColors.system.red[600],
     title: 'Qualità aria',
     value: 'Buona',
@@ -28,7 +28,7 @@ const CARDS: Card[] = [
     valueColorClass: 'text-system-red-600',
   },
   {
-    icon: 'leaf',
+    icon: 'spa',
     iconColor: appColors.system.emerald[600],
     title: 'Zone verdi',
     value: '85%',
@@ -37,7 +37,7 @@ const CARDS: Card[] = [
     valueColorClass: 'text-system-emerald-600',
   },
   {
-    icon: 'recycle',
+    icon: 'recycling',
     iconColor: appColors.system.orange[600],
     title: 'Riciclo',
     value: '73%',

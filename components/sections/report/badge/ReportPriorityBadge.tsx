@@ -22,7 +22,7 @@ const ReportPriorityBadge = ({priority}: ReportPriorityBadgeProps) => {
 
     return (
         <View
-            className='flex-row items-center ${colors.bg} px-3 py-1 rounded-full drop-shadow-lg border border-neutral-500'>
+            className="flex-row items-center ${colors.bg} px-3 py-1 rounded-full drop-shadow-lg border border-neutral-500">
             <Text className={`${colors.text} font-titillium-bold text-sm`}>{label}</Text>
         </View>
     );

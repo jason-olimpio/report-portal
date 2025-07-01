@@ -1,7 +1,7 @@
 import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
@@ -20,7 +20,7 @@ const ReportDetailScreen = () => {
     const navigation = useNavigation<ReportDetailScreenNavigationProp>();
     const {reportId} = route.params;
 
-    const report = reportData.find(report => report.id === reportId);
+    const report = reportData.find(item => item.id === reportId);
 
     if (!report) {
         return (
@@ -37,13 +37,12 @@ const ReportDetailScreen = () => {
     return (
         <ScrollView className="flex-1 bg-white">
             <TouchableOpacity className="flex-row items-center p-4 pt-6" onPress={navigation.goBack}>
-                <FontAwesome6
-                    name="arrow-left"
-                    size={12}
-                    iconStyle="solid"
+                <MaterialIcons
+                    name="arrow-back-ios"
+                    size={15}
                 />
 
-                <Text className="flex-1 ml-2">{t('back')}</Text>
+                <Text className="flex-1 ml-1">{t('back')}</Text>
             </TouchableOpacity>
 
             <Image source={image} className="w-48 h-48 rounded-full shadow-lg self-center mb-4"/>
@@ -53,11 +52,10 @@ const ReportDetailScreen = () => {
             <Text className="text-sm mx-10 mb-2 text-neutral-gray-500 text-center">{description}</Text>
 
             <View className="flex-row items-center justify-center">
-                <FontAwesome6
-                    name="location-dot"
-                    size={12}
+                <MaterialIcons
+                    name="location-on"
+                    size={15}
                     color={appColors.neutral.gray[500]}
-                    iconStyle="solid"
                 />
 
                 <Text className="text-sm ml-2 text-neutral-gray-500">{address}</Text>

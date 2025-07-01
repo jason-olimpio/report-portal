@@ -1,6 +1,6 @@
 import React, {ComponentProps} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 
 import {HomeScreen, ReportsScreen, StatsScreen} from '@screens';
@@ -15,10 +15,10 @@ export type TabsParamList = {
 
 const Tab = createBottomTabNavigator();
 
-const TAB_ICONS: Record<string, ComponentProps<typeof FontAwesome6>['name']> = {
+const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> = {
   Home: 'house',
-  Reports: 'clipboard-list',
-  Stats: 'chart-column',
+  Reports: 'list',
+  Stats: 'bar-chart',
 };
 
 const getTabBarIcon = (routeName: string, focused: boolean) => {
@@ -26,11 +26,10 @@ const getTabBarIcon = (routeName: string, focused: boolean) => {
   const color = focused ? appColors.primary : appColors.neutral.gray[500];
 
   return (
-    <FontAwesome6
-      name={iconName as any}
-      size={16}
+    <MaterialIcons
+      name={iconName}
+      size={25}
       color={color}
-      iconStyle="solid"
     />
   );
 };

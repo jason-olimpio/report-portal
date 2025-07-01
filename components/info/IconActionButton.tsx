@@ -1,9 +1,9 @@
 import React, {ComponentProps} from 'react';
 import {TouchableOpacity, Text, View} from 'react-native';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 type IconActionButtonProps = {
-  icon: ComponentProps<typeof FontAwesome6>['name'];
+  icon: ComponentProps<typeof MaterialIcons>['name'];
   iconColor: string;
   title: string;
   bgColorClass: string;
@@ -23,11 +23,10 @@ const IconActionButton = ({
         onPress={onPress}
         className={`p-5 rounded-full ${bgColorClass}`}
         activeOpacity={0.8}>
-        <FontAwesome6
-          name={icon as any}
+        <MaterialIcons
+          name={icon}
           size={18}
           color={iconColor}
-          iconStyle="solid"
         />
       </TouchableOpacity>
 

@@ -5,12 +5,12 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-vector-icons/fontawesome6": "^12.0.0",
+    "@react-native-vector-icons/material-icons": "^12.0.1",
     "@react-navigation/bottom-tabs": "^7.3.13",
     "@react-navigation/drawer": "^7.3.12",
     "@react-navigation/native": "^7.1.9",

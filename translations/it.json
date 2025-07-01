@@ -60,6 +60,8 @@
   },
   "previous": "Precedente",
   "next": "Prossimo",
+  "page": "Pagina",
+  "of": "di",
   "name": "Nome",
   "email": "Email",
   "currentPassword": "Password attuale",

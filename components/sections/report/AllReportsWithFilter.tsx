@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {SectionHeader, ReportList, FilterModal} from '@components';
+import {SectionHeader, ReportList, FilterModal, Pagination} from '@components';
 import {reportData} from '@store';
 
 import {StatusOption} from '@types';
@@ -11,6 +11,8 @@ const AllReportsWithFilter = () => {
   const {t} = useTranslation();
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reportsPerPage] = useState(5);
 
   const [selectedStatus, setSelectedStatus] = useState<StatusOption>(
     StatusOption.All,
@@ -29,6 +31,15 @@ const AllReportsWithFilter = () => {
     return isStatusMatch && isStartDateValid && isEndDateValid;
   });
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedStatus, dateRange]);
+
+  const indexOfLastReport = currentPage * reportsPerPage;
+  const indexOfFirstReport = indexOfLastReport - reportsPerPage;
+  const currentReports = filteredReports.slice(indexOfFirstReport, indexOfLastReport);
+  const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
+
   const toggleModal = (visible: boolean) => setModalVisible(visible);
 
   return (
@@ -40,7 +51,16 @@ const AllReportsWithFilter = () => {
         className="mb-6"
       />
 
-      <ReportList reports={filteredReports} />
+      <ReportList reports={currentReports} />
+
+      {filteredReports.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          className="px-4"
+        />
+      )}
 
       <FilterModal
         visible={modalVisible}

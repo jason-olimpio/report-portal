@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {formatDistanceToNow} from 'date-fns';
 
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 
 import {ReportStatusBadge, RootStackParamList} from '@components';
@@ -44,7 +44,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
   const handlePress = () => navigation.navigate('ReportDetail', {reportId: id});
 
   return (
-    <TouchableOpacity 
+    <TouchableOpacity
       className="bg-white p-4 rounded-lg shadow-lg mb-4"
       onPress={handlePress}
       activeOpacity={0.7}
@@ -57,11 +57,10 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
             <Text>{title}</Text>
 
             <View className="flex-row items-center">
-              <FontAwesome6
-                name="location-dot"
-                size={12}
+              <MaterialIcons
+                name="location-on"
+                size={15}
                 color="gray"
-                iconStyle="solid"
               />
 
               <Text className="text-sm text-neutral-gray-500 ml-1">
