@@ -30,9 +30,9 @@
     "completed": "Completed"
   },
   "priority": {
-    "low": "Low Priority",
-    "medium": "Medium Priority",
-    "high": "High Priority"
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
   },
   "unknown": "Unknown",
   "weekdays": {
