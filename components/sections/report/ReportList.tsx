@@ -22,9 +22,10 @@ const ReportList = ({reports}: ReportListProps) => {
 
   return (
     <View className="w-full">
-      {reports.map(({image, title, address, date, status}) => (
+      {reports.map(({id, image, title, address, date, status}) => (
         <ReportCard
-          key={title + date.toISOString()}
+          key={id}
+          id={id}
           image={image}
           title={title}
           address={address}
