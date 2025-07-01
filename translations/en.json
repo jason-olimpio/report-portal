@@ -29,6 +29,11 @@
     "working": "In progress",
     "completed": "Completed"
   },
+  "priority": {
+    "low": "Low Priority",
+    "medium": "Medium Priority",
+    "high": "High Priority"
+  },
   "unknown": "Unknown",
   "weekdays": {
     "monday": "Mon",
@@ -75,5 +80,8 @@
   "title": "Title",
   "description": "Description",
   "back": "Back",
-  "image": "Image"
+  "image": "Image",
+  "reportNotFound": "Report not found",
+  "address": "Address",
+  "date": "Date"
 }

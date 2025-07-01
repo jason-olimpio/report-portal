@@ -35,7 +35,7 @@ const NewReportScreen: React.FC = () => {
   return (
     <View className="flex-1 bg-white">
       <TouchableOpacity
-        onPress={() => navigation.goBack()}
+        onPress={navigation.goBack}
         className="mt-4 ml-4 mb-2 self-start px-4 py-2 border border-neutral-gray-100 rounded-lg flex-row items-center">
         <FontAwesome6 name="arrow-left" size={15} iconStyle="solid" />
         <Text className="ml-2">{t('back')}</Text>

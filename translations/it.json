@@ -29,6 +29,11 @@
     "working": "In lavorazione",
     "completed": "Completata"
   },
+  "priority": {
+    "low": "Bassa",
+    "medium": "Media",
+    "high": "Alta"
+  },
   "unknown": "Sconosciuto",
   "weekdays": {
     "monday": "Lun",
@@ -75,5 +80,8 @@
   "title": "Titolo",
   "description": "Descrizione",
   "back": "Indietro",
-  "image": "Immagine"
+  "image": "Immagine",
+  "reportNotFound": "Segnalazione non trovata",
+  "address": "Indirizzo",
+  "date": "Data"
 }

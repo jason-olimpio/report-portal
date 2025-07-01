@@ -63,7 +63,7 @@ const ReportFilterOptions = ({
       {STATUS_OPTIONS.map(status => (
         <TouchableOpacity
           key={status}
-          onPress={toggleStatus.bind(null, status)}
+          onPress={() => toggleStatus(status)}
           className={`py-3 px-4 rounded-full ${
             selectedStatus === status && 'bg-gray-200'
           }`}>
