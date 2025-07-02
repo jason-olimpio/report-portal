@@ -29,7 +29,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
 
   const handlePress = () => navigation.navigate('ReportDetail', {reportId: id});
 
-  const timeAgo = getTimeAgo(date, i18n.language, t('invalidDate'));
+  const timeAgo = getTimeAgo(date, i18n.language, t);
 
   return (
     <TouchableOpacity

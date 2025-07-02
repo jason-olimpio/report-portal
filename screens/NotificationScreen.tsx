@@ -19,7 +19,7 @@ const NotificationScreen = () => {
 	const renderItem = ({ item}: { item: Notification; index: number }) => {
 		const { title, description, date } = item;
 
-		const timeAgo = getTimeAgo(date, i18n.language, t('invalidDate'));
+		const timeAgo = getTimeAgo(date, i18n.language, t);
 
 		return (
 			<View className="flex-row items-center py-3 px-4">

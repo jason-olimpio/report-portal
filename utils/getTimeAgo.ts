@@ -1,13 +1,15 @@
 import { formatDistanceToNow } from 'date-fns';
+import {TFunction} from "i18next";
+
 import { getLocaleForDateFns } from './getLocaleForDateFns';
 
 const getTimeAgo = (
   reportDate: Date,
   language: string = 'en',
-  fallbackText: string
+  t: TFunction
 ): string => {
   if (isNaN(reportDate.getTime())) {
-    return fallbackText;
+    return t('invalidDate');
   }
 
   const locale = getLocaleForDateFns(language);
