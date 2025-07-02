@@ -61,7 +61,7 @@ const Pagination = ({
     };
 
     return (
-        <View className={`flex flex-row items-center justify-center mt-5 ${className}`}>
+        <View className={`flex flex-row items-center justify-center my-5 ${className}`}>
             <TouchableOpacity
                 onPress={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
