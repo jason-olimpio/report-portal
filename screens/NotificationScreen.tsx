@@ -23,10 +23,10 @@ const NotificationScreen = () => {
 		return (
 			<View className="flex-row items-center py-3 px-4">
 				<View className="flex-1">
-					<Text className="text-lg font-titillium-bold text-gray-900">{t(title)}</Text>
+					<Text className="text-lg font-titillium-bold text-gray-900">{title}</Text>
 
 					<Text className="text-sm text-gray-500 mt-1 pr-10">
-						{t(description)}
+						{description}
 					</Text>
 				</View>
 
