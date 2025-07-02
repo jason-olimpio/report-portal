@@ -87,5 +87,10 @@
   "address": "Address",
   "date": "Date",
   "notifications": "Notifications",
-  "noNotifications": "No notifications"
+  "noNotifications": "No notifications",
+  "imageSource": {
+    "title": "Image source",
+    "camera": "Camera",
+    "gallery": "Gallery"
+  }
 }

@@ -87,5 +87,10 @@
   "address": "Indirizzo",
   "date": "Data",
   "notifications": "Notifiche",
-  "noNotifications": "Nessuna notifica"
+  "noNotifications": "Nessuna notifica",
+  "imageSource": {
+    "title": "Fonte dell'immagine",
+    "camera": "Fotocamera",
+    "gallery": "Galleria"
+  }
 }

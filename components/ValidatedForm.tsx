@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {
     launchImageLibrary,
+    launchCamera,
     ImageLibraryOptions,
 } from 'react-native-image-picker';
 import {ZodType} from 'zod';
@@ -72,31 +73,66 @@ export const ValidatedForm = <T extends Record<string, any>>({
         }));
     };
 
-    const handlePickImage = async () => {
-        const imageFieldKey = IMAGE_FIELD_KEY as keyof T;
-        const options: ImageLibraryOptions = {
-            mediaType: 'photo',
-            quality: 1,
-            selectionLimit: 1,
-        };
-        await launchImageLibrary(options, response => {
-            if (response.didCancel) {
-                return;
-            }
+    const handlePickImage = async () =>
+        Alert.alert(
+            t('imageSource.title'),
+            '',
+            [
+                {
+                    text: t('cancel'),
+                    style: 'cancel',
+                },
+                {
+                    text: t('imageSource.camera'),
+                    onPress: async () => {
+                        const cameraOptions: ImageLibraryOptions = {
+                            mediaType: 'photo',
+                            quality: 1
+                        };
 
-            if (response.errorCode) {
-                Alert.alert(t('errors.permissionDenied'));
-                return;
-            }
+                        await launchCamera(cameraOptions, response => {
+                            if (response.didCancel) return;
 
-            const selectedUri = response.assets?.[0]?.uri;
+                            if (response.errorCode) {
+                                Alert.alert(t('errors.permissionDenied'));
+                                return;
+                            }
 
-            if (!selectedUri) {
-                return;
-            }
-            setForm(currentForm => ({...currentForm, [imageFieldKey]: selectedUri}));
-        });
-    };
+                            const selectedUri = response.assets?.[0]?.uri;
+
+                            if (!selectedUri) return;
+
+                            setForm(currentForm => ({...currentForm, [IMAGE_FIELD_KEY]: selectedUri}));
+                        });
+                    },
+                },
+                {
+                    text: t('imageSource.gallery'),
+                    onPress: async () => {
+                        const options: ImageLibraryOptions = {
+                            mediaType: 'photo',
+                            quality: 1,
+                            selectionLimit: 1,
+                        };
+
+                        await launchImageLibrary(options, response => {
+                            if (response.didCancel) return;
+
+                            if (response.errorCode) {
+                                Alert.alert(t('errors.permissionDenied'));
+                                return;
+                            }
+
+                            const selectedUri = response.assets?.[0]?.uri;
+
+                            if (!selectedUri) return;
+
+                            setForm(currentForm => ({...currentForm, [IMAGE_FIELD_KEY]: selectedUri}));
+                        });
+                    },
+                },
+            ]
+        );
 
     const handleSave = async () => {
         // Mark all fields as touched to show errors on save.
@@ -191,10 +227,6 @@ export const ValidatedForm = <T extends Record<string, any>>({
     };
 
     const renderTextField = ({key, label, inputProps}: FieldConfig) => {
-        if (!key) {
-            return null;
-        }
-
         const fieldKey = key as keyof T;
         const error = touched[fieldKey] && errors[fieldKey];
 

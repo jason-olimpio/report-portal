@@ -44,7 +44,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
           <View>
             <Text className='font-titillium-semibold'>{title}</Text>
 
-            <View className="flex-row items-center">
+            <View className="flex-row items-center flex-wrap">
               <MaterialIcons
                 name="location-on"
                 size={15}

@@ -40,7 +40,7 @@ const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
   return (
     <View
       className={`flex-row items-center ${colors.bg} px-3 py-0.5 rounded-full`}>
-      <Text className={`${colors.text} text-sm`}>{label}</Text>
+      <Text className={`${colors.text} text-xs`}>{label}</Text>
     </View>
   );
 };
