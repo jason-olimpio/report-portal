@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
 
 import {reportData} from '@store';
-import {ReportStatusBadge, ReportPriorityBadge, RootStackParamList} from '@components';
+import {ReportStatusBadge, RootStackParamList} from '@components';
 
 import {getLocaleForDateFns} from '@utils';
 import {appColors} from '@config';
@@ -30,7 +30,7 @@ const ReportDetailsScreen = () => {
         );
     }
 
-    const {image, title, description, address, date, status, priority} = report;
+    const {image, title, description, address, date, status} = report;
     const locale = getLocaleForDateFns(i18n.resolvedLanguage);
     const formattedDate = format(date, 'PPP', {locale});
 
@@ -66,9 +66,9 @@ const ReportDetailsScreen = () => {
             <View className="flex-row justify-center">
                 <ReportStatusBadge status={status}/>
 
-                <View className="ml-2">
+{/*                <View className="ml-2">
                     <ReportPriorityBadge priority={priority}/>
-                </View>
+                </View>*/}
             </View>
         </ScrollView>
     );
