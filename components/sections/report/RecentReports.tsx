@@ -11,16 +11,18 @@ const RecentReports = () => {
   const {t} = useTranslation();
 
   const navigation = useNavigation<NavigationProp<TabsParamList>>();
-  const recentReports = reportData.slice(0, 3);
+  const recentReports = [...reportData]
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
+    .slice(0, 3);
 
-  const handleViewAllReports = () => navigation.navigate('Reports');
+  const navigateToAllReports = () => navigation.navigate('Reports');
 
   return (
     <View className="mb-2">
       <SectionHeader
         title={t('recentReports')}
         action={t('viewAll')}
-        onPress={handleViewAllReports}
+        onPress={navigateToAllReports}
         className="mb-6"
       />
 

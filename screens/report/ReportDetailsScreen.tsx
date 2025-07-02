@@ -11,13 +11,13 @@ import {ReportStatusBadge, ReportPriorityBadge, RootStackParamList} from '@compo
 import {getLocaleForDateFns} from '@utils';
 import {appColors} from '@config';
 
-type ReportDetailScreenRouteProp = RouteProp<RootStackParamList, 'ReportDetail'>;
-type ReportDetailScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+type ReportDetailsScreenRouteProp = RouteProp<RootStackParamList, 'ReportDetails'>;
+type ReportDetailsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
-const ReportDetailScreen = () => {
+const ReportDetailsScreen = () => {
     const {t, i18n} = useTranslation();
-    const route = useRoute<ReportDetailScreenRouteProp>();
-    const navigation = useNavigation<ReportDetailScreenNavigationProp>();
+    const route = useRoute<ReportDetailsScreenRouteProp>();
+    const navigation = useNavigation<ReportDetailsScreenNavigationProp>();
     const {reportId} = route.params;
 
     const report = reportData.find(item => item.id === reportId);
@@ -58,7 +58,7 @@ const ReportDetailScreen = () => {
                     color={appColors.neutral.gray[500]}
                 />
 
-                <Text className="text-sm ml-2 text-neutral-gray-500">{address}</Text>
+                <Text className="text-sm ml-1 text-neutral-gray-500">{address}</Text>
             </View>
 
             <Text className="text-sm ml-2 mb-4 text-neutral-gray-500 text-center">{formattedDate}</Text>
@@ -74,4 +74,4 @@ const ReportDetailScreen = () => {
     );
 };
 
-export default ReportDetailScreen;
+export default ReportDetailsScreen;

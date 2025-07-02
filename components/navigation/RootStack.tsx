@@ -1,12 +1,12 @@
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {NewReportScreen, ReportDetailScreen, NotificationScreen} from '@screens';
+import {NewReportScreen, ReportDetailsScreen, NotificationScreen} from '@screens';
 import {DrawerNavigator} from '@components';
 
 export type RootStackParamList = {
   Drawer: undefined;
   NewReport: undefined;
-  ReportDetail: {reportId: string};
+  ReportDetails: {reportId: string};
   Notifications: undefined;
 };
 
@@ -16,7 +16,7 @@ export const RootStack = () => (
   <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Drawer" component={DrawerNavigator} />
     <Stack.Screen name="NewReport" component={NewReportScreen} />
-    <Stack.Screen name="ReportDetail" component={ReportDetailScreen} />
+    <Stack.Screen name="ReportDetails" component={ReportDetailsScreen} />
     <Stack.Screen name="Notifications" component={NotificationScreen} />
   </Stack.Navigator>
 );

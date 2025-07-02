@@ -27,7 +27,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
   const {t, i18n} = useTranslation();
   const navigation = useNavigation<ReportCardNavigationProp>();
 
-  const handlePress = () => navigation.navigate('ReportDetail', {reportId: id});
+  const handlePress = () => navigation.navigate('ReportDetails', {reportId: id});
 
   const timeAgo = getTimeAgo(date, i18n.language, t);
 
@@ -39,10 +39,10 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
     >
       <View className="flex-row items-end justify-between">
         <View className="flex-row">
-          <Image source={image} className="w-16 h-16 mr-4 rounded-xl" />
+          <Image source={image} className="w-16 h-16 mr-4 rounded-full shadow-lg" />
 
           <View>
-            <Text>{title}</Text>
+            <Text className='font-titillium-semibold'>{title}</Text>
 
             <View className="flex-row items-center">
               <MaterialIcons
