@@ -36,7 +36,7 @@ const HeaderRight = () => {
           <MaterialIcons
             name="notifications"
             color="white"
-            size={25}
+            size={22}
             style={headerRightStyle}
           />
 
