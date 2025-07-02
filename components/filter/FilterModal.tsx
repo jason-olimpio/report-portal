@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Modal, Pressable} from 'react-native';
 
-import {DateRangePicker, ReportFilterOptions} from '@components';
+import {DateRangeSelector, ReportFilterOptions} from '@components';
 
 import {StatusOption} from '@types';
 
@@ -48,7 +48,7 @@ const FilterModal = ({
               toggleDatePicker={toggleDatePicker}
             />
           ) : (
-            <DateRangePicker
+            <DateRangeSelector
               dateRange={dateRange}
               setDateRange={setDateRange}
               toggleDatePicker={toggleDatePicker}

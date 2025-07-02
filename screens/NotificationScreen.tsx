@@ -16,16 +16,18 @@ const NotificationScreen = () => {
 	const navigation = useNavigation();
 	const { t, i18n } = useTranslation();
 
-	const renderItem = ({ item}: { item: Notification; index: number }) => {
+	const renderItem = ({ item }: { item: Notification; index: number }) => {
 		const { title, description, date } = item;
-
 		const timeAgo = getTimeAgo(date, i18n.language, t);
 
 		return (
 			<View className="flex-row items-center py-3 px-4">
 				<View className="flex-1">
 					<Text className="text-lg font-titillium-bold text-gray-900">{t(title)}</Text>
-					<Text className="text-sm text-gray-500 mt-1">{t(description)}</Text>
+
+					<Text className="text-sm text-gray-500 mt-1 pr-10">
+						{t(description)}
+					</Text>
 				</View>
 
 				<Text className="text-xs text-gray-400 ml-2 whitespace-nowrap">

@@ -5,17 +5,17 @@ import {useTranslation} from 'react-i18next';
 
 import {appColors} from '@config';
 
-type DateRangePickerProps = {
+type DateRangeSelectorProps = {
   dateRange: {start: Date | null; end: Date | null};
   setDateRange: (range: {start: Date | null; end: Date | null}) => void;
   toggleDatePicker: () => void;
 };
 
-const DateRangePicker = ({
+const DateRangeSelector = ({
   dateRange,
   setDateRange,
   toggleDatePicker,
-}: DateRangePickerProps) => {
+}: DateRangeSelectorProps) => {
   const {t} = useTranslation();
 
   const [tempDateRange, setTempDateRange] = useState(dateRange);
@@ -96,4 +96,4 @@ const DateRangePicker = ({
   );
 };
 
-export default DateRangePicker;
+export default DateRangeSelector;
