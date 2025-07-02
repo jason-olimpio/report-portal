@@ -66,9 +66,9 @@ const ReportDetailsScreen = () => {
             <View className="flex-row justify-center">
                 <ReportStatusBadge status={status}/>
 
-                <View className="ml-2">
+{/*                <View className="ml-2">
                     <ReportPriorityBadge priority={priority}/>
-                </View>
+                </View>*/}
             </View>
         </ScrollView>
     );
