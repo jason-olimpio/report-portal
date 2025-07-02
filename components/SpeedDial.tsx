@@ -19,11 +19,8 @@ const SpeedDial = () => {
     ACTIONS.map(({icon, onPress}, idx) => (
       <TouchableOpacity
         key={icon}
-        className="bg-white rounded-full p-4 mb-2 absolute right-1 shadow-lg"
-        style={{
-          bottom: 50 * (1 + idx),
-          elevation: 5,
-        }}
+        className="bg-white rounded-full p-4 mb-2 absolute right-1 shadow-lg shadow-black/20"
+        style={{bottom: 50 * (1 + idx)}}
         onPress={() => {
           setOpen(false);
           onPress();
@@ -37,12 +34,9 @@ const SpeedDial = () => {
       {open && renderActions()}
 
       <TouchableOpacity
-        className="w-14 h-14 rounded-full bg-primary justify-center items-center shadow-lg"
+        className="w-14 h-14 rounded-full bg-primary justify-center items-center shadow-lg shadow-black/20"
         onPress={() => setOpen(previousState => !previousState)}
-        activeOpacity={0.85}
-        style={{
-          elevation: 5,
-        }}>
+        activeOpacity={0.85}>
         <MaterialIcons
           name={open ? 'close' : 'add'}
           size={12}

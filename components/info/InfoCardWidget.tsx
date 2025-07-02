@@ -27,7 +27,7 @@ const InfoCardWidget = ({
         <View className="flex-row items-center mb-5">
           <MaterialIcons
             name={icon}
-            size={16}
+            size={20}
             color={iconColor}
           />
 

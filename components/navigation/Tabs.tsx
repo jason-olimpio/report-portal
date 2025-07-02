@@ -19,6 +19,7 @@ const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> = 
   Home: 'house',
   Reports: 'list',
   Stats: 'bar-chart',
+  Notifications: 'notifications',
 };
 
 const getTabBarIcon = (routeName: string, focused: boolean) => {
@@ -34,7 +35,7 @@ const getTabBarIcon = (routeName: string, focused: boolean) => {
   );
 };
 
-const Tabs = () => {
+export const Tabs = () => {
   const {t} = useTranslation();
 
   return (
@@ -66,5 +67,3 @@ const Tabs = () => {
     </Tab.Navigator>
   );
 };
-
-export default Tabs;

@@ -4,3 +4,4 @@ export { default as ReportsScreen } from './ReportsScreen';
 export { default as StatsScreen } from './StatsScreen';
 export { default as NewReportScreen } from './NewReportScreen';
 export { default as ReportDetailScreen } from './ReportDetailScreen';
+export { default as NotificationScreen } from './NotificationScreen';

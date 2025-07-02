@@ -6,7 +6,7 @@ import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 import {ValidatedForm, FieldConfig} from '@components';
 
-const NewReportScreen: React.FC = () => {
+const NewReportScreen = () => {
     const {t} = useTranslation();
     const navigation = useNavigation();
 

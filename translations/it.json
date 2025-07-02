@@ -85,5 +85,7 @@
   "image": "Immagine",
   "reportNotFound": "Segnalazione non trovata",
   "address": "Indirizzo",
-  "date": "Data"
+  "date": "Data",
+  "notifications": "Notifiche",
+  "noNotifications": "Nessuna notifica"
 }

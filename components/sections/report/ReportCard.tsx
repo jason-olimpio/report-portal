@@ -2,7 +2,6 @@ import React from 'react';
 import {Image, Text, View, ImageSourcePropType, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {formatDistanceToNow} from 'date-fns';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
@@ -11,7 +10,7 @@ import {ReportStatusBadge, RootStackParamList} from '@components';
 
 import {StatusOption} from '@types';
 
-import {getLocaleForDateFns} from '@utils';
+import {getTimeAgo} from '@utils';
 
 type ReportCardNavigationProp = StackNavigationProp<RootStackParamList>;
 
@@ -28,20 +27,9 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
   const {t, i18n} = useTranslation();
   const navigation = useNavigation<ReportCardNavigationProp>();
 
-  const getTimeAgo = (reportDate: Date): string => {
-    if (isNaN(reportDate.getTime())) {
-      return t('invalidDate');
-    }
-
-    const locale = getLocaleForDateFns(i18n.resolvedLanguage);
-
-    return formatDistanceToNow(reportDate, {
-      addSuffix: true,
-      locale,
-    });
-  };
-
   const handlePress = () => navigation.navigate('ReportDetail', {reportId: id});
+
+  const timeAgo = getTimeAgo(date, i18n.language, t('invalidDate'));
 
   return (
     <TouchableOpacity
@@ -69,7 +57,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
             </View>
 
             <Text className="text-sm text-neutral-gray-500">
-              {getTimeAgo(date)}
+              {timeAgo}
             </Text>
           </View>
         </View>

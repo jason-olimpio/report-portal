@@ -85,5 +85,7 @@
   "image": "Image",
   "reportNotFound": "Report not found",
   "address": "Address",
-  "date": "Date"
+  "date": "Date",
+  "notifications": "Notifications",
+  "noNotifications": "No notifications"
 }

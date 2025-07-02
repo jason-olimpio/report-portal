@@ -25,7 +25,7 @@ const IconActionButton = ({
         activeOpacity={0.8}>
         <MaterialIcons
           name={icon}
-          size={18}
+          size={20}
           color={iconColor}
         />
       </TouchableOpacity>
