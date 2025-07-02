@@ -73,63 +73,67 @@ export const ValidatedForm = <T extends Record<string, any>>({
         }));
     };
 
+    const pickImageFromCamera = async () => {
+        const cameraOptions: ImageLibraryOptions = {
+            mediaType: 'photo',
+            quality: 1
+        };
+
+        await launchCamera(cameraOptions, response => {
+            if (response.didCancel) return;
+
+            if (response.errorCode) {
+                Alert.alert(t('errors.permissionDenied'));
+                return;
+            }
+
+            const selectedUri = response.assets?.[0]?.uri;
+
+            if (!selectedUri) return;
+
+            setForm(currentForm => ({...currentForm, [IMAGE_FIELD_KEY]: selectedUri}));
+        });
+    };
+
+    const pickImageFromGallery = async () => {
+        const options: ImageLibraryOptions = {
+            mediaType: 'photo',
+            quality: 1,
+            selectionLimit: 1,
+        };
+
+        await launchImageLibrary(options, response => {
+            if (response.didCancel) return;
+
+            if (response.errorCode) {
+                Alert.alert(t('errors.permissionDenied'));
+                return;
+            }
+
+            const selectedUri = response.assets?.[0]?.uri;
+
+            if (!selectedUri) return;
+
+            setForm(currentForm => ({...currentForm, [IMAGE_FIELD_KEY]: selectedUri}));
+        });
+    };
+
     const handlePickImage = async () =>
         Alert.alert(
             t('imageSource.title'),
             '',
             [
                 {
-                    text: t('cancel'),
+                    text: t('cancel', 'Annulla'),
                     style: 'cancel',
                 },
                 {
                     text: t('imageSource.camera'),
-                    onPress: async () => {
-                        const cameraOptions: ImageLibraryOptions = {
-                            mediaType: 'photo',
-                            quality: 1
-                        };
-
-                        await launchCamera(cameraOptions, response => {
-                            if (response.didCancel) return;
-
-                            if (response.errorCode) {
-                                Alert.alert(t('errors.permissionDenied'));
-                                return;
-                            }
-
-                            const selectedUri = response.assets?.[0]?.uri;
-
-                            if (!selectedUri) return;
-
-                            setForm(currentForm => ({...currentForm, [IMAGE_FIELD_KEY]: selectedUri}));
-                        });
-                    },
+                    onPress: pickImageFromCamera,
                 },
                 {
                     text: t('imageSource.gallery'),
-                    onPress: async () => {
-                        const options: ImageLibraryOptions = {
-                            mediaType: 'photo',
-                            quality: 1,
-                            selectionLimit: 1,
-                        };
-
-                        await launchImageLibrary(options, response => {
-                            if (response.didCancel) return;
-
-                            if (response.errorCode) {
-                                Alert.alert(t('errors.permissionDenied'));
-                                return;
-                            }
-
-                            const selectedUri = response.assets?.[0]?.uri;
-
-                            if (!selectedUri) return;
-
-                            setForm(currentForm => ({...currentForm, [IMAGE_FIELD_KEY]: selectedUri}));
-                        });
-                    },
+                    onPress: pickImageFromGallery,
                 },
             ]
         );
