@@ -34,7 +34,9 @@ const StatsScreen = () => {
 
   const getMonthLabel = (number?: number) => {
     if (!number) return '';
+
     const key = monthKeys[number - 1];
+
     return t(`months.${key}`);
   };
 
