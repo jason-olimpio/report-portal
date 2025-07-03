@@ -252,7 +252,7 @@ export const ValidatedForm = <T extends Record<string, any>>({
     };
 
     return (
-        <ScrollView className="flex-1 p-5 bg-white">
+        <ScrollView className="flex-1 p-5 bg-white rounded-lg">
             {fields.map(field => {
                 if (field.isImage) {
                     return renderImageField(field);

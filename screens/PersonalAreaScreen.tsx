@@ -1,11 +1,18 @@
-import {Alert} from 'react-native';
+import {ScrollView, Alert, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {Pressable} from 'react-native';
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {z} from 'zod';
 
-import {ValidatedForm, FieldConfig} from '@components';
+import {ValidatedForm, FieldConfig, LanguagePicker} from '@components';
+
+import {appColors} from '@config';
+import {useState} from "react";
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation();
+
+  const [languagePickerVisible, setLanguagePickerVisible] = useState(false);
 
   const schema = z
     .object({
@@ -49,12 +56,31 @@ const PersonalAreaScreen = () => {
   ];
 
   return (
-    <ValidatedForm
-      schema={schema}
-      initialState={initialState}
-      fields={fields}
-      onSave={async () => Alert.alert('Saved!')}
-    />
+    <ScrollView className="flex-1 p-8">
+      <Pressable
+        onPress={() => setLanguagePickerVisible(true)}
+        className="self-start flex-row items-center mb-6"
+      >
+        <MaterialIcons
+          name="language"
+          size={20}
+          color={appColors.primary}
+        />
+
+        <Text className="text-primary font-titillium-bold ml-1">
+          {t('changeLanguage')}
+        </Text>
+      </Pressable>
+
+      <LanguagePicker visible={languagePickerVisible} onClose={() => setLanguagePickerVisible(false)} />
+
+      <ValidatedForm
+        schema={schema}
+        initialState={initialState}
+        fields={fields}
+        onSave={async () => Alert.alert('Saved!')}
+      />
+    </ScrollView>
   );
 };
 

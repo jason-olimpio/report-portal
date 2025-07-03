@@ -5,9 +5,20 @@
   "recentReports": "Recent reports",
   "viewAll": "View all",
   "stats": "Stats",
-  "environmentalStatus": "Environmental status",
-  "updatedToday": "Updated today",
-  "quickActions": "Quick actions",
+  "environmentalStatus": {
+    "title": "Environmental Status",
+    "updatedToday": "Updated today",
+    "greenAreas": "Green areas",
+    "growthThisMonth": "{{value}} this month",
+    "recycling": "Recycling",
+    "monthlyRate": "Monthly rate",
+    "water": "Water",
+    "waterQuality": "Quality: {{value}}",
+    "waterQualityValue": "Excellent",
+    "air": "Air",
+    "airQuality": "PM 2.5: {{value}}",
+    "airQualityValue": "Good"
+  },
   "communityImpact": "Community impact",
   "solved": "Solved",
   "successRate": "Success rate",
@@ -92,5 +103,16 @@
     "title": "Image source",
     "camera": "Camera",
     "gallery": "Gallery"
-  }
+  },
+  "statsByMonth": "Open and closed reports by month",
+  "open": "Open",
+  "closed": "Closed",
+  "changeLanguage": "Change language",
+  "quickActions": {
+    "title": "Quick Actions",
+    "addReport": "Add Report",
+    "calendar": "Calendar",
+    "analysis": "Analysis"
+  },
+  "selectLanguage": "Select Language"
 }

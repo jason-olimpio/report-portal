@@ -5,9 +5,20 @@
   "recentReports": "Segnalazioni recenti",
   "viewAll": "Vedi tutte",
   "stats": "Statistiche",
-  "environmentalStatus": "Stato ambientale",
-  "updatedToday": "Aggiornato oggi",
-  "quickActions": "Azioni rapide",
+  "environmentalStatus": {
+    "title": "Stato Ambientale",
+    "updatedToday": "Aggiornato oggi",
+    "greenAreas": "Zone verdi",
+    "growthThisMonth": "{{value}} questo mese",
+    "recycling": "Riciclo",
+    "monthlyRate": "Tasso mensile",
+    "water": "Acqua",
+    "waterQuality": "Qualità: {{value}}",
+    "waterQualityValue": "Ottima",
+    "air": "Aria",
+    "airQuality": "PM 2.5: {{value}}",
+    "airQualityValue": "Buona"
+  },
   "communityImpact": "Impatto della Comunità",
   "solved": "Risolte",
   "successRate": "Tasso di successo",
@@ -92,5 +103,16 @@
     "title": "Fonte dell'immagine",
     "camera": "Fotocamera",
     "gallery": "Galleria"
-  }
+  },
+  "statsByMonth": "Report aperti e chiusi per mese",
+  "open": "Aperte",
+  "closed": "Chiuse",
+  "changeLanguage": "Cambia lingua",
+  "quickActions": {
+    "title": "Azioni rapide",
+    "addReport": "Agg. segnalazione",
+    "calendar": "Calendario",
+    "analysis": "Analisi"
+  },
+  "selectLanguage": "Seleziona lingua"
 }
