@@ -10,13 +10,23 @@ type LanguagePickerProps = {
   onClose: () => void;
 }
 
+type Language = {
+  code: string;
+  label: string;
+  iconColor: string;
+};
+
+const languages: Language[] = [
+  { code: 'en', label: 'English', iconColor: appColors.system.red[600] },
+  { code: 'it', label: 'Italiano', iconColor: appColors.system.emerald[600] },
+];
+
 const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
   const {t, i18n} = useTranslation();
 
   const handleSwitch = async (language: string) => {
-      await i18n.changeLanguage(language);
-
-      onClose();
+    await i18n.changeLanguage(language);
+    onClose();
   };
 
   return (
@@ -34,23 +44,17 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
                 {t('selectLanguage')}
               </Text>
 
-              <TouchableOpacity
-                className="flex-row items-center mb-3"
-                onPress={() => handleSwitch('en')}
-              >
-                <MaterialIcons name="flag" size={20} color={appColors.system.red[600]} style={{marginRight: 6}} />
+              {languages.map(({ code, label, iconColor }) => (
+                <TouchableOpacity
+                  key={code}
+                  className="flex-row items-center mb-3"
+                  onPress={() => handleSwitch(code)}
+                >
+                  <MaterialIcons name="flag" size={20} color={iconColor} style={{marginRight: 6}} />
 
-                <Text className="text-base font-titillium-semibold">English</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                className="flex-row items-center"
-                onPress={() => handleSwitch('it')}
-              >
-                <MaterialIcons name="flag" size={20} color={appColors.system.emerald[600]} style={{marginRight: 6}} />
-
-                <Text className="text-base font-titillium-semibold">Italiano</Text>
-              </TouchableOpacity>
+                  <Text className="text-base font-titillium-semibold">{label}</Text>
+                </TouchableOpacity>
+              ))}
 
               <TouchableOpacity
                 className="mt-6 items-center"
