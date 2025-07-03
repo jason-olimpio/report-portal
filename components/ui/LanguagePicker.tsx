@@ -26,6 +26,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
 
   const handleSwitch = async (language: string) => {
     await i18n.changeLanguage(language);
+
     onClose();
   };
 
