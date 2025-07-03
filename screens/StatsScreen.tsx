@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Text, ScrollView, Dimensions} from 'react-native';
 import {BarChart} from 'react-native-chart-kit';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +7,20 @@ import {reportData} from '@store';
 
 import {appColors} from "@config";
 import {getMonthlyReportStats} from '@utils';
+
+const chartConfigBase = {
+  backgroundColor: 'white',
+  backgroundGradientFrom: 'white',
+  backgroundGradientTo: 'white',
+  decimalPlaces: 0,
+  barPercentage: 0.5,
+};
+
+type ChartSection = {
+    label: string;
+    data: number[];
+    color: string;
+};
 
 const StatsScreen = () => {
   const { t } = useTranslation();
@@ -20,79 +34,53 @@ const StatsScreen = () => {
 
   const getMonthLabel = (number?: number) => {
     if (!number) return '';
-
     const key = monthKeys[number - 1];
-
     return t(`months.${key}`);
-  }
+  };
 
   const monthLabels = monthNumbers.map(getMonthLabel);
+
+  const renderBarChart = (data: number[], color: string) => (
+    <BarChart
+      data={{
+        labels: monthLabels,
+        datasets: [
+          { data },
+        ],
+      }}
+      width={screenWidth}
+      height={240}
+      yAxisLabel=""
+      yAxisSuffix=""
+      yLabelsOffset={40}
+      chartConfig={{
+        ...chartConfigBase,
+        color: () => color,
+      }}
+      fromZero
+      showBarTops
+      showValuesOnTopOfBars
+      withHorizontalLabels
+      style={{borderRadius: 16, paddingTop: 24}}
+    />
+  );
+
+  const chartSections: ChartSection[] = [
+    { label: t('open'), data: open, color: appColors.system.emerald[600] },
+    { label: t('closed'), data: closed, color: appColors.system.teal[600] },
+  ];
 
   return (
     <ScrollView className="flex-1 p-8">
       <Text className="text-xl font-titillium-bold mb-4">{t('statsByMonth')}</Text>
 
-      <Text className="font-titillium-semibold mt-2">{t('open')}</Text>
+      {chartSections.map(({ label, data, color }, idx) => (
+        <Fragment key={label}>
+          <Text className={`font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>{label}</Text>
 
-      <BarChart
-        data={{
-          labels: monthLabels,
-          datasets: [
-            {
-              data: open,
-            },
-          ],
-        }}
-        width={screenWidth}
-        height={240}
-        yAxisLabel=""
-        yAxisSuffix=""
-        yLabelsOffset={40}
-        chartConfig={{
-          backgroundColor: 'white',
-          backgroundGradientFrom: 'white',
-          backgroundGradientTo: 'white',
-          decimalPlaces: 0,
-          color: () => appColors.system.emerald[600],
-          barPercentage: 0.5,
-        }}
-        fromZero
-        showBarTops
-        showValuesOnTopOfBars
-        withHorizontalLabels
-        style={{borderRadius: 16, paddingTop: 24}}
-      />
-
-      <Text className="font-titillium-semibold mt-6">{t('closed')}</Text>
-
-      <BarChart
-        data={{
-          labels: monthLabels,
-          datasets: [
-            {
-              data: closed,
-            },
-          ],
-        }}
-        width={screenWidth}
-        height={240}
-        yAxisLabel=""
-        yAxisSuffix=""
-        yLabelsOffset={40}
-        chartConfig={{
-          backgroundColor: 'white',
-          backgroundGradientFrom: 'white',
-          backgroundGradientTo: 'white',
-          decimalPlaces: 0,
-          color: () => appColors.system.teal[600],
-          barPercentage: 0.5,
-        }}
-        fromZero
-        showBarTops
-        showValuesOnTopOfBars
-        withHorizontalLabels
-        style={{borderRadius: 16, paddingTop: 24}}
-      />
+          {renderBarChart(data, color)}
+        </Fragment>
+      ))}
     </ScrollView>
   );
 };
