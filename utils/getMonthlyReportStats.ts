@@ -11,7 +11,9 @@ const getMonthlyReportStats = (reports: Report[]) => {
 
     const entry = stats.get(key);
 
-    if (!entry) {continue;}
+    if (!entry) {
+      continue;
+    }
 
     const isClosed = report.status === StatusOption.Completed;
     const isOpen = report.status === StatusOption.Pending || report.status === StatusOption.Working;
