@@ -46,7 +46,8 @@ export const FormHandler = <T extends Record<string, any>>({
     };
 
     const validate = (field: keyof T, value: any) => {
-        const validationResult = schema.safeParse({...form, [field]: value});
+        const updatedForm = {...form, [field]: value};
+        const validationResult = schema.safeParse(updatedForm);
 
         if (validationResult.success) {
             setErrors(currentErrors => ({...currentErrors, [field]: undefined}));
@@ -82,6 +83,8 @@ export const FormHandler = <T extends Record<string, any>>({
         }, {} as Partial<Record<keyof T, boolean>>);
 
         setTouched(allTouched);
+
+        setForm(currentForm => ({...currentForm}));
 
         const validationResult = schema.safeParse(form);
 
@@ -124,12 +127,9 @@ export const FormHandler = <T extends Record<string, any>>({
                     key={fieldKey as string}
                     {...fieldProps}
                     imageUris={form[IMAGE_FIELD_KEY as keyof T] as string[] | undefined}
-                    onImagesSelected={(uris: string[]) => setForm(currentForm => ({
-                        ...currentForm,
-                        [IMAGE_FIELD_KEY]: uris,
-                    }))}
+                    onImagesSelected={(uris: string[]) => handleChange(IMAGE_FIELD_KEY as keyof T, uris)}
                     onLocationCaptured={(location) => {
-                        setForm(currentForm => ({...currentForm, [LOCATION_FIELD_KEY]: location}));
+                        handleChange(LOCATION_FIELD_KEY as keyof T, location);
                     }}
                     maxImages={field.maxImages}
                 />
@@ -137,11 +137,13 @@ export const FormHandler = <T extends Record<string, any>>({
         }
 
         if (field.isLocation) {
+            const locationData = form[LOCATION_FIELD_KEY as keyof T] as { latitude: number; longitude: number } | undefined;
+
             return (
                 <LocationField
                     key={fieldKey as string}
                     {...fieldProps}
-                    location={form[LOCATION_FIELD_KEY as keyof T]}
+                    location={locationData}
                 />
             );
         }

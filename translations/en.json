@@ -120,5 +120,6 @@
     "selectLanguage": "Select language",
     "location": "Location",
     "latitude": "Latitude",
-    "longitude": "Longitude"
+    "longitude": "Longitude",
+    "locationNotCaptured": "Location not captured"
 }
