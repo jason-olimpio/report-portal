@@ -36,7 +36,7 @@ const ImageSliderField = ({ label, imageUris = [], error, onImagesSelected, onLo
 
     const selectedUris = response.assets?.map(asset => asset.uri).filter(Boolean) as string[] || [];
 
-    if (selectedUris.length < 0) return;
+    if (selectedUris.length < 0) {return;}
 
     const newUris = [...imageUris, ...selectedUris].slice(0, maxImages);
 
@@ -56,8 +56,8 @@ const ImageSliderField = ({ label, imageUris = [], error, onImagesSelected, onLo
             const { latitude, longitude } = position.coords;
             onLocationCaptured?.({ latitude, longitude });
           },
-          (error) => {
-            console.log('Location error:', error);
+          (locationError) => {
+            console.log('Location error:', locationError);
 
             Alert.alert(t('errors.locationError'));
           },
@@ -107,7 +107,6 @@ const ImageSliderField = ({ label, imageUris = [], error, onImagesSelected, onLo
                   source={{ uri }}
                   className="h-32 w-32 rounded-xl shadow-lg"
                   resizeMode="cover"
-                  style={{ width: 128, height: 128 }}
                   accessibilityLabel={label}
                 />
 

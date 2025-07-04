@@ -31,7 +31,7 @@ export const FormHandler = <T extends Record<string, any>>({
                                                                initialState,
                                                                fields,
                                                                onSave,
-                                                               className
+                                                               className,
                                                            }: FormHandlerProps<T>) => {
     const {t} = useTranslation();
     const [form, setForm] = useState<T>(initialState);
@@ -126,7 +126,7 @@ export const FormHandler = <T extends Record<string, any>>({
                     imageUris={form[IMAGE_FIELD_KEY as keyof T] as string[] | undefined}
                     onImagesSelected={(uris: string[]) => setForm(currentForm => ({
                         ...currentForm,
-                        [IMAGE_FIELD_KEY]: uris
+                        [IMAGE_FIELD_KEY]: uris,
                     }))}
                     onLocationCaptured={(location) => {
                         setForm(currentForm => ({...currentForm, [LOCATION_FIELD_KEY]: location}));
