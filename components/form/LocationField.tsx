@@ -35,7 +35,7 @@ const LocationField = ({ label, location, error }: LocationFieldProps) => {
         )}
       </View>
 
-      {error && <Text className="text-red-500 mt-3 text-sm font-medium">{error}</Text>}
+      {error && <Text className="text-red-500 mt-3 text-sm">{error}</Text>}
     </View>
   );
 };
