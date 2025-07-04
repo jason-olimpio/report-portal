@@ -12,7 +12,6 @@ const LocationField = ({ label, location, error }: LocationFieldProps) => {
 
   const hasLocation = location && (location.latitude !== 0 || location.longitude !== 0);
 
-  console.log('boia d')
   return (
     <View className="mb-6">
       <Text className="mb-3 font-titillium-semibold" accessibilityLabel={label}>{label}</Text>
@@ -29,7 +28,7 @@ const LocationField = ({ label, location, error }: LocationFieldProps) => {
             </Text>
           </>
         ) : (
-          <Text className="text-neutral-100 text-sm italic">
+          <Text className="text-neutral-500 text-sm italic">
             {t('locationNotCaptured')}
           </Text>
         )}
