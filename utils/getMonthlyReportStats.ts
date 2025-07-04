@@ -7,7 +7,9 @@ const getMonthlyReportStats = (reports: Report[]) => {
     const date = new Date(report.date);
     const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
 
-    if (!stats.has(key)) {stats.set(key, { open: 0, closed: 0 });}
+    if (!stats.has(key)) {
+      stats.set(key, { open: 0, closed: 0 });
+    }
 
     const entry = stats.get(key);
 
