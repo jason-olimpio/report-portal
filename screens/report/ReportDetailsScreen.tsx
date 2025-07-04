@@ -8,8 +8,9 @@ import {format} from 'date-fns';
 import {reportData} from '@store';
 import {ReportStatusBadge, RootStackParamList} from '@components';
 
-import {getLocaleForDateFns} from '@utils';
 import {appColors} from '@config';
+
+import {getLocaleForDateFns} from '@utils';
 
 type ReportDetailsScreenRouteProp = RouteProp<RootStackParamList, 'ReportDetails'>;
 type ReportDetailsScreenNavigationProp = StackNavigationProp<RootStackParamList>;

@@ -7,11 +7,11 @@ const getMonthlyReportStats = (reports: Report[]) => {
     const date = new Date(report.date);
     const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
 
-    if (!stats.has(key)) stats.set(key, { open: 0, closed: 0 });
+    if (!stats.has(key)) {stats.set(key, { open: 0, closed: 0 });}
 
     const entry = stats.get(key);
 
-    if (!entry) continue;
+    if (!entry) {continue;}
 
     const isClosed = report.status === StatusOption.Completed;
     const isOpen = report.status === StatusOption.Pending || report.status === StatusOption.Working;
@@ -33,6 +33,6 @@ const getMonthlyReportStats = (reports: Report[]) => {
     closed: sortedKeys.map(key => stats.get(key)?.closed ?? 0),
     monthNumbers,
   };
-}
+};
 
 export default getMonthlyReportStats;

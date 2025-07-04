@@ -8,6 +8,7 @@ type IconActionButtonProps = {
   title: string;
   bgColorClass: string;
   onPress: () => void;
+  className?: string;
 };
 
 const IconActionButton = ({
@@ -16,9 +17,9 @@ const IconActionButton = ({
   title,
   bgColorClass,
   onPress,
-}: IconActionButtonProps) => {
-  return (
-    <View className="flex-1 items-center">
+  className,
+}: IconActionButtonProps) => (
+    <View className={`flex-1 items-center ${className || ''}`}>
       <TouchableOpacity
         onPress={onPress}
         className={`p-5 rounded-full ${bgColorClass}`}
@@ -33,6 +34,5 @@ const IconActionButton = ({
       <Text className="text-sm mt-1">{title}</Text>
     </View>
   );
-};
 
 export default IconActionButton;

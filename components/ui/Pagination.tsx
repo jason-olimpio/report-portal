@@ -76,7 +76,7 @@ const Pagination = ({
                     <Fragment key={index}>
                         {page === '...' ? (
                             <View className="mx-1">
-                                <MaterialIcons name='more-horiz' size={15} />
+                                <MaterialIcons name="more-horiz" size={15} />
                             </View>
                         ) : (
                             <TouchableOpacity

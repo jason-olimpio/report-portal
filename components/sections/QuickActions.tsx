@@ -4,13 +4,13 @@ import {useTranslation} from 'react-i18next';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {BottomTabNavigationProp} from "@react-navigation/bottom-tabs";
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
 import {IconActionButton, type RootStackParamList, TabsParamList} from '@components';
 
 import {appColors} from '@config';
 
-type QuickAction = {
+export type QuickAction = {
   icon: ComponentProps<typeof MaterialIcons>['name'];
   iconColor: string;
   title: string;
@@ -23,7 +23,7 @@ type NavigationProps = CompositeNavigationProp<
     BottomTabNavigationProp<TabsParamList>
 >;
 
-const QuickActions = () => {
+export const QuickActions = () => {
   const {t} = useTranslation();
   const navigation = useNavigation<NavigationProps>();
 
@@ -72,5 +72,3 @@ const QuickActions = () => {
     </>
   );
 };
-
-export default QuickActions;

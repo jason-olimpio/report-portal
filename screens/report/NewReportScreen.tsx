@@ -4,36 +4,42 @@ import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
-import {ValidatedForm, FieldConfig} from '@components';
+import {FormHandler, FieldConfig} from '@components';
 
 const NewReportScreen = () => {
     const {t} = useTranslation();
     const navigation = useNavigation();
 
-    const reportSchema = z.object({
+    const schema = z.object({
         title: z.string().min(3, {message: t('errors.titleTooShort')}),
         description: z.string().min(10, {message: t('errors.descriptionTooShort')}),
-        image: z.string().min(1, {message: t('errors.imageRequired')}),
+        image: z.array(z.string()).min(1, {message: t('errors.imageRequired')}),
+        location: z.object({
+            latitude: z.number(),
+            longitude: z.number(),
+        }).refine(location => location.latitude && location.longitude, {message: t('errors.locationRequired')}),
     });
 
-    const initialState: z.infer<typeof reportSchema> = {
+    const initialState: z.infer<typeof schema> = {
         title: '',
         description: '',
-        image: '',
+        image: [],
+        location: { latitude: 0, longitude: 0 },
     };
 
     const fields: FieldConfig[] = [
-        {key: 'image', label: t('image'), isImage: true},
+        {key: 'image', label: t('image'), isImageSlider: true, maxImages: 5},
         {key: 'title', label: t('title')},
         {
             key: 'description',
             label: t('description'),
             inputProps: {multiline: true, style: {minHeight: 80}},
         },
+        {key: 'location', label: t('location'), isLocation: true},
     ];
 
     return (
-        <View className="flex-1 bg-white">
+        <View className="flex-1 bg-gray-100">
             <TouchableOpacity
                 onPress={navigation.goBack}
                 className="mt-4 ml-4 mb-2 self-start px-4 py-2 flex-row items-center">
@@ -42,8 +48,8 @@ const NewReportScreen = () => {
                 <Text className="ml-1">{t('back')}</Text>
             </TouchableOpacity>
 
-            <ValidatedForm
-                schema={reportSchema}
+            <FormHandler
+                schema={schema}
                 initialState={initialState}
                 fields={fields}
                 onSave={async () => Alert.alert(t('reportSaved'))}

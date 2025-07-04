@@ -51,7 +51,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
                   className="flex-row items-center mb-3"
                   onPress={() => handleSwitch(code)}
                 >
-                  <MaterialIcons name="flag" size={20} color={iconColor} style={{marginRight: 6}} />
+                  <MaterialIcons name="emoji-flags" size={20} color={iconColor} style={styles.icon} />
 
                   <Text className="text-base font-titillium-semibold">{label}</Text>
                 </TouchableOpacity>
@@ -69,6 +69,10 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
       </TouchableWithoutFeedback>
     </Modal>
   );
+};
+
+const styles = {
+  icon: { marginRight: 6 },
 };
 
 export default LanguagePicker;

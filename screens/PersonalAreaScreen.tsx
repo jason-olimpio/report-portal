@@ -4,10 +4,10 @@ import {Pressable} from 'react-native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {z} from 'zod';
 
-import {ValidatedForm, FieldConfig, LanguagePicker} from '@components';
+import {FormHandler, FieldConfig, LanguagePicker} from '@components';
 
 import {appColors} from '@config';
-import {useState} from "react";
+import {useState} from 'react';
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation();
@@ -20,7 +20,7 @@ const PersonalAreaScreen = () => {
       email: z.string().email(t('errors.emailInvalid')),
       currentPassword: z.string().min(6, t('errors.currentPasswordRequired')),
       confirmPassword: z.string().min(6, t('errors.confirmPasswordRequired')),
-      image: z.string().optional(),
+      image: z.array(z.string()).optional(),
     })
     .refine(data => data.currentPassword === data.confirmPassword, {
       message: t('errors.passwordsMustMatch'),
@@ -36,7 +36,7 @@ const PersonalAreaScreen = () => {
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: t('image'), isImage: true},
+    {key: 'image', label: t('image'), isImageSlider: true, maxImages: 1},
     {key: 'name', label: t('name')},
     {
       key: 'email',
@@ -74,11 +74,12 @@ const PersonalAreaScreen = () => {
 
       <LanguagePicker visible={languagePickerVisible} onClose={() => setLanguagePickerVisible(false)} />
 
-      <ValidatedForm
+      <FormHandler
         schema={schema}
         initialState={initialState}
         fields={fields}
         onSave={async () => Alert.alert('Saved!')}
+        className="bg-white"
       />
     </ScrollView>
   );

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import {reportData} from '@store';
 
-import {appColors} from "@config";
+import {appColors} from '@config';
 import {getMonthlyReportStats} from '@utils';
 
 const chartConfigBase = {
@@ -29,11 +29,11 @@ const StatsScreen = () => {
 
   const monthKeys = [
     'january', 'february', 'march', 'april', 'may', 'june',
-    'july', 'august', 'september', 'october', 'november', 'december'
+    'july', 'august', 'september', 'october', 'november', 'december',
   ];
 
   const getMonthLabel = (number?: number) => {
-    if (!number) return '';
+    if (!number) {return '';}
 
     const key = monthKeys[number - 1];
 
@@ -63,7 +63,7 @@ const StatsScreen = () => {
       showBarTops
       showValuesOnTopOfBars
       withHorizontalLabels
-      style={{borderRadius: 16, paddingTop: 24}}
+      style={styles.chart}
     />
   );
 
@@ -88,3 +88,7 @@ const StatsScreen = () => {
 };
 
 export default StatsScreen;
+
+const styles = {
+  chart: { borderRadius: 16, paddingTop: 24 },
+};

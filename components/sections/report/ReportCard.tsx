@@ -42,7 +42,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
           <Image source={image} className="w-16 h-16 mr-4 rounded-full shadow-lg" />
 
           <View>
-            <Text className='font-titillium-semibold'>{title}</Text>
+            <Text className="font-titillium-semibold">{title}</Text>
 
             <View className="flex-row items-center flex-wrap">
               <MaterialIcons
