@@ -121,5 +121,6 @@
     "location": "Location",
     "latitude": "Latitude",
     "longitude": "Longitude",
-    "locationNotCaptured": "Location not captured"
+    "locationNotCaptured": "Location not captured",
+    "coordinates": "Coordinates"
 }

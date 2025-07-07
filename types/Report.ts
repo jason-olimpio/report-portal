@@ -8,6 +8,10 @@ type Report = {
   title: string;
   description: string;
   address: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
   date: Date;
   status: StatusOption;
   priority: PriorityOption;

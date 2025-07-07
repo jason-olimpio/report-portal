@@ -1,7 +1,5 @@
 import './global.css';
 
-import React from 'react';
-
 import {NavigationContainer} from '@react-navigation/native';
 
 import './i18n';

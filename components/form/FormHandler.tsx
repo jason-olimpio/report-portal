@@ -128,9 +128,9 @@ export const FormHandler = <T extends Record<string, any>>({
                     {...fieldProps}
                     imageUris={form[IMAGE_FIELD_KEY as keyof T] as string[] | undefined}
                     onImagesSelected={(uris: string[]) => handleChange(IMAGE_FIELD_KEY as keyof T, uris)}
-                    onLocationCaptured={(location) => {
-                        handleChange(LOCATION_FIELD_KEY as keyof T, location);
-                    }}
+                    onLocationCaptured={
+                        (location) => handleChange(LOCATION_FIELD_KEY as keyof T, location) 
+                    }
                     maxImages={field.maxImages}
                 />
             );

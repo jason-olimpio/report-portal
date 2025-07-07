@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import { ComponentProps } from 'react';
 import {View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';

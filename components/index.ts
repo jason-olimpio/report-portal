@@ -5,3 +5,4 @@ export * from './ui';
 export * from './form';
 
 export {default as SpeedDial} from './SpeedDial';
+
