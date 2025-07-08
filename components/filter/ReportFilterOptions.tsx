@@ -58,7 +58,7 @@ const ReportFilterOptions = ({
 
   return (
     <ScrollView>
-      <Text className="font-titillium-bold mb-4 text-white">{t('filterByStatus')}</Text>
+      <Text className="font-titillium-bold mb-4 dark:text-white">{t('filterByStatus')}</Text>
 
       {STATUS_OPTIONS.map(status => (
         <TouchableOpacity
