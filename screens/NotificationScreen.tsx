@@ -23,7 +23,7 @@ const NotificationScreen = () => {
 		const timeAgo = getTimeAgo(date, i18n.language, t);
 
 		return (
-			<View className="flex-row dark:bg-background-secondaryDark items-center py-3 px-4">
+			<View className="flex-row bg-background-secondaryLight dark:bg-background-secondaryDark items-center py-3 px-4">
 				<View className="flex-1">
 					<Text className="text-lg font-titillium-bold text-gray-900 dark:text-white">{title}</Text>
 
