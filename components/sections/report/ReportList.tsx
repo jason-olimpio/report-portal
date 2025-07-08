@@ -14,7 +14,7 @@ const ReportList = ({reports}: ReportListProps) => {
 
   if (reports.length === 0) {
     return (
-      <Text className="text-center mt-5 text-base text-gray-500">
+      <Text className="text-center mt-5 text-base text-gray-500 dark:text-gray-200">
         {t('noReportFound')}
       </Text>
     );

@@ -58,27 +58,27 @@ const ReportFilterOptions = ({
 
   return (
     <ScrollView>
-      <Text className="font-titillium-bold mb-4">{t('filterByStatus')}</Text>
+      <Text className="font-titillium-bold mb-4 text-white">{t('filterByStatus')}</Text>
 
       {STATUS_OPTIONS.map(status => (
         <TouchableOpacity
           key={status}
           onPress={() => toggleStatus(status)}
           className={`py-3 px-4 rounded-full ${
-            selectedStatus === status && 'bg-gray-200'
+            selectedStatus === status && 'bg-gray-200 dark:bg-gray-700'
           }`}>
-          <Text>
+          <Text className='dark:text-white'>
             {status === StatusOption.All ? t('all') : getStatusLabel(status, t)}
           </Text>
         </TouchableOpacity>
       ))}
 
-      <Text className="font-bold mt-6 mb-4">{t('filterByDate')}</Text>
+      <Text className="font-bold mt-6 mb-4 dark:text-white">{t('filterByDate')}</Text>
 
       <TouchableOpacity
         onPress={toggleDatePicker}
-        className=" bg-gray-100 rounded-lg p-4 flex-row items-center justify-between">
-        <Text>{getDateRangeText()}</Text>
+        className=" bg-gray-200 dark:bg-gray-700 rounded-lg p-4 flex-row items-center justify-between">
+        <Text className='dark:text-white'>{getDateRangeText()}</Text>
 
         {hasSelectedDate && (
           <TouchableOpacity onPress={resetDateRange} className="ml-2">
@@ -91,13 +91,13 @@ const ReportFilterOptions = ({
         <TouchableOpacity
           onPress={resetFilters}
           className="px-4 py-2 rounded-lg">
-          <Text className="text-base font-titillium-semibold text-system-red-600">
+          <Text className="text-base font-titillium-semibold text-system-red-600-light dark:text-system-red-600-dark">
             {t('resetFilters')}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => toggleModal(false)} className="px-4 py-2">
-          <Text className="text-base font-titillium-semibold text-system-teal-600">
+          <Text className="text-base font-titillium-semibold text-system-teal-600-light dark:text-system-teal-600-dark">
             {t('close')}
           </Text>
         </TouchableOpacity>

@@ -3,6 +3,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 import {useTranslation} from 'react-i18next';
 
+import { useTheme } from '@hooks';
 import {appColors} from '@config';
 
 type DateRangeSelectorProps = {
@@ -16,6 +17,7 @@ const DateRangeSelector = ({
   setDateRange,
   toggleDatePicker,
 }: DateRangeSelectorProps) => {
+  const {isDark} = useTheme();
   const {t} = useTranslation();
 
   const [tempDateRange, setTempDateRange] = useState(dateRange);
@@ -59,7 +61,7 @@ const DateRangeSelector = ({
 
   return (
     <>
-      <Text className="text-lg font-titillium-semibold mb-6">
+      <Text className="text-lg font-titillium-semibold mb-6 dark:text-white">
         {t('selectDateRange')}
       </Text>
 
@@ -68,14 +70,30 @@ const DateRangeSelector = ({
           allowRangeSelection={true}
           minDate={new Date(2020, 1, 1)}
           maxDate={new Date()}
-          todayBackgroundColor={appColors.primary}
-          selectedDayColor={appColors.primary}
+          todayBackgroundColor={isDark ? appColors.primary.light : appColors.primary.dark}
+          selectedDayColor={isDark ? appColors.primary.light : appColors.primary.dark}
           selectedDayTextColor="#FFFFFF"
-          onDateChange={handleDateChange}
+          textStyle={{
+            color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+          }}
+          dayShape="circle"
+          monthTitleStyle={{
+            color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+          }}
+          yearTitleStyle={{
+            color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+          }}
+          previousTitleStyle={{
+            color: isDark ? appColors.primary.light : appColors.primary.dark,
+          }}
+          nextTitleStyle={{
+            color: isDark ? appColors.primary.light : appColors.primary.dark,
+          }}
           weekdays={weekdays}
           months={months}
           previousTitle={t('previous')}
           nextTitle={t('next')}
+          onDateChange={handleDateChange}
           selectedStartDate={tempDateRange.start as DateParsable}
           selectedEndDate={tempDateRange.end as DateParsable}
           width={350}
@@ -89,7 +107,7 @@ const DateRangeSelector = ({
         </TouchableOpacity>
 
         <TouchableOpacity onPress={confirmDateRange}>
-          <Text className="mr-4 text-medium text-primary">{t('confirm')}</Text>
+          <Text className="mr-4 text-medium text-primary-dark dark:text-primary-light">{t('confirm')}</Text>
         </TouchableOpacity>
       </View>
     </>

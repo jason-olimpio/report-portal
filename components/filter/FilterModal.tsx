@@ -36,7 +36,7 @@ const FilterModal = ({
         className="flex-1 bg-black/40 justify-center px-8"
         onPress={() => toggleModal(false)}>
         <Pressable
-          className="bg-white rounded-xl p-6 shadow-lg"
+          className="bg-background-light dark:bg-background-dark rounded-xl p-6 shadow-lg"
           onPress={event => event.stopPropagation()}>
           {!showDatePicker ? (
             <ReportFilterOptions
