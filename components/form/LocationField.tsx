@@ -14,21 +14,21 @@ const LocationField = ({ label, location, error }: LocationFieldProps) => {
 
   return (
     <View className="mb-6">
-      <Text className="mb-3 font-titillium-semibold" accessibilityLabel={label}>{label}</Text>
+      <Text className="mb-3 font-titillium-semibold dark:text-white" accessibilityLabel={label}>{label}</Text>
 
-      <View className="p-4 rounded-2xl border border-neutral-200 bg-white shadow-sm">
+      <View className="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-background-secondaryDark shadow-sm">
         {hasLocation ? (
           <>
-            <Text className="text-neutral-500 text-sm">
+            <Text className="text-neutral-500 dark:text-neutral-300 text-sm">
               {t('latitude')}: {location.latitude.toFixed(6)}
             </Text>
 
-            <Text className="text-neutral-500 text-sm">
+            <Text className="text-neutral-500 dark:text-neutral-300 text-sm">
               {t('longitude')}: {location.longitude.toFixed(6)}
             </Text>
           </>
         ) : (
-          <Text className="text-neutral-500 text-sm italic">
+          <Text className="text-neutral-500 dark:text-neutral-300 text-sm italic">
             {t('locationNotCaptured')}
           </Text>
         )}

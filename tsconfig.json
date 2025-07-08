@@ -11,6 +11,8 @@
       "@translations": ["translations/index"],
       "@utils": ["utils/index"],
       "@store": ["store/index"],
+      "@contexts": ["contexts/index"],
+      "@hooks": ["hooks/index"]
     }
   }
 }

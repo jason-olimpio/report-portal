@@ -26,7 +26,7 @@ const getMonthlyReportStats = (reports: Report[]) => {
 
   const sortedKeys = Array.from(stats.keys()).sort();
 
-  const monthNumbers = sortedKeys.map(key => {
+  const months = sortedKeys.map(key => {
     const parts = key.split('-');
 
     return parts.length > 1 ? parseInt(parts[1], 10) : undefined;
@@ -35,7 +35,7 @@ const getMonthlyReportStats = (reports: Report[]) => {
   return {
     open: sortedKeys.map(key => stats.get(key)?.open ?? 0),
     closed: sortedKeys.map(key => stats.get(key)?.closed ?? 0),
-    monthNumbers,
+    months,
   };
 };
 

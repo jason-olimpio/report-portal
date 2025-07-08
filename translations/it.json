@@ -122,5 +122,7 @@
     "latitude": "Latitudine",
     "longitude": "Longitudine",
     "locationNotCaptured": "Posizione non catturata",
-    "coordinates": "Coordinate"
+    "coordinates": "Coordinate",
+    "switchToDarkMode": "Passa alla modalità scura",
+    "switchToLightMode": "Passa alla modalità chiara"
 }

@@ -15,10 +15,10 @@ const SectionHeader = ({
   className = '',
 }: SectionHeaderProps) => (
   <View className={`flex-row justify-between items-center ${className}`}>
-    <Text className="text-xl font-titillium-light">{title}</Text>
+    <Text className="text-xl font-titillium-light dark:text-white">{title}</Text>
 
     <TouchableOpacity onPress={onPress}>
-      <Text className="text-sm text-primary">{action}</Text>
+      <Text className="text-sm text-primary-light dark:text-white">{action}</Text>
     </TouchableOpacity>
   </View>
 );

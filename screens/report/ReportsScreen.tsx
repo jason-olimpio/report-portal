@@ -4,7 +4,7 @@ import {AllReportsWithFilter} from '@components';
 
 const ReportsScreen = () => {
   return (
-    <ScrollView className="flex-1 p-8">
+    <ScrollView className="flex-1 dark:bg-background-dark p-8">
       <AllReportsWithFilter />
     </ScrollView>
   );

@@ -1,4 +1,4 @@
-import {Text, ScrollView} from 'react-native';
+import {Text, ScrollView, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {
@@ -6,7 +6,6 @@ import {
   EnvironmentalStatusSection,
   QuickActions,
   RecentReports,
-  SpeedDial,
 } from '@components';
 
 const HomeScreen = () => {
@@ -23,8 +22,8 @@ const HomeScreen = () => {
 
   return (
     <>
-      <ScrollView className="px-8">
-        <Text className="text-neutral-gray-500 text-center font-titillium-light text-sm mt-4 mb-6">
+      <ScrollView className="flex-1 bg-background-light dark:bg-background-dark px-8">
+        <Text className="text-neutral-gray-500 dark:text-white text-center font-titillium-light text-sm mt-4 mb-6">
           {formattedDate}
         </Text>
 
@@ -40,8 +39,6 @@ const HomeScreen = () => {
           successRate={70}
         />
       </ScrollView>
-
-      <SpeedDial />
     </>
   );
 };

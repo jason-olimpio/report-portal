@@ -3,5 +3,4 @@ export { default as PersonalAreaScreen } from './PersonalAreaScreen';
 export { default as StatsScreen } from './StatsScreen';
 export { default as NotificationScreen } from './NotificationScreen';
 
-
 export * from './report';

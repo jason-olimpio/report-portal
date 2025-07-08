@@ -4,9 +4,10 @@ import {BarChart} from 'react-native-chart-kit';
 import { useTranslation } from 'react-i18next';
 
 import {reportData} from '@store';
+import {useTheme} from '@hooks';
 
 import {appColors} from '@config';
-import {getMonthlyReportStats} from '@utils';
+import {getMonthLabel, getMonthlyReportStats} from '@utils';
 
 const chartConfigBase = {
   backgroundColor: 'white',
@@ -24,23 +25,13 @@ type ChartSection = {
 
 const StatsScreen = () => {
   const { t } = useTranslation();
-  const {open, closed, monthNumbers} = getMonthlyReportStats(reportData);
+  const {open, closed, months} = getMonthlyReportStats(reportData);
   const screenWidth = Dimensions.get('window').width - 50;
+  const {isDark} = useTheme();
 
-  const monthKeys = [
-    'january', 'february', 'march', 'april', 'may', 'june',
-    'july', 'august', 'september', 'october', 'november', 'december',
-  ];
-
-  const getMonthLabel = (number?: number) => {
-    if (!number) {return '';}
-
-    const key = monthKeys[number - 1];
-
-    return t(`months.${key}`);
-  };
-
-  const monthLabels = monthNumbers.map(getMonthLabel);
+  const monthLabels = months
+    .filter((month): month is number => month !== undefined)
+    .map(month => getMonthLabel(month, t));
 
   const renderBarChart = (data: number[], color: string) => (
     <BarChart
@@ -57,7 +48,11 @@ const StatsScreen = () => {
       yLabelsOffset={40}
       chartConfig={{
         ...chartConfigBase,
+        backgroundColor: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
+        backgroundGradientFrom: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
+        backgroundGradientTo: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
         color: () => color,
+        labelColor: () => isDark ? appColors.text.primary.dark : appColors.text.primary.light,
       }}
       fromZero
       showBarTops
@@ -68,17 +63,17 @@ const StatsScreen = () => {
   );
 
   const chartSections: ChartSection[] = [
-    { label: t('open'), data: open, color: appColors.system.emerald[600] },
-    { label: t('closed'), data: closed, color: appColors.system.teal[600] },
+    { label: t('open'), data: open, color: isDark ? appColors.system.emerald[600].dark : appColors.system.emerald[600].light },
+    { label: t('closed'), data: closed, color: isDark ? appColors.system.teal[600].dark : appColors.system.teal[600].light },
   ];
 
   return (
-    <ScrollView className="flex-1 p-8">
-      <Text className="text-xl font-titillium-bold mb-4">{t('statsByMonth')}</Text>
+    <ScrollView className="flex-1 p-8 bg-background-light dark:bg-background-dark">
+      <Text className="text-xl dark:text-white font-titillium-bold mb-4">{t('statsByMonth')}</Text>
 
       {chartSections.map(({ label, data, color }, idx) => (
         <Fragment key={label}>
-          <Text className={`font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>{label}</Text>
+          <Text className={`dark:text-white font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>{label}</Text>
 
           {renderBarChart(data, color)}
         </Fragment>

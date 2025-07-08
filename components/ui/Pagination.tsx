@@ -1,7 +1,9 @@
-import React, {Fragment} from 'react';
+import {Fragment} from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+
+import { useTheme } from '@hooks';
 
 type PaginationProps = {
     currentPage: number;
@@ -16,6 +18,7 @@ const Pagination = ({
                         onPageChange,
                         className = '',
                     }: PaginationProps) => {
+    const {isDark} = useTheme();
     const {t} = useTranslation();
 
     const getPageNumbers = () => {
@@ -68,7 +71,7 @@ const Pagination = ({
                 className={`p-2 rounded-full ${currentPage === 1 ? 'opacity-50' : ''}`}
                 accessibilityLabel={t('previous')}
             >
-                <MaterialIcons name="arrow-back-ios" size={15}/>
+                <MaterialIcons name="arrow-back-ios" size={15} color={isDark ? 'white': 'black'}/>
             </TouchableOpacity>
 
             <View className="flex flex-row items-center">
@@ -76,13 +79,13 @@ const Pagination = ({
                     <Fragment key={index}>
                         {page === '...' ? (
                             <View className="mx-1">
-                                <MaterialIcons name="more-horiz" size={15} />
+                                <MaterialIcons name="more-horiz" size={15} color={isDark ? 'white': 'black'} />
                             </View>
                         ) : (
                             <TouchableOpacity
                                 onPress={() => typeof page === 'number' && onPageChange(page)}
                                 className={`w-8 h-8 rounded-full flex items-center justify-center mx-1 ${
-                                    currentPage === page ? 'bg-primary' : 'bg-neutral-gray-100'
+                                    currentPage === page ? 'bg-primary-light dark:bg-primary-dark' : 'bg-neutral-gray-200 dark:bg-neutral-gray-400'
                                 }`}
                             >
                                 <Text
@@ -101,7 +104,7 @@ const Pagination = ({
                 className={`p-2 rounded-full ${currentPage === totalPages ? 'opacity-50' : ''}`}
                 accessibilityLabel={t('next')}
             >
-                <MaterialIcons name="arrow-forward-ios" size={15}/>
+                <MaterialIcons name="arrow-forward-ios" size={15} color={isDark ? 'white': 'black'}/>
             </TouchableOpacity>
         </View>
     );

@@ -2,17 +2,20 @@ import './global.css';
 
 import {NavigationContainer} from '@react-navigation/native';
 
+import 'react-native-gesture-handler';
+
 import './i18n';
 
-import './gesture-handler';
-
+import {ThemeProvider} from '@contexts';
 import {RootStack} from '@components';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 

@@ -160,22 +160,23 @@ export const FormHandler = <T extends Record<string, any>>({
     };
 
     return (
-        <ScrollView className={`flex-1 p-5 mb-10 rounded-lg ${className || ''}`}>
+        <ScrollView
+            className={`flex-1 p-5 mb-10 rounded-lg bg-background-secondaryLight dark:bg-background-secondaryDark ${className || ''}`}
+        >
             {fields.map(field => {
                 const fieldKey = field.key as keyof T;
-
                 return renderField(field, fieldKey);
             })}
 
             <TouchableOpacity
                 onPress={handleSave}
                 disabled={isSubmitting}
-                className="rounded-full w-full self-center items-center p-3 bg-primary"
+                className="rounded-full w-full self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
                 accessibilityLabel={t('save')}>
                 {isSubmitting ? (
                     <ActivityIndicator color="white"/>
                 ) : (
-                    <Text className="text-white font-titillium-bold">{t('save')}</Text>
+                    <Text className="font-titillium-bold text-white">{t('save')}</Text>
                 )}
             </TouchableOpacity>
         </ScrollView>

@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {ScrollView, Alert, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {Pressable} from 'react-native';
@@ -5,12 +6,13 @@ import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {z} from 'zod';
 
 import {FormHandler, FieldConfig, LanguagePicker} from '@components';
+import {useTheme} from '@hooks';
 
 import {appColors} from '@config';
-import {useState} from 'react';
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation();
+  const {isDark, toggleTheme} = useTheme();
 
   const [languagePickerVisible, setLanguagePickerVisible] = useState(false);
 
@@ -56,7 +58,7 @@ const PersonalAreaScreen = () => {
   ];
 
   return (
-    <ScrollView className="flex-1 p-8">
+    <ScrollView className="flex-1 p-8 bg-background-light dark:bg-background-dark">
       <Pressable
         onPress={() => setLanguagePickerVisible(true)}
         className="self-start flex-row items-center mb-6"
@@ -64,11 +66,25 @@ const PersonalAreaScreen = () => {
         <MaterialIcons
           name="language"
           size={20}
-          color={appColors.primary}
+          color={isDark ? appColors.primary.light : appColors.primary.dark}
         />
 
-        <Text className="text-primary font-titillium-bold ml-1">
+        <Text className="text-primary font-titillium-bold ml-1 dark:text-white">
           {t('changeLanguage')}
+        </Text>
+      </Pressable>
+
+      <Pressable
+        onPress={toggleTheme}
+        className="self-start flex-row items-center mb-6"
+      >
+        <MaterialIcons
+          name={isDark ? 'dark-mode' : 'light-mode'}
+          size={20}
+          color={isDark ? appColors.primary.light : appColors.primary.dark}
+        />
+        <Text className="text-primary font-titillium-bold ml-1 dark:text-white">
+          {isDark ? t('switchToLightMode') : t('switchToDarkMode')}
         </Text>
       </Pressable>
 

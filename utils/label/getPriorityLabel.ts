@@ -2,14 +2,14 @@ import {TFunction} from 'i18next';
 
 import {PriorityOption} from '@types';
 
-const translationKeys: Record<PriorityOption, string> = {
+const TRANSLATION_KEYS: Record<PriorityOption, string> = {
   [PriorityOption.Low]: 'priority.low',
   [PriorityOption.Medium]: 'priority.medium',
   [PriorityOption.High]: 'priority.high',
 };
 
 const getPriorityLabel = (priority: PriorityOption, t: TFunction): string | undefined => {
-  const key = translationKeys[priority];
+  const key = TRANSLATION_KEYS[priority];
 
   return t(key);
 };

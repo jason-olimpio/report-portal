@@ -28,21 +28,21 @@ const CommunityImpactSection = ({
 
   return (
     <View className="mb-6">
-      <Text className="text-xl font-titillium-light mb-5">{t('communityImpact')}</Text>
+      <Text className="text-xl font-titillium-light mb-5 dark:text-white">{t('communityImpact')}</Text>
 
-      <View className="bg-white p-4 shadow-lg rounded-lg">
+      <View className="bg-white dark:bg-background-secondaryDark p-4 shadow-lg rounded-lg">
         <View className="flex-row flex-wrap justify-between mb-4">
           {stats.map(({value, label}) => (
             <View className="items-center" key={label}>
-              <Text className="text-primary text-4xl">{value}</Text>
-              <Text className="text-neutral-gray-500">{label}</Text>
+              <Text className="text-primary-light dark:text-white text-4xl">{value}</Text>
+              <Text className="text-neutral-gray-500 dark:text-neutral-gray-200">{label}</Text>
             </View>
           ))}
         </View>
 
         <View className="h-2 bg-neutral-gray-100 rounded-full overflow-hidden w-full">
           <View
-            className="bg-primary h-full"
+            className="bg-primary-light dark:bg-primary-dark h-full"
             style={{width: `${successRate}%`}}
           />
         </View>

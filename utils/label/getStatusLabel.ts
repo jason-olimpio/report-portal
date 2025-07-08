@@ -2,7 +2,7 @@ import {TFunction} from 'i18next';
 
 import {StatusOption} from '@types';
 
-const translationKeys: Record<StatusOption, string> = {
+const TRANSLATION_KEYS: Record<StatusOption, string> = {
   [StatusOption.All]: 'status.all',
   [StatusOption.Pending]: 'status.pending',
   [StatusOption.Working]: 'status.working',
@@ -10,7 +10,7 @@ const translationKeys: Record<StatusOption, string> = {
 };
 
 const getStatusLabel = (status: StatusOption, t: TFunction): string | undefined => {
-  const key = translationKeys[status];
+  const key = TRANSLATION_KEYS[status];
 
   return t(key);
 };

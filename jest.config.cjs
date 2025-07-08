@@ -1,0 +1,31 @@
+module.exports = {
+  preset: 'react-native',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleNameMapper: {
+    '^@components(.*)$': '<rootDir>/components$1',
+    '^@contexts(.*)$': '<rootDir>/contexts$1',
+    '^@hooks(.*)$': '<rootDir>/hooks$1',
+    '^@screens(.*)$': '<rootDir>/screens$1',
+    '^@assets(.*)$': '<rootDir>/assets$1',
+    '^@types(.*)$': '<rootDir>/types$1',
+    '^@config(.*)$': '<rootDir>/config$1',
+    '^@translations(.*)$': '<rootDir>/translations$1',
+    '^@utils(.*)$': '<rootDir>/utils$1',
+    '^@store(.*)$': '<rootDir>/store$1',
+    // Mock static assets (fonts, images, etc.)
+    '^.+\\.(ttf|otf|woff|woff2|eot|svg|png|jpg|jpeg|gif)$': '<rootDir>/__mocks__/fileMock.js',
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(react-native|@react-native|react-native-.*|@react-navigation|nativewind)/)',
+  ],
+  collectCoverageFrom: [
+    'components/**/*.{ts,tsx}',
+    'contexts/**/*.{ts,tsx}',
+    'hooks/**/*.{ts,tsx}',
+    'screens/**/*.{ts,tsx}',
+    'utils/**/*.{ts,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!**/index.{ts,tsx}',
+  ],
+};

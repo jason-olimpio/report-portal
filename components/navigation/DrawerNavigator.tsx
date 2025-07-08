@@ -10,6 +10,7 @@ import {PersonalAreaScreen} from '@screens';
 
 import {appColors} from '@config';
 import {notificationData} from '@store';
+import { useTheme } from '@hooks';
 
 const Drawer = createDrawerNavigator();
 
@@ -41,7 +42,7 @@ const HeaderRight = () => {
           />
 
           {unreadCount > 0 && (
-            <View className="absolute bg-system-red-600 -top-1.5 right-1 rounded-full w-5 h-5 items-center justify-center">
+            <View className="absolute bg-system-red-600-light dark:bg-system-red-600-dark -top-1.5 right-1 rounded-full w-5 h-5 items-center justify-center">
               <Text className="text-xs text-white font-titillium-bold">{unreadCount}</Text>
             </View>
           )}
@@ -51,6 +52,7 @@ const HeaderRight = () => {
 };
 
 const DrawerNavigator = () => {
+  const {isDark} = useTheme();
   const {t} = useTranslation();
 
   return (
@@ -58,8 +60,13 @@ const DrawerNavigator = () => {
       screenOptions={{
         headerTitleAlign: 'center',
         headerStyle: {
-          backgroundColor: appColors.primary,
+          backgroundColor: isDark ? appColors.primary.dark : appColors.primary.light,
         },
+        drawerStyle: {
+          backgroundColor: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
+        },
+        drawerActiveTintColor: isDark ? appColors.primary.light : appColors.primary.dark,
+        drawerInactiveTintColor: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
         headerTitle: HeaderTitle,
         headerTintColor: 'white',
         headerRight: HeaderRight,

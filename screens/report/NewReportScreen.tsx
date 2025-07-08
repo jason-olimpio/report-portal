@@ -5,8 +5,10 @@ import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 import {FormHandler, FieldConfig} from '@components';
+import { useTheme } from '@hooks';
 
 const NewReportScreen = () => {
+    const {isDark} = useTheme();
     const {t} = useTranslation();
     const navigation = useNavigation();
 
@@ -39,13 +41,13 @@ const NewReportScreen = () => {
     ];
 
     return (
-        <View className="flex-1 bg-gray-100">
+        <View className="flex-1 bg-background-light dark:bg-background-dark">
             <TouchableOpacity
                 onPress={navigation.goBack}
                 className="mt-4 ml-4 mb-2 self-start px-4 py-2 flex-row items-center">
-                <MaterialIcons name="arrow-back-ios" size={15}/>
+                <MaterialIcons name="arrow-back-ios" size={15} color={isDark ? 'white' : 'black'}/>
 
-                <Text className="ml-1">{t('back')}</Text>
+                <Text className="ml-1 dark:text-white">{t('back')}</Text>
             </TouchableOpacity>
 
             <FormHandler

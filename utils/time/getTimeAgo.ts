@@ -1,7 +1,7 @@
 import { formatDistanceToNow } from 'date-fns';
 import {TFunction} from 'i18next';
 
-import { getLocaleForDateFns } from './getLocaleForDateFns';
+import { getLocaleForDateFns } from '@utils';
 
 const getTimeAgo = (
   reportDate: Date,

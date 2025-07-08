@@ -33,7 +33,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
 
   return (
     <TouchableOpacity
-      className="bg-white p-4 rounded-lg shadow-lg mb-4"
+      className="bg-white dark:bg-background-secondaryDark p-4 rounded-lg shadow-lg mb-4"
       onPress={handlePress}
       activeOpacity={0.7}
     >
@@ -42,7 +42,7 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
           <Image source={image} className="w-16 h-16 mr-4 rounded-full shadow-lg" />
 
           <View>
-            <Text className="font-titillium-semibold">{title}</Text>
+            <Text className="font-titillium-semibold dark:text-white">{title}</Text>
 
             <View className="flex-row items-center flex-wrap">
               <MaterialIcons
@@ -51,12 +51,12 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
                 color="gray"
               />
 
-              <Text className="text-sm text-neutral-gray-500 ml-1">
+              <Text className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-1">
                 {address}
               </Text>
             </View>
 
-            <Text className="text-sm text-neutral-gray-500">
+            <Text className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200">
               {timeAgo}
             </Text>
           </View>

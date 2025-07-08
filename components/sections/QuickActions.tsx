@@ -9,12 +9,13 @@ import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {IconActionButton, type RootStackParamList, TabsParamList} from '@components';
 
 import {appColors} from '@config';
+import {useTheme} from '@hooks';
 
 export type QuickAction = {
   icon: ComponentProps<typeof MaterialIcons>['name'];
   iconColor: string;
   title: string;
-  bgColorClass: string;
+  bgColor: string;
   onPress: () => void;
 };
 
@@ -26,45 +27,46 @@ type NavigationProps = CompositeNavigationProp<
 export const QuickActions = () => {
   const {t} = useTranslation();
   const navigation = useNavigation<NavigationProps>();
+  const {isDark} = useTheme();
 
   const actions: QuickAction[] = [
     {
       icon: 'report',
-      iconColor: appColors.system.orange[600],
+      iconColor: isDark ? appColors.system.orange[600].dark : appColors.system.orange[600].light,
       title: t('quickActions.addReport'),
-      bgColorClass: 'bg-system-orange-50',
+      bgColor: isDark ? appColors.system.orange[50].dark : appColors.system.orange[50].light,
       onPress: () => navigation.navigate('NewReport'),
     },
     {
       icon: 'calendar-month',
-      iconColor: appColors.system.teal[600],
+      iconColor: isDark ? appColors.system.teal[600].dark : appColors.system.teal[600].light,
       title: t('quickActions.calendar'),
-      bgColorClass: 'bg-system-teal-50',
+      bgColor: isDark ? appColors.system.teal[50].dark : appColors.system.teal[50].light,
       onPress: () => null,
     },
     {
       icon: 'bar-chart',
-      iconColor: appColors.system.emerald[600],
+      iconColor: isDark ? appColors.system.emerald[600].dark : appColors.system.emerald[600].light,
       title: t('quickActions.analysis'),
-      bgColorClass: 'bg-system-emerald-50',
+      bgColor: isDark ? appColors.system.emerald[50].dark : appColors.system.emerald[50].light,
       onPress: () => navigation.navigate('Stats'),
     },
   ];
 
   return (
     <>
-      <Text className="text-xl font-titillium-light mb-2 mt-6">
+      <Text className="text-xl font-titillium-light dark:text-white mb-2 mt-6">
         {t('quickActions.title')}
       </Text>
 
       <View className="flex-row justify-between mt-2 mb-6">
-        {actions.map(({icon, iconColor, title, bgColorClass, onPress}) => (
+        {actions.map(({icon, iconColor, title, bgColor, onPress}) => (
           <IconActionButton
             key={title}
             icon={icon}
             iconColor={iconColor}
             title={title}
-            bgColorClass={bgColorClass}
+            bgColor={bgColor}
             onPress={onPress}
           />
         ))}
