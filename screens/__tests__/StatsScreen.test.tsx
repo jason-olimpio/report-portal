@@ -47,6 +47,7 @@ jest.mock('@maplibre/maplibre-react-native', () => ({
   MapView: () => null,
   PointAnnotation: () => null,
 }));
+
 jest.mock('@react-native-community/geolocation', () => ({
   getCurrentPosition: jest.fn(),
   watchPosition: jest.fn(),
