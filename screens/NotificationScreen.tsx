@@ -59,7 +59,7 @@ const NotificationScreen = () => {
       </View>
 
       <View className="flex-1 px-4 pt-2">
-        <View className="rounded-lg shadow-lg overflow-hidden mt-2">
+        <View className="rounded-2xl shadow-lg overflow-hidden mt-2">
           {notificationData.length === 0 ? (
             <View className="py-10 items-center justify-center">
               <Text className="text-neutral-gray-500 text-base">
