@@ -39,6 +39,7 @@ const CommunityImpactSection = ({
               <Text className="text-primary-light dark:text-white text-4xl">
                 {value}
               </Text>
+
               <Text className="text-neutral-gray-500 dark:text-neutral-gray-200">
                 {label}
               </Text>
