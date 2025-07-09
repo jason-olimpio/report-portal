@@ -1,6 +1,6 @@
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import { ScrollView } from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 
 import {getStatusLabel} from '@utils';
 
@@ -58,7 +58,9 @@ const ReportFilterOptions = ({
 
   return (
     <ScrollView>
-      <Text className="font-titillium-bold mb-4 dark:text-white">{t('filterByStatus')}</Text>
+      <Text className="font-titillium-bold mb-4 dark:text-white">
+        {t('filterByStatus')}
+      </Text>
 
       {STATUS_OPTIONS.map(status => (
         <TouchableOpacity
@@ -67,18 +69,20 @@ const ReportFilterOptions = ({
           className={`py-3 px-4 rounded-full ${
             selectedStatus === status && 'bg-gray-200 dark:bg-gray-700'
           }`}>
-          <Text className='dark:text-white'>
+          <Text className="dark:text-white">
             {status === StatusOption.All ? t('all') : getStatusLabel(status, t)}
           </Text>
         </TouchableOpacity>
       ))}
 
-      <Text className="font-bold mt-6 mb-4 dark:text-white">{t('filterByDate')}</Text>
+      <Text className="font-bold mt-6 mb-4 dark:text-white">
+        {t('filterByDate')}
+      </Text>
 
       <TouchableOpacity
         onPress={toggleDatePicker}
         className=" bg-gray-200 dark:bg-gray-700 rounded-lg p-4 flex-row items-center justify-between">
-        <Text className='dark:text-white'>{getDateRangeText()}</Text>
+        <Text className="dark:text-white">{getDateRangeText()}</Text>
 
         {hasSelectedDate && (
           <TouchableOpacity onPress={resetDateRange} className="ml-2">
@@ -96,7 +100,9 @@ const ReportFilterOptions = ({
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => toggleModal(false)} className="px-4 py-2">
+        <TouchableOpacity
+          onPress={() => toggleModal(false)}
+          className="px-4 py-2">
           <Text className="text-base font-titillium-semibold text-system-teal-600-light dark:text-system-teal-600-dark">
             {t('close')}
           </Text>

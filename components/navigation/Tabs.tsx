@@ -16,40 +16,42 @@ export type TabsParamList = {
 
 const Tab = createBottomTabNavigator();
 
-const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> = {
-  Home: 'house',
-  Reports: 'list',
-  Stats: 'bar-chart',
-  Notifications: 'notifications',
-};
+const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> =
+  {
+    Home: 'house',
+    Reports: 'list',
+    Stats: 'bar-chart',
+    Notifications: 'notifications',
+  };
 
 const getTabBarIcon = (routeName: string, focused: boolean, color: string) => {
   const iconName = TAB_ICONS[routeName] || 'circle';
 
-  return (
-    <MaterialIcons
-      name={iconName}
-      size={25}
-      color={color}
-    />
-  );
+  return <MaterialIcons name={iconName} size={25} color={color} />;
 };
 
 export const Tabs = () => {
   const {t} = useTranslation();
   const {isDark} = useTheme();
   const activeColor = isDark ? appColors.primary.light : appColors.primary.dark;
-  const inactiveColor = isDark ? appColors.neutral.gray[200] : appColors.neutral.gray[500];
+  const inactiveColor = isDark
+    ? appColors.neutral.gray[200]
+    : appColors.neutral.gray[500];
 
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color}) => getTabBarIcon(route.name, focused, color),
+        tabBarIcon: ({focused, color}) =>
+          getTabBarIcon(route.name, focused, color),
         headerShown: false,
         tabBarActiveTintColor: activeColor,
         tabBarInactiveTintColor: inactiveColor,
         tabBarStyle: [
-          { backgroundColor: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight },
+          {
+            backgroundColor: isDark
+              ? appColors.background.secondaryDark
+              : appColors.background.secondaryLight,
+          },
         ],
         swipeEnabled: true,
       })}>

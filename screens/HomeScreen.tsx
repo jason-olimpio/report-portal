@@ -1,4 +1,4 @@
-import {Text, ScrollView, View} from 'react-native';
+import {Text, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {

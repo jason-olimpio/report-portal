@@ -8,12 +8,16 @@ import {ThemeProvider, ThemeContext, type ThemeContextType} from '@contexts';
 
 jest.mock('nativewind');
 
-const mockUseColorScheme = useColorScheme as jest.MockedFunction<typeof useColorScheme>;
+const mockUseColorScheme = useColorScheme as jest.MockedFunction<
+  typeof useColorScheme
+>;
 
 const TestComponent = () => {
   const context = useContext(ThemeContext) as ThemeContextType | undefined;
 
-  if (!context) return null;
+  if (!context) {
+    return null;
+  }
 
   return (
     <View testID="test-component">
@@ -39,7 +43,7 @@ describe('ThemeContext', () => {
     const {getByTestId} = render(
       <ThemeProvider>
         <TestComponent />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByTestId('test-component')).toHaveTextContent('light-light');
@@ -55,7 +59,7 @@ describe('ThemeContext', () => {
     const {getByTestId} = render(
       <ThemeProvider>
         <TestComponent />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByTestId('test-component')).toHaveTextContent('dark-dark');
@@ -71,7 +75,7 @@ describe('ThemeContext', () => {
     const {getByTestId} = render(
       <ThemeProvider>
         <TestComponent />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByTestId('test-component')).toHaveTextContent('light-light');
@@ -87,7 +91,9 @@ describe('ThemeContext', () => {
     const TestIsDark = () => {
       const context = useContext(ThemeContext) as ThemeContextType | undefined;
 
-      if (!context) return null;
+      if (!context) {
+        return null;
+      }
 
       return (
         <View testID="is-dark">
@@ -99,7 +105,7 @@ describe('ThemeContext', () => {
     const {getByTestId} = render(
       <ThemeProvider>
         <TestIsDark />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByTestId('is-dark')).toHaveTextContent('true');
@@ -114,8 +120,10 @@ describe('ThemeContext', () => {
 
     const TestIsDark = () => {
       const context = useContext(ThemeContext) as ThemeContextType | undefined;
-      
-      if (!context) return null;
+
+      if (!context) {
+        return null;
+      }
 
       return (
         <View testID="is-dark">
@@ -127,7 +135,7 @@ describe('ThemeContext', () => {
     const {getByTestId} = render(
       <ThemeProvider>
         <TestIsDark />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByTestId('is-dark')).toHaveTextContent('false');

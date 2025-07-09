@@ -19,21 +19,17 @@ const IconActionButton = ({
   onPress,
   className,
 }: IconActionButtonProps) => (
-    <View className={`flex-1 items-center ${className || ''}`}>
-      <TouchableOpacity
-        onPress={onPress}
-        className="p-5 rounded-full"
-        style={{backgroundColor: bgColor}}
-        activeOpacity={0.8}>
-        <MaterialIcons
-          name={icon}
-          size={20}
-          color={iconColor}
-        />
-      </TouchableOpacity>
+  <View className={`flex-1 items-center ${className || ''}`}>
+    <TouchableOpacity
+      onPress={onPress}
+      className="p-5 rounded-full"
+      style={{backgroundColor: bgColor}}
+      activeOpacity={0.8}>
+      <MaterialIcons name={icon} size={20} color={iconColor} />
+    </TouchableOpacity>
 
-      <Text className="text-sm mt-1 dark:text-white">{title}</Text>
-    </View>
-  );
+    <Text className="text-sm mt-1 dark:text-white">{title}</Text>
+  </View>
+);
 
 export default IconActionButton;

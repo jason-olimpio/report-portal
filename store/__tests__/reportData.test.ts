@@ -1,6 +1,6 @@
 import reportData from '../reportData';
 
-import { Report } from '@types';
+import {Report} from '@types';
 
 describe('reportData', () => {
   it('should be an array', () => {
@@ -10,7 +10,7 @@ describe('reportData', () => {
   it('should contain report objects with required fields', () => {
     if (reportData.length > 0) {
       const firstReport = reportData[0];
-      
+
       expect(firstReport).toHaveProperty('id');
       expect(firstReport).toHaveProperty('title');
       expect(firstReport).toHaveProperty('description');
@@ -19,7 +19,7 @@ describe('reportData', () => {
       expect(firstReport).toHaveProperty('date');
       expect(firstReport).toHaveProperty('status');
       expect(firstReport).toHaveProperty('priority');
-      
+
       expect(typeof firstReport.id).toBe('string');
       expect(typeof firstReport.title).toBe('string');
       expect(typeof firstReport.description).toBe('string');
@@ -33,7 +33,7 @@ describe('reportData', () => {
   it('should have unique report IDs', () => {
     const ids = reportData.map((report: Report) => report.id);
     const uniqueIds = new Set(ids);
-    
+
     expect(uniqueIds.size).toBe(ids.length);
   });
 

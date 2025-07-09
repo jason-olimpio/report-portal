@@ -6,7 +6,9 @@ import {ThemeProvider} from '@contexts';
 
 // Mock useColorScheme
 jest.mock('nativewind');
-const mockUseColorScheme = useColorScheme as jest.MockedFunction<typeof useColorScheme>;
+const mockUseColorScheme = useColorScheme as jest.MockedFunction<
+  typeof useColorScheme
+>;
 
 const wrapper = ({children}: {children: React.ReactNode}) => (
   <ThemeProvider>{children}</ThemeProvider>

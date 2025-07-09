@@ -4,7 +4,7 @@ import {StatusOption, PriorityOption} from '@types';
 
 type Report = {
   id: string;
-  image: ImageSourcePropType;
+  images: ImageSourcePropType[];
   title: string;
   description: string;
   address: string;

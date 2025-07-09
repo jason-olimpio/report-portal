@@ -12,7 +12,8 @@
       "@utils": ["utils/index"],
       "@store": ["store/index"],
       "@contexts": ["contexts/index"],
-      "@hooks": ["hooks/index"]
+      "@hooks": ["hooks/index"],
+      "@db": ["db/index"]
     }
   }
 }

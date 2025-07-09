@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import {PersonalAreaScreen} from '@screens';
-import { ThemeProvider } from '@contexts';
+import {ThemeProvider} from '@contexts';
 
 jest.mock('@react-navigation/native', () => {
   const actualNavigation = jest.requireActual('@react-navigation/native');
@@ -57,9 +57,9 @@ describe('PersonalAreaScreen', () => {
     const component = render(
       <ThemeProvider>
         <PersonalAreaScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     expect(component).toBeTruthy();
   });
 
@@ -67,7 +67,7 @@ describe('PersonalAreaScreen', () => {
     render(
       <ThemeProvider>
         <PersonalAreaScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
     expect(useTranslation).toHaveBeenCalled();
   });

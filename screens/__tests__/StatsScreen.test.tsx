@@ -2,7 +2,7 @@ import {render} from '@testing-library/react-native';
 import {useTranslation} from 'react-i18next';
 
 import {StatsScreen} from '@screens';
-import { ThemeProvider } from '@contexts';
+import {ThemeProvider} from '@contexts';
 
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn(),
@@ -38,7 +38,8 @@ jest.mock('@utils', () => ({
     closed: [2, 4, 1],
     months: [1, 2, 3],
   })),
-  getMonthLabel: jest.fn((month, t) => `Month${month}`),
+
+  getMonthLabel: jest.fn(month => `Month${month}`),
 }));
 
 jest.mock('@maplibre/maplibre-react-native', () => ({
@@ -67,10 +68,10 @@ describe('StatsScreen', () => {
   });
 
   it('should render without crashing', () => {
-    const { getByText } = render(
+    const {getByText} = render(
       <ThemeProvider>
         <StatsScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
     expect(getByText('statsByMonth')).toBeTruthy();
   });
@@ -79,9 +80,9 @@ describe('StatsScreen', () => {
     render(
       <ThemeProvider>
         <StatsScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     expect(useTranslation).toHaveBeenCalled();
   });
 
@@ -89,7 +90,7 @@ describe('StatsScreen', () => {
     const component = render(
       <ThemeProvider>
         <StatsScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
     expect(component).toBeTruthy();
   });

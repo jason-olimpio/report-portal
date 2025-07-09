@@ -61,8 +61,7 @@ const PersonalAreaScreen = () => {
     <ScrollView className="flex-1 p-8 bg-background-light dark:bg-background-dark">
       <Pressable
         onPress={() => setLanguagePickerVisible(true)}
-        className="self-start flex-row items-center mb-6"
-      >
+        className="self-start flex-row items-center mb-6">
         <MaterialIcons
           name="language"
           size={20}
@@ -76,8 +75,7 @@ const PersonalAreaScreen = () => {
 
       <Pressable
         onPress={toggleTheme}
-        className="self-start flex-row items-center mb-6"
-      >
+        className="self-start flex-row items-center mb-6">
         <MaterialIcons
           name={isDark ? 'dark-mode' : 'light-mode'}
           size={20}
@@ -88,7 +86,10 @@ const PersonalAreaScreen = () => {
         </Text>
       </Pressable>
 
-      <LanguagePicker visible={languagePickerVisible} onClose={() => setLanguagePickerVisible(false)} />
+      <LanguagePicker
+        visible={languagePickerVisible}
+        onClose={() => setLanguagePickerVisible(false)}
+      />
 
       <FormHandler
         schema={schema}

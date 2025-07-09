@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import {Tabs} from '@components';
-import { ThemeProvider } from '@contexts';
+import {ThemeProvider} from '@contexts';
 
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn(),
@@ -18,7 +18,7 @@ jest.mock('@react-navigation/bottom-tabs', () => ({
 
 jest.mock('@screens', () => ({
   HomeScreen: () => 'HomeScreen',
-  ReportsScreen: () => 'ReportsScreen', 
+  ReportsScreen: () => 'ReportsScreen',
   StatsScreen: () => 'StatsScreen',
 }));
 
@@ -26,18 +26,18 @@ jest.mock('@react-native-vector-icons/material-icons', () => 'MaterialIcons');
 
 jest.mock('@config', () => ({
   appColors: {
-    primary: { light: '#fff', dark: '#000' },
-    neutral: { gray: { 200: '#eee', 500: '#888' } },
+    primary: {light: '#fff', dark: '#000'},
+    neutral: {gray: {200: '#eee', 500: '#888'}},
     system: {
-      red: { 600: '#dc2626' },
-      emerald: { 600: '#059669' },
+      red: {600: '#dc2626'},
+      emerald: {600: '#059669'},
     },
     background: {
       secondaryDark: '#222',
       secondaryLight: '#eee',
     },
     text: {
-      primary: { dark: '#fff', light: '#000' },
+      primary: {dark: '#fff', light: '#000'},
     },
   },
 }));
@@ -68,7 +68,7 @@ describe('Tabs', () => {
         <NavigationContainer>
           <Tabs />
         </NavigationContainer>
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(component).toBeTruthy();
@@ -80,9 +80,9 @@ describe('Tabs', () => {
         <NavigationContainer>
           <Tabs />
         </NavigationContainer>
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     expect(useTranslation).toHaveBeenCalled();
   });
 });

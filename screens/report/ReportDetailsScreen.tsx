@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  ImageSourcePropType,
 } from 'react-native';
 import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -22,6 +23,7 @@ import {
 import {reportData} from '@store';
 import {ReportStatusBadge, RootStackParamList} from '@components';
 import {useTheme} from '@hooks';
+import {PlaceholderImage} from '@assets';
 
 import {appColors} from '@config';
 
@@ -31,8 +33,12 @@ type ReportDetailsScreenRouteProp = RouteProp<
   RootStackParamList,
   'ReportDetails'
 >;
+
 type ReportDetailsScreenNavigationProp =
   StackNavigationProp<RootStackParamList>;
+
+const getImageSources = (images: ImageSourcePropType[]) =>
+  Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage];
 
 const ReportDetailsScreen = () => {
   const [zoom, setZoom] = useState(14);
@@ -56,7 +62,7 @@ const ReportDetailsScreen = () => {
     );
   }
 
-  const {image, title, description, address, location, date, status} = report;
+  const {images, title, description, address, location, date, status} = report;
   const {latitude, longitude} = location;
 
   const locale = getLocaleForDateFns(i18n.resolvedLanguage);
@@ -72,7 +78,7 @@ const ReportDetailsScreen = () => {
   return (
     <ScrollView
       className="flex-1 bg-background-light dark:bg-background-dark"
-      contentContainerStyle={[styles.scrollViewContent]}
+      contentContainerStyle={styles.scrollViewContent}
       showsVerticalScrollIndicator={false}>
       <View className="flex-row justify-between items-center mb-10">
         <TouchableOpacity
@@ -92,10 +98,20 @@ const ReportDetailsScreen = () => {
         <ReportStatusBadge status={status} />
       </View>
 
-      <Image
-        source={image}
-        className="w-48 h-48 rounded-full shadow-lg self-center mb-4"
-      />
+      <View className="items-center w-full mb-4">
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.imageScrollContent}>
+          {getImageSources(images).map((source, idx) => (
+            <Image
+              key={idx}
+              source={source}
+              className="w-48 h-48 rounded-3xl shadow-lg mx-2 bg-neutral-200"
+            />
+          ))}
+        </ScrollView>
+      </View>
 
       <Text className="text-xl mb-2 font-titillium-bold text-neutral-gray-800 text-center dark:text-white">
         {title}
@@ -150,30 +166,33 @@ const ReportDetailsScreen = () => {
           <View className="absolute right-2 top-2 flex-col z-10">
             <TouchableOpacity
               onPress={() => setZoom(value => Math.min(value + 1, 20))}
-              className="bg-background-light dark:bg-background-dark rounded-full p-1 mb-2 items-center justify-center shadow">
+              className="bg-background-light dark:bg-background-dark rounded-full p-1 
+              mb-2 items-center justify-center shadow">
               <MaterialIcons
                 name="add"
-                size={18}
+                size={15}
                 color={isDark ? 'white' : 'black'}
               />
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={() => setZoom(value => Math.max(value - 1, 1))}
-              className="bg-background-light dark:bg-background-dark rounded-full p-1 mb-2 items-center justify-center shadow">
+              className="bg-background-light dark:bg-background-dark rounded-full 
+              p-1 mb-2 items-center justify-center shadow">
               <MaterialIcons
                 name="remove"
-                size={18}
+                size={15}
                 color={isDark ? 'white' : 'black'}
               />
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={handleCenterToMarker}
-              className="bg-background-light dark:bg-background-dark rounded-full p-1 items-center justify-center shadow">
+              className="bg-background-light dark:bg-background-dark rounded-full p-1 
+              items-center justify-center shadow">
               <MaterialIcons
                 name="my-location"
-                size={18}
+                size={15}
                 color={isDark ? 'white' : 'black'}
               />
             </TouchableOpacity>
@@ -198,6 +217,11 @@ const styles = StyleSheet.create({
   },
   mapView: {
     flex: 1,
+  },
+  imageScrollContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
 });
 

@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import {Text, ScrollView, Dimensions} from 'react-native';
 import {BarChart} from 'react-native-chart-kit';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 import {reportData} from '@store';
 import {useTheme} from '@hooks';
@@ -18,13 +18,13 @@ const chartConfigBase = {
 };
 
 type ChartSection = {
-    label: string;
-    data: number[];
-    color: string;
+  label: string;
+  data: number[];
+  color: string;
 };
 
 const StatsScreen = () => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const {open, closed, months} = getMonthlyReportStats(reportData);
   const screenWidth = Dimensions.get('window').width - 50;
   const {isDark} = useTheme();
@@ -37,9 +37,7 @@ const StatsScreen = () => {
     <BarChart
       data={{
         labels: monthLabels,
-        datasets: [
-          { data },
-        ],
+        datasets: [{data}],
       }}
       width={screenWidth}
       height={240}
@@ -48,11 +46,18 @@ const StatsScreen = () => {
       yLabelsOffset={40}
       chartConfig={{
         ...chartConfigBase,
-        backgroundColor: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
-        backgroundGradientFrom: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
-        backgroundGradientTo: isDark ? appColors.background.secondaryDark : appColors.background.secondaryLight,
+        backgroundColor: isDark
+          ? appColors.background.secondaryDark
+          : appColors.background.secondaryLight,
+        backgroundGradientFrom: isDark
+          ? appColors.background.secondaryDark
+          : appColors.background.secondaryLight,
+        backgroundGradientTo: isDark
+          ? appColors.background.secondaryDark
+          : appColors.background.secondaryLight,
         color: () => color,
-        labelColor: () => isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+        labelColor: () =>
+          isDark ? appColors.text.primary.dark : appColors.text.primary.light,
       }}
       fromZero
       showBarTops
@@ -63,17 +68,34 @@ const StatsScreen = () => {
   );
 
   const chartSections: ChartSection[] = [
-    { label: t('open'), data: open, color: isDark ? appColors.system.emerald[600].dark : appColors.system.emerald[600].light },
-    { label: t('closed'), data: closed, color: isDark ? appColors.system.teal[600].dark : appColors.system.teal[600].light },
+    {
+      label: t('open'),
+      data: open,
+      color: isDark
+        ? appColors.system.emerald[600].dark
+        : appColors.system.emerald[600].light,
+    },
+    {
+      label: t('closed'),
+      data: closed,
+      color: isDark
+        ? appColors.system.teal[600].dark
+        : appColors.system.teal[600].light,
+    },
   ];
 
   return (
     <ScrollView className="flex-1 p-8 bg-background-light dark:bg-background-dark">
-      <Text className="text-xl dark:text-white font-titillium-bold mb-4">{t('statsByMonth')}</Text>
+      <Text className="text-xl dark:text-white font-titillium-bold mb-4">
+        {t('statsByMonth')}
+      </Text>
 
-      {chartSections.map(({ label, data, color }, idx) => (
+      {chartSections.map(({label, data, color}, idx) => (
         <Fragment key={label}>
-          <Text className={`dark:text-white font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>{label}</Text>
+          <Text
+            className={`dark:text-white font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>
+            {label}
+          </Text>
 
           {renderBarChart(data, color)}
         </Fragment>
@@ -85,5 +107,5 @@ const StatsScreen = () => {
 export default StatsScreen;
 
 const styles = {
-  chart: { borderRadius: 16, paddingTop: 24 },
+  chart: {borderRadius: 16, paddingTop: 24},
 };

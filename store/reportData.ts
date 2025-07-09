@@ -4,14 +4,19 @@ import {
   ElectricalWasteDisposalImage,
 } from '@assets';
 
-import { Report, StatusOption, PriorityOption } from '@types';
+import {Report, StatusOption, PriorityOption} from '@types';
 
 const REPORTS: Report[] = [
   {
     id: '1',
-    image: BulkyWasteDisposalImage,
+    images: [
+      BulkyWasteDisposalImage,
+      BuildingMaterialsDisposalImage,
+      ElectricalWasteDisposalImage,
+    ],
     title: 'Rifiuti ingombranti',
-    description: 'Abbandono di rifiuti ingombranti sul marciapiede. Necessaria rimozione urgente.',
+    description:
+      'Abbandono di rifiuti ingombranti sul marciapiede. Necessaria rimozione urgente.',
     address: 'Via Torino 45',
     location: {
       latitude: 45.4654,
@@ -23,13 +28,14 @@ const REPORTS: Report[] = [
   },
   {
     id: '2',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Materiali edili',
-    description: 'Materiali edili abbandonati dopo lavori di ristrutturazione. Occupano parte della strada.',
+    description:
+      'Materiali edili abbandonati dopo lavori di ristrutturazione. Occupano parte della strada.',
     address: 'Piazza Duomo 12',
     location: {
-      latitude: 45.4640,
-      longitude: 9.1900,
+      latitude: 45.464,
+      longitude: 9.19,
     },
     date: new Date('2025-05-25T14:30:00'),
     status: StatusOption.Working,
@@ -37,13 +43,18 @@ const REPORTS: Report[] = [
   },
   {
     id: '3',
-    image: ElectricalWasteDisposalImage,
+    images: [
+      ElectricalWasteDisposalImage,
+      BulkyWasteDisposalImage,
+      BuildingMaterialsDisposalImage,
+    ],
     title: 'Rifiuti elettrici',
-    description: 'Elettrodomestici e apparecchiature elettroniche abbandonate. Potenziale rischio ambientale.',
+    description:
+      'Elettrodomestici e apparecchiature elettroniche abbandonate. Potenziale rischio ambientale.',
     address: 'Via Montenapoleone 8',
     location: {
       latitude: 45.4685,
-      longitude: 9.1950,
+      longitude: 9.195,
     },
     date: new Date('2025-05-23T14:30:00'),
     status: StatusOption.Completed,
@@ -51,9 +62,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '4',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Mobili abbandonati',
-    description: 'Divano e altri mobili abbandonati nel parco pubblico. Creano ostacolo al passaggio.',
+    description:
+      'Divano e altri mobili abbandonati nel parco pubblico. Creano ostacolo al passaggio.',
     address: 'Via Garibaldi 78',
     location: {
       latitude: 45.4692,
@@ -65,9 +77,14 @@ const REPORTS: Report[] = [
   },
   {
     id: '5',
-    image: ElectricalWasteDisposalImage,
+    images: [
+      ElectricalWasteDisposalImage,
+      BulkyWasteDisposalImage,
+      BuildingMaterialsDisposalImage,
+    ],
     title: 'Computer e monitor',
-    description: 'Diversi computer e monitor abbandonati vicino ai cassonetti. Necessaria raccolta speciale.',
+    description:
+      'Diversi computer e monitor abbandonati vicino ai cassonetti. Necessaria raccolta speciale.',
     address: 'Corso Vittorio Emanuele 34',
     location: {
       latitude: 45.4655,
@@ -79,9 +96,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '6',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Calcinacci e mattoni',
-    description: 'Cumulo di calcinacci e mattoni abbandonati dopo demolizione. Occupano il marciapiede.',
+    description:
+      'Cumulo di calcinacci e mattoni abbandonati dopo demolizione. Occupano il marciapiede.',
     address: 'Via Dante 56',
     location: {
       latitude: 45.4695,
@@ -93,9 +111,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '7',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Elettrodomestici grandi',
-    description: 'Frigorifero e lavatrice abbandonati in strada. Bloccano parzialmente il passaggio pedonale.',
+    description:
+      'Frigorifero e lavatrice abbandonati in strada. Bloccano parzialmente il passaggio pedonale.',
     address: 'Via Manzoni 23',
     location: {
       latitude: 45.4672,
@@ -107,9 +126,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '8',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Batterie e pile',
-    description: 'Accumulo di batterie e pile usate abbandonate. Rischio di contaminazione ambientale.',
+    description:
+      'Accumulo di batterie e pile usate abbandonate. Rischio di contaminazione ambientale.',
     address: 'Piazza Repubblica 5',
     location: {
       latitude: 45.4642,
@@ -121,9 +141,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '9',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Vernici e solventi',
-    description: 'Barattoli di vernice e solventi abbandonati. Rischio di sversamento e inquinamento.',
+    description:
+      'Barattoli di vernice e solventi abbandonati. Rischio di sversamento e inquinamento.',
     address: 'Via Leopardi 67',
     location: {
       latitude: 45.4668,
@@ -135,9 +156,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '10',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Materassi vecchi',
-    description: 'Tre materassi vecchi abbandonati sul ciglio della strada. Necessaria rimozione.',
+    description:
+      'Tre materassi vecchi abbandonati sul ciglio della strada. Necessaria rimozione.',
     address: 'Corso Magenta 89',
     location: {
       latitude: 45.4665,
@@ -149,9 +171,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '11',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Cavi elettrici',
-    description: 'Matassa di cavi elettrici abbandonati. Potenziale pericolo per i passanti.',
+    description:
+      'Matassa di cavi elettrici abbandonati. Potenziale pericolo per i passanti.',
     address: 'Via Brera 12',
     location: {
       latitude: 45.4681,
@@ -163,13 +186,14 @@ const REPORTS: Report[] = [
   },
   {
     id: '12',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Piastrelle rotte',
-    description: 'Cumulo di piastrelle rotte abbandonate dopo ristrutturazione. Rischio di ferimento.',
+    description:
+      'Cumulo di piastrelle rotte abbandonate dopo ristrutturazione. Rischio di ferimento.',
     address: 'Via Solferino 45',
     location: {
-      latitude: 45.4690,
-      longitude: 9.1910,
+      latitude: 45.469,
+      longitude: 9.191,
     },
     date: new Date('2025-05-14T17:15:00'),
     status: StatusOption.Completed,
@@ -177,9 +201,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '13',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Pneumatici usati',
-    description: 'Diversi pneumatici usati abbandonati. Rischio di ristagno acqua e proliferazione zanzare.',
+    description:
+      'Diversi pneumatici usati abbandonati. Rischio di ristagno acqua e proliferazione zanzare.',
     address: 'Viale Certosa 78',
     location: {
       latitude: 45.4825,
@@ -191,9 +216,10 @@ const REPORTS: Report[] = [
   },
   {
     id: '14',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Vecchio frigorifero',
-    description: 'Frigorifero abbandonato vicino ai cassonetti. Potenziale rischio ambientale.',
+    description:
+      'Frigorifero abbandonato vicino ai cassonetti. Potenziale rischio ambientale.',
     address: 'Via Roma 12',
     location: {
       latitude: 45.4665,
@@ -205,7 +231,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '15',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Divano rotto',
     description: 'Divano lasciato sul marciapiede, ostruisce il passaggio.',
     address: 'Piazza Duomo 1',
@@ -219,7 +245,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '16',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Sacchi di cemento',
     description: 'Sacchi di cemento indurito abbandonati in un parcheggio.',
     address: 'Via Torino 22',
@@ -233,7 +259,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '17',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Televisore rotto',
     description: 'Televisore lasciato in un parco giochi.',
     address: 'Via Garibaldi 5',
@@ -247,7 +273,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '18',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Materasso usato',
     description: 'Materasso abbandonato vicino a una scuola.',
     address: 'Via Manzoni 33',
@@ -261,7 +287,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '19',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Tubi in plastica',
     description: 'Tubi in plastica abbandonati vicino a un cantiere.',
     address: 'Via Larga 15',
@@ -275,7 +301,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '20',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Stampante rotta',
     description: 'Stampante lasciata accanto a una fermata dell’autobus.',
     address: 'Via Carducci 8',
@@ -289,7 +315,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '21',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Poltrona usata',
     description: 'Poltrona abbandonata in un parcheggio pubblico.',
     address: 'Via Sforza 21',
@@ -303,12 +329,12 @@ const REPORTS: Report[] = [
   },
   {
     id: '22',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Assi di legno',
     description: 'Assi di legno lasciate vicino a un cassonetto.',
     address: 'Via Verdi 3',
     location: {
-      latitude: 45.4660,
+      latitude: 45.466,
       longitude: 9.1905,
     },
     date: new Date('2025-05-03T15:40:00'),
@@ -317,7 +343,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '23',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Microonde rotto',
     description: 'Forno a microonde abbandonato in un’area verde.',
     address: 'Via Mazzini 19',
@@ -331,7 +357,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '24',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Letto matrimoniale',
     description: 'Letto matrimoniale abbandonato vicino a un supermercato.',
     address: 'Via Fermi 7',
@@ -345,7 +371,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '25',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Porte vecchie',
     description: 'Due porte in legno lasciate accanto a un cantiere.',
     address: 'Via Pasteur 11',
@@ -359,7 +385,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '26',
-    image: ElectricalWasteDisposalImage,
+    images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
     title: 'Condizionatore rotto',
     description: 'Condizionatore abbandonato vicino a una scuola.',
     address: 'Via Archimede 2',
@@ -373,7 +399,7 @@ const REPORTS: Report[] = [
   },
   {
     id: '27',
-    image: BulkyWasteDisposalImage,
+    images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
     title: 'Tavolo da pranzo',
     description: 'Tavolo da pranzo lasciato in un parcheggio sotterraneo.',
     address: 'Via Galilei 18',
@@ -387,12 +413,12 @@ const REPORTS: Report[] = [
   },
   {
     id: '28',
-    image: BuildingMaterialsDisposalImage,
+    images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
     title: 'Finestra rotta',
     description: 'Finestra in vetro e legno abbandonata vicino a un parco.',
     address: 'Via Parini 9',
     location: {
-      latitude: 45.4660,
+      latitude: 45.466,
       longitude: 9.1905,
     },
     date: new Date('2025-04-27T08:20:00'),

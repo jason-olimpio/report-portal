@@ -1,14 +1,14 @@
 import {Report, StatusOption} from '@types';
 
 const getMonthlyReportStats = (reports: Report[]) => {
-  const stats = new Map<string, { open: number; closed: number }>();
+  const stats = new Map<string, {open: number; closed: number}>();
 
   for (const report of reports) {
     const date = new Date(report.date);
     const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
 
     if (!stats.has(key)) {
-      stats.set(key, { open: 0, closed: 0 });
+      stats.set(key, {open: 0, closed: 0});
     }
 
     const entry = stats.get(key);
@@ -18,7 +18,9 @@ const getMonthlyReportStats = (reports: Report[]) => {
     }
 
     const isClosed = report.status === StatusOption.Completed;
-    const isOpen = report.status === StatusOption.Pending || report.status === StatusOption.Working;
+    const isOpen =
+      report.status === StatusOption.Pending ||
+      report.status === StatusOption.Working;
 
     entry.closed += Number(isClosed);
     entry.open += Number(isOpen);

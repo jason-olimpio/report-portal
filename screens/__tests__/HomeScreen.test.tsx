@@ -23,8 +23,12 @@ jest.mock('@react-native-community/geolocation', () => ({
   stopObserving: jest.fn(),
 }));
 
-const mockUseColorScheme = useColorScheme as jest.MockedFunction<typeof useColorScheme>;
-const mockUseTranslation = useTranslation as jest.MockedFunction<typeof useTranslation>;
+const mockUseColorScheme = useColorScheme as jest.MockedFunction<
+  typeof useColorScheme
+>;
+const mockUseTranslation = useTranslation as jest.MockedFunction<
+  typeof useTranslation
+>;
 
 const renderWithProviders = (component: React.ReactElement) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);
@@ -33,7 +37,7 @@ const renderWithProviders = (component: React.ReactElement) => {
 describe('HomeScreen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    
+
     mockUseTranslation.mockReturnValue({
       t: (key: string) => key,
       i18n: {
@@ -110,7 +114,7 @@ describe('HomeScreen', () => {
 });
 
 jest.mock('@components', () => {
-  const { View } = require('react-native');
+  const {View} = require('react-native');
 
   return {
     EnvironmentalStatusSection: () => <View testID="environmental-status" />,

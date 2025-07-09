@@ -5,11 +5,9 @@ import {ReportsScreen} from '@screens';
 jest.mock('@components', () => {
   const React = require('react');
   const {Text} = require('react-native');
-  
+
   return {
-    AllReportsWithFilter: () => (
-      <Text>All reports</Text>
-    ),
+    AllReportsWithFilter: () => <Text>All reports</Text>,
   };
 });
 
@@ -34,7 +32,7 @@ describe('ReportsScreen', () => {
 
   it('should be wrapped in ScrollView', () => {
     const component = render(<ReportsScreen />);
-    
+
     expect(component).toBeTruthy();
   });
 });

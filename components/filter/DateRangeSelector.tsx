@@ -3,7 +3,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 import {useTranslation} from 'react-i18next';
 
-import { useTheme } from '@hooks';
+import {useTheme} from '@hooks';
 import {appColors} from '@config';
 
 type DateRangeSelectorProps = {
@@ -70,18 +70,28 @@ const DateRangeSelector = ({
           allowRangeSelection={true}
           minDate={new Date(2020, 1, 1)}
           maxDate={new Date()}
-          todayBackgroundColor={isDark ? appColors.primary.light : appColors.primary.dark}
-          selectedDayColor={isDark ? appColors.primary.light : appColors.primary.dark}
+          todayBackgroundColor={
+            isDark ? appColors.primary.light : appColors.primary.dark
+          }
+          selectedDayColor={
+            isDark ? appColors.primary.light : appColors.primary.dark
+          }
           selectedDayTextColor="#FFFFFF"
           textStyle={{
-            color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+            color: isDark
+              ? appColors.text.primary.dark
+              : appColors.text.primary.light,
           }}
           dayShape="circle"
           monthTitleStyle={{
-            color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+            color: isDark
+              ? appColors.text.primary.dark
+              : appColors.text.primary.light,
           }}
           yearTitleStyle={{
-            color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+            color: isDark
+              ? appColors.text.primary.dark
+              : appColors.text.primary.light,
           }}
           previousTitleStyle={{
             color: isDark ? appColors.primary.light : appColors.primary.dark,
@@ -107,7 +117,9 @@ const DateRangeSelector = ({
         </TouchableOpacity>
 
         <TouchableOpacity onPress={confirmDateRange}>
-          <Text className="mr-4 text-medium text-primary-dark dark:text-primary-light">{t('confirm')}</Text>
+          <Text className="mr-4 text-medium text-primary-dark dark:text-primary-light">
+            {t('confirm')}
+          </Text>
         </TouchableOpacity>
       </View>
     </>

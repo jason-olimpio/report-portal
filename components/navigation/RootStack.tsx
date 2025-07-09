@@ -1,6 +1,10 @@
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {NewReportScreen, ReportDetailsScreen, NotificationScreen} from '@screens';
+import {
+  NewReportScreen,
+  ReportDetailsScreen,
+  NotificationScreen,
+} from '@screens';
 import {DrawerNavigator} from '@components';
 
 export type RootStackParamList = {

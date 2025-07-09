@@ -9,7 +9,10 @@ const TRANSLATION_KEYS: Record<StatusOption, string> = {
   [StatusOption.Completed]: 'status.completed',
 };
 
-const getStatusLabel = (status: StatusOption, t: TFunction): string | undefined => {
+const getStatusLabel = (
+  status: StatusOption,
+  t: TFunction,
+): string | undefined => {
   const key = TRANSLATION_KEYS[status];
 
   return t(key);

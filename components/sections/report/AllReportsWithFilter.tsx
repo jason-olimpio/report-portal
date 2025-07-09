@@ -37,7 +37,10 @@ const AllReportsWithFilter = () => {
 
   const indexOfLastReport = currentPage * reportsPerPage;
   const indexOfFirstReport = indexOfLastReport - reportsPerPage;
-  const currentReports = filteredReports.slice(indexOfFirstReport, indexOfLastReport);
+  const currentReports = filteredReports.slice(
+    indexOfFirstReport,
+    indexOfLastReport,
+  );
   const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
 
   const toggleModal = (visible: boolean) => setModalVisible(visible);

@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import {NotificationScreen} from '@screens';
-import { ThemeProvider } from '@contexts';
+import {ThemeProvider} from '@contexts';
 
 jest.mock('@react-navigation/native', () => {
   const actualNavigation = jest.requireActual('@react-navigation/native');
@@ -77,20 +77,20 @@ describe('NotificationScreen', () => {
   });
 
   it('should render without crashing', () => {
-    const { getByText } = render(
+    const {getByText} = render(
       <ThemeProvider>
         <NotificationScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByText('Test Notification')).toBeTruthy();
   });
 
   it('should display notification list', () => {
-    const { getByText } = render(
+    const {getByText} = render(
       <ThemeProvider>
         <NotificationScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByText('Test Notification')).toBeTruthy();
@@ -98,10 +98,10 @@ describe('NotificationScreen', () => {
   });
 
   it('should show time ago for notifications', () => {
-    const { getAllByText } = render(
+    const {getAllByText} = render(
       <ThemeProvider>
         <NotificationScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
     expect(getAllByText('2 days ago').length).toBeGreaterThan(0);
   });
@@ -110,7 +110,7 @@ describe('NotificationScreen', () => {
     render(
       <ThemeProvider>
         <NotificationScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(useTranslation).toHaveBeenCalled();
@@ -120,7 +120,7 @@ describe('NotificationScreen', () => {
     render(
       <ThemeProvider>
         <NotificationScreen />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(useNavigation).toHaveBeenCalled();

@@ -8,7 +8,10 @@ const TRANSLATION_KEYS: Record<PriorityOption, string> = {
   [PriorityOption.High]: 'priority.high',
 };
 
-const getPriorityLabel = (priority: PriorityOption, t: TFunction): string | undefined => {
+const getPriorityLabel = (
+  priority: PriorityOption,
+  t: TFunction,
+): string | undefined => {
   const key = TRANSLATION_KEYS[priority];
 
   return t(key);

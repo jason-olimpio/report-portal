@@ -84,11 +84,7 @@ const ImageSliderField = ({
         const {latitude, longitude} = position.coords;
         onLocationCaptured?.({latitude, longitude});
       },
-      locationError => {
-        console.log('Location error:', locationError);
-
-        Alert.alert(t('errors.locationError'));
-      },
+      () => Alert.alert(t('errors.locationError')),
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
 

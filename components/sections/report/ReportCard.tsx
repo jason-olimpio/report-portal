@@ -1,5 +1,10 @@
-import React from 'react';
-import {Image, Text, View, ImageSourcePropType, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  Text,
+  View,
+  ImageSourcePropType,
+  TouchableOpacity,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
@@ -12,22 +17,40 @@ import {StatusOption} from '@types';
 
 import {getTimeAgo} from '@utils';
 
+import {PlaceholderImage} from '@assets';
+
 type ReportCardNavigationProp = StackNavigationProp<RootStackParamList>;
 
 type ReportCardProps = {
   id: string;
-  image: ImageSourcePropType;
+  images: ImageSourcePropType[];
   title: string;
   address: string;
   date: Date;
   status: StatusOption;
 };
 
-const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) => {
+const getImageSource = (images: ImageSourcePropType[] = []) => {
+  if (Array.isArray(images) && images.length > 0) {
+    return images[0];
+  }
+
+  return PlaceholderImage;
+};
+
+const ReportCard = ({
+  id,
+  images,
+  title,
+  address,
+  date,
+  status,
+}: ReportCardProps) => {
   const {t, i18n} = useTranslation();
   const navigation = useNavigation<ReportCardNavigationProp>();
 
-  const handlePress = () => navigation.navigate('ReportDetails', {reportId: id});
+  const handlePress = () =>
+    navigation.navigate('ReportDetails', {reportId: id});
 
   const timeAgo = getTimeAgo(date, i18n.language, t);
 
@@ -35,21 +58,21 @@ const ReportCard = ({id, image, title, address, date, status}: ReportCardProps) 
     <TouchableOpacity
       className="bg-white dark:bg-background-secondaryDark p-4 rounded-lg shadow-lg mb-4"
       onPress={handlePress}
-      activeOpacity={0.7}
-    >
+      activeOpacity={0.7}>
       <View className="flex-row items-end justify-between">
         <View className="flex-row">
-          <Image source={image} className="w-16 h-16 mr-4 rounded-full shadow-lg" />
+          <Image
+            source={getImageSource(images)}
+            className="w-16 h-16 mr-4 rounded-full shadow-lg"
+          />
 
           <View>
-            <Text className="font-titillium-semibold dark:text-white">{title}</Text>
+            <Text className="font-titillium-semibold dark:text-white">
+              {title}
+            </Text>
 
             <View className="flex-row items-center flex-wrap">
-              <MaterialIcons
-                name="location-on"
-                size={15}
-                color="gray"
-              />
+              <MaterialIcons name="location-on" size={15} color="gray" />
 
               <Text className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-1">
                 {address}

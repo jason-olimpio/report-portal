@@ -9,7 +9,10 @@ import {StatusOption} from '@types';
 
 type StatusColor = Exclude<StatusOption, StatusOption.All>;
 
-const REPORT_STATUS_COLORS: Record<StatusColor, {bg: string; bgDark: string; text: string; textDark: string}> = {
+const REPORT_STATUS_COLORS: Record<
+  StatusColor,
+  {bg: string; bgDark: string; text: string; textDark: string}
+> = {
   [StatusOption.Pending]: {
     bg: 'bg-system-orange-50-light',
     bgDark: 'bg-system-orange-50-dark',
@@ -41,14 +44,21 @@ const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
   const colors =
     status in REPORT_STATUS_COLORS
       ? REPORT_STATUS_COLORS[status as StatusColor]
-      : {bg: 'bg-gray-600', bgDark: 'bg-gray-800', text: 'text-white', textDark: 'text-white'};
+      : {
+          bg: 'bg-gray-600',
+          bgDark: 'bg-gray-800',
+          text: 'text-white',
+          textDark: 'text-white',
+        };
 
   const label = getStatusLabel(status, t) || t('unknown');
 
   return (
     <View
       className={`flex-row items-center ${isDark ? colors.bgDark : colors.bg} px-3 py-0.5 rounded-full`}>
-      <Text className={`${isDark ? colors.textDark : colors.text} text-xs`}>{label}</Text>
+      <Text className={`${isDark ? colors.textDark : colors.text} text-xs`}>
+        {label}
+      </Text>
     </View>
   );
 };

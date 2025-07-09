@@ -13,7 +13,7 @@ jest.mock('react-native-gesture-handler', () => ({
 }));
 
 jest.mock('@utils', () => ({
-  getStatusLabel: jest.fn((status) => status),
+  getStatusLabel: jest.fn(status => status),
 }));
 
 jest.mock('@maplibre/maplibre-react-native', () => ({
@@ -64,41 +64,38 @@ describe('ReportFilterOptions', () => {
   it('should call setSelectedStatus when status option is selected', () => {
     const mockSetSelectedStatus = jest.fn();
     const component = render(
-      <ReportFilterOptions 
-        {...defaultProps} 
+      <ReportFilterOptions
+        {...defaultProps}
         setSelectedStatus={mockSetSelectedStatus}
-      />
+      />,
     );
-    
+
     expect(component).toBeTruthy();
   });
 
   it('should display date range correctly when dates are provided', () => {
     const dateRange = {
       start: new Date('2023-01-01'),
-      end: new Date('2023-01-31')
+      end: new Date('2023-01-31'),
     };
-    
+
     const component = render(
-      <ReportFilterOptions 
-        {...defaultProps} 
-        dateRange={dateRange}
-      />
+      <ReportFilterOptions {...defaultProps} dateRange={dateRange} />,
     );
-    
+
     expect(component).toBeTruthy();
   });
 
   it('should handle date picker toggle', () => {
     const mockToggleDatePicker = jest.fn();
-    
+
     const component = render(
-      <ReportFilterOptions 
-        {...defaultProps} 
+      <ReportFilterOptions
+        {...defaultProps}
         toggleDatePicker={mockToggleDatePicker}
-      />
+      />,
     );
-    
+
     expect(component).toBeTruthy();
   });
 });

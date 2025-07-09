@@ -2,7 +2,7 @@ import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {useTranslation} from 'react-i18next';
 
 import {LanguagePicker} from '@components';
-import { ThemeProvider } from '@contexts';
+import {ThemeProvider} from '@contexts';
 
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn(),
@@ -13,8 +13,8 @@ jest.mock('@react-native-vector-icons/material-icons', () => 'MaterialIcons');
 jest.mock('@config', () => ({
   appColors: {
     system: {
-      red: { 600: '#dc2626' },
-      emerald: { 600: '#059669' },
+      red: {600: '#dc2626'},
+      emerald: {600: '#059669'},
     },
   },
 }));
@@ -53,9 +53,9 @@ describe('LanguagePicker', () => {
     const {getByText} = render(
       <ThemeProvider>
         <LanguagePicker visible={true} onClose={mockOnClose} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     expect(getByText('English')).toBeTruthy();
     expect(getByText('Italiano')).toBeTruthy();
   });
@@ -64,9 +64,9 @@ describe('LanguagePicker', () => {
     const {queryByText} = render(
       <ThemeProvider>
         <LanguagePicker visible={false} onClose={mockOnClose} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     // Modal should still be rendered but not visible
     expect(queryByText('English')).toBeFalsy();
   });
@@ -75,15 +75,17 @@ describe('LanguagePicker', () => {
     const {getByTestId} = render(
       <ThemeProvider>
         <LanguagePicker visible={true} onClose={mockOnClose} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     // The modal overlay should be touchable
-    const modal = getByTestId || render(
-      <ThemeProvider>
-        <LanguagePicker visible={true} onClose={mockOnClose} />
-      </ThemeProvider>
-    );
+    const modal =
+      getByTestId ||
+      render(
+        <ThemeProvider>
+          <LanguagePicker visible={true} onClose={mockOnClose} />
+        </ThemeProvider>,
+      );
     expect(modal).toBeTruthy();
   });
 
@@ -91,11 +93,11 @@ describe('LanguagePicker', () => {
     const {getByText} = render(
       <ThemeProvider>
         <LanguagePicker visible={true} onClose={mockOnClose} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const italianOption = getByText('Italiano');
-    
+
     fireEvent.press(italianOption);
 
     await waitFor(() => {
@@ -108,9 +110,9 @@ describe('LanguagePicker', () => {
     render(
       <ThemeProvider>
         <LanguagePicker visible={true} onClose={mockOnClose} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    
+
     expect(useTranslation).toHaveBeenCalled();
   });
 });

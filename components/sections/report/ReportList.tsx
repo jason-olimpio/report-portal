@@ -6,7 +6,7 @@ import {ReportCard} from '@components';
 import {Report} from '@types';
 
 type ReportListProps = {
-  reports: Report[]
+  reports: Report[];
 };
 
 const ReportList = ({reports}: ReportListProps) => {
@@ -22,11 +22,11 @@ const ReportList = ({reports}: ReportListProps) => {
 
   return (
     <View className="w-full">
-      {reports.map(({id, image, title, address, date, status}) => (
+      {reports.map(({id, images, title, address, date, status}) => (
         <ReportCard
           key={id}
           id={id}
-          image={image}
+          images={images}
           title={title}
           address={address}
           date={date}

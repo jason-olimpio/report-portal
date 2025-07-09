@@ -4,6 +4,6 @@ type Notification = {
   description: string;
   date: Date;
   read: boolean;
-}
+};
 
 export default Notification;
