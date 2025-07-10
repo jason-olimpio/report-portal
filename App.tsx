@@ -29,9 +29,7 @@ const App = () => {
 
     initialize();
 
-    const unsubscribe = NetInfo.addEventListener(state => {
-      setIsConnected(!!state.isConnected);
-    });
+    const unsubscribe = NetInfo.addEventListener(state => setIsConnected(!!state.isConnected));
 
     return () => unsubscribe();
   }, []);
