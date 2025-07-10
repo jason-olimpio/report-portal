@@ -43,7 +43,7 @@ const NotificationScreen = () => {
 
   return (
     <View className="flex-1 bg-background-light dark:bg-background-dark pb-10">
-      <View className="flex-row items-center px-4 pt-4 pb-2">
+      <View className="flex-row items-center px-4 pt-10 pb-2">
         <MaterialIcons
           name="arrow-back-ios"
           size={20}
