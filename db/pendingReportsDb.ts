@@ -69,6 +69,7 @@ export const getAllPendingReports = async (): Promise<PendingReport[]> =>
               data: JSON.parse(rows.item(i).data) as Report,
             });
           }
+
           resolve(reports);
         },
         (_, error) => {
