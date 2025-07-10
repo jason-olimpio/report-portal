@@ -1,6 +1,8 @@
 import {enUS, it, es, fr, de, type Locale} from 'date-fns/locale';
 
-export const dateFnsLocales: {[key: string]: Locale} = {
+export type SupportedDateFnsLocale = 'en' | 'it' | 'es' | 'fr' | 'de';
+
+export const dateFnsLocales: Record<SupportedDateFnsLocale, Locale> = {
   en: enUS,
   it: it,
   es: es,
@@ -12,6 +14,5 @@ export const getLocaleForDateFns = (language: string | undefined): Locale => {
   if (!language) {
     return enUS;
   }
-
-  return dateFnsLocales[language];
+  return dateFnsLocales[language as SupportedDateFnsLocale] || enUS;
 };
