@@ -53,16 +53,15 @@ export const addPendingReport = async (report: Report): Promise<void> =>
     ),
   );
 
-export const getAllPendingReports = async (): Promise<PendingReport[]> => {
-  const reports: PendingReport[] = [];
-
-  await new Promise<void>((resolve, reject) =>
-    db.transaction((tx: Transaction) =>
+export const getAllPendingReports = async (): Promise<PendingReport[]> =>
+  new Promise<PendingReport[]>((resolve, reject) =>
+    db.transaction(tx =>
       tx.executeSql(
         `SELECT * FROM ${TABLE_NAME}`,
         [],
-        (_: Transaction, results: ResultSet) => {
+        (_, results) => {
           const rows = results.rows;
+          const reports: PendingReport[] = [];
 
           for (let i = 0; i < rows.length; i++) {
             reports.push({
@@ -70,18 +69,15 @@ export const getAllPendingReports = async (): Promise<PendingReport[]> => {
               data: JSON.parse(rows.item(i).data) as Report,
             });
           }
-          resolve();
+          resolve(reports);
         },
-        (_: Transaction, error: any) => {
+        (_, error) => {
           reject(error);
           return false;
         },
       ),
     ),
   );
-
-  return reports;
-};
 
 export const removePendingReport = async (id: number): Promise<void> =>
   await new Promise<void>((resolve, reject) =>
