@@ -54,7 +54,7 @@ const ReportDetailsScreen = () => {
 
   if (!report) {
     return (
-      <View className="flex-1 bg-white">
+      <View className="flex-1 bg-background-light dark:bg-background-dark">
         <Text className="text-center mt-6 text-red-500">
           {t('reportNotFound')}
         </Text>
