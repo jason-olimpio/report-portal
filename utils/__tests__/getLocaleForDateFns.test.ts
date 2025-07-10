@@ -39,10 +39,10 @@ describe('getLocaleForDateFns', () => {
     expect(result).toEqual({code: 'es'});
   });
 
-  it('should return undefined for unsupported language', () => {
+  it('should return enUS for unsupported language', () => {
     const result = getLocaleForDateFns('unsupported');
 
-    expect(result).toBeUndefined();
+    expect(result).toEqual({code: 'en-US'});
   });
 
   it('should handle null input', () => {
