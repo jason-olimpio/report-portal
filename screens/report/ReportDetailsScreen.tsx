@@ -147,7 +147,7 @@ const ReportDetailsScreen = () => {
         <View className="h-64 rounded-lg overflow-hidden shadow-lg">
           <MapView
             style={styles.mapView}
-            mapStyle="https://api.maptiler.com/maps/openstreetmap/style.json?key=Yj0eOO10ncmOC0nfSYY1"
+            mapStyle="https://api.maptiler.com/maps/basic-v2/style.json?key=Yj0eOO10ncmOC0nfSYY1"
             attributionEnabled={false}
             scrollEnabled={true}>
             <Camera
