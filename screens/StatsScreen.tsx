@@ -33,9 +33,8 @@ const StatsScreen = () => {
   );
 
   useEffect(() => {
-    const onChange = ({window}: {window: {width: number}}) => {
+    const onChange = ({window}: {window: {width: number}}) =>
       setScreenWidth(window.width - 50);
-    };
 
     const subscription = Dimensions.addEventListener('change', onChange);
 
