@@ -7,7 +7,7 @@ const config: Config = {
     './screens/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
   ],
-  darkMode: 'media', // Use system preference for dark mode
+  darkMode: 'media',
   presets: [require('nativewind/preset')],
   theme: {
     fontFamily: {
