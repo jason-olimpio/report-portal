@@ -2,6 +2,7 @@ import React, {Fragment, useState, useEffect} from 'react';
 import {Text, ScrollView, Dimensions, View} from 'react-native';
 import {BarChart} from 'react-native-chart-kit';
 import {useTranslation} from 'react-i18next';
+import type {ChartConfig} from 'react-native-chart-kit/dist/HelperTypes';
 
 import {reportData} from '@store';
 import {useTheme} from '@hooks';
@@ -9,7 +10,7 @@ import {useTheme} from '@hooks';
 import {appColors} from '@config';
 import {getMonthLabel, getMonthlyReportStats} from '@utils';
 
-const chartConfigBase = {
+const chartConfigBase: ChartConfig = {
   backgroundColor: 'white',
   backgroundGradientFrom: 'white',
   backgroundGradientTo: 'white',
