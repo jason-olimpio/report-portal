@@ -28,7 +28,9 @@ const IconActionButton = ({
       <MaterialIcons name={icon} size={20} color={iconColor} />
     </TouchableOpacity>
 
-    <Text className="text-sm mt-1 dark:text-white">{title}</Text>
+    <Text className="text-sm mt-1 dark:text-white text-center w-full">
+      {title}
+    </Text>
   </View>
 );
 

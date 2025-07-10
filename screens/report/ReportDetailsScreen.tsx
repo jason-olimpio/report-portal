@@ -212,7 +212,7 @@ const ReportDetailsScreen = () => {
 
 const styles = StyleSheet.create({
   scrollViewContent: {
-    paddingTop: 35,
+    paddingTop: 50,
     paddingHorizontal: 20,
   },
   mapView: {
