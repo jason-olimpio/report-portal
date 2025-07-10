@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import {Text, ScrollView, Dimensions} from 'react-native';
+import React, {Fragment, useState, useEffect} from 'react';
+import {Text, ScrollView, Dimensions, View} from 'react-native';
 import {BarChart} from 'react-native-chart-kit';
 import {useTranslation} from 'react-i18next';
 
@@ -26,8 +26,21 @@ type ChartSection = {
 const StatsScreen = () => {
   const {t} = useTranslation();
   const {open, closed, months} = getMonthlyReportStats(reportData);
-  const screenWidth = Dimensions.get('window').width - 50;
   const {isDark} = useTheme();
+
+  const [screenWidth, setScreenWidth] = useState(
+    Dimensions.get('window').width - 50,
+  );
+
+  useEffect(() => {
+    const onChange = ({window}: {window: {width: number}}) => {
+      setScreenWidth(window.width - 50);
+    };
+
+    const subscription = Dimensions.addEventListener('change', onChange);
+
+    return () => subscription.remove();
+  }, []);
 
   const monthLabels = months
     .filter((month): month is number => month !== undefined)
@@ -85,22 +98,26 @@ const StatsScreen = () => {
   ];
 
   return (
-    <ScrollView className="flex-1 p-8 bg-background-light dark:bg-background-dark">
-      <Text className="text-xl dark:text-white font-titillium-bold mb-4">
-        {t('statsByMonth')}
-      </Text>
+    <View className="flex-1 bg-background-light dark:bg-background-dark">
+      <ScrollView
+        className="flex-1 p-8 mb-10"
+        contentContainerStyle={styles.contentContainer}>
+        <Text className="text-xl dark:text-white font-titillium-bold mb-4">
+          {t('statsByMonth')}
+        </Text>
 
-      {chartSections.map(({label, data, color}, idx) => (
-        <Fragment key={label}>
-          <Text
-            className={`dark:text-white font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>
-            {label}
-          </Text>
+        {chartSections.map(({label, data, color}, idx) => (
+          <Fragment key={label}>
+            <Text
+              className={`dark:text-white font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>
+              {label}
+            </Text>
 
-          {renderBarChart(data, color)}
-        </Fragment>
-      ))}
-    </ScrollView>
+            {renderBarChart(data, color)}
+          </Fragment>
+        ))}
+      </ScrollView>
+    </View>
   );
 };
 
@@ -108,4 +125,5 @@ export default StatsScreen;
 
 const styles = {
   chart: {borderRadius: 16, paddingTop: 24},
+  contentContainer: {flexGrow: 1},
 };
