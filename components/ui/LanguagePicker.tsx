@@ -69,7 +69,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
               ))}
 
               <TouchableOpacity
-                className="mt-4 items-center w-full justify-center"
+                className="mt-2 items-center w-full justify-center"
                 onPress={onClose}>
                 <Text
                   className="text-base text-system-red-600-light 
