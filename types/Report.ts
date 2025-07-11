@@ -2,7 +2,7 @@ import {ImageSourcePropType} from 'react-native';
 
 import {StatusOption, PriorityOption} from '@types';
 
-type Report = {
+export type Report = {
   id: string;
   images: ImageSourcePropType[];
   title: string;
@@ -17,4 +17,4 @@ type Report = {
   priority: PriorityOption;
 };
 
-export default Report;
+export type ReportsByDate = Record<string, Report[]>;

@@ -3,11 +3,11 @@ import {LocaleConfig} from 'react-native-calendars';
 import {TFunction} from 'i18next';
 
 import {reportData} from '@store';
+import {ReportsByDate} from '@types';
 import {
   getReportsByDate,
-  getMarkedDates,
+  getMarkedDatesWithSelection,
   getLocalizedCalendarLabels,
-  type ReportsByDate,
 } from '@utils';
 
 export const useCalendar = (t: TFunction, isDark: boolean) => {
@@ -19,8 +19,8 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
   );
 
   const markedDates = useMemo(
-    () => getMarkedDates(reportsByDate, isDark),
-    [reportsByDate, isDark],
+    () => getMarkedDatesWithSelection(reportsByDate, isDark, selectedDate),
+    [reportsByDate, isDark, selectedDate],
   );
 
   const configureCalendarLocale = useCallback((t: TFunction) => {

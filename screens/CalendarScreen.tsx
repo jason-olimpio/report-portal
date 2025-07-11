@@ -36,6 +36,7 @@ const CalendarScreen = () => {
           onDayPress={handleDayPress}
           theme={getCalendarTheme(isDark)}
           firstDay={1}
+          enableSwipeMonths={true}
         />
 
         <CalendarReportsList

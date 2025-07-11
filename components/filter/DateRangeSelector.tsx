@@ -69,23 +69,28 @@ const DateRangeSelector = ({
             color: isDark
               ? appColors.text.primary.dark
               : appColors.text.primary.light,
+            fontSize: 14, // Smaller font size
           }}
           dayShape="circle"
           monthTitleStyle={{
             color: isDark
               ? appColors.text.primary.dark
               : appColors.text.primary.light,
+            fontSize: 16, // Smaller font size
           }}
           yearTitleStyle={{
             color: isDark
               ? appColors.text.primary.dark
               : appColors.text.primary.light,
+            fontSize: 16, // Smaller font size
           }}
           previousTitleStyle={{
             color: isDark ? appColors.primary.light : appColors.primary.dark,
+            fontSize: 14, // Smaller font size
           }}
           nextTitleStyle={{
             color: isDark ? appColors.primary.light : appColors.primary.dark,
+            fontSize: 14, // Smaller font size
           }}
           weekdays={weekdays}
           months={months}
