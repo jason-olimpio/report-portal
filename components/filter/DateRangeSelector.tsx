@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View, Dimensions} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 import {useTranslation} from 'react-i18next';
 
@@ -23,6 +23,10 @@ const DateRangeSelector = ({
 
   const [tempDateRange, setTempDateRange] = useState(dateRange);
 
+  const screenWidth = Dimensions.get('window').width;
+  const calendarWidth = Math.min(screenWidth - 50, 350);
+  const calendarHeight = Math.min(calendarWidth, 350);
+
   const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') =>
     setTempDateRange(previousRange => ({
       ...previousRange,
@@ -39,11 +43,11 @@ const DateRangeSelector = ({
 
   return (
     <>
-      <Text className="text-lg font-titillium-semibold mb-6 dark:text-white">
+      <Text className="text-lg font-titillium-semibold mb-6 dark:text-white text-center px-4">
         {t('selectDateRange')}
       </Text>
 
-      <View className="max-h-96 w-full">
+      <View className="max-h-96 w-full px-5">
         <CalendarPicker
           allowRangeSelection={true}
           minDate={new Date(2020, 1, 1)}
@@ -84,18 +88,20 @@ const DateRangeSelector = ({
           onDateChange={handleDateChange}
           selectedStartDate={tempDateRange.start as DateParsable}
           selectedEndDate={tempDateRange.end as DateParsable}
-          width={350}
-          height={350}
+          width={calendarWidth}
+          height={calendarHeight}
         />
       </View>
 
-      <View className="flex-row justify-between mt-6">
-        <TouchableOpacity onPress={toggleDatePicker}>
-          <Text className="ml-4 text-medium text-red-500">{t('cancel')}</Text>
+      <View className="flex-row justify-between items-center mt-6 px-4">
+        <TouchableOpacity onPress={toggleDatePicker} className="flex-1">
+          <Text className="text-center text-medium text-red-500">
+            {t('cancel')}
+          </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={confirmDateRange}>
-          <Text className="mr-4 text-medium text-primary-dark dark:text-primary-light">
+        <TouchableOpacity onPress={confirmDateRange} className="flex-1">
+          <Text className="text-center text-medium text-primary-dark dark:text-primary-light">
             {t('confirm')}
           </Text>
         </TouchableOpacity>
