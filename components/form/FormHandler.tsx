@@ -29,7 +29,7 @@ type FormHandlerProps<T extends Record<string, any>> = {
   className?: string;
 };
 
-export const IMAGE_FIELD_KEY = 'image';
+const IMAGE_FIELD_KEY = 'image';
 const LOCATION_FIELD_KEY = 'location';
 
 export const FormHandler = <T extends Record<string, any>>({
