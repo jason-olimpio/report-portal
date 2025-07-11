@@ -23,7 +23,7 @@ const InfoCardWidget = ({
 }: InfoCardWidgetProps) => {
   return (
     <View className="w-1/2 p-2">
-      <View className={`p-3 rounded-xl shadow-md ${bgColorClass}`}>
+      <View className={`p-3 rounded-xl shadow-md h-32 ${bgColorClass}`}>
         <View className="flex-row items-center mb-5">
           <MaterialIcons name={icon} size={20} color={iconColor} />
 
@@ -32,7 +32,7 @@ const InfoCardWidget = ({
           </Text>
         </View>
 
-        <Text className={`text-2xl mb-1 ${valueColorClass}`}>{value}</Text>
+        <Text className={`text-2xl ${valueColorClass}`}>{value}</Text>
 
         <Text className="text-xs font-titillium-light text-neutral-gray-600 dark:text-neutral-gray-200">
           {subInfo}

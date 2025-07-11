@@ -60,13 +60,13 @@ const ReportCard = ({
       onPress={handlePress}
       activeOpacity={0.7}>
       <View className="flex-row items-end justify-between">
-        <View className="flex-row">
+        <View className="flex-row flex-1 min-w-0">
           <Image
             source={getImageSource(images)}
             className="w-16 h-16 mr-4 rounded-full shadow-lg"
           />
 
-          <View>
+          <View className="min-w-0">
             <Text className="font-titillium-semibold dark:text-white">
               {title}
             </Text>
@@ -74,7 +74,10 @@ const ReportCard = ({
             <View className="flex-row items-center flex-wrap">
               <MaterialIcons name="location-on" size={15} color="gray" />
 
-              <Text className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-1">
+              <Text
+                className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-1 flex-shrink min-w-0"
+                numberOfLines={1}
+                ellipsizeMode="tail">
                 {address}
               </Text>
             </View>
