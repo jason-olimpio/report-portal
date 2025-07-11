@@ -123,16 +123,16 @@ const DateRangeSelector = ({
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 14,
+    fontSize: 10,
   },
   monthTitle: {
-    fontSize: 16,
+    fontSize: 14,
   },
   yearTitle: {
-    fontSize: 16,
+    fontSize: 12,
   },
   navigationTitle: {
-    fontSize: 14,
+    fontSize: 12,
   },
 });
 
