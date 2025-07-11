@@ -6,7 +6,11 @@ import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '@hooks';
 import {appColors} from '@config';
 
-const BackButton = ({showText = true}: {showText?: boolean}) => {
+type BackButtonProps = {
+  showText?: boolean;
+};
+
+const BackButton = ({showText = true}: BackButtonProps) => {
   const {isDark} = useTheme();
   const {t} = useTranslation();
   const navigation = useNavigation();
