@@ -1,12 +1,12 @@
+jest.mock('react-i18next', () => ({
+  useTranslation: jest.fn(),
+}));
+
 import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {useTranslation} from 'react-i18next';
 
 import {LanguagePicker} from '@components';
 import {ThemeProvider} from '@contexts';
-
-jest.mock('react-i18next', () => ({
-  useTranslation: jest.fn(),
-}));
 
 jest.mock('@react-native-vector-icons/material-icons', () => 'MaterialIcons');
 
@@ -24,6 +24,7 @@ jest.mock('@maplibre/maplibre-react-native', () => ({
   MapView: () => null,
   PointAnnotation: () => null,
 }));
+
 jest.mock('@react-native-community/geolocation', () => ({
   getCurrentPosition: jest.fn(),
   watchPosition: jest.fn(),

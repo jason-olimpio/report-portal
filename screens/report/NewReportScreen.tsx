@@ -1,18 +1,9 @@
-import {
-  Alert,
-  TouchableOpacity,
-  Text,
-  View,
-  type ImageSourcePropType,
-} from 'react-native';
+import {Alert, View, type ImageSourcePropType} from 'react-native';
 import {useEffect} from 'react';
 import {z} from 'zod';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
 
-import {FormHandler, FieldConfig} from '@components';
-import {useTheme} from '@hooks';
+import {FormHandler, FieldConfig, BackButton} from '@components';
 
 import {initPendingReportsTable, addPendingReport} from '@db';
 
@@ -21,9 +12,7 @@ import {type Report, StatusOption, PriorityOption} from '@types';
 import {isOnline, getAddressFromLocation} from '@utils';
 
 const NewReportScreen = () => {
-  const {isDark} = useTheme();
   const {t} = useTranslation();
-  const navigation = useNavigation();
 
   const schema = z.object({
     title: z.string().min(3, {message: t('errors.titleTooShort')}),
@@ -98,18 +87,8 @@ const NewReportScreen = () => {
   };
 
   return (
-    <View className="flex-1 bg-background-secondaryLight dark:bg-background-secondaryDark">
-      <TouchableOpacity
-        onPress={navigation.goBack}
-        className="mt-4 ml-4 mb-2 self-start px-4 py-2 flex-row items-center">
-        <MaterialIcons
-          name="arrow-back-ios"
-          size={15}
-          color={isDark ? 'white' : 'black'}
-        />
-
-        <Text className="ml-1 dark:text-white">{t('back')}</Text>
-      </TouchableOpacity>
+    <View className="p-5 flex-1 bg-background-secondaryLight dark:bg-background-secondaryDark">
+      <BackButton />
 
       <FormHandler
         schema={schema}

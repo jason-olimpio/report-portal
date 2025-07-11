@@ -8,8 +8,7 @@ import {
   StyleSheet,
   ImageSourcePropType,
 } from 'react-native';
-import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {useRoute, RouteProp} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
@@ -21,7 +20,7 @@ import {
 } from '@maplibre/maplibre-react-native';
 
 import {reportData} from '@store';
-import {ReportStatusBadge, RootStackParamList} from '@components';
+import {ReportStatusBadge, RootStackParamList, BackButton} from '@components';
 import {useTheme} from '@hooks';
 import {PlaceholderImage} from '@assets';
 
@@ -34,9 +33,6 @@ type ReportDetailsScreenRouteProp = RouteProp<
   'ReportDetails'
 >;
 
-type ReportDetailsScreenNavigationProp =
-  StackNavigationProp<RootStackParamList>;
-
 const getImageSources = (images: ImageSourcePropType[]) =>
   Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage];
 
@@ -47,7 +43,6 @@ const ReportDetailsScreen = () => {
   const {isDark} = useTheme();
   const {t, i18n} = useTranslation();
   const route = useRoute<ReportDetailsScreenRouteProp>();
-  const navigation = useNavigation<ReportDetailsScreenNavigationProp>();
   const {reportId} = route.params;
 
   const report = reportData.find(item => item.id === reportId);
@@ -81,20 +76,7 @@ const ReportDetailsScreen = () => {
       contentContainerStyle={styles.scrollViewContent}
       showsVerticalScrollIndicator={false}>
       <View className="flex-row justify-between items-center mb-10">
-        <TouchableOpacity
-          className="flex-row items-center"
-          onPress={navigation.goBack}>
-          <MaterialIcons
-            name="arrow-back-ios"
-            size={15}
-            color={
-              isDark ? appColors.neutral.gray[200] : appColors.neutral.gray[800]
-            }
-          />
-
-          <Text className="ml-1 dark:text-white">{t('back')}</Text>
-        </TouchableOpacity>
-
+        <BackButton />
         <ReportStatusBadge status={status} />
       </View>
 

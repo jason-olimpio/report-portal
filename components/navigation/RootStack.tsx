@@ -4,6 +4,7 @@ import {
   NewReportScreen,
   ReportDetailsScreen,
   NotificationScreen,
+  CalendarScreen,
 } from '@screens';
 import {DrawerNavigator} from '@components';
 
@@ -12,6 +13,7 @@ export type RootStackParamList = {
   NewReport: undefined;
   ReportDetails: {reportId: string};
   Notifications: undefined;
+  Calendar: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -22,5 +24,6 @@ export const RootStack = () => (
     <Stack.Screen name="NewReport" component={NewReportScreen} />
     <Stack.Screen name="ReportDetails" component={ReportDetailsScreen} />
     <Stack.Screen name="Notifications" component={NotificationScreen} />
+    <Stack.Screen name="Calendar" component={CalendarScreen} />
   </Stack.Navigator>
 );

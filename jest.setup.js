@@ -1,5 +1,56 @@
 import 'react-native-gesture-handler/jestSetup';
 
+jest.mock('@utils', () => ({
+  getCalendarTheme: jest.fn(),
+  STATUS_COLORS: {
+    light: {},
+    dark: {},
+  },
+  getPriorityLabel: jest.fn(),
+  getTimeAgo: jest.fn(),
+  getAddressFromLocation: jest.fn(),
+}));
+
+jest.mock('@config', () => ({
+  appColors: {
+    system: {
+      orange: {
+        600: {
+          light: '#cc7a00',
+          dark: '#ea580c',
+        },
+      },
+      emerald: {
+        600: {
+          light: '#008055',
+          dark: '#059669',
+        },
+      },
+      teal: {
+        600: {
+          light: '#089994',
+          dark: '#0d9488',
+        },
+      },
+    },
+    primary: {
+      light: '#0066cc',
+      dark: '#003366',
+    },
+    background: {
+      light: '#f3f4f6',
+      dark: '#262626',
+    },
+    neutral: {
+      gray: {
+        200: '#e5e7eb',
+        300: '#d1d5db',
+        800: '#18181b',
+      },
+    },
+  },
+}));
+
 jest.mock('nativewind', () => ({
   useColorScheme: jest.fn(() => ({
     colorScheme: 'light',

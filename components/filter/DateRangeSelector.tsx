@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 import {useTheme} from '@hooks';
 import {appColors} from '@config';
+import {getLocalizedCalendarLabels} from '@utils';
 
 type DateRangeSelectorProps = {
   dateRange: {start: Date | null; end: Date | null};
@@ -34,30 +35,7 @@ const DateRangeSelector = ({
     toggleDatePicker();
   };
 
-  const weekdays = [
-    t('weekdays.monday'),
-    t('weekdays.tuesday'),
-    t('weekdays.wednesday'),
-    t('weekdays.thursday'),
-    t('weekdays.friday'),
-    t('weekdays.saturday'),
-    t('weekdays.sunday'),
-  ];
-
-  const months = [
-    t('months.january'),
-    t('months.february'),
-    t('months.march'),
-    t('months.april'),
-    t('months.may'),
-    t('months.june'),
-    t('months.july'),
-    t('months.august'),
-    t('months.september'),
-    t('months.october'),
-    t('months.november'),
-    t('months.december'),
-  ];
+  const {weekdays, months} = getLocalizedCalendarLabels(t);
 
   return (
     <>

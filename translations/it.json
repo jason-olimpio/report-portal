@@ -129,5 +129,9 @@
     },
     "statsByMonth": "Report aperti e chiusi per mese",
     "noImage": "Nessuna immagine disponibile",
-    "noInternetConnection": "Nessuna connessione a Internet"
+    "noInternetConnection": "Nessuna connessione a Internet",
+    "calendar": {
+        "today": "Oggi",
+        "noReports": "Nessuna segnalazione per questa data"
+    }
 }

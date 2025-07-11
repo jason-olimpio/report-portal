@@ -1,4 +1,4 @@
-import {getLocaleForDateFns} from '@utils';
+import getLocaleForDateFns from '../localization/getLocaleForDateFns';
 
 jest.mock('date-fns/locale', () => ({
   enUS: {code: 'en-US'},

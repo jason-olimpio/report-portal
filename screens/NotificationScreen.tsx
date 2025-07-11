@@ -1,12 +1,11 @@
 import {View, Text, FlatList} from 'react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import {Notification} from '@types';
 
+import {BackButton} from '@components';
+
 import {notificationData} from '@store';
-import {useTheme} from '@hooks';
 import {getTimeAgo} from '@utils';
 
 const NotificationSeparator = () => (
@@ -14,8 +13,6 @@ const NotificationSeparator = () => (
 );
 
 const NotificationScreen = () => {
-  const {isDark} = useTheme();
-  const navigation = useNavigation();
   const {t, i18n} = useTranslation();
 
   const renderItem = ({item}: {item: Notification; index: number}) => {
@@ -44,12 +41,7 @@ const NotificationScreen = () => {
   return (
     <View className="flex-1 bg-background-light dark:bg-background-dark pb-10">
       <View className="flex-row items-center px-4 pt-14 pb-2">
-        <MaterialIcons
-          name="arrow-back-ios"
-          size={20}
-          onPress={navigation.goBack}
-          color={isDark ? 'white' : 'black'}
-        />
+        <BackButton showText={false} />
 
         <View className="flex-1 items-center -ml-8">
           <Text className="text-2xl font-titillium-bold dark:text-white">

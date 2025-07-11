@@ -54,7 +54,7 @@ export const QuickActions = () => {
       bgColor: isDark
         ? appColors.system.teal[50].dark
         : appColors.system.teal[50].light,
-      onPress: () => null,
+      onPress: () => navigation.navigate('Calendar'),
     },
     {
       icon: 'bar-chart',

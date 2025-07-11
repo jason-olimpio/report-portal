@@ -1,13 +1,13 @@
+jest.mock('react-i18next', () => ({
+  useTranslation: jest.fn(),
+}));
+
 import {render} from '@testing-library/react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import {Tabs} from '@components';
 import {ThemeProvider} from '@contexts';
-
-jest.mock('react-i18next', () => ({
-  useTranslation: jest.fn(),
-}));
 
 jest.mock('@react-navigation/bottom-tabs', () => ({
   createBottomTabNavigator: jest.fn(() => ({
