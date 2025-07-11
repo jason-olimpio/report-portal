@@ -1,10 +1,13 @@
 import {ComponentProps} from 'react';
 import {View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
+import {
+  type CompositeNavigationProp,
+  useNavigation,
+} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import type {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
 import {
   IconActionButton,
