@@ -30,7 +30,7 @@ const DateRangeSelector = ({
   const [tempDateRange, setTempDateRange] = useState(dateRange);
 
   const screenWidth = Dimensions.get('window').width;
-  const calendarWidth = Math.min(screenWidth - 50, 350);
+  const calendarWidth = Math.min(screenWidth - 75, 350);
   const calendarHeight = Math.min(calendarWidth, 350);
 
   const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') =>
@@ -99,7 +99,7 @@ const DateRangeSelector = ({
         />
       </View>
 
-      <View className="flex-row justify-between items-center mt-6 px-4">
+      <View className="flex-row justify-between items-center mt-4 px-4">
         <TouchableOpacity onPress={toggleDatePicker} className="flex-1">
           <Text className="text-center text-medium text-red-500">
             {t('cancel')}

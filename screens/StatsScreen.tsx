@@ -30,12 +30,12 @@ const StatsScreen = () => {
   const {isDark} = useTheme();
 
   const [screenWidth, setScreenWidth] = useState(
-    Dimensions.get('window').width - 50,
+    Dimensions.get('window').width - 25,
   );
 
   useEffect(() => {
     const onChange = ({window}: {window: {width: number}}) =>
-      setScreenWidth(window.width - 50);
+      setScreenWidth(window.width - 25);
 
     const subscription = Dimensions.addEventListener('change', onChange);
 
@@ -44,7 +44,8 @@ const StatsScreen = () => {
 
   const monthLabels = months
     .filter((month): month is number => month !== undefined)
-    .map(month => getMonthLabel(month, t));
+    .map(month => getMonthLabel(month, t))
+    .map(label => label.substring(0, 3));
 
   const renderBarChart = (data: number[], color: string) => (
     <BarChart
@@ -53,7 +54,7 @@ const StatsScreen = () => {
         datasets: [{data}],
       }}
       width={screenWidth}
-      height={240}
+      height={280}
       yAxisLabel=""
       yAxisSuffix=""
       yLabelsOffset={40}
@@ -71,6 +72,12 @@ const StatsScreen = () => {
         color: () => color,
         labelColor: () =>
           isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+        propsForVerticalLabels: {
+          fontSize: 10,
+        },
+        propsForHorizontalLabels: {
+          fontSize: 12,
+        },
       }}
       fromZero
       showBarTops
@@ -100,16 +107,15 @@ const StatsScreen = () => {
   return (
     <View className="flex-1 bg-background-light dark:bg-background-dark">
       <ScrollView
-        className="flex-1 p-8 mb-10"
+        className="flex-1 p-4"
         contentContainerStyle={styles.contentContainer}>
         <Text className="text-xl dark:text-white font-titillium-bold mb-4">
           {t('statsByMonth')}
         </Text>
 
-        {chartSections.map(({label, data, color}, idx) => (
+        {chartSections.map(({label, data, color}) => (
           <Fragment key={label}>
-            <Text
-              className={`dark:text-white font-titillium-semibold${idx === 0 ? ' mt-2' : ' mt-6'}`}>
+            <Text className="dark:text-white font-titillium-semibold mt-2">
               {label}
             </Text>
 
@@ -124,6 +130,6 @@ const StatsScreen = () => {
 export default StatsScreen;
 
 const styles = {
-  chart: {borderRadius: 16, paddingTop: 24},
+  chart: {borderRadius: 16, paddingTop: 24, paddingBottom: 20},
   contentContainer: {flexGrow: 1},
 };
