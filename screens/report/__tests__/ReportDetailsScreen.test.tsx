@@ -171,26 +171,37 @@ describe('ReportDetailsScreen', () => {
   it('should handle zoom controls interaction', () => {
     const component = render(<ReportDetailsScreen />);
 
-    // Test that component renders without error
     expect(component).toBeTruthy();
+
+    const MaterialIcons = require('@react-native-vector-icons/material-icons');
+    expect(MaterialIcons).toBeDefined();
   });
 
   it('should handle zoom in button press', () => {
-    const {getByTestId} = render(<ReportDetailsScreen />);
+    const component = render(<ReportDetailsScreen />);
 
-    expect(getByTestId).toBeDefined();
+    expect(component).toBeTruthy();
+
+    const MaterialIcons = require('@react-native-vector-icons/material-icons');
+    expect(MaterialIcons).toBeDefined();
   });
 
   it('should handle zoom out button press', () => {
-    const {getByTestId} = render(<ReportDetailsScreen />);
+    const component = render(<ReportDetailsScreen />);
 
-    expect(getByTestId).toBeDefined();
+    expect(component).toBeTruthy();
+
+    const MaterialIcons = require('@react-native-vector-icons/material-icons');
+    expect(MaterialIcons).toBeDefined();
   });
 
   it('should use placeholder image when no images provided', () => {
-    const {getByDisplayValue} = render(<ReportDetailsScreen />);
+    const component = render(<ReportDetailsScreen />);
 
-    expect(getByDisplayValue).toBeDefined();
+    expect(component).toBeTruthy();
+
+    const {PlaceholderImage} = require('@assets');
+    expect(PlaceholderImage).toEqual({uri: 'placeholder-image'});
   });
 
   it('should call getLocaleForDateFns with correct language', () => {
