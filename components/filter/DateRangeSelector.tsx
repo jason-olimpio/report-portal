@@ -1,5 +1,11 @@
 import {useState} from 'react';
-import {Text, TouchableOpacity, View, Dimensions} from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  View,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 import {useTranslation} from 'react-i18next';
 
@@ -42,7 +48,7 @@ const DateRangeSelector = ({
   const {weekdays, months} = getLocalizedCalendarLabels(t);
 
   return (
-    <>
+    <ScrollView>
       <Text className="text-lg font-titillium-semibold mb-6 dark:text-white text-center px-4">
         {t('selectDateRange')}
       </Text>
@@ -106,7 +112,7 @@ const DateRangeSelector = ({
           </Text>
         </TouchableOpacity>
       </View>
-    </>
+    </ScrollView>
   );
 };
 

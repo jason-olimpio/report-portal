@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import {useTranslation} from 'react-i18next';
 
@@ -26,7 +26,7 @@ const CalendarScreen = () => {
   }, [t, configureCalendarLocale]);
 
   return (
-    <View className="flex-1 p-6 pt-10 bg-background-light dark:bg-background-dark">
+    <ScrollView className="flex-1 p-6 pt-10 bg-background-light dark:bg-background-dark">
       <BackButton />
 
       <View className="mt-10">
@@ -43,7 +43,7 @@ const CalendarScreen = () => {
           selectedDate={selectedDate}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

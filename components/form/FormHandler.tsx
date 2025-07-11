@@ -189,7 +189,7 @@ export const FormHandler = <T extends Record<string, any>>({
       <TouchableOpacity
         onPress={handleSave}
         disabled={isSubmitting}
-        className="rounded-full w-full self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
+        className="rounded-full w-full mb-6 self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
         accessibilityLabel={t('save')}>
         {isSubmitting ? (
           <ActivityIndicator color="white" />

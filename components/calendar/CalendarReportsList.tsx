@@ -18,14 +18,16 @@ const CalendarReportsList = ({
 
   if (!selectedDate || !reports || reports.length === 0) {
     return (
-      <Text className="text-center text-neutral-gray-400 mt-6">
-        {t('calendar.noReports')}
-      </Text>
+      <View className="w-full mb-16">
+        <Text className="text-center text-neutral-gray-400 mt-6">
+          {t('calendar.noReports')}
+        </Text>
+      </View>
     );
   }
 
   return (
-    <View className="w-full p-4">
+    <View className="w-full p-4 mb-10">
       {reports.map(report => (
         <CalendarReportItem key={report.id} report={report} />
       ))}
