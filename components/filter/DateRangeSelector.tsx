@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
 import {useTranslation} from 'react-i18next';
@@ -47,6 +48,26 @@ const DateRangeSelector = ({
 
   const {weekdays, months} = getLocalizedCalendarLabels(t);
 
+  const getTextStyle = () => ({
+    ...styles.text,
+    color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+  });
+
+  const getMonthTitleStyle = () => ({
+    ...styles.monthTitle,
+    color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+  });
+
+  const getYearTitleStyle = () => ({
+    ...styles.yearTitle,
+    color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
+  });
+
+  const getNavigationTitleStyle = () => ({
+    ...styles.navigationTitle,
+    color: isDark ? appColors.primary.light : appColors.primary.dark,
+  });
+
   return (
     <ScrollView>
       <Text className="text-lg font-titillium-semibold mb-6 dark:text-white text-center px-4">
@@ -65,33 +86,12 @@ const DateRangeSelector = ({
             isDark ? appColors.primary.light : appColors.primary.dark
           }
           selectedDayTextColor="#FFFFFF"
-          textStyle={{
-            color: isDark
-              ? appColors.text.primary.dark
-              : appColors.text.primary.light,
-            fontSize: 14, // Smaller font size
-          }}
+          textStyle={getTextStyle()}
           dayShape="circle"
-          monthTitleStyle={{
-            color: isDark
-              ? appColors.text.primary.dark
-              : appColors.text.primary.light,
-            fontSize: 16, // Smaller font size
-          }}
-          yearTitleStyle={{
-            color: isDark
-              ? appColors.text.primary.dark
-              : appColors.text.primary.light,
-            fontSize: 16, // Smaller font size
-          }}
-          previousTitleStyle={{
-            color: isDark ? appColors.primary.light : appColors.primary.dark,
-            fontSize: 14, // Smaller font size
-          }}
-          nextTitleStyle={{
-            color: isDark ? appColors.primary.light : appColors.primary.dark,
-            fontSize: 14, // Smaller font size
-          }}
+          monthTitleStyle={getMonthTitleStyle()}
+          yearTitleStyle={getYearTitleStyle()}
+          previousTitleStyle={getNavigationTitleStyle()}
+          nextTitleStyle={getNavigationTitleStyle()}
           weekdays={weekdays}
           months={months}
           previousTitle={t('previous')}
@@ -120,5 +120,20 @@ const DateRangeSelector = ({
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 14,
+  },
+  monthTitle: {
+    fontSize: 16,
+  },
+  yearTitle: {
+    fontSize: 16,
+  },
+  navigationTitle: {
+    fontSize: 14,
+  },
+});
 
 export default DateRangeSelector;
