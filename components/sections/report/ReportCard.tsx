@@ -75,7 +75,7 @@ const ReportCard = ({
               <MaterialIcons name="location-on" size={15} color="gray" />
 
               <Text
-                className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-1 flex-shrink min-w-0"
+                className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-0.5 flex-shrink min-w-0"
                 numberOfLines={1}
                 ellipsizeMode="tail">
                 {address}
