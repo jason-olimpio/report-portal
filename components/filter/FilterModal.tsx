@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Modal, Pressable} from 'react-native';
 
 import {DateRangeSelector, ReportFilterOptions} from '@components';

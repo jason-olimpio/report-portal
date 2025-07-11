@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import {Fragment, useState, useEffect} from 'react';
 import {Text, ScrollView, Dimensions, View} from 'react-native';
 import {BarChart} from 'react-native-chart-kit';
 import {useTranslation} from 'react-i18next';
