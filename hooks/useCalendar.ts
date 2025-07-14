@@ -1,4 +1,4 @@
-import {useState, useMemo, useCallback} from 'react';
+import {useState, useMemo} from 'react';
 import {LocaleConfig} from 'react-native-calendars';
 import {TFunction} from 'i18next';
 
@@ -13,17 +13,14 @@ import {
 export const useCalendar = (t: TFunction, isDark: boolean) => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
-  const reportsByDate: ReportsByDate = useMemo(
-    () => getReportsByDate(reportData),
-    [reportData],
-  );
+  const reportsByDate: ReportsByDate = getReportsByDate(reportData);
 
   const markedDates = useMemo(
     () => getMarkedDatesWithSelection(reportsByDate, isDark, selectedDate),
     [reportsByDate, isDark, selectedDate],
   );
 
-  const configureCalendarLocale = useCallback((t: TFunction) => {
+  const configureCalendarLocale = (t: TFunction) => {
     const {months, weekdays} = getLocalizedCalendarLabels(t);
 
     LocaleConfig.locales['custom'] = {
@@ -33,12 +30,12 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
       dayNamesShort: weekdays.map(day => day.slice(0, 3)),
       today: t('calendar.today'),
     };
-    LocaleConfig.defaultLocale = 'custom';
-  }, []);
 
-  const handleDayPress = useCallback((day: {dateString: string}) => {
+    LocaleConfig.defaultLocale = 'custom';
+  };
+
+  const handleDayPress = (day: {dateString: string}) =>
     setSelectedDate(day.dateString);
-  }, []);
 
   const selectedReports = selectedDate
     ? reportsByDate[selectedDate] || null
