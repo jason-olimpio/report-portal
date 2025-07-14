@@ -6,8 +6,8 @@ type MonthlyStats = {
 };
 
 type MonthlyReportStatsResult = {
-  open: number[];
-  closed: number[];
+  [K in keyof MonthlyStats]: MonthlyStats[K][];
+} & {
   months: (number | undefined)[];
 };
 
