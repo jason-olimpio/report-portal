@@ -1,4 +1,3 @@
-import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {View, Text} from 'react-native';
 
@@ -21,15 +20,15 @@ const CommunityImpactSection = ({
   const {t} = useTranslation();
 
   const stats: Stat[] = [
-    {value: reports, label: t('reports')},
-    {value: solvedReports, label: t('solved')},
-    {value: `${successRate}%`, label: t('successRate')},
+    {value: reports, label: t('navigation.reports')},
+    {value: solvedReports, label: t('status.solved')},
+    {value: `${successRate}%`, label: t('stats.successRate')},
   ];
 
   return (
     <View className="mb-6">
       <Text className="text-xl font-titillium-light mb-5 dark:text-white">
-        {t('communityImpact')}
+        {t('stats.communityImpact')}
       </Text>
 
       <View className="bg-white dark:bg-background-secondaryDark p-4 shadow-lg rounded-lg">

@@ -47,8 +47,8 @@ const ReportsScreen = () => {
   return (
     <ScrollView className="flex-1 dark:bg-background-dark p-8">
       <SectionHeader
-        title={t('allReports')}
-        action={t('filter')}
+        title={t('reports.allReports')}
+        action={t('filter.filter')}
         onPress={() => toggleModal(true)}
         className="mb-6"
       />

@@ -27,7 +27,9 @@ const BackButton = ({showText = true}: BackButtonProps) => {
         }
       />
 
-      {showText && <Text className="ml-1 dark:text-white">{t('back')}</Text>}
+      {showText && (
+        <Text className="ml-1 dark:text-white">{t('navigation.back')}</Text>
+      )}
     </TouchableOpacity>
   );
 };

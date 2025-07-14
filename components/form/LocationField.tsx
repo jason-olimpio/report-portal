@@ -27,16 +27,16 @@ const LocationField = ({label, location, error}: LocationFieldProps) => {
         {hasLocation ? (
           <>
             <Text className="text-neutral-500 dark:text-neutral-300 text-sm">
-              {t('latitude')}: {location.latitude.toFixed(6)}
+              {t('location.latitude')}: {location.latitude.toFixed(6)}
             </Text>
 
             <Text className="text-neutral-500 dark:text-neutral-300 text-sm">
-              {t('longitude')}: {location.longitude.toFixed(6)}
+              {t('location.longitude')}: {location.longitude.toFixed(6)}
             </Text>
           </>
         ) : (
           <Text className="text-neutral-500 dark:text-neutral-300 text-sm italic">
-            {t('locationNotCaptured')}
+            {t('location.locationNotCaptured')}
           </Text>
         )}
       </View>

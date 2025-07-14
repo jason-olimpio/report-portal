@@ -40,7 +40,7 @@ const ReportFilterOptions = ({
     const {start, end} = dateRange;
 
     if (!start || !end) {
-      return t('selectDateRange');
+      return t('filter.selectDateRange');
     }
 
     const startDate = start.toLocaleDateString('it-IT');
@@ -59,7 +59,7 @@ const ReportFilterOptions = ({
   return (
     <ScrollView>
       <Text className="font-titillium-bold mb-4 dark:text-white">
-        {t('filterByStatus')}
+        {t('filter.filterByStatus')}
       </Text>
 
       {STATUS_OPTIONS.map(status => (
@@ -70,13 +70,15 @@ const ReportFilterOptions = ({
             selectedStatus === status && 'bg-gray-200 dark:bg-gray-700'
           }`}>
           <Text className="dark:text-white">
-            {status === StatusOption.All ? t('all') : getStatusLabel(status, t)}
+            {status === StatusOption.All
+              ? t('status.all')
+              : getStatusLabel(status, t)}
           </Text>
         </TouchableOpacity>
       ))}
 
       <Text className="font-bold mt-6 mb-4 dark:text-white">
-        {t('filterByDate')}
+        {t('filter.filterByDate')}
       </Text>
 
       <TouchableOpacity
@@ -96,7 +98,7 @@ const ReportFilterOptions = ({
           onPress={resetFilters}
           className="px-4 py-2 rounded-lg">
           <Text className="text-base font-titillium-semibold text-system-red-600-light dark:text-system-red-600-dark">
-            {t('resetFilters')}
+            {t('filter.resetFilters')}
           </Text>
         </TouchableOpacity>
 
@@ -104,7 +106,7 @@ const ReportFilterOptions = ({
           onPress={() => toggleModal(false)}
           className="px-4 py-2">
           <Text className="text-base font-titillium-semibold text-system-teal-600-light dark:text-system-teal-600-dark">
-            {t('close')}
+            {t('forms.close')}
           </Text>
         </TouchableOpacity>
       </View>

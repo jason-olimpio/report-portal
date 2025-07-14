@@ -52,7 +52,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
           <TouchableWithoutFeedback>
             <View className="bg-white dark:bg-background-secondaryDark rounded-lg p-6 w-72 items-center">
               <Text className="text-lg font-titillium-bold mb-6 text-center dark:text-white">
-                {t('selectLanguage')}
+                {t('settings.selectLanguage')}
               </Text>
 
               {languages.map(({code, label, flag}) => (
@@ -74,7 +74,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
                 <Text
                   className="text-base text-system-red-600-light 
                 dark:text-system-red-600-dark font-titillium-bold text-center">
-                  {t('cancel')}
+                  {t('forms.cancel')}
                 </Text>
               </TouchableOpacity>
             </View>

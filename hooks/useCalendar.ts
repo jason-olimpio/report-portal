@@ -52,3 +52,5 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
     configureCalendarLocale,
   };
 };
+
+export default useCalendar;

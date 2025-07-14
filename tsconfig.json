@@ -13,7 +13,8 @@
       "@store": ["store/index"],
       "@contexts": ["contexts/index"],
       "@hooks": ["hooks/index"],
-      "@db": ["db/index"]
+      "@db": ["db/index"],
+      "@api": ["api/index"]
     }
   }
 }

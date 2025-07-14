@@ -1,137 +1,212 @@
 {
-    "appName": "SOS Segnalazioni",
+  "appName": "SOS Segnalazioni",
+  
+  "navigation": {
+    "home": "Home",
     "personalArea": "Area personale",
     "reports": "Segnalazioni",
-    "recentReports": "Segnalazioni recenti",
-    "viewAll": "Vedi tutte",
     "stats": "Statistiche",
-    "communityImpact": "Impatto della Comunità",
-    "solved": "Risolte",
-    "successRate": "Tasso di successo",
-    "allReports": "Tutte le segnalazioni",
-    "filter": "Filtra",
-    "noReportFound": "Nessuna segnalazione trovata.",
-    "selectDateRange": "Seleziona intervallo di date",
-    "all": "Tutti",
-    "filterByDate": "Filtra per data",
-    "filterByStatus": "Filtra per stato",
-    "resetFilters": "Resetta filtri",
-    "close": "Chiudi",
+    "notifications": "Notifiche",
+    "calendar": "Calendario",
+    "back": "Indietro"
+  },
+  
+  "authentication": {
+    "welcome": "Benvenuto",
+    "signInToYourAccount": "Accedi al tuo account",
+    "createAccount": "Crea un Account",
+    "joinUsToday": "Unisciti a noi",
+    "signUp": "Registrati",
+    "signIn": "Accedi",
+    "register": "Registrati",
+    "logout": "Logout",
+    "loginSuccess": "Login Riuscito",
+    "loginError": "Errore di Login",
+    "loginFailed": "Login fallito. Riprova.",
+    "registrationSuccess": "Registrazione Riuscita",
+    "registrationError": "Errore di Registrazione",
+    "registrationFailed": "Registrazione fallita. Riprova.",
+    "welcomeBack": "Bentornato, {{name}}!",
+    "welcomeToApp": "Benvenuto nell'app, {{name}}!"
+  },
+  
+  "forms": {
+    "name": "Nome",
+    "fullName": "Nome completo",
+    "email": "Email",
+    "password": "Password",
+    "currentPassword": "Password attuale",
+    "confirmPassword": "Conferma password",
+    "enterEmail": "Inserisci la tua email",
+    "enterPassword": "Inserisci la tua password",
+    "enterFullName": "Inserisci il tuo nome completo",
+    "confirmYourPassword": "Conferma la tua password",
+    "title": "Titolo",
+    "description": "Descrizione",
+    "save": "Salva",
     "cancel": "Annulla",
     "confirm": "Conferma",
-    "invalidDate": "Formato data non valido",
-    "unknown": "Sconosciuto",
-    "open": "Aperte",
-    "closed": "Chiuse",
-    "changeLanguage": "Cambia lingua",
-    "selectLanguage": "Seleziona lingua",
-    "switchToDarkMode": "Passa alla modalità scura",
-    "switchToLightMode": "Passa alla modalità chiara",
+    "close": "Chiudi"
+  },
+  
+  "validation": {
+    "emailRequired": "L'email è obbligatoria",
+    "emailInvalid": "Inserisci un indirizzo email valido",
+    "passwordRequired": "La password è obbligatoria",
+    "passwordMinLength": "La password deve essere lunga almeno 8 caratteri",
+    "passwordMaxLength": "La password non può superare i 100 caratteri",
+    "passwordMustContain": "La password deve contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale",
+    "fullNameRequired": "Il nome completo è obbligatorio",
+    "fullNameMinLength": "Il nome completo deve essere lungo almeno 2 caratteri",
+    "fullNameMaxLength": "Il nome completo non può superare i 50 caratteri",
+    "fullNameInvalid": "Il nome completo può contenere solo lettere e spazi",
+    "confirmPasswordRequired": "Conferma la password",
+    "passwordsDoNotMatch": "Le password non corrispondono"
+  },
+  
+  "errors": {
+    "nameRequired": "Il nome è obbligatorio",
+    "emailInvalid": "Indirizzo email non valido",
+    "currentPasswordRequired": "La password attuale è obbligatoria",
+    "confirmPasswordRequired": "La conferma della password è obbligatoria",
+    "passwordsMustMatch": "Le password devono corrispondere",
+    "permissionDenied": "Permesso negato",
+    "titleTooShort": "Il titolo deve essere lungo almeno 3 caratteri",
+    "descriptionTooShort": "La descrizione deve essere lunga almeno 10 caratteri",
+    "imageRequired": "L'immagine è obbligatoria",
+    "locationError": "Errore nel recupero della posizione",
+    "locationRequired": "La posizione è obbligatoria",
+    "reportSendFailed": "Invio della segnalazione fallito",
+    "invalidDate": "Formato data non valido"
+  },
+  
+  "reports": {
+    "recentReports": "Segnalazioni recenti",
+    "allReports": "Tutte le segnalazioni",
+    "viewAll": "Vedi tutte",
+    "noReportFound": "Nessuna segnalazione trovata.",
     "reportSavedOffline": "Segnalazione salvata offline",
     "reportSaved": "Segnalazione salvata",
-    "reportNotFound": "Segnalazione non trovata",
-    "address": "Indirizzo",
-    "date": "Data",
-    "notifications": "Notifiche",
-    "noNotifications": "Nessuna notifica",
+    "reportNotFound": "Segnalazione non trovata"
+  },
+  
+  "status": {
+    "all": "Tutti",
+    "open": "Aperte",
+    "closed": "Chiuse",
+    "pending": "In attesa",
+    "working": "In lavorazione",
+    "completed": "Completata",
+    "solved": "Risolte",
+    "unknown": "Sconosciuto"
+  },
+  
+  "priority": {
+    "low": "Bassa",
+    "medium": "Media",
+    "high": "Alta"
+  },
+  
+  "filter": {
+    "filter": "Filtra",
+    "selectDateRange": "Seleziona intervallo di date",
+    "filterByDate": "Filtra per data",
+    "filterByStatus": "Filtra per stato",
+    "resetFilters": "Resetta filtri"
+  },
+  
+  "location": {
     "location": "Posizione",
+    "address": "Indirizzo",
     "latitude": "Latitudine",
     "longitude": "Longitudine",
     "locationNotCaptured": "Posizione non catturata",
-    "coordinates": "Coordinate",
-    "name": "Nome",
-    "email": "Email",
-    "currentPassword": "Password attuale",
-    "confirmPassword": "Conferma password",
-    "saving": "Salvataggio...",
-    "save": "Salva",
-    "title": "Titolo",
-    "description": "Descrizione",
-    "back": "Indietro",
+    "coordinates": "Coordinate"
+  },
+  
+  "media": {
     "image": "Immagine",
+    "noImages": "Nessuna immagine disponibile",
     "imageSource": {
-        "images": "Immagini",
-        "camera": "Fotocamera",
-        "gallery": "Galleria",
-        "hint": "Seleziona fino a 5 immagini"
-    },
-    "quickActions": {
-        "title": "Azioni rapide",
-        "addReport": "Agg. segnalazione",
-        "calendar": "Calendario",
-        "analysis": "Analisi"
-    },
-    "environmentalStatus": {
-        "title": "Stato Ambientale",
-        "updatedToday": "Aggiornato oggi",
-        "greenAreas": "Zone verdi",
-        "growthThisMonth": "{{value}} questo mese",
-        "recycling": "Riciclo",
-        "monthlyRate": "Tasso mensile",
-        "water": "Acqua",
-        "waterQuality": "Qualità: {{value}}",
-        "waterQualityValue": "Ottima",
-        "air": "Aria",
-        "airQuality": "PM 2.5: {{value}}",
-        "airQualityValue": "Buona"
-    },
-    "status": {
-        "all": "Tutti",
-        "pending": "In attesa",
-        "working": "In lavorazione",
-        "completed": "Completata"
-    },
-    "priority": {
-        "low": "Bassa",
-        "medium": "Media",
-        "high": "Alta"
-    },
-    "weekdays": {
-        "monday": "Lun",
-        "tuesday": "Mar",
-        "wednesday": "Mer",
-        "thursday": "Gio",
-        "friday": "Ven",
-        "saturday": "Sab",
-        "sunday": "Dom"
-    },
-    "months": {
-        "january": "Gennaio",
-        "february": "Febbraio",
-        "march": "Marzo",
-        "april": "Aprile",
-        "may": "Maggio",
-        "june": "Giugno",
-        "july": "Luglio",
-        "august": "Agosto",
-        "september": "Settembre",
-        "october": "Ottobre",
-        "november": "Novembre",
-        "december": "Dicembre"
-    },
-    "previous": "Precedente",
-    "next": "Prossimo",
-    "page": "Pagina",
-    "of": "di",
-    "errors": {
-        "nameRequired": "Il nome è obbligatorio",
-        "emailInvalid": "Indirizzo email non valido",
-        "currentPasswordRequired": "La password attuale è obbligatoria",
-        "confirmPasswordRequired": "La conferma della password è obbligatoria",
-        "passwordsMustMatch": "Le password devono corrispondere",
-        "permissionDenied": "Permesso negato",
-        "titleTooShort": "Il titolo deve essere lungo almeno 3 caratteri",
-        "descriptionTooShort": "La descrizione deve essere lunga almeno 10 caratteri",
-        "imageRequired": "L'immagine è obbligatoria",
-        "locationError": "Errore nel recupero della posizione",
-        "locationRequired": "La posizione è obbligatoria",
-        "reportSendFailed": "Invio della segnalazione fallito"
-    },
-    "statsByMonth": "Report aperti e chiusi per mese",
-    "noImage": "Nessuna immagine disponibile",
-    "noInternetConnection": "Nessuna connessione a Internet",
-    "calendar": {
-        "today": "Oggi",
-        "noReports": "Nessuna segnalazione per questa data"
+      "images": "Immagini",
+      "camera": "Fotocamera",
+      "gallery": "Galleria",
+      "hint": "Seleziona fino a 5 immagini"
     }
+  },
+  
+  "settings": {
+    "changeLanguage": "Cambia lingua",
+    "selectLanguage": "Seleziona lingua",
+    "switchToDarkMode": "Passa alla modalità scura",
+    "switchToLightMode": "Passa alla modalità chiara"
+  },
+  
+  "quickActions": {
+    "title": "Azioni rapide",
+    "addReport": "Agg. segnalazione",
+    "calendar": "Calendario",
+    "analysis": "Analisi"
+  },
+  
+  "environmentalStatus": {
+    "title": "Stato Ambientale",
+    "updatedToday": "Aggiornato oggi",
+    "greenAreas": "Zone verdi",
+    "growthThisMonth": "{{value}} questo mese",
+    "recycling": "Riciclo",
+    "monthlyRate": "Tasso mensile",
+    "water": "Acqua",
+    "waterQuality": "Qualità: {{value}}",
+    "waterQualityValue": "Ottima",
+    "air": "Aria",
+    "airQuality": "PM 2.5: {{value}}",
+    "airQualityValue": "Buona"
+  },
+  
+  "calendar": {
+    "today": "Oggi",
+    "noReports": "Nessuna segnalazione per questa data"
+  },
+  
+  "weekdays": {
+    "monday": "Lun",
+    "tuesday": "Mar",
+    "wednesday": "Mer",
+    "thursday": "Gio",
+    "friday": "Ven",
+    "saturday": "Sab",
+    "sunday": "Dom"
+  },
+  
+  "months": {
+    "january": "Gennaio",
+    "february": "Febbraio",
+    "march": "Marzo",
+    "april": "Aprile",
+    "may": "Maggio",
+    "june": "Giugno",
+    "july": "Luglio",
+    "august": "Agosto",
+    "september": "Settembre",
+    "october": "Ottobre",
+    "november": "Novembre",
+    "december": "Dicembre"
+  },
+  
+  "pagination": {
+    "next": "Prossimo",
+    "page": "Pagina"
+  },
+  
+  "stats": {
+    "communityImpact": "Impatto della Comunità",
+    "successRate": "Tasso di successo",
+    "statsByMonth": "Report aperti e chiusi per mese"
+  },
+  
+  "general": {
+    "noNotifications": "Nessuna notifica",
+    "noInternetConnection": "Nessuna connessione a Internet"
+  }
 }

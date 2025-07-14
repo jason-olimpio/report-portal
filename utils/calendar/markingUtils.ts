@@ -38,8 +38,8 @@ export const getMarkedDatesWithSelection = (
       selectedReports && selectedReports.length > 0
         ? getDateStatusColor(selectedReports, isDark)
         : isDark
-          ? appColors.primary.light
-          : appColors.primary.dark,
+          ? appColors.primary.dark
+          : appColors.primary.light,
     selectedTextColor: '#FFFFFF',
   };
 
@@ -53,7 +53,7 @@ export const getMarkedDates = (
   const markedDates: MarkedDates = {};
 
   Object.entries(reportsByDate).forEach(
-    ([date, reports]) =>
+    ([date, reports]: [string, Report[]]) =>
       (markedDates[date] = {
         dots: reports
           .filter(report => report.status !== StatusOption.All)

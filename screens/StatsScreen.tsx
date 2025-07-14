@@ -1,5 +1,5 @@
 import {Fragment, useState, useEffect} from 'react';
-import {Text, ScrollView, Dimensions, View} from 'react-native';
+import {Text, ScrollView, Dimensions} from 'react-native';
 import {BarChart} from 'react-native-chart-kit';
 import {useTranslation} from 'react-i18next';
 import type {ChartConfig} from 'react-native-chart-kit/dist/HelperTypes';
@@ -30,12 +30,12 @@ const StatsScreen = () => {
   const {isDark} = useTheme();
 
   const [screenWidth, setScreenWidth] = useState(
-    Dimensions.get('window').width - 25,
+    Dimensions.get('window').width - 60,
   );
 
   useEffect(() => {
     const onChange = ({window}: {window: {width: number}}) =>
-      setScreenWidth(window.width - 25);
+      setScreenWidth(window.width - 60);
 
     const subscription = Dimensions.addEventListener('change', onChange);
 
@@ -89,14 +89,14 @@ const StatsScreen = () => {
 
   const chartSections: ChartSection[] = [
     {
-      label: t('open'),
+      label: t('status.open'),
       data: open,
       color: isDark
         ? appColors.system.emerald[600].dark
         : appColors.system.emerald[600].light,
     },
     {
-      label: t('closed'),
+      label: t('status.closed'),
       data: closed,
       color: isDark
         ? appColors.system.teal[600].dark
@@ -105,25 +105,23 @@ const StatsScreen = () => {
   ];
 
   return (
-    <View className="flex-1 bg-background-light dark:bg-background-dark">
-      <ScrollView
-        className="flex-1 p-4"
-        contentContainerStyle={styles.contentContainer}>
-        <Text className="text-xl dark:text-white font-titillium-bold mb-4">
-          {t('statsByMonth')}
-        </Text>
+    <ScrollView
+      className="flex-1 p-10 mb-4 bg-background-light dark:bg-background-dark"
+      contentContainerStyle={styles.contentContainer}>
+      <Text className="text-xl dark:text-white font-titillium-bold mb-4">
+        {t('stats.statsByMonth')}
+      </Text>
 
-        {chartSections.map(({label, data, color}) => (
-          <Fragment key={label}>
-            <Text className="dark:text-white font-titillium-semibold mt-2">
-              {label}
-            </Text>
+      {chartSections.map(({label, data, color}) => (
+        <Fragment key={label}>
+          <Text className="dark:text-white font-titillium-semibold mt-2">
+            {label}
+          </Text>
 
-            {renderBarChart(data, color)}
-          </Fragment>
-        ))}
-      </ScrollView>
-    </View>
+          {renderBarChart(data, color)}
+        </Fragment>
+      ))}
+    </ScrollView>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import {Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
@@ -15,7 +14,7 @@ const ReportList = ({reports}: ReportListProps) => {
   if (reports.length === 0) {
     return (
       <Text className="text-center mt-5 text-base text-gray-500 dark:text-gray-200">
-        {t('noReportFound')}
+        {t('reports.noReportFound')}
       </Text>
     );
   }

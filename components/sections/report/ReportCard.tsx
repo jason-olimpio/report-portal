@@ -6,20 +6,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 
-import {ReportStatusBadge, RootStackParamList} from '@components';
-
-import {StatusOption} from '@types';
+import {ReportStatusBadge} from '@components';
+import {StatusOption, ReportCardNavigationProp} from '@types';
 
 import {getTimeAgo} from '@utils';
 
 import {PlaceholderImage} from '@assets';
-
-type ReportCardNavigationProp = StackNavigationProp<RootStackParamList>;
 
 type ReportCardProps = {
   id: string;

@@ -1,2 +1,3 @@
-export * from './useTheme';
-export * from './useCalendar';
+export {default as useAuth} from './useAuth';
+export {default as useTheme} from './useTheme';
+export {default as useCalendar} from './useCalendar';

@@ -94,7 +94,7 @@ const ImageSliderField = ({
       iconColor: isDark
         ? appColors.neutral.gray[200]
         : appColors.neutral.gray[500],
-      title: t('imageSource.camera'),
+      title: t('media.imageSource.camera'),
       bgColor:
         'bg-background-light dark:bg-background-dark border border-neutral-gray-500 dark:border-neutral-gray-200',
       onPress: () => pickImage('camera'),
@@ -104,7 +104,7 @@ const ImageSliderField = ({
       iconColor: isDark
         ? appColors.neutral.gray[200]
         : appColors.neutral.gray[500],
-      title: t('imageSource.gallery'),
+      title: t('media.imageSource.gallery'),
       bgColor:
         'bg-background-light dark:bg-background-dark border border-neutral-gray-500 dark:border-neutral-gray-200',
       onPress: () => pickImage('gallery'),
@@ -117,7 +117,7 @@ const ImageSliderField = ({
     <View className="mb-4">
       {maxImages > 1 && imageUris.length === 0 && (
         <Text className="text-neutral-gray-500 dark:text-white mb-6 text-center">
-          {t('imageSource.hint', {value: maxImages})}
+          {t('media.imageSource.hint', {value: maxImages})}
         </Text>
       )}
 
@@ -125,7 +125,7 @@ const ImageSliderField = ({
         <View className="items-center">
           {maxImages > 1 && (
             <Text className="text-neutral-gray-600 dark:text-white mb-6 font-medium">
-              {imageUris.length} / {maxImages} {t('imageSource.images')}
+              {imageUris.length} / {maxImages} {t('media.imageSource.images')}
             </Text>
           )}
 

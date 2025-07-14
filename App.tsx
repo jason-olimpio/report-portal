@@ -5,14 +5,12 @@ import {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import NetInfo from '@react-native-community/netinfo';
 
-import {NavigationContainer} from '@react-navigation/native';
-
 import 'react-native-gesture-handler';
 
 import './i18n';
 
-import {ThemeProvider} from '@contexts';
-import {RootStack, Snackbar} from '@components';
+import {ThemeProvider, AuthProvider} from '@contexts';
+import {AppNavigator, Snackbar} from '@components';
 import {ReportSyncManager} from '@db';
 
 import {isOnline} from '@utils';
@@ -37,13 +35,16 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider>
-      <NavigationContainer>
-        <RootStack />
+    <AuthProvider>
+      <ThemeProvider>
+        <AppNavigator />
 
-        <Snackbar visible={!isConnected} message={t('noInternetConnection')} />
-      </NavigationContainer>
-    </ThemeProvider>
+        <Snackbar
+          visible={!isConnected}
+          message={t('general.noInternetConnection')}
+        />
+      </ThemeProvider>
+    </AuthProvider>
   );
 };
 

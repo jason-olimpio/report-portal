@@ -1,4 +1,4 @@
-import {Alert, View, type ImageSourcePropType} from 'react-native';
+import {Alert, ScrollView, type ImageSourcePropType} from 'react-native';
 import {useEffect} from 'react';
 import {z} from 'zod';
 import {useTranslation} from 'react-i18next';
@@ -36,14 +36,14 @@ const NewReportScreen = () => {
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: t('image'), isImageSlider: true, maxImages: 5},
-    {key: 'title', label: t('title')},
+    {key: 'image', label: t('forms.image'), isImageSlider: true, maxImages: 5},
+    {key: 'title', label: t('forms.title')},
     {
       key: 'description',
-      label: t('description'),
+      label: t('forms.description'),
       inputProps: {multiline: true, style: {minHeight: 80}},
     },
-    {key: 'location', label: t('location'), isLocation: true},
+    {key: 'location', label: t('location.location'), isLocation: true},
   ];
 
   useEffect(() => {
@@ -73,21 +73,21 @@ const NewReportScreen = () => {
 
       if (!(await isOnline())) {
         await addPendingReport(report);
-        Alert.alert(t('reportSavedOffline'));
+        Alert.alert(t('reports.reportSavedOffline'));
 
         return;
       }
 
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      Alert.alert(t('reportSaved'));
+      Alert.alert(t('reports.reportSaved'));
     } catch {
       Alert.alert(t('error'), t('errors.reportSendFailed'));
     }
   };
 
   return (
-    <View className="p-5 flex-1 bg-background-secondaryLight dark:bg-background-secondaryDark">
+    <ScrollView className="p-5 flex-1 bg-background-secondaryLight dark:bg-background-secondaryDark">
       <BackButton />
 
       <FormHandler
@@ -96,7 +96,7 @@ const NewReportScreen = () => {
         fields={fields}
         onSave={handleReportSave}
       />
-    </View>
+    </ScrollView>
   );
 };
 

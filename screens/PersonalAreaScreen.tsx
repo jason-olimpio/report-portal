@@ -6,13 +6,14 @@ import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {z} from 'zod';
 
 import {FormHandler, FieldConfig, LanguagePicker} from '@components';
-import {useTheme} from '@hooks';
+import {useTheme, useAuth} from '@hooks';
 
 import {appColors} from '@config';
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation();
   const {isDark, toggleTheme} = useTheme();
+  const {isAuthenticated, user} = useAuth();
 
   const [languagePickerVisible, setLanguagePickerVisible] = useState(false);
 
@@ -30,35 +31,35 @@ const PersonalAreaScreen = () => {
     });
 
   const initialState: z.infer<typeof schema> = {
-    name: '',
-    email: '',
+    name: user?.name || '',
+    email: user?.email || '',
     currentPassword: '',
     confirmPassword: '',
     image: undefined,
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: t('image'), isImageSlider: true, maxImages: 1},
-    {key: 'name', label: t('name')},
+    {key: 'image', label: t('media.image'), isImageSlider: true, maxImages: 1},
+    {key: 'name', label: t('forms.name')},
     {
       key: 'email',
-      label: t('email'),
+      label: t('forms.email'),
       inputProps: {keyboardType: 'email-address', autoCapitalize: 'none'},
     },
     {
       key: 'currentPassword',
-      label: t('currentPassword'),
+      label: t('forms.currentPassword'),
       inputProps: {secureTextEntry: true},
     },
     {
       key: 'confirmPassword',
-      label: t('confirmPassword'),
+      label: t('forms.confirmPassword'),
       inputProps: {secureTextEntry: true},
     },
   ];
 
   return (
-    <ScrollView className="flex-1 p-8 bg-background-light dark:bg-background-dark">
+    <ScrollView className="flex-1 p-6 mb-2 bg-background-light dark:bg-background-dark">
       <Pressable
         onPress={() => setLanguagePickerVisible(true)}
         className="self-start flex-row items-center mb-6">
@@ -69,7 +70,7 @@ const PersonalAreaScreen = () => {
         />
 
         <Text className="text-primary font-titillium-bold ml-1 dark:text-white">
-          {t('changeLanguage')}
+          {t('settings.changeLanguage')}
         </Text>
       </Pressable>
 
@@ -82,7 +83,9 @@ const PersonalAreaScreen = () => {
           color={isDark ? appColors.primary.light : appColors.primary.dark}
         />
         <Text className="text-primary font-titillium-bold ml-1 dark:text-white">
-          {isDark ? t('switchToLightMode') : t('switchToDarkMode')}
+          {isDark
+            ? t('settings.switchToLightMode')
+            : t('settings.switchToDarkMode')}
         </Text>
       </Pressable>
 
@@ -91,13 +94,15 @@ const PersonalAreaScreen = () => {
         onClose={() => setLanguagePickerVisible(false)}
       />
 
-      <FormHandler
-        schema={schema}
-        initialState={initialState}
-        fields={fields}
-        onSave={async () => Alert.alert('Saved!')}
-        className="bg-white"
-      />
+      {isAuthenticated && (
+        <FormHandler
+          schema={schema}
+          initialState={initialState}
+          fields={fields}
+          onSave={async () => Alert.alert('Saved!')}
+          className="bg-white"
+        />
+      )}
     </ScrollView>
   );
 };

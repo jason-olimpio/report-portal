@@ -71,7 +71,7 @@ const DateRangeSelector = ({
   return (
     <ScrollView>
       <Text className="text-lg font-titillium-semibold mb-6 dark:text-white text-center px-4">
-        {t('selectDateRange')}
+        {t('filter.selectDateRange')}
       </Text>
 
       <View className="max-h-96 w-full px-5">
@@ -94,8 +94,8 @@ const DateRangeSelector = ({
           nextTitleStyle={getNavigationTitleStyle()}
           weekdays={weekdays}
           months={months}
-          previousTitle={t('previous')}
-          nextTitle={t('next')}
+          previousTitle={t('pagination.previous')}
+          nextTitle={t('pagination.next')}
           onDateChange={handleDateChange}
           selectedStartDate={tempDateRange.start as DateParsable}
           selectedEndDate={tempDateRange.end as DateParsable}
@@ -107,13 +107,13 @@ const DateRangeSelector = ({
       <View className="flex-row justify-between items-center mt-4 px-4">
         <TouchableOpacity onPress={toggleDatePicker} className="flex-1">
           <Text className="text-center text-medium text-red-500">
-            {t('cancel')}
+            {t('forms.cancel')}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={confirmDateRange} className="flex-1">
           <Text className="text-center text-medium text-primary-dark dark:text-primary-light">
-            {t('confirm')}
+            {t('forms.confirm')}
           </Text>
         </TouchableOpacity>
       </View>

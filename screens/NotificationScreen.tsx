@@ -40,12 +40,12 @@ const NotificationScreen = () => {
 
   return (
     <View className="flex-1 bg-background-light dark:bg-background-dark pb-10">
-      <View className="flex-row items-center px-4 pt-14 pb-2">
+      <View className="flex-row items-center px-4 pt-6 pb-2">
         <BackButton showText={false} />
 
         <View className="flex-1 items-center -ml-8">
           <Text className="text-2xl font-titillium-bold dark:text-white">
-            {t('notifications')}
+            {t('navigation.notifications')}
           </Text>
         </View>
       </View>
@@ -55,7 +55,7 @@ const NotificationScreen = () => {
           {notificationData.length === 0 ? (
             <View className="py-10 items-center justify-center">
               <Text className="text-neutral-gray-500 text-base">
-                {t('noNotifications')}
+                {t('general.noNotifications')}
               </Text>
             </View>
           ) : (

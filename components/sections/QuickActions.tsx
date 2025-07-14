@@ -1,19 +1,11 @@
 import {ComponentProps} from 'react';
 import {View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {
-  type CompositeNavigationProp,
-  useNavigation,
-} from '@react-navigation/native';
-import type {StackNavigationProp} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import type {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
-import {
-  IconActionButton,
-  type RootStackParamList,
-  TabsParamList,
-} from '@components';
+import {IconActionButton} from '@components';
+import {type AuthenticatedCompositeNavigationProp} from '@types';
 
 import {appColors} from '@config';
 import {useTheme} from '@hooks';
@@ -26,14 +18,9 @@ export type QuickAction = {
   onPress: () => void;
 };
 
-type NavigationProps = CompositeNavigationProp<
-  StackNavigationProp<RootStackParamList>,
-  BottomTabNavigationProp<TabsParamList>
->;
-
 export const QuickActions = () => {
   const {t} = useTranslation();
-  const navigation = useNavigation<NavigationProps>();
+  const navigation = useNavigation<AuthenticatedCompositeNavigationProp>();
   const {isDark} = useTheme();
 
   const actions: QuickAction[] = [
@@ -68,7 +55,11 @@ export const QuickActions = () => {
       bgColor: isDark
         ? appColors.system.emerald[50].dark
         : appColors.system.emerald[50].light,
-      onPress: () => navigation.navigate('Stats'),
+      onPress: () =>
+        navigation.navigate('Drawer', {
+          screen: 'Tabs',
+          params: {screen: 'Stats'},
+        }),
     },
   ];
 

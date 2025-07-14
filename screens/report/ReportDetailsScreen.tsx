@@ -8,7 +8,7 @@ import {
   StyleSheet,
   ImageSourcePropType,
 } from 'react-native';
-import {useRoute, RouteProp} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 import {format} from 'date-fns';
@@ -20,18 +20,14 @@ import {
 } from '@maplibre/maplibre-react-native';
 
 import {reportData} from '@store';
-import {ReportStatusBadge, RootStackParamList, BackButton} from '@components';
+import {ReportStatusBadge, BackButton} from '@components';
 import {useTheme} from '@hooks';
 import {PlaceholderImage} from '@assets';
 
 import {appColors} from '@config';
 
+import {ReportDetailsScreenRouteProp} from '@types';
 import {getLocaleForDateFns} from '@utils';
-
-type ReportDetailsScreenRouteProp = RouteProp<
-  RootStackParamList,
-  'ReportDetails'
->;
 
 const getImageSources = (images: ImageSourcePropType[]) =>
   Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage];
@@ -51,7 +47,7 @@ const ReportDetailsScreen = () => {
     return (
       <View className="flex-1 bg-background-light dark:bg-background-dark">
         <Text className="text-center mt-6 text-red-500">
-          {t('reportNotFound')}
+          {t('reports.reportNotFound')}
         </Text>
       </View>
     );
@@ -73,10 +69,10 @@ const ReportDetailsScreen = () => {
   return (
     <ScrollView
       className="flex-1 bg-background-light dark:bg-background-dark"
-      contentContainerStyle={styles.scrollViewContent}
-      showsVerticalScrollIndicator={false}>
+      contentContainerStyle={styles.scrollViewContent}>
       <View className="flex-row justify-between items-center mb-10">
         <BackButton />
+
         <ReportStatusBadge status={status} />
       </View>
 
@@ -123,7 +119,7 @@ const ReportDetailsScreen = () => {
 
       <View className="mx-4 mb-4">
         <Text className="text-lg font-titillium-bold text-neutral-gray-800 mb-4 dark:text-white">
-          {t('location')}
+          {t('location.location')}
         </Text>
 
         <View className="h-64 rounded-lg overflow-hidden shadow-lg">
@@ -182,7 +178,7 @@ const ReportDetailsScreen = () => {
         </View>
 
         <Text className="text-xs text-neutral-gray-500 dark:text-neutral-gray-100 mt-4 text-center">
-          {t('coordinates')}: {location.latitude.toFixed(4)},{' '}
+          {t('location.coordinates')}: {location.latitude.toFixed(4)},{' '}
           {location.longitude.toFixed(4)}
         </Text>
       </View>

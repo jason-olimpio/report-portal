@@ -1,10 +1,10 @@
-import {ComponentProps, useState} from 'react';
+import {ComponentProps, useState, useEffect} from 'react';
 import {
   ActivityIndicator,
-  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
+  View,
 } from 'react-native';
 
 import {ZodType} from 'zod';
@@ -27,6 +27,7 @@ type FormHandlerProps<T extends Record<string, any>> = {
   fields: FieldConfig[];
   onSave?: (data: T) => Promise<void> | void;
   className?: string;
+  submitButtonText?: string;
 };
 
 const IMAGE_FIELD_KEY = 'image';
@@ -38,12 +39,17 @@ export const FormHandler = <T extends Record<string, any>>({
   fields,
   onSave,
   className,
+  submitButtonText,
 }: FormHandlerProps<T>) => {
   const {t} = useTranslation();
   const [form, setForm] = useState<T>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
   const [touched, setTouched] = useState<Partial<Record<keyof T, boolean>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    setForm(initialState);
+  }, [initialState]);
 
   const handleChange = (field: keyof T, value: any) => {
     setForm(currentForm => ({...currentForm, [field]: value}));
@@ -177,8 +183,8 @@ export const FormHandler = <T extends Record<string, any>>({
   };
 
   return (
-    <ScrollView
-      className={`flex-1 p-5 mb-10 rounded-lg bg-background-secondaryLight 
+    <View
+      className={`p-5 rounded-xl bg-background-secondaryLight 
       dark:bg-background-secondaryDark ${className || ''}`}>
       {fields.map(field => {
         const fieldKey = field.key as keyof T;
@@ -189,14 +195,16 @@ export const FormHandler = <T extends Record<string, any>>({
       <TouchableOpacity
         onPress={handleSave}
         disabled={isSubmitting}
-        className="rounded-full w-full mb-6 self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
-        accessibilityLabel={t('save')}>
+        className="rounded-full w-full mb-2 self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
+        accessibilityLabel={submitButtonText || t('forms.save')}>
         {isSubmitting ? (
           <ActivityIndicator color="white" />
         ) : (
-          <Text className="font-titillium-bold text-white">{t('save')}</Text>
+          <Text className="font-titillium-bold text-white">
+            {submitButtonText || t('forms.save')}
+          </Text>
         )}
       </TouchableOpacity>
-    </ScrollView>
+    </View>
   );
 };

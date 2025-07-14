@@ -1,10 +1,8 @@
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
-import {Report, StatusOption} from '@types';
-import {RootStackParamList} from '@components';
+import {Report, StatusOption, CalendarRouteProp} from '@types';
 import {useTheme} from '@hooks';
 import {STATUS_COLORS} from '@utils';
 import {appColors} from '@config';
@@ -14,8 +12,7 @@ type CalendarReportItemProps = {
 };
 
 const CalendarReportItem = ({report}: CalendarReportItemProps) => {
-  const navigation =
-    useNavigation<StackNavigationProp<RootStackParamList, 'Calendar'>>();
+  const navigation = useNavigation<CalendarRouteProp>();
   const {isDark} = useTheme();
 
   const {id, status, title, description, address} = report;
