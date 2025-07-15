@@ -96,6 +96,7 @@ export const FormHandler = <T extends Record<string, any>>({
       (accumulator, field) => {
         const fieldKey = field.key as keyof T;
         accumulator[fieldKey] = true;
+
         return accumulator;
       },
       {} as Partial<Record<keyof T, boolean>>,

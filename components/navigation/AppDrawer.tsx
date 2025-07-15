@@ -22,14 +22,6 @@ const AppDrawer = () => {
   const {t} = useTranslation();
   const {logout, isAuthenticated} = useAuth();
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.error('Error during logout:', error);
-    }
-  };
-
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -82,7 +74,7 @@ const AppDrawer = () => {
             drawerItemPress: event => {
               event.preventDefault();
 
-              handleLogout();
+              logout();
             },
           }}
         />
