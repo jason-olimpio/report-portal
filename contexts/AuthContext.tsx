@@ -39,66 +39,55 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     try {
       const token = await getToken();
 
-      if (!token) {
-        setUser(null);
-        return;
-      }
-
-      if (!isTokenValid(token)) {
-        await removeToken();
-        setUser(null);
-
+      if (!token || !isTokenValid(token)) {
+        await clearUserSession();
         return;
       }
 
       const payload = getTokenPayload(token);
 
       if (!payload) {
-        console.warn('Token is valid but payload could not be extracted');
-
-        await removeToken();
-        setUser(null);
+        console.warn('Invalid token payload');
+        await clearUserSession();
 
         return;
       }
 
+      const {userId, email} = payload;
+
       setUser({
-        id: payload.userId,
-        email: payload.email,
+        id: userId,
+        email,
         name: '',
       });
     } catch (error) {
       console.error('Error checking auth state:', error);
 
-      setUser(null);
-
-      try {
-        await removeToken();
-      } catch (cleanupError) {
-        console.error('Error cleaning up token:', cleanupError);
-      }
+      await clearUserSession();
     } finally {
       setIsLoading(false);
     }
   };
 
-  const login = async (authUser: AuthUser, token: string) => {
+  const login = async (authUser: AuthUser, token: string): Promise<void> => {
     try {
       await saveToken(token);
-
       setUser(authUser);
     } catch (error) {
       console.error('Error during login:', error);
+      throw error;
     }
   };
 
-  const logout = async () => {
+  const logout = async (): Promise<void> => await clearUserSession();
+
+  const clearUserSession = async () => {
     try {
       await removeToken();
-
-      setUser(null);
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error('Error removing token:', error);
+    } finally {
+      setUser(null);
     }
   };
 

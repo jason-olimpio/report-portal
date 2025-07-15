@@ -34,8 +34,8 @@ const createAxiosInstance = (): AxiosInstance => {
         await removeToken();
 
         console.warn('Token removed due to 401 unauthorized response');
-      } catch (tokenRemovalError) {
-        console.error('Error during 401 handling:', tokenRemovalError);
+      } catch (error) {
+        console.error('Error during 401 handling:', error);
       }
 
       return Promise.reject(error);
