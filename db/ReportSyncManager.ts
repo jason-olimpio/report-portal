@@ -1,4 +1,4 @@
-import NetInfo from '@react-native-community/netinfo';
+import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 import {
   initPendingReportsTable,
   getAllPendingReports,
@@ -9,6 +9,7 @@ class ReportSyncManager {
   private static instance: ReportSyncManager;
   private isSending = false;
   private unsubscribe: (() => void) | null = null;
+  private isInitialized = false;
 
   private constructor() {}
 
@@ -21,32 +22,53 @@ class ReportSyncManager {
   }
 
   public async start(): Promise<void> {
-    initPendingReportsTable();
-
-    if (this.unsubscribe) {
+    if (this.isInitialized) {
+      console.warn('ReportSyncManager is already initialized');
       return;
     }
 
-    this.unsubscribe = NetInfo.addEventListener(state => {
-      if (state.isConnected) {
-        this.flushPendingReports();
-      }
-    });
+    try {
+      initPendingReportsTable();
+      this.setupNetworkListener();
 
-    const state = await NetInfo.fetch();
+      const state = await NetInfo.fetch();
+      await this.handleConnectionChange(state.isConnected);
 
-    if (state.isConnected) {
-      await this.flushPendingReports();
+      this.isInitialized = true;
+    } catch (error) {
+      console.error('Failed to start ReportSyncManager:', error);
+      throw error;
     }
   }
 
   public stop(): void {
-    if (!this.unsubscribe) {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+      this.unsubscribe = null;
+    }
+
+    this.isInitialized = false;
+  }
+
+  private setupNetworkListener(): void {
+    this.unsubscribe = NetInfo.addEventListener(
+      async (state: NetInfoState) =>
+        await this.handleConnectionChange(state.isConnected),
+    );
+  }
+
+  private async handleConnectionChange(
+    isConnected: boolean | null,
+  ): Promise<void> {
+    if (!isConnected) {
       return;
     }
 
-    this.unsubscribe();
-    this.unsubscribe = null;
+    try {
+      await this.flushPendingReports();
+    } catch (error) {
+      console.error('Error flushing pending reports:', error);
+    }
   }
 
   public async flushPendingReports(): Promise<void> {
@@ -59,17 +81,28 @@ class ReportSyncManager {
     try {
       const reports = await getAllPendingReports();
 
+      if (reports.length === 0) {
+        return;
+      }
+
       for (const {id} of reports) {
         try {
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await this.simulateReportSync();
           await removePendingReport(id);
-        } catch {
+        } catch (error) {
+          console.error(`Failed to sync report ${id}:`, error);
           break;
         }
       }
+    } catch (error) {
+      console.error('Error during pending reports flush:', error);
     } finally {
       this.isSending = false;
     }
+  }
+
+  private async simulateReportSync(): Promise<void> {
+    await new Promise(resolve => setTimeout(resolve, 1000));
   }
 }
 
