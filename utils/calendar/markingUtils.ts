@@ -78,21 +78,16 @@ export const getDateStatusColor = (
   reports: Report[],
   isDark: boolean,
 ): string => {
-  if (!reports || reports.length === 0) {
-    return isDark ? appColors.primary.dark : appColors.primary.light;
+  const primaryColors = isDark
+    ? appColors.primary.dark
+    : appColors.primary.light;
+
+  if (!reports?.length || reports[0].status === StatusOption.All) {
+    return primaryColors;
   }
 
-  const primaryReport = reports[0];
+  const statusColors = isDark ? STATUS_COLORS.dark : STATUS_COLORS.light;
+  const status = reports[0].status as Exclude<StatusOption, StatusOption.All>;
 
-  if (primaryReport.status === StatusOption.All) {
-    return isDark ? appColors.primary.dark : appColors.primary.light;
-  }
-
-  return isDark
-    ? STATUS_COLORS.dark[
-        primaryReport.status as Exclude<StatusOption, StatusOption.All>
-      ]
-    : STATUS_COLORS.light[
-        primaryReport.status as Exclude<StatusOption, StatusOption.All>
-      ];
+  return statusColors[status];
 };
