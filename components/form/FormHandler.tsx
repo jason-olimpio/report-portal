@@ -184,7 +184,7 @@ export const FormHandler = <T extends Record<string, any>>({
 
   return (
     <View
-      className={`p-5 rounded-xl bg-background-secondaryLight 
+      className={`p-5 mb-5 rounded-xl bg-background-secondaryLight 
       dark:bg-background-secondaryDark ${className || ''}`}>
       {fields.map(field => {
         const fieldKey = field.key as keyof T;

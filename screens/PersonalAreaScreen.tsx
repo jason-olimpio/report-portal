@@ -59,7 +59,7 @@ const PersonalAreaScreen = () => {
   ];
 
   return (
-    <ScrollView className="flex-1 p-6 mb-2 bg-background-light dark:bg-background-dark">
+    <ScrollView className="flex-1 p-6 bg-background-light dark:bg-background-dark">
       <Pressable
         onPress={() => setLanguagePickerVisible(true)}
         className="self-start flex-row items-center mb-6">
