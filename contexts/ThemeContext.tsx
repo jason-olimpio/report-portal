@@ -12,11 +12,15 @@ type ThemeContextType = {
   toggleTheme: () => void;
 };
 
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
 export const ThemeContext = createContext<ThemeContextType | undefined>(
   undefined,
 );
 
-export const ThemeProvider = ({children}: {children: ReactNode}) => {
+export const ThemeProvider = ({children}: ThemeProviderProps) => {
   const {colorScheme, toggleColorScheme} = useColorScheme();
   const isDark = colorScheme === ColorScheme.Dark;
 
