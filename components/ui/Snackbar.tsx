@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef, useCallback} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Text, Animated, Pressable} from 'react-native';
 
@@ -13,35 +13,6 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
   const [shouldRender, setShouldRender] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const {t} = useTranslation();
-
-  const clearTimer = useCallback(() => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
-  }, []);
-
-  const hideSnackbar = useCallback(
-    (callback?: () => void) => {
-      Animated.timing(slideAnimation, {
-        toValue: 100,
-        duration: 300,
-        useNativeDriver: true,
-      }).start(() => {
-        setShouldRender(false);
-
-        if (callback) {
-          callback();
-        }
-      });
-    },
-    [slideAnimation],
-  );
-
-  const handleClose = useCallback(() => {
-    clearTimer();
-    hideSnackbar(onClose);
-  }, [clearTimer, hideSnackbar, onClose]);
 
   useEffect(() => {
     clearTimer();
@@ -64,7 +35,33 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
     }, 3000);
 
     return clearTimer;
-  }, [visible, onClose, clearTimer, hideSnackbar, slideAnimation]);
+  }, [visible, onClose, slideAnimation]);
+
+  const handleClose = () => {
+    clearTimer();
+    hideSnackbar(onClose);
+  };
+
+  const clearTimer = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
+  const hideSnackbar = (callback?: () => void) => {
+    Animated.timing(slideAnimation, {
+      toValue: 100,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setShouldRender(false);
+
+      if (callback) {
+        callback();
+      }
+    });
+  };
 
   if (!shouldRender) {
     return null;
