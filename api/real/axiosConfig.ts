@@ -1,17 +1,26 @@
-import axios, {AxiosInstance} from 'axios';
+import axios, {
+  AxiosInstance,
+  AxiosResponse,
+  AxiosError,
+  InternalAxiosRequestConfig,
+} from 'axios';
 
 import {API_CONFIG} from '@config';
 import {getToken, removeToken} from '@utils';
 
 const createAxiosInstance = (): AxiosInstance => {
+  const {baseUrl, axios: axiosConfig} = API_CONFIG;
+
   const instance = axios.create({
-    baseURL: API_CONFIG.baseUrl,
-    timeout: API_CONFIG.axios.timeout,
-    headers: API_CONFIG.axios.headers,
+    baseURL: baseUrl,
+    timeout: axiosConfig.timeout,
+    headers: axiosConfig.headers,
   });
 
-  instance.interceptors.request.use(
-    async config => {
+  const {interceptors} = instance;
+
+  interceptors.request.use(
+    async (config: InternalAxiosRequestConfig) => {
       const token = await getToken();
 
       if (token) {
@@ -20,12 +29,12 @@ const createAxiosInstance = (): AxiosInstance => {
 
       return config;
     },
-    error => Promise.reject(error),
+    (error: AxiosError) => Promise.reject(error),
   );
 
-  instance.interceptors.response.use(
-    response => response,
-    async error => {
+  interceptors.response.use(
+    (response: AxiosResponse) => response,
+    async (error: AxiosError) => {
       if (error.response?.status !== 401) {
         return Promise.reject(error);
       }
