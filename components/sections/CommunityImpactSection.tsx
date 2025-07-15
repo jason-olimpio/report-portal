@@ -26,7 +26,7 @@ const CommunityImpactSection = ({
   ];
 
   return (
-    <View className="mb-6">
+    <View className="mb-12">
       <Text className="text-xl font-titillium-light mb-5 dark:text-white">
         {t('stats.communityImpact')}
       </Text>
