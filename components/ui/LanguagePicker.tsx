@@ -51,7 +51,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
         <View className="flex-1 justify-center items-center bg-black/40">
           <TouchableWithoutFeedback>
             <View className="bg-white dark:bg-background-secondaryDark rounded-lg p-6 w-72 items-center">
-              <Text className="text-lg font-titillium-bold mb-6 text-center dark:text-white">
+              <Text className="text-lg font-titillium-bold mb-4 text-center dark:text-white">
                 {t('settings.selectLanguage')}
               </Text>
 
@@ -62,7 +62,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
                   onPress={() => handleSwitch(code)}>
                   <Text className="text-xl text-center mr-2">{flag}</Text>
 
-                  <Text className="text-base font-titillium-semibold dark:text-white text-center">
+                  <Text className="font-titillium-semibold dark:text-white text-center">
                     {label}
                   </Text>
                 </TouchableOpacity>
