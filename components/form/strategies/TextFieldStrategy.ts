@@ -1,4 +1,4 @@
-import {createElement} from 'react';
+import {createElement, ReactElement} from 'react';
 
 import {TextField} from '@components';
 
@@ -20,7 +20,7 @@ class TextFieldStrategy<T extends Record<string, any>>
     field: FieldConfig,
     fieldKey: keyof T,
     context: FieldRenderContext<T>,
-  ): React.ReactElement {
+  ): ReactElement {
     if (!this.canRender(field)) {
       throw new Error('TextFieldStrategy cannot render this field type');
     }
