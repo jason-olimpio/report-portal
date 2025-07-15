@@ -1,5 +1,7 @@
 import {View, Text, TextInput} from 'react-native';
 
+import {ErrorText} from '@components';
+
 type TextFieldProps = {
   label: string;
   value: string;
@@ -27,7 +29,7 @@ const TextField = ({
       {...inputProps}
     />
 
-    {error && <Text className="text-red-500 mt-4 text-sm">{error}</Text>}
+    <ErrorText error={error} className="mt-4" />
   </View>
 );
 

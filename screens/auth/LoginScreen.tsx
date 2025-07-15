@@ -9,13 +9,13 @@ import {
 import {useTranslation} from 'react-i18next';
 import {z} from 'zod';
 
-import {FormHandler, FieldConfig} from '@components';
+import {FormHandler} from '@components';
 
 import {useAuth} from '@hooks';
 
 import {mockLogin} from '@api';
 
-import type {LoginCredentials} from '@types';
+import {FieldType, type FieldConfig, type LoginCredentials} from '@types';
 
 const LoginScreen = () => {
   const {t} = useTranslation();
@@ -44,6 +44,7 @@ const LoginScreen = () => {
 
   const fields: FieldConfig[] = [
     {
+      type: FieldType.Text,
       key: 'email',
       label: t('forms.email'),
       inputProps: {
@@ -55,6 +56,7 @@ const LoginScreen = () => {
       },
     },
     {
+      type: FieldType.Text,
       key: 'password',
       label: t('forms.password'),
       inputProps: {
@@ -109,7 +111,7 @@ const LoginScreen = () => {
           initialState={initialState}
           fields={fields}
           onSave={handleLogin}
-          submitButtonText={t('authentication.signIn')}
+          saveButtonLabel={t('authentication.signIn')}
           className="mb-6"
         />
       </ScrollView>

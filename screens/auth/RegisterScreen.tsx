@@ -9,10 +9,10 @@ import {
 import {useTranslation} from 'react-i18next';
 import {z} from 'zod';
 
-import {FormHandler, FieldConfig} from '@components';
+import {FormHandler} from '@components';
 import {useAuth} from '@hooks';
 import {mockRegister} from '@api';
-import type {RegisterData} from '@types';
+import {type RegisterData, type FieldConfig, FieldType} from '@types';
 
 const RegisterScreen = () => {
   const {t} = useTranslation();
@@ -57,6 +57,7 @@ const RegisterScreen = () => {
 
   const fields: FieldConfig[] = [
     {
+      type: FieldType.Text,
       key: 'name',
       label: t('forms.fullName'),
       inputProps: {
@@ -67,6 +68,7 @@ const RegisterScreen = () => {
       },
     },
     {
+      type: FieldType.Text,
       key: 'email',
       label: t('forms.email'),
       inputProps: {
@@ -78,6 +80,7 @@ const RegisterScreen = () => {
       },
     },
     {
+      type: FieldType.Text,
       key: 'password',
       label: t('forms.password'),
       inputProps: {
@@ -89,6 +92,7 @@ const RegisterScreen = () => {
       },
     },
     {
+      type: FieldType.Text,
       key: 'confirmPassword',
       label: t('forms.confirmPassword'),
       inputProps: {
@@ -144,7 +148,7 @@ const RegisterScreen = () => {
             initialState={initialState}
             fields={fields}
             onSave={handleRegister}
-            submitButtonText={t('authentication.register')}
+            saveButtonLabel={t('authentication.register')}
             className="mb-6"
           />
         </View>

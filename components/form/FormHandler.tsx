@@ -1,25 +1,14 @@
-import {ComponentProps, useState, useEffect} from 'react';
-import {
-  ActivityIndicator,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
+import {useState, useEffect} from 'react';
+import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
 import {ZodType} from 'zod';
+
 import {useTranslation} from 'react-i18next';
 
-import {ImageSliderField, LocationField, TextField} from '@components';
+import FieldRenderer from './FieldRenderer';
 
-export type FieldConfig = {
-  key: string;
-  label: string;
-  inputProps?: Partial<ComponentProps<typeof TextInput>>;
-  isImageSlider?: boolean;
-  isLocation?: boolean;
-  maxImages?: number;
-};
+import {extractFieldErrors, createAllTouchedState} from '@utils';
+
+import {FormErrors, FormTouched, FieldRenderContext, FieldConfig} from '@types';
 
 type FormHandlerProps<T extends Record<string, any>> = {
   schema: ZodType<T>;
@@ -27,11 +16,8 @@ type FormHandlerProps<T extends Record<string, any>> = {
   fields: FieldConfig[];
   onSave?: (data: T) => Promise<void> | void;
   className?: string;
-  submitButtonText?: string;
+  saveButtonLabel?: string;
 };
-
-const IMAGE_FIELD_KEY = 'image';
-const LOCATION_FIELD_KEY = 'location';
 
 export const FormHandler = <T extends Record<string, any>>({
   schema,
@@ -39,23 +25,19 @@ export const FormHandler = <T extends Record<string, any>>({
   fields,
   onSave,
   className,
-  submitButtonText,
+  saveButtonLabel,
 }: FormHandlerProps<T>) => {
   const {t} = useTranslation();
   const [form, setForm] = useState<T>(initialState);
-  const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
-  const [touched, setTouched] = useState<Partial<Record<keyof T, boolean>>>({});
+  const [errors, setErrors] = useState<FormErrors<T>>({});
+  const [touched, setTouched] = useState<FormTouched<T>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const fieldRenderer = new FieldRenderer<T>();
 
   useEffect(() => {
     setForm(initialState);
   }, [initialState]);
-
-  const handleChange = (field: keyof T, value: any) => {
-    setForm(currentForm => ({...currentForm, [field]: value}));
-    setTouched(currentTouched => ({...currentTouched, [field]: true}));
-    validate(field, value);
-  };
 
   const validate = (field: keyof T, value: any) => {
     const updatedForm = {...form, [field]: value};
@@ -77,57 +59,10 @@ export const FormHandler = <T extends Record<string, any>>({
     }));
   };
 
-  const extractFieldErrors = <U = any,>(
-    fieldErrors: Record<string, unknown>,
-  ): Partial<Record<keyof U, string>> =>
-    Object.entries(fieldErrors).reduce(
-      (accumulator, [fieldKey, errorValue]) => {
-        if (Array.isArray(errorValue) && errorValue.length > 0) {
-          accumulator[fieldKey as keyof U] = errorValue[0] as string;
-        }
-
-        return accumulator;
-      },
-      {} as Partial<Record<keyof U, string>>,
-    );
-
-  const handleSave = async () => {
-    const allTouched = fields.reduce(
-      (accumulator, field) => {
-        const fieldKey = field.key as keyof T;
-        accumulator[fieldKey] = true;
-
-        return accumulator;
-      },
-      {} as Partial<Record<keyof T, boolean>>,
-    );
-
-    setTouched(allTouched);
-
-    setForm(currentForm => ({...currentForm}));
-
-    const validationResult = schema.safeParse(form);
-
-    if (!validationResult.success) {
-      const fieldErrors = validationResult.error.formErrors.fieldErrors;
-      setErrors(extractFieldErrors(fieldErrors));
-
-      return;
-    }
-
-    setErrors({});
-    setIsSubmitting(true);
-
-    try {
-      if (!onSave) {
-        return;
-      }
-
-      await onSave(form);
-      resetFormState();
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleChange = (field: keyof T, value: any) => {
+    setForm(currentForm => ({...currentForm, [field]: value}));
+    setTouched(currentTouched => ({...currentTouched, [field]: true}));
+    validate(field, value);
   };
 
   const resetFormState = () => {
@@ -135,52 +70,36 @@ export const FormHandler = <T extends Record<string, any>>({
     setTouched({});
   };
 
-  const renderField = (field: FieldConfig, fieldKey: keyof T) => {
-    const fieldProps = {
-      label: field.label,
-      error: touched[fieldKey] && errors[fieldKey],
-    };
+  const handleSave = async () => {
+    const allTouched = createAllTouchedState<T>(fields);
+    setTouched(allTouched);
 
-    if (field.isImageSlider) {
-      return (
-        <ImageSliderField
-          key={fieldKey as string}
-          {...fieldProps}
-          imageUris={form[IMAGE_FIELD_KEY as keyof T] as string[] | undefined}
-          onImagesSelected={(uris: string[]) =>
-            handleChange(IMAGE_FIELD_KEY as keyof T, uris)
-          }
-          onLocationCaptured={location =>
-            handleChange(LOCATION_FIELD_KEY as keyof T, location)
-          }
-          maxImages={field.maxImages}
-        />
-      );
+    const validationResult = schema.safeParse(form);
+
+    if (!validationResult.success) {
+      const fieldErrors = validationResult.error.formErrors.fieldErrors;
+      setErrors(extractFieldErrors(fieldErrors));
+      return;
     }
 
-    if (field.isLocation) {
-      const locationData = form[LOCATION_FIELD_KEY as keyof T] as
-        | {latitude: number; longitude: number}
-        | undefined;
+    setErrors({});
+    setIsSubmitting(true);
 
-      return (
-        <LocationField
-          key={fieldKey as string}
-          {...fieldProps}
-          location={locationData}
-        />
-      );
+    try {
+      if (onSave) {
+        await onSave(form);
+        resetFormState();
+      }
+    } finally {
+      setIsSubmitting(false);
     }
+  };
 
-    return (
-      <TextField
-        key={fieldKey as string}
-        {...fieldProps}
-        value={form[fieldKey] as string}
-        onChangeText={value => handleChange(fieldKey, value)}
-        {...field.inputProps}
-      />
-    );
+  const renderContext: FieldRenderContext<T> = {
+    form,
+    touched,
+    errors,
+    handleChange,
   };
 
   return (
@@ -190,19 +109,19 @@ export const FormHandler = <T extends Record<string, any>>({
       {fields.map(field => {
         const fieldKey = field.key as keyof T;
 
-        return renderField(field, fieldKey);
+        return fieldRenderer.render(field, fieldKey, renderContext);
       })}
 
       <TouchableOpacity
         onPress={handleSave}
         disabled={isSubmitting}
         className="rounded-full w-full mb-2 self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
-        accessibilityLabel={submitButtonText || t('forms.save')}>
+        accessibilityLabel={saveButtonLabel || t('forms.save')}>
         {isSubmitting ? (
           <ActivityIndicator color="white" />
         ) : (
           <Text className="font-titillium-bold text-white">
-            {submitButtonText || t('forms.save')}
+            {saveButtonLabel || t('forms.save')}
           </Text>
         )}
       </TouchableOpacity>

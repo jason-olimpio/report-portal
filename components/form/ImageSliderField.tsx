@@ -15,7 +15,7 @@ import {useTranslation} from 'react-i18next';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import Geolocation from '@react-native-community/geolocation';
 
-import {IconActionButton, type QuickAction} from '@components';
+import {IconActionButton, ErrorText, type QuickAction} from '@components';
 import {useTheme} from '@hooks';
 
 import {appColors} from '@config';
@@ -166,9 +166,7 @@ const ImageSliderField = ({
         </View>
       )}
 
-      {error && (
-        <Text className="text-red-500 mt-4 text-sm text-center">{error}</Text>
-      )}
+      <ErrorText error={error} className="mt-4 text-center" />
     </View>
   );
 };

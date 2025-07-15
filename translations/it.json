@@ -76,7 +76,8 @@
     "locationError": "Errore nel recupero della posizione",
     "locationRequired": "La posizione è obbligatoria",
     "reportSendFailed": "Invio della segnalazione fallito",
-    "invalidDate": "Formato data non valido"
+    "invalidDate": "Formato data non valido",
+    "imagesRequired": "Almeno un'immagine è obbligatoria"
   },
   
   "reports": {

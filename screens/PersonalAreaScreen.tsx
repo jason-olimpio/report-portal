@@ -5,10 +5,11 @@ import {Pressable} from 'react-native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {z} from 'zod';
 
-import {FormHandler, FieldConfig, LanguagePicker} from '@components';
+import {FormHandler, LanguagePicker} from '@components';
 import {useTheme, useAuth} from '@hooks';
 
 import {appColors} from '@config';
+import {FieldConfig, FieldType} from '@types';
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation();
@@ -21,8 +22,24 @@ const PersonalAreaScreen = () => {
     .object({
       name: z.string().min(1, t('errors.nameRequired')),
       email: z.string().email(t('errors.emailInvalid')),
-      currentPassword: z.string().min(6, t('errors.currentPasswordRequired')),
-      confirmPassword: z.string().min(6, t('errors.confirmPasswordRequired')),
+      currentPassword: z
+        .string()
+        .min(1, t('validation.passwordRequired'))
+        .min(8, t('validation.passwordMinLength'))
+        .max(100, t('validation.passwordMaxLength'))
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+          t('validation.passwordMustContain'),
+        ),
+      confirmPassword: z
+        .string()
+        .min(1, t('validation.passwordRequired'))
+        .min(8, t('validation.passwordMinLength'))
+        .max(100, t('validation.passwordMaxLength'))
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+          t('validation.passwordMustContain'),
+        ),
       image: z.array(z.string()).optional(),
     })
     .refine(data => data.currentPassword === data.confirmPassword, {
@@ -39,19 +56,27 @@ const PersonalAreaScreen = () => {
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: t('media.image'), isImageSlider: true, maxImages: 1},
-    {key: 'name', label: t('forms.name')},
     {
+      type: FieldType.ImageSlider,
+      key: 'image',
+      label: t('media.image'),
+      maxImages: 1,
+    },
+    {type: FieldType.Text, key: 'name', label: t('forms.name')},
+    {
+      type: FieldType.Text,
       key: 'email',
       label: t('forms.email'),
       inputProps: {keyboardType: 'email-address', autoCapitalize: 'none'},
     },
     {
+      type: FieldType.Text,
       key: 'currentPassword',
       label: t('forms.currentPassword'),
       inputProps: {secureTextEntry: true},
     },
     {
+      type: FieldType.Text,
       key: 'confirmPassword',
       label: t('forms.confirmPassword'),
       inputProps: {secureTextEntry: true},

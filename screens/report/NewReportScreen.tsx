@@ -3,11 +3,17 @@ import {useEffect} from 'react';
 import {z} from 'zod';
 import {useTranslation} from 'react-i18next';
 
-import {FormHandler, FieldConfig, BackButton} from '@components';
+import {FormHandler, BackButton} from '@components';
 
 import {initPendingReportsTable, addPendingReport} from '@db';
 
-import {type Report, StatusOption, PriorityOption} from '@types';
+import {
+  type Report,
+  StatusOption,
+  PriorityOption,
+  type FieldConfig,
+  FieldType,
+} from '@types';
 
 import {isOnline, getAddressFromLocation} from '@utils';
 
@@ -17,13 +23,15 @@ const NewReportScreen = () => {
   const schema = z.object({
     title: z.string().min(3, {message: t('errors.titleTooShort')}),
     description: z.string().min(10, {message: t('errors.descriptionTooShort')}),
-    images: z.array(z.custom<ImageSourcePropType>()),
+    images: z.array(z.custom<ImageSourcePropType>()).min(1, {
+      message: t('errors.imagesRequired'),
+    }),
     location: z
       .object({
         latitude: z.number(),
         longitude: z.number(),
       })
-      .refine(location => location.latitude && location.longitude, {
+      .refine(location => location.latitude !== 0 && location.longitude !== 0, {
         message: t('errors.locationRequired'),
       }),
   });
@@ -36,14 +44,24 @@ const NewReportScreen = () => {
   };
 
   const fields: FieldConfig[] = [
-    {key: 'image', label: t('forms.image'), isImageSlider: true, maxImages: 5},
-    {key: 'title', label: t('forms.title')},
     {
+      type: FieldType.ImageSlider,
+      key: 'images',
+      label: t('forms.image'),
+      maxImages: 5,
+    },
+    {type: FieldType.Text, key: 'title', label: t('forms.title')},
+    {
+      type: FieldType.Text,
       key: 'description',
       label: t('forms.description'),
       inputProps: {multiline: true, style: {minHeight: 80}},
     },
-    {key: 'location', label: t('location.location'), isLocation: true},
+    {
+      type: FieldType.Location,
+      key: 'location',
+      label: t('location.location'),
+    },
   ];
 
   useEffect(() => {

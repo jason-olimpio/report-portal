@@ -1,0 +1,45 @@
+import {createElement, ReactElement} from 'react';
+
+import {LocationField} from '@components';
+
+import {
+  FieldConfig,
+  FieldRenderStrategy,
+  FieldRenderContext,
+  FieldType,
+  Location,
+} from '@types';
+
+export class LocationFieldStrategy<T extends Record<string, any>>
+  implements FieldRenderStrategy<T>
+{
+  canRender(field: FieldConfig): boolean {
+    return field.type === FieldType.Location;
+  }
+
+  render(
+    field: FieldConfig,
+    fieldKey: keyof T,
+    context: FieldRenderContext<T>,
+  ): ReactElement {
+    if (!this.canRender(field)) {
+      throw new Error('LocationFieldStrategy cannot render this field type');
+    }
+
+    const {form, touched, errors} = context;
+    const fieldProps = {
+      label: field.label,
+      error: touched[fieldKey] && errors[fieldKey],
+    };
+
+    const locationData = form[fieldKey] as Location | undefined;
+
+    return createElement(LocationField, {
+      key: fieldKey as string,
+      ...fieldProps,
+      location: locationData,
+    });
+  }
+}
+
+export default LocationFieldStrategy;

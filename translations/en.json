@@ -76,7 +76,8 @@
     "locationError": "Location not found. Please enable location services.",
     "locationRequired": "Location is required",
     "reportSendFailed": "Failed to send report. Please try again later.",
-    "invalidDate": "Invalid date format"
+    "invalidDate": "Invalid date format",
+    "imagesRequired": "At least one image is required"
   },
   
   "reports": {
