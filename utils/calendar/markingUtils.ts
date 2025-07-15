@@ -46,7 +46,7 @@ export const getMarkedDatesWithSelection = (
   return markedDates;
 };
 
-export const getMarkedDates = (
+const getMarkedDates = (
   reportsByDate: ReportsByDate,
   isDark: boolean,
 ): MarkedDates => {
@@ -74,10 +74,7 @@ export const getMarkedDates = (
   return markedDates;
 };
 
-export const getDateStatusColor = (
-  reports: Report[],
-  isDark: boolean,
-): string => {
+const getDateStatusColor = (reports: Report[], isDark: boolean): string => {
   const primaryColors = isDark
     ? appColors.primary.dark
     : appColors.primary.light;

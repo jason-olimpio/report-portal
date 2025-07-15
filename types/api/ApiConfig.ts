@@ -3,12 +3,12 @@ export enum ApiMode {
   Real,
 }
 
-export type MockDelayConfig = {
+type MockDelayConfig = {
   readonly min: number;
   readonly max: number;
 };
 
-export type AxiosConfig = {
+type AxiosConfig = {
   readonly timeout: number;
   readonly headers: {
     readonly 'Content-Type': string;
