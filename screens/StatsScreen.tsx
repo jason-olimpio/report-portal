@@ -106,7 +106,7 @@ const StatsScreen = () => {
 
   return (
     <ScrollView
-      className="flex-1 p-10 mb-4 bg-background-light dark:bg-background-dark"
+      className="flex-1 px-8 pt-6 bg-background-light dark:bg-background-dark"
       contentContainerStyle={styles.contentContainer}>
       <Text className="text-xl dark:text-white font-titillium-bold mb-4">
         {t('stats.statsByMonth')}
@@ -129,5 +129,5 @@ export default StatsScreen;
 
 const styles = {
   chart: {borderRadius: 16, paddingTop: 24, paddingBottom: 20},
-  contentContainer: {flexGrow: 1},
+  contentContainer: {flexGrow: 1, paddingBottom: 40},
 };

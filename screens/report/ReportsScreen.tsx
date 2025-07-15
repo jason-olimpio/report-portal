@@ -45,7 +45,7 @@ const ReportsScreen = () => {
   const toggleModal = (visible: boolean) => setModalVisible(visible);
 
   return (
-    <ScrollView className="flex-1 dark:bg-background-dark p-8">
+    <ScrollView className="flex-1 dark:bg-background-dark px-8 pt-6">
       <SectionHeader
         title={t('reports.allReports')}
         action={t('filter.filter')}
