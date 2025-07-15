@@ -104,7 +104,7 @@ export const FormHandler = <T extends Record<string, any>>({
 
   return (
     <View
-      className={`p-5 mb-5 rounded-xl bg-background-secondaryLight 
+      className={`p-5 mb-6 rounded-xl bg-background-secondaryLight 
       dark:bg-background-secondaryDark ${className || ''}`}>
       {fields.map(field => {
         const fieldKey = field.key as keyof T;
@@ -115,7 +115,7 @@ export const FormHandler = <T extends Record<string, any>>({
       <TouchableOpacity
         onPress={handleSave}
         disabled={isSubmitting}
-        className="rounded-full w-full mb-2 self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
+        className="rounded-full w-full self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
         accessibilityLabel={saveButtonLabel || t('forms.save')}>
         {isSubmitting ? (
           <ActivityIndicator color="white" />

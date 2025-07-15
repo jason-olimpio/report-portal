@@ -72,8 +72,8 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
                 className="mt-2 items-center w-full justify-center"
                 onPress={onClose}>
                 <Text
-                  className="text-base text-system-red-600-light 
-                dark:text-system-red-600-dark font-titillium-bold text-center">
+                  className="text-system-red-600-light 
+                first-letter:dark:text-system-red-600-dark font-titillium-bold text-center">
                   {t('forms.cancel')}
                 </Text>
               </TouchableOpacity>
