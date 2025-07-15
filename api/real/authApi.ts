@@ -1,7 +1,5 @@
-import createAxiosInstance from './axiosConfig';
+import axiosInstance from './apiClient';
 import type {LoginCredentials, RegisterData, AuthResponse} from '@types';
-
-const axiosInstance = createAxiosInstance();
 
 export const login = async (
   credentials: LoginCredentials,

@@ -1,3 +1,3 @@
-export {default as createAxiosInstance} from './axiosConfig';
+export {default as axiosInstance} from './apiClient';
 
 export * from './authApi';
