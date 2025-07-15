@@ -20,7 +20,7 @@
     "signIn": "Accedi",
     "register": "Registrati",
     "logout": "Logout",
-    "loginSuccess": "Login Riuscito",
+    "loginSuccess": "Login effettuato con successo",
     "loginError": "Errore di Login",
     "loginFailed": "Login fallito. Riprova.",
     "registrationSuccess": "Registrazione Riuscita",
@@ -32,14 +32,14 @@
   
   "forms": {
     "name": "Nome",
-    "fullName": "Nome completo",
+    "fullName": "Nome e cognome",
     "email": "Email",
     "password": "Password",
     "currentPassword": "Password attuale",
     "confirmPassword": "Conferma password",
     "enterEmail": "Inserisci la tua email",
     "enterPassword": "Inserisci la tua password",
-    "enterFullName": "Inserisci il tuo nome completo",
+    "enterFullName": "Inserisci il tuo nome e cognome",
     "confirmYourPassword": "Conferma la tua password",
     "title": "Titolo",
     "description": "Descrizione",
@@ -56,10 +56,10 @@
     "passwordMinLength": "La password deve essere lunga almeno 8 caratteri",
     "passwordMaxLength": "La password non può superare i 100 caratteri",
     "passwordMustContain": "La password deve contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale",
-    "fullNameRequired": "Il nome completo è obbligatorio",
-    "fullNameMinLength": "Il nome completo deve essere lungo almeno 2 caratteri",
-    "fullNameMaxLength": "Il nome completo non può superare i 50 caratteri",
-    "fullNameInvalid": "Il nome completo può contenere solo lettere e spazi",
+    "fullNameRequired": "Il nome è obbligatorio",
+    "fullNameMinLength": "Il nome deve essere lungo almeno 2 caratteri",
+    "fullNameMaxLength": "Il nome non può superare i 50 caratteri",
+    "fullNameInvalid": "Il nome può contenere solo lettere e spazi",
     "confirmPasswordRequired": "Conferma la password",
     "passwordsDoNotMatch": "Le password non corrispondono"
   },
@@ -67,10 +67,9 @@
   "errors": {
     "nameRequired": "Il nome è obbligatorio",
     "emailInvalid": "Indirizzo email non valido",
-    "currentPasswordRequired": "La password attuale è obbligatoria",
+    "currentPasswordRequired": "La password è obbligatoria",
     "confirmPasswordRequired": "La conferma della password è obbligatoria",
     "passwordsMustMatch": "Le password devono corrispondere",
-    "permissionDenied": "Permesso negato",
     "titleTooShort": "Il titolo deve essere lungo almeno 3 caratteri",
     "descriptionTooShort": "La descrizione deve essere lunga almeno 10 caratteri",
     "imageRequired": "L'immagine è obbligatoria",
@@ -109,7 +108,7 @@
   
   "filter": {
     "filter": "Filtra",
-    "selectDateRange": "Seleziona intervallo di date",
+    "selectDateRange": "Seleziona un intervallo di date",
     "filterByDate": "Filtra per data",
     "filterByStatus": "Filtra per stato",
     "resetFilters": "Resetta filtri"
@@ -126,7 +125,6 @@
   
   "media": {
     "image": "Immagine",
-    "noImages": "Nessuna immagine disponibile",
     "imageSource": {
       "images": "Immagini",
       "camera": "Fotocamera",
@@ -170,13 +168,13 @@
   },
   
   "weekdays": {
-    "monday": "Lun",
-    "tuesday": "Mar",
-    "wednesday": "Mer",
-    "thursday": "Gio",
-    "friday": "Ven",
-    "saturday": "Sab",
-    "sunday": "Dom"
+    "monday": "Lunedì",
+    "tuesday": "Martedì",
+    "wednesday": "Mercoledì",
+    "thursday": "Giovedì",
+    "friday": "Venerdì",
+    "saturday": "Sabato",
+    "sunday": "Domenica"
   },
   
   "months": {

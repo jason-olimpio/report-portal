@@ -70,7 +70,6 @@
     "currentPasswordRequired": "Current password is required",
     "confirmPasswordRequired": "Confirm password is required",
     "passwordsMustMatch": "Passwords must match",
-    "permissionDenied": "Permission denied",
     "titleTooShort": "Title must be at least 3 characters long",
     "descriptionTooShort": "Description must be at least 10 characters long",
     "imageRequired": "Image is required",
@@ -126,7 +125,6 @@
   
   "media": {
     "image": "Image",
-    "noImages": "No images available",
     "imageSource": {
       "images": "Images",
       "camera": "Camera",
@@ -170,13 +168,13 @@
   },
   
   "weekdays": {
-    "monday": "Mon",
-    "tuesday": "Tue",
-    "wednesday": "Wed",
-    "thursday": "Thu",
-    "friday": "Fri",
-    "saturday": "Sat",
-    "sunday": "Sun"
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
   },
   
   "months": {

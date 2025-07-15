@@ -92,7 +92,7 @@ const DateRangeSelector = ({
           yearTitleStyle={getYearTitleStyle()}
           previousTitleStyle={getNavigationTitleStyle()}
           nextTitleStyle={getNavigationTitleStyle()}
-          weekdays={weekdays}
+          weekdays={weekdays.map(day => day.slice(0, 3))}
           months={months}
           previousTitle={t('pagination.previous')}
           nextTitle={t('pagination.next')}
