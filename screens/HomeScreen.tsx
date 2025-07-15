@@ -21,25 +21,23 @@ const HomeScreen = () => {
   }).format(currentDate);
 
   return (
-    <>
-      <ScrollView className="flex-1 bg-background-light dark:bg-background-dark px-8 py-6">
-        <Text className="text-neutral-gray-500 dark:text-white text-center font-titillium-light text-sm mb-6">
-          {formattedDate}
-        </Text>
+    <ScrollView className="flex-1 bg-background-light dark:bg-background-dark px-8 pt-6 mb-6">
+      <Text className="text-neutral-gray-500 dark:text-white text-center font-titillium-light text-sm mb-6">
+        {formattedDate}
+      </Text>
 
-        <EnvironmentalStatusSection />
+      <EnvironmentalStatusSection />
 
-        <QuickActions />
+      <QuickActions />
 
-        <RecentReports />
+      <RecentReports />
 
-        <CommunityImpactSection
-          reports={127}
-          solvedReports={89}
-          successRate={70}
-        />
-      </ScrollView>
-    </>
+      <CommunityImpactSection
+        reports={127}
+        solvedReports={89}
+        successRate={70}
+      />
+    </ScrollView>
   );
 };
 
