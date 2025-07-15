@@ -49,7 +49,7 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
     }
   };
 
-  const hideSnackbar = (callback?: () => void) => {
+  const hideSnackbar = (callback?: () => void) =>
     Animated.timing(slideAnimation, {
       toValue: 100,
       duration: 300,
@@ -61,7 +61,6 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
         callback();
       }
     });
-  };
 
   if (!shouldRender) {
     return null;
