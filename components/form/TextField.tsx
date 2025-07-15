@@ -1,6 +1,6 @@
-import {View, Text, TextInput, TextInputProps} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 
-type TextFieldProps = Omit<TextInputProps, 'onChangeText' | 'value'> & {
+type TextFieldProps = {
   label: string;
   value: string;
   error?: string | false;
