@@ -31,8 +31,8 @@ class ReportSyncManager {
       initPendingReportsTable();
       this.setupNetworkListener();
 
-      const state = await NetInfo.fetch();
-      await this.handleConnectionChange(state.isConnected);
+      const {isConnected} = await NetInfo.fetch();
+      await this.handleConnectionChange(isConnected);
 
       this.isInitialized = true;
     } catch (error) {
