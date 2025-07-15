@@ -80,10 +80,10 @@ const DateRangeSelector = ({
           minDate={new Date(2020, 1, 1)}
           maxDate={new Date()}
           todayBackgroundColor={
-            isDark ? appColors.primary.light : appColors.primary.dark
+            isDark ? appColors.primary.dark : appColors.primary.light
           }
           selectedDayColor={
-            isDark ? appColors.primary.light : appColors.primary.dark
+            isDark ? appColors.primary.dark : appColors.primary.light
           }
           selectedDayTextColor="#FFFFFF"
           textStyle={getTextStyle()}
