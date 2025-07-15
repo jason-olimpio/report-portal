@@ -41,16 +41,16 @@ export const FormHandler = <T extends Record<string, any>>({
 
   const validate = (field: keyof T, value: any) => {
     const updatedForm = {...form, [field]: value};
-    const validationResult = schema.safeParse(updatedForm);
+    const {success, error} = schema.safeParse(updatedForm);
 
-    if (validationResult.success) {
+    if (success) {
       setErrors(currentErrors => ({...currentErrors, [field]: undefined}));
       return;
     }
 
     const fieldError =
-      validationResult.error.formErrors.fieldErrors[
-        field as keyof typeof validationResult.error.formErrors.fieldErrors
+      error.formErrors.fieldErrors[
+        field as keyof typeof error.formErrors.fieldErrors
       ];
 
     setErrors(currentErrors => ({
@@ -74,10 +74,10 @@ export const FormHandler = <T extends Record<string, any>>({
     const allTouched = createAllTouchedState<T>(fields);
     setTouched(allTouched);
 
-    const validationResult = schema.safeParse(form);
+    const {success, error} = schema.safeParse(form);
 
-    if (!validationResult.success) {
-      const fieldErrors = validationResult.error.formErrors.fieldErrors;
+    if (!success) {
+      const fieldErrors = error.formErrors.fieldErrors;
       setErrors(extractFieldErrors(fieldErrors));
       return;
     }
