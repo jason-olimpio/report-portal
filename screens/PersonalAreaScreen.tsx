@@ -107,6 +107,7 @@ const PersonalAreaScreen = () => {
           size={20}
           color={isDark ? appColors.primary.light : appColors.primary.dark}
         />
+
         <Text className="text-primary font-titillium-bold ml-1 dark:text-white">
           {isDark
             ? t('settings.switchToLightMode')

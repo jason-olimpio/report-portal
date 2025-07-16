@@ -4,3 +4,4 @@ export * from './filter';
 export * from './ui';
 export * from './form';
 export * from './calendar';
+export * from './settings';
