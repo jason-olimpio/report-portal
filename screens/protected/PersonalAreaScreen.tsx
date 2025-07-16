@@ -52,7 +52,6 @@ const PersonalAreaScreen = () => {
     email: user?.email || '',
     currentPassword: '',
     confirmPassword: '',
-    image: undefined,
   };
 
   const fields: FieldConfig[] = [
