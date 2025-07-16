@@ -1,11 +1,10 @@
 import {Alert, ScrollView, type ImageSourcePropType} from 'react-native';
-import {useEffect} from 'react';
 import {z} from 'zod';
 import {useTranslation} from 'react-i18next';
 
 import {FormHandler, BackButton} from '@components';
 
-import {initPendingReportsTable, addPendingReport} from '@db';
+import {addPendingReport} from '@db';
 
 import {
   type Report,
@@ -63,10 +62,6 @@ const NewReportScreen = () => {
       label: t('location.location'),
     },
   ];
-
-  useEffect(() => {
-    initPendingReportsTable();
-  }, []);
 
   const handleReportSave = async ({
     images,

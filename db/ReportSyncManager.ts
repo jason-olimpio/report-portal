@@ -1,9 +1,6 @@
 import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
-import {
-  initPendingReportsTable,
-  getAllPendingReports,
-  removePendingReport,
-} from '@db';
+
+import {getPendingReportsFromStorage, removePendingReport} from '@db';
 
 class ReportSyncManager {
   private static instance: ReportSyncManager;
@@ -28,7 +25,6 @@ class ReportSyncManager {
     }
 
     try {
-      initPendingReportsTable();
       this.setupNetworkListener();
 
       const {isConnected} = await NetInfo.fetch();
@@ -79,7 +75,7 @@ class ReportSyncManager {
     this.isSending = true;
 
     try {
-      const reports = await getAllPendingReports();
+      const reports = await getPendingReportsFromStorage();
 
       if (reports.length === 0) {
         return;
