@@ -30,9 +30,7 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
       useNativeDriver: true,
     }).start();
 
-    timerRef.current = setTimeout(() => {
-      hideSnackbar(onClose);
-    }, 3000);
+    timerRef.current = setTimeout(() => hideSnackbar(onClose), 3000);
 
     return clearTimer;
   }, [visible, onClose, slideAnimation]);
