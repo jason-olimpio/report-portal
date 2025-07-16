@@ -1,2 +1,2 @@
 export * from './pendingReportsDb';
-export * from './PendingReportsSync';
+export * from './pendingReportsSync';
