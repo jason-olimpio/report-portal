@@ -27,11 +27,11 @@ type ReportCardProps = {
 };
 
 const getImageSource = (images: ImageSourcePropType[] = []) => {
-  if (Array.isArray(images) && images.length > 0) {
-    return images[0];
+  if (!Array.isArray(images) || images.length === 0) {
+    return PlaceholderImage;
   }
 
-  return PlaceholderImage;
+  return images[0];
 };
 
 const ReportCard = ({
