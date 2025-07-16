@@ -8,10 +8,6 @@ import {BackButton} from '@components';
 import {notificationData} from '@store';
 import {getTimeAgo} from '@utils';
 
-const NotificationSeparator = () => (
-  <View className="h-px bg-gray-100 dark:bg-gray-600" />
-);
-
 const NotificationScreen = () => {
   const {t, i18n} = useTranslation();
 
@@ -77,5 +73,9 @@ const NotificationScreen = () => {
     </View>
   );
 };
+
+const NotificationSeparator = () => (
+  <View className="h-px bg-gray-100 dark:bg-gray-600" />
+);
 
 export default NotificationScreen;
