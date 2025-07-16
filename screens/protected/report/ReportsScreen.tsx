@@ -4,7 +4,7 @@ import {ScrollView} from 'react-native';
 
 import {SectionHeader, ReportList, Pagination, FilterModal} from '@components';
 import {reportData} from '@store';
-import {StatusOption} from '@types';
+import {DateRange, StatusOption} from '@types';
 
 const ReportsScreen = () => {
   const {t} = useTranslation();
@@ -16,10 +16,10 @@ const ReportsScreen = () => {
   const [selectedStatus, setSelectedStatus] = useState<StatusOption>(
     StatusOption.All,
   );
-  const [dateRange, setDateRange] = useState<{
-    start: Date | null;
-    end: Date | null;
-  }>({start: null, end: null});
+  const [dateRange, setDateRange] = useState<DateRange>({
+    start: null,
+    end: null,
+  });
 
   const filteredReports = reportData.filter(({status, date}) => {
     const isStatusMatch =
