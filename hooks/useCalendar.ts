@@ -3,7 +3,7 @@ import {LocaleConfig} from 'react-native-calendars';
 import {TFunction} from 'i18next';
 
 import {reportData} from '@store';
-import {ReportsByDate} from '@types';
+import type {ReportsByDate} from '@types';
 import {
   getReportsByDate,
   getMarkedDatesWithSelection,

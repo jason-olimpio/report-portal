@@ -4,7 +4,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 import {getStatusLabel} from '@utils';
 
-import {DateRange, StatusOption} from '@types';
+import {type DateRange, StatusOption} from '@types';
 
 type ReportFilterOptionsProps = {
   selectedStatus: StatusOption;

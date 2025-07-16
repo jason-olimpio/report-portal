@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 import {IconActionButton} from '@components';
-import {type AuthenticatedCompositeNavigationProp} from '@types';
+import type {AuthenticatedCompositeNavigationProp} from '@types';
 
 import {appColors} from '@config';
 import {useTheme} from '@hooks';

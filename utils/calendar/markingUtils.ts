@@ -1,4 +1,9 @@
-import {Report, StatusOption, MarkedDates, ReportsByDate} from '@types';
+import {
+  type Report,
+  StatusOption,
+  type MarkedDates,
+  type ReportsByDate,
+} from '@types';
 import {appColors} from '@config';
 
 export const STATUS_COLORS: {

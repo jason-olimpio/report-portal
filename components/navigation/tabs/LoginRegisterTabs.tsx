@@ -5,7 +5,7 @@ import {View, SafeAreaView} from 'react-native';
 import {LoginScreen, RegisterScreen} from '@screens';
 import {useTheme} from '@hooks';
 import {appColors} from '@config';
-import {AuthTabParamList} from '@types';
+import type {AuthTabParamList} from '@types';
 
 const Tab = createMaterialTopTabNavigator<AuthTabParamList>();
 

@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {ReportList, SectionHeader} from '@components';
 
 import {reportData} from '@store';
-import {MainTabParamList} from '@types';
+import type {MainTabParamList} from '@types';
 
 const RecentReports = () => {
   const {t} = useTranslation();

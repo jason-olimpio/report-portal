@@ -11,7 +11,7 @@ import {PersonalAreaScreen} from '@screens';
 import {appColors} from '@config';
 import {notificationData} from '@store';
 import {useAuth, useTheme} from '@hooks';
-import {MainAppStackParamList} from '@types';
+import type {MainAppStackParamList} from '@types';
 
 const Drawer = createDrawerNavigator();
 

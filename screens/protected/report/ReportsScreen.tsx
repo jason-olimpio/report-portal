@@ -4,7 +4,7 @@ import {ScrollView} from 'react-native';
 
 import {SectionHeader, ReportList, Pagination, FilterModal} from '@components';
 import {reportData} from '@store';
-import {DateRange, StatusOption} from '@types';
+import {type DateRange, StatusOption} from '@types';
 
 const ReportsScreen = () => {
   const {t} = useTranslation();

@@ -1,7 +1,7 @@
 import {View, Text, FlatList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {Notification} from '@types';
+import type {Notification} from '@types';
 
 import {BackButton} from '@components';
 

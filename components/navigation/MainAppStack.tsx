@@ -7,7 +7,7 @@ import {
   CalendarScreen,
 } from '@screens';
 import {AppDrawer} from '@components';
-import {MainAppStackParamList} from '@types';
+import type {MainAppStackParamList} from '@types';
 
 const Stack = createStackNavigator<MainAppStackParamList>();
 

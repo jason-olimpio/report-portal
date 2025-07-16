@@ -19,7 +19,7 @@ import {IconActionButton, ErrorText, type QuickAction} from '@components';
 import {useTheme} from '@hooks';
 
 import {appColors} from '@config';
-import {type Location} from '@types';
+import type {Location} from '@types';
 
 type ImageSliderFieldProps = {
   label: string;

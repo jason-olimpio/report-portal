@@ -13,7 +13,7 @@ import {useTranslation} from 'react-i18next';
 import {useTheme} from '@hooks';
 import {appColors} from '@config';
 import {getLocalizedCalendarLabels} from '@utils';
-import {DateRange} from '@types';
+import type {DateRange} from '@types';
 
 type DateRangeSelectorProps = {
   dateRange: DateRange;

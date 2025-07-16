@@ -2,7 +2,7 @@ import {Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {ReportCard} from '@components';
-import {Report} from '@types';
+import type {Report} from '@types';
 
 type ReportListProps = {
   reports: Report[];

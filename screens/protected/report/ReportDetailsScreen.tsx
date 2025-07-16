@@ -26,7 +26,7 @@ import {PlaceholderImage} from '@assets';
 
 import {appColors} from '@config';
 
-import {ReportDetailsScreenRouteProp} from '@types';
+import type {ReportDetailsScreenRouteProp} from '@types';
 import {getLocaleForDateFns} from '@utils';
 
 const getImageSources = (images: ImageSourcePropType[]) =>

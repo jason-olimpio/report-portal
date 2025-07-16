@@ -3,11 +3,11 @@ import {createElement, ReactElement} from 'react';
 import {LocationField} from '@components';
 
 import {
-  FieldConfig,
+  type FieldConfig,
   FieldRenderStrategy,
-  FieldRenderContext,
+  type FieldRenderContext,
   FieldType,
-  Location,
+  type Location,
 } from '@types';
 
 export class LocationFieldStrategy<T extends Record<string, any>>

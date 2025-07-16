@@ -1,4 +1,4 @@
-import {FormErrors, FormTouched, FieldConfig} from '@types';
+import type {FormErrors, FormTouched, FieldConfig} from '@types';
 
 export const extractFieldErrors = <T extends Record<string, any>>(
   fieldErrors: Record<string, unknown>,

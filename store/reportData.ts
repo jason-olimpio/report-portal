@@ -4,7 +4,7 @@ import {
   ElectricalWasteDisposalImage,
 } from '@assets';
 
-import {Report, StatusOption, PriorityOption} from '@types';
+import {type Report, StatusOption, PriorityOption} from '@types';
 
 const REPORTS: Report[] = [
   {

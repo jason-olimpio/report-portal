@@ -9,7 +9,7 @@ import {FormHandler, LanguagePicker} from '@components';
 import {useTheme, useAuth} from '@hooks';
 
 import {appColors} from '@config';
-import {FieldConfig, FieldType} from '@types';
+import {type FieldConfig, FieldType} from '@types';
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation();

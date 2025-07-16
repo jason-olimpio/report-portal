@@ -2,7 +2,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
-import {Report, StatusOption, CalendarRouteProp} from '@types';
+import type {Report, StatusOption, CalendarRouteProp} from '@types';
 import {useTheme} from '@hooks';
 import {STATUS_COLORS} from '@utils';
 import {appColors} from '@config';

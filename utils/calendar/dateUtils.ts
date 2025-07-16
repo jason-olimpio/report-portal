@@ -1,4 +1,4 @@
-import {Report, ReportsByDate} from '@types';
+import type {Report, ReportsByDate} from '@types';
 
 export const getReportsByDate = (reports: Report[]): ReportsByDate =>
   reports.reduce((accumulator, report) => {

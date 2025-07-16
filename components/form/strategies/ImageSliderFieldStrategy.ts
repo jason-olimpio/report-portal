@@ -3,11 +3,11 @@ import {createElement, ReactElement} from 'react';
 import {ImageSliderField} from '@components';
 
 import {
-  FieldConfig,
+  type FieldConfig,
   FieldRenderStrategy,
-  FieldRenderContext,
+  type FieldRenderContext,
   FieldType,
-  Location,
+  type Location,
 } from '@types';
 
 class ImageSliderFieldStrategy<T extends Record<string, any>>

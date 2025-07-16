@@ -6,7 +6,7 @@ import {useAuth} from '@hooks';
 
 import {AppDrawer, MainAppStack} from '@components';
 
-import {RootStackParamList} from '@types';
+import type {RootStackParamList} from '@types';
 
 const Stack = createStackNavigator<RootStackParamList>();
 

@@ -6,7 +6,11 @@ import {
   LocationFieldStrategy,
 } from '@components';
 
-import {FieldRenderStrategy, FieldRenderContext, FieldConfig} from '@types';
+import {
+  FieldRenderStrategy,
+  type FieldRenderContext,
+  type FieldConfig,
+} from '@types';
 
 class FieldRenderer<T extends Record<string, any>> {
   #strategies: FieldRenderStrategy<T>[];

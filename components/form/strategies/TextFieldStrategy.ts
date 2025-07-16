@@ -3,9 +3,9 @@ import {createElement, ReactElement} from 'react';
 import {TextField} from '@components';
 
 import {
-  FieldConfig,
+  type FieldConfig,
   FieldRenderStrategy,
-  FieldRenderContext,
+  type FieldRenderContext,
   FieldType,
 } from '@types';
 

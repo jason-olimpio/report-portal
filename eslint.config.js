@@ -16,9 +16,6 @@ export default [
         sourceType: 'module',
         ecmaFeatures: { jsx: true },
       },
-      globals: {
-        __DEV__: true,
-      },
     },
     plugins: {
       '@typescript-eslint': tsEslint,
@@ -45,7 +42,6 @@ export default [
       'max-len': ['warn', { 'code': 120 }],
       'prettier/prettier': 'error',
     },
-    settings: {},
   },
   {
     ignores: ['node_modules/**'],

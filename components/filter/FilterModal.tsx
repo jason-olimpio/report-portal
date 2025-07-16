@@ -3,7 +3,7 @@ import {Modal, Pressable} from 'react-native';
 
 import {DateRangeSelector, ReportFilterOptions} from '@components';
 
-import {DateRange, StatusOption} from '@types';
+import type {DateRange, StatusOption} from '@types';
 
 type FilterModalProps = {
   visible: boolean;

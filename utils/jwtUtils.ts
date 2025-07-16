@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {jwtDecode} from 'jwt-decode';
 
-import {JWTPayload} from '@types';
+import type {JWTPayload} from '@types';
 
 const TOKEN_KEY = 'auth_token';
 

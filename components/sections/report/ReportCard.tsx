@@ -11,7 +11,7 @@ import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 
 import {ReportStatusBadge} from '@components';
-import {StatusOption, ReportCardNavigationProp} from '@types';
+import {StatusOption, type ReportCardNavigationProp} from '@types';
 
 import {getTimeAgo} from '@utils';
 

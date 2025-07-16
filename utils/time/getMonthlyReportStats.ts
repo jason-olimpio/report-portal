@@ -1,4 +1,4 @@
-import {Report, StatusOption} from '@types';
+import {type Report, StatusOption} from '@types';
 
 type MonthlyStats = {
   open: number;

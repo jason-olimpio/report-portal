@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 
 import {ErrorText} from '@components';
 
-import {Location} from '@types';
+import type {Location} from '@types';
 
 type LocationFieldProps = {
   label?: string;

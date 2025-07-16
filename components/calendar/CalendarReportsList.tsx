@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 
 import CalendarReportItem from './CalendarReportItem';
 
-import {Report} from '@types';
+import type {Report} from '@types';
 
 type CalendarReportsListProps = {
   reports: Report[] | null;

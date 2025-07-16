@@ -1,6 +1,6 @@
 import {createContext, ReactNode, useEffect, useState} from 'react';
 
-import {AuthUser} from '@types';
+import type {AuthUser} from '@types';
 import {
   getToken,
   isTokenValid,
