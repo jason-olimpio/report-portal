@@ -39,6 +39,12 @@ export const FormHandler = <T extends Record<string, any>>({
     setForm(initialState);
   }, [initialState]);
 
+  const handleChange = (field: keyof T, value: any) => {
+    setForm(currentForm => ({...currentForm, [field]: value}));
+    setTouched(currentTouched => ({...currentTouched, [field]: true}));
+    validate(field, value);
+  };
+
   const validate = (field: keyof T, value: any) => {
     const updatedForm = {...form, [field]: value};
     const {success, error} = schema.safeParse(updatedForm);
@@ -57,17 +63,6 @@ export const FormHandler = <T extends Record<string, any>>({
       ...currentErrors,
       [field]: fieldError ? fieldError[0] : undefined,
     }));
-  };
-
-  const handleChange = (field: keyof T, value: any) => {
-    setForm(currentForm => ({...currentForm, [field]: value}));
-    setTouched(currentTouched => ({...currentTouched, [field]: true}));
-    validate(field, value);
-  };
-
-  const resetFormState = () => {
-    setForm(initialState);
-    setTouched({});
   };
 
   const handleSave = async () => {
@@ -93,6 +88,11 @@ export const FormHandler = <T extends Record<string, any>>({
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const resetFormState = () => {
+    setForm(initialState);
+    setTouched({});
   };
 
   const renderContext: FieldRenderContext<T> = {
