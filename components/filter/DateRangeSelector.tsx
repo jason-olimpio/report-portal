@@ -13,10 +13,11 @@ import {useTranslation} from 'react-i18next';
 import {useTheme} from '@hooks';
 import {appColors} from '@config';
 import {getLocalizedCalendarLabels} from '@utils';
+import {DateRange} from '@types';
 
 type DateRangeSelectorProps = {
-  dateRange: {start: Date | null; end: Date | null};
-  setDateRange: (range: {start: Date | null; end: Date | null}) => void;
+  dateRange: DateRange;
+  setDateRange: (range: DateRange) => void;
   toggleDatePicker: () => void;
 };
 

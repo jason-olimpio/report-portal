@@ -4,13 +4,13 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 import {getStatusLabel} from '@utils';
 
-import {StatusOption} from '@types';
+import {DateRange, StatusOption} from '@types';
 
 type ReportFilterOptionsProps = {
   selectedStatus: StatusOption;
   setSelectedStatus: (status: StatusOption) => void;
-  dateRange: {start: Date | null; end: Date | null};
-  setDateRange: (range: {start: Date | null; end: Date | null}) => void;
+  dateRange: DateRange;
+  setDateRange: (range: DateRange) => void;
   toggleModal: (visible: boolean) => void;
   toggleDatePicker: () => void;
 };

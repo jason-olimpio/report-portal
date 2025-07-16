@@ -3,7 +3,7 @@ import {Modal, Pressable} from 'react-native';
 
 import {DateRangeSelector, ReportFilterOptions} from '@components';
 
-import {StatusOption} from '@types';
+import {DateRange, StatusOption} from '@types';
 
 type FilterModalProps = {
   visible: boolean;
@@ -12,11 +12,6 @@ type FilterModalProps = {
   setSelectedStatus: (status: StatusOption) => void;
   dateRange: DateRange;
   setDateRange: (range: DateRange) => void;
-};
-
-type DateRange = {
-  start: Date | null;
-  end: Date | null;
 };
 
 const FilterModal = ({
