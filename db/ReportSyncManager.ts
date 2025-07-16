@@ -48,8 +48,8 @@ class ReportSyncManager {
 
   private setupNetworkListener(): void {
     this.unsubscribe = NetInfo.addEventListener(
-      async (state: NetInfoState) =>
-        await this.handleConnectionChange(state.isConnected),
+      async ({isConnected}: NetInfoState) =>
+        await this.handleConnectionChange(isConnected),
     );
   }
 
