@@ -11,7 +11,7 @@ import './i18n';
 
 import {ThemeProvider, AuthProvider} from '@contexts';
 import {AppNavigator, Snackbar} from '@components';
-import {ReportSyncManager} from '@db';
+import {startNetworkMonitor} from '@db';
 
 import {isOnline} from '@utils';
 
@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     const initialize = async () => {
       setIsConnected(await isOnline());
-      await ReportSyncManager.start();
+      await startNetworkMonitor();
     };
 
     initialize();

@@ -1,2 +1,2 @@
 export * from './pendingReportsDb';
-export {default as ReportSyncManager} from './ReportSyncManager';
+export * from './PendingReportsSync';
