@@ -15,6 +15,10 @@ const NotificationSeparator = () => (
 const NotificationScreen = () => {
   const {t, i18n} = useTranslation();
 
+  const sortedNotifications = [...notificationData].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+
   const renderItem = ({item}: {item: Notification; index: number}) => {
     const {title, description, date} = item;
     const timeAgo = getTimeAgo(date, i18n.language, t);
@@ -52,7 +56,7 @@ const NotificationScreen = () => {
 
       <View className="flex-1 px-4 pt-2">
         <View className="rounded-2xl shadow-lg overflow-hidden mt-2">
-          {notificationData.length === 0 ? (
+          {sortedNotifications.length === 0 ? (
             <View className="py-10 items-center justify-center">
               <Text className="text-neutral-gray-500 text-base">
                 {t('general.noNotifications')}
@@ -61,7 +65,7 @@ const NotificationScreen = () => {
           ) : (
             <View className="py-1">
               <FlatList
-                data={notificationData}
+                data={sortedNotifications}
                 keyExtractor={({id}) => id}
                 renderItem={renderItem}
                 ItemSeparatorComponent={NotificationSeparator}
