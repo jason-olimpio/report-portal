@@ -3,7 +3,6 @@ import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 import {getPendingReportsFromStorage, removePendingReport} from '@db';
 
 let isSending = false;
-let unsubscribe: (() => void) | null = null;
 let isInitialized = false;
 
 export const startNetworkMonitor = async (): Promise<void> => {
@@ -26,7 +25,7 @@ export const startNetworkMonitor = async (): Promise<void> => {
 };
 
 const setupNetworkListener = (): void => {
-  unsubscribe = NetInfo.addEventListener(
+  NetInfo.addEventListener(
     async ({isConnected}: NetInfoState) =>
       await handleConnectionChange(isConnected),
   );
