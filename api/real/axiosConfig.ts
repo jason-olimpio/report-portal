@@ -38,13 +38,8 @@ interceptors.response.use(
       return Promise.reject(error);
     }
 
-    try {
-      await removeToken();
-
-      console.warn('Token removed due to 401 unauthorized response');
-    } catch (error) {
-      console.error('Error during 401 handling:', error);
-    }
+    await removeToken();
+    console.warn('Token removed due to 401 unauthorized response');
 
     return Promise.reject(error);
   },
