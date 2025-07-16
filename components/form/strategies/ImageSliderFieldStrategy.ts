@@ -13,8 +13,8 @@ import {
 class ImageSliderFieldStrategy<T extends Record<string, any>>
   implements FieldRenderStrategy<T>
 {
-  canRender(field: FieldConfig): boolean {
-    return field.type === FieldType.ImageSlider;
+  canRender({type}: FieldConfig): boolean {
+    return type === FieldType.ImageSlider;
   }
 
   render(

@@ -12,8 +12,8 @@ import {
 class TextFieldStrategy<T extends Record<string, any>>
   implements FieldRenderStrategy<T>
 {
-  canRender(field: FieldConfig): boolean {
-    return field.type === FieldType.Text;
+  canRender({type}: FieldConfig): boolean {
+    return type === FieldType.Text;
   }
 
   render(

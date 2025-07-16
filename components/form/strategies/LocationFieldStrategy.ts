@@ -13,8 +13,8 @@ import {
 export class LocationFieldStrategy<T extends Record<string, any>>
   implements FieldRenderStrategy<T>
 {
-  canRender(field: FieldConfig): boolean {
-    return field.type === FieldType.Location;
+  canRender({type}: FieldConfig): boolean {
+    return type === FieldType.Location;
   }
 
   render(
