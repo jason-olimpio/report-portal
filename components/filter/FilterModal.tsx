@@ -10,8 +10,13 @@ type FilterModalProps = {
   toggleModal: (visible: boolean) => void;
   selectedStatus: StatusOption;
   setSelectedStatus: (status: StatusOption) => void;
-  dateRange: {start: Date | null; end: Date | null};
-  setDateRange: (range: {start: Date | null; end: Date | null}) => void;
+  dateRange: DateRange;
+  setDateRange: (range: DateRange) => void;
+};
+
+type DateRange = {
+  start: Date | null;
+  end: Date | null;
 };
 
 const FilterModal = ({
