@@ -1,6 +1,10 @@
 import SQLite from 'react-native-sqlite-storage';
 import {type Report} from '@types';
 
+type SQLiteDatabase = {
+  transaction: (callback: (tx: Transaction) => void) => void;
+};
+
 type Transaction = {
   executeSql: (
     sqlStatement: string,
@@ -15,10 +19,6 @@ type ResultSet = {
     length: number;
     item: (index: number) => any;
   };
-};
-
-type SQLiteDatabase = {
-  transaction: (callback: (tx: Transaction) => void) => void;
 };
 
 const DB_NAME = 'AppSosReports.db';
