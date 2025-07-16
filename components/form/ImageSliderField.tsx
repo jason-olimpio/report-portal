@@ -19,16 +19,14 @@ import {IconActionButton, ErrorText, type QuickAction} from '@components';
 import {useTheme} from '@hooks';
 
 import {appColors} from '@config';
+import {Location} from '@types';
 
 type ImageSliderFieldProps = {
   label: string;
   imageUris?: string[];
   error?: string | false;
   onImagesSelected: (uris: string[]) => void;
-  onLocationCaptured?: (location: {
-    latitude: number;
-    longitude: number;
-  }) => void;
+  onLocationCaptured?: (location: Location) => void;
   maxImages?: number;
 };
 
