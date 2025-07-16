@@ -178,8 +178,8 @@ const ReportDetailsScreen = () => {
         </View>
 
         <Text className="text-xs text-neutral-gray-500 dark:text-neutral-gray-100 mt-4 text-center">
-          {t('location.coordinates')}: {location.latitude.toFixed(4)},{' '}
-          {location.longitude.toFixed(4)}
+          {t('location.coordinates')}: {latitude.toFixed(4)},{' '}
+          {longitude.toFixed(4)}
         </Text>
       </View>
 
