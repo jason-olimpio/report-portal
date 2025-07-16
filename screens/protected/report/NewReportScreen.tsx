@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 
 import {FormHandler, BackButton} from '@components';
 
-import {addPendingReport} from '@db';
+import {addPendingReport} from '@storage';
 
 import {
   type Report,

@@ -11,7 +11,7 @@ import './i18n';
 
 import {ThemeProvider, AuthProvider} from '@contexts';
 import {AppNavigator, Snackbar} from '@components';
-import {startNetworkMonitor} from '@db';
+import {startNetworkMonitor} from '@storage';
 
 import {isOnline} from '@utils';
 

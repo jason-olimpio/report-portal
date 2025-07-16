@@ -24,7 +24,7 @@ const aliases = [
   ['@store', 'store'],
   ['@contexts', 'contexts'],
   ['@hooks', 'hooks'],
-  ['@db', 'db'],
+  ['@storage', 'storage'],
   ['@api', 'api'],
 ];
 

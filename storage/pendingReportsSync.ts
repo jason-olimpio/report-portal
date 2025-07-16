@@ -1,6 +1,6 @@
 import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 
-import {getPendingReportsFromStorage, removePendingReport} from '@db';
+import {getPendingReportsFromStorage, removePendingReport} from '@storage';
 
 let isSending = false;
 let isInitialized = false;
