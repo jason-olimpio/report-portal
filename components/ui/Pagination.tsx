@@ -21,46 +21,38 @@ const Pagination = ({
   const {isDark} = useTheme();
   const {t} = useTranslation();
 
-  const getPageNumbers = () => {
-    const pageNumbers = [];
+  const getPageNumbers = (): (number | string)[] => {
     const maxVisiblePages = 5;
 
     if (totalPages <= maxVisiblePages) {
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
-      }
-
-      return pageNumbers;
+      return Array.from({length: totalPages}, (_, i) => i + 1);
     }
 
-    pageNumbers.push(1);
+    const pages: (number | string)[] = [];
+    const sidePages = Math.floor((maxVisiblePages - 3) / 2);
 
-    let startPage = Math.max(2, currentPage - 1);
-    let endPage = Math.min(totalPages - 1, currentPage + 1);
+    pages.push(1);
 
-    if (currentPage <= 3) {
-      endPage = Math.min(maxVisiblePages - 1, totalPages - 1);
+    const rangeStart = Math.max(2, currentPage - sidePages);
+    const rangeEnd = Math.min(totalPages - 1, currentPage + sidePages);
+
+    if (rangeStart > 2) {
+      pages.push('...');
     }
 
-    if (currentPage >= totalPages - 2) {
-      startPage = Math.max(2, totalPages - (maxVisiblePages - 2));
+    for (let i = rangeStart; i <= rangeEnd; i++) {
+      pages.push(i);
     }
 
-    if (startPage > 2) {
-      pageNumbers.push('...');
+    if (rangeEnd < totalPages - 1) {
+      pages.push('...');
     }
 
-    for (let i = startPage; i <= endPage; i++) {
-      pageNumbers.push(i);
+    if (totalPages > 1) {
+      pages.push(totalPages);
     }
 
-    if (endPage < totalPages - 1) {
-      pageNumbers.push('...');
-    }
-
-    pageNumbers.push(totalPages);
-
-    return pageNumbers;
+    return pages;
   };
 
   return (
