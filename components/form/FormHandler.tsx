@@ -118,6 +118,7 @@ export const FormHandler = <T extends Record<string, any>>({
     if (!success) {
       const fieldErrors = error.formErrors.fieldErrors;
       setErrors(extractFieldErrors(fieldErrors));
+
       return;
     }
 

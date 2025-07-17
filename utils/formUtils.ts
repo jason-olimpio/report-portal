@@ -16,5 +16,6 @@ export const createAllTouchedState = <T extends Record<string, any>>(
 ): FormTouched<T> =>
   fields.reduce((accumulator, field) => {
     accumulator[field.key as keyof T] = true;
+
     return accumulator;
   }, {} as FormTouched<T>);
