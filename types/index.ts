@@ -4,5 +4,3 @@ export * from './api';
 
 export * from './FormTypes';
 export * from './Auth';
-
-export type {default as DateRange} from './DateRange';
