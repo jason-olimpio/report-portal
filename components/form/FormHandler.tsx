@@ -83,13 +83,13 @@ export const FormHandler = <T extends Record<string, any>>({
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
 
-  const handleChange = (field: keyof T, value: any) => {
+  const handleChange = (field: keyof T, value: T[keyof T]) => {
     setForm(currentForm => ({...currentForm, [field]: value}));
     setTouched(currentTouched => ({...currentTouched, [field]: true}));
     validate(field, value);
   };
 
-  const validate = (field: keyof T, value: any) => {
+  const validate = (field: keyof T, value: T[keyof T]) => {
     const updatedForm = {...form, [field]: value};
     const {success, error} = schema.safeParse(updatedForm);
 

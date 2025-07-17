@@ -25,7 +25,7 @@ export type FieldRenderContext<T> = {
   form: T;
   touched: FormTouched<T>;
   errors: FormErrors<T>;
-  handleChange: (field: keyof T, value: any) => void;
+  handleChange: (field: keyof T, value: T[keyof T]) => void;
 };
 
 export interface FieldRenderStrategy<T extends Record<string, any>> {
