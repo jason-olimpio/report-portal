@@ -142,7 +142,7 @@ const ImageSliderField = ({
         </View>
       )}
 
-      <ErrorText error={error} className="mt-4 text-center" />
+      <ErrorText error={error} className="text-center" />
     </View>
   );
 };

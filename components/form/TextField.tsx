@@ -29,7 +29,7 @@ const TextField = ({
       {...inputProps}
     />
 
-    <ErrorText error={error} className="mt-4" />
+    <ErrorText error={error} />
   </View>
 );
 

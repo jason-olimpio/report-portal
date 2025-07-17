@@ -11,7 +11,9 @@ const ErrorText = ({error, className = ''}: ErrorTextProps) => {
   }
 
   return (
-    <Text className={`text-red-500 text-sm ${className}`.trim()}>{error}</Text>
+    <Text className={`text-red-500 text-sm mt-4 ${className}`.trim()}>
+      {error}
+    </Text>
   );
 };
 

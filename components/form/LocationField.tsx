@@ -45,7 +45,7 @@ const LocationField = ({label, location, error}: LocationFieldProps) => {
         )}
       </View>
 
-      <ErrorText error={error} className="mt-3" />
+      <ErrorText error={error} />
     </View>
   );
 };
