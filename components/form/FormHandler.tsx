@@ -15,13 +15,13 @@ import FieldRenderer from './FieldRenderer';
 
 import {extractFieldErrors, createAllTouchedState} from '@utils';
 
-import type {
-  FormErrors,
-  FormTouched,
-  FieldRenderContext,
-  FieldConfig,
+import {
+  type FormErrors,
+  type FormTouched,
+  type FieldRenderContext,
+  type FieldConfig,
+  FieldType,
 } from '@types';
-import {FieldType} from '@types';
 
 type FormHandlerProps<T extends Record<string, any>> = {
   schema: ZodType<T>;
