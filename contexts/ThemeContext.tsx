@@ -1,16 +1,16 @@
 import {createContext, ReactNode} from 'react';
 import {useColorScheme} from 'nativewind';
 
-enum ColorScheme {
-  Light = 'light',
-  Dark = 'dark',
-}
-
 type ThemeContextType = {
   colorScheme: ColorScheme;
   isDark: boolean;
   toggleTheme: () => void;
 };
+
+enum ColorScheme {
+  Light = 'light',
+  Dark = 'dark',
+}
 
 type ThemeProviderProps = {
   children: ReactNode;
