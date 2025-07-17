@@ -14,7 +14,8 @@ import {
   FieldType,
 } from '@types';
 
-import {isOnline, getAddressFromLocation} from '@utils';
+import {getAddressFromLocation} from '@api';
+import {isOnline} from '@utils';
 
 const NewReportScreen = () => {
   const {t} = useTranslation();
