@@ -3,6 +3,7 @@ import {
   StatusOption,
   type MarkedDates,
   type ReportsByDate,
+  type DateString,
 } from '@types';
 import {appColors} from '@config';
 
@@ -25,7 +26,7 @@ export const STATUS_COLORS: {
 export const getMarkedDatesWithSelection = (
   reportsByDate: ReportsByDate,
   isDark: boolean,
-  selectedDate?: string | null,
+  selectedDate?: DateString | null,
 ): MarkedDates => {
   const markedDates = getMarkedDates(reportsByDate, isDark);
 
@@ -57,8 +58,8 @@ const getMarkedDates = (
 ): MarkedDates => {
   const markedDates: MarkedDates = {};
 
-  Object.entries(reportsByDate).forEach(
-    ([date, reports]: [string, Report[]]) =>
+  (Object.entries(reportsByDate) as [DateString, Report[]][]).forEach(
+    ([date, reports]) =>
       (markedDates[date] = {
         dots: reports
           .filter(report => report.status !== StatusOption.All)

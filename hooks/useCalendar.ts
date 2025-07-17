@@ -3,7 +3,7 @@ import {LocaleConfig} from 'react-native-calendars';
 import {TFunction} from 'i18next';
 
 import {reportData} from '@store';
-import type {ReportsByDate} from '@types';
+import type {ReportsByDate, DateString} from '@types';
 import {
   getReportsByDate,
   getMarkedDatesWithSelection,
@@ -11,7 +11,7 @@ import {
 } from '@utils';
 
 export const useCalendar = (t: TFunction, isDark: boolean) => {
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<DateString | null>(null);
 
   const reportsByDate: ReportsByDate = getReportsByDate(reportData);
 
@@ -35,7 +35,7 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
   };
 
   const handleDayPress = (day: {dateString: string}) =>
-    setSelectedDate(day.dateString);
+    setSelectedDate(day.dateString as DateString);
 
   const selectedReports = selectedDate
     ? reportsByDate[selectedDate] || null
