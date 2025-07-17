@@ -7,7 +7,6 @@ import {
   FieldRenderStrategy,
   type FieldRenderContext,
   FieldType,
-  type Location,
 } from '@types';
 
 class ImageSliderFieldStrategy<T extends Record<string, any>>
@@ -37,8 +36,6 @@ class ImageSliderFieldStrategy<T extends Record<string, any>>
       ...fieldProps,
       imageUris: form[fieldKey] as string[] | undefined,
       onImagesSelected: (uris: string[]) => handleChange(fieldKey, uris),
-      onLocationCaptured: (location: Location) =>
-        handleChange('location' as keyof T, location),
       maxImages: field.maxImages,
     });
   }

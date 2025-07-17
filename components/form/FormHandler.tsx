@@ -1,5 +1,12 @@
 import {useState, useEffect} from 'react';
-import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import Geolocation from '@react-native-community/geolocation';
 import {ZodType} from 'zod';
 
 import {useTranslation} from 'react-i18next';
@@ -14,6 +21,7 @@ import type {
   FieldRenderContext,
   FieldConfig,
 } from '@types';
+import {FieldType} from '@types';
 
 type FormHandlerProps<T extends Record<string, any>> = {
   schema: ZodType<T>;
@@ -42,7 +50,38 @@ export const FormHandler = <T extends Record<string, any>>({
 
   useEffect(() => {
     setForm(initialState);
-  }, [initialState]);
+
+    const hasLocationField = fields.some(
+      field => field.type === FieldType.Location,
+    );
+
+    if (hasLocationField) {
+      captureLocation();
+    }
+  }, [initialState, fields]);
+
+  const captureLocation = () =>
+    Geolocation.getCurrentPosition(
+      position => {
+        const {latitude, longitude} = position.coords;
+        const location = {latitude, longitude};
+
+        const locationField = fields.find(
+          field => field.type === FieldType.Location,
+        );
+
+        if (!locationField) {
+          return;
+        }
+
+        setForm(currentForm => ({
+          ...currentForm,
+          [locationField.key]: location,
+        }));
+      },
+      () => Alert.alert(t('errors.locationError')),
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+    );
 
   const handleChange = (field: keyof T, value: any) => {
     setForm(currentForm => ({...currentForm, [field]: value}));

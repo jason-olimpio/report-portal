@@ -1,11 +1,4 @@
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {
   launchImageLibrary,
   launchCamera,
@@ -13,20 +6,17 @@ import {
 } from 'react-native-image-picker';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import Geolocation from '@react-native-community/geolocation';
 
 import {IconActionButton, ErrorText, type QuickAction} from '@components';
 import {useTheme} from '@hooks';
 
 import {appColors} from '@config';
-import type {Location} from '@types';
 
 type ImageSliderFieldProps = {
   label: string;
   imageUris?: string[];
   error?: string | false;
   onImagesSelected: (uris: string[]) => void;
-  onLocationCaptured?: (location: Location) => void;
   maxImages?: number;
 };
 
@@ -35,7 +25,6 @@ const ImageSliderField = ({
   imageUris = [],
   error,
   onImagesSelected,
-  onLocationCaptured,
   maxImages = 5,
 }: ImageSliderFieldProps) => {
   const {isDark} = useTheme();
@@ -67,7 +56,6 @@ const ImageSliderField = ({
     const newUris = [...imageUris, ...selectedUris].slice(0, maxImages);
 
     onImagesSelected(newUris);
-    captureLocation();
   };
 
   const removeImage = (indexToRemove: number) => {
@@ -75,16 +63,6 @@ const ImageSliderField = ({
 
     onImagesSelected(newUris);
   };
-
-  const captureLocation = () =>
-    Geolocation.getCurrentPosition(
-      position => {
-        const {latitude, longitude} = position.coords;
-        onLocationCaptured?.({latitude, longitude});
-      },
-      () => Alert.alert(t('errors.locationError')),
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-    );
 
   const actions: QuickAction[] = [
     {
