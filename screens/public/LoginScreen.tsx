@@ -5,21 +5,21 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {z} from 'zod';
+} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import {z} from 'zod'
 
-import {FormHandler} from '@components';
+import {FormHandler} from '@components'
 
-import {useAuth} from '@hooks';
+import {useAuth} from '@hooks'
 
-import {mockLogin} from '@api';
+import {mockLogin} from '@api'
 
-import {FieldType, type FieldConfig, type LoginCredentials} from '@types';
+import {FieldType, type FieldConfig, type LoginCredentials} from '@types'
 
 const LoginScreen = () => {
-  const {t} = useTranslation();
-  const {login} = useAuth();
+  const {t} = useTranslation()
+  const {login} = useAuth()
 
   const loginSchema = z.object({
     email: z
@@ -35,12 +35,12 @@ const LoginScreen = () => {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
         t('validation.passwordMustContain'),
       ),
-  });
+  })
 
   const initialState: LoginCredentials = {
     email: 'admin@example.com',
     password: 'Admin123!',
-  };
+  }
 
   const fields: FieldConfig[] = [
     {
@@ -67,27 +67,27 @@ const LoginScreen = () => {
         textContentType: 'password',
       },
     },
-  ];
+  ]
 
   const handleLogin = async (credentials: LoginCredentials) => {
     try {
-      const {user, token} = await mockLogin(credentials);
+      const {user, token} = await mockLogin(credentials)
 
-      await login(user, token);
+      await login(user, token)
 
       Alert.alert(
         t('authentication.loginSuccess'),
         t('authentication.welcomeBack', {name: user.name}),
-      );
+      )
     } catch (error) {
       Alert.alert(
         t('authentication.loginError'),
         error instanceof Error
           ? error.message
           : t('authentication.loginFailed'),
-      );
+      )
     }
-  };
+  }
 
   return (
     <KeyboardAvoidingView
@@ -116,7 +116,7 @@ const LoginScreen = () => {
         />
       </ScrollView>
     </KeyboardAvoidingView>
-  );
-};
+  )
+}
 
-export default LoginScreen;
+export default LoginScreen

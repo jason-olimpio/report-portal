@@ -1,29 +1,28 @@
-import {Text, TouchableOpacity, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {Text, TouchableOpacity, View} from 'react-native'
+import {useNavigation} from '@react-navigation/native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import {useTheme} from '@hooks';
-import {STATUS_COLORS} from '@utils';
-import {appColors} from '@config';
-import type {Report, StatusOption, CalendarRouteProp} from '@types';
+import {useTheme} from '@hooks'
+import {STATUS_COLORS} from '@utils'
+import {appColors} from '@config'
+import type {Report, StatusOption, CalendarRouteProp} from '@types'
 
 type CalendarReportItemProps = {
-  report: Report;
-};
+  report: Report
+}
 
 const CalendarReportItem = ({report}: CalendarReportItemProps) => {
-  const navigation = useNavigation<CalendarRouteProp>();
-  const {isDark} = useTheme();
+  const navigation = useNavigation<CalendarRouteProp>()
+  const {isDark} = useTheme()
 
-  const {id, status, title, description, address} = report;
+  const {id, status, title, description, address} = report
 
-  const handlePress = () =>
-    navigation.navigate('ReportDetails', {reportId: id});
+  const handlePress = () => navigation.navigate('ReportDetails', {reportId: id})
 
   const getBorderColor = () =>
     isDark
       ? STATUS_COLORS.dark[status as Exclude<StatusOption, StatusOption.All>]
-      : STATUS_COLORS.light[status as Exclude<StatusOption, StatusOption.All>];
+      : STATUS_COLORS.light[status as Exclude<StatusOption, StatusOption.All>]
 
   return (
     <TouchableOpacity
@@ -54,7 +53,7 @@ const CalendarReportItem = ({report}: CalendarReportItemProps) => {
         </Text>
       </View>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-export default CalendarReportItem;
+export default CalendarReportItem

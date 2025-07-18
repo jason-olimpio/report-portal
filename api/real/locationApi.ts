@@ -1,13 +1,13 @@
-import axios from 'axios';
+import axios from 'axios'
 
 type NominatimResponse = {
-  display_name?: string;
-};
+  display_name?: string
+}
 
 type GetAddressFromLocationParams = {
-  latitude: number;
-  longitude: number;
-};
+  latitude: number
+  longitude: number
+}
 
 const getAddressFromLocation = async ({
   latitude,
@@ -23,12 +23,12 @@ const getAddressFromLocation = async ({
           lon: longitude,
         },
       },
-    );
+    )
 
-    return data.display_name || '';
+    return data.display_name || ''
   } catch {
-    return '';
+    return ''
   }
-};
+}
 
-export default getAddressFromLocation;
+export default getAddressFromLocation

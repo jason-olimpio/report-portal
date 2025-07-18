@@ -3,42 +3,18 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@screens": [
-        "screens/index"
-      ],
-      "@components": [
-        "components/index"
-      ],
-      "@assets": [
-        "assets/index"
-      ],
-      "@types": [
-        "types/index"
-      ],
-      "@config": [
-        "config/index"
-      ],
-      "@translations": [
-        "translations/index"
-      ],
-      "@utils": [
-        "utils/index"
-      ],
-      "@store": [
-        "store/index"
-      ],
-      "@contexts": [
-        "contexts/index"
-      ],
-      "@hooks": [
-        "hooks/index"
-      ],
-      "@storage": [
-        "storage/index"
-      ],
-      "@api": [
-        "api/index"
-      ]
+      "@screens": ["screens/index"],
+      "@components": ["components/index"],
+      "@assets": ["assets/index"],
+      "@types": ["types/index"],
+      "@config": ["config/index"],
+      "@translations": ["translations/index"],
+      "@utils": ["utils/index"],
+      "@store": ["store/index"],
+      "@contexts": ["contexts/index"],
+      "@hooks": ["hooks/index"],
+      "@storage": ["storage/index"],
+      "@api": ["api/index"]
     }
   }
 }

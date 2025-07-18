@@ -1,15 +1,15 @@
-import {ComponentProps} from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {useTranslation} from 'react-i18next';
+import {ComponentProps} from 'react'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
+import {useTranslation} from 'react-i18next'
 
-import {HomeScreen, ReportsScreen, StatsScreen, MapScreen} from '@screens';
-import {useAuth, useTheme} from '@hooks';
+import {HomeScreen, ReportsScreen, StatsScreen, MapScreen} from '@screens'
+import {useAuth, useTheme} from '@hooks'
 
-import {appColors} from '@config';
-import {UserRank} from '@types';
+import {appColors} from '@config'
+import {UserRank} from '@types'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> =
   {
@@ -18,23 +18,23 @@ const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> =
     Stats: 'bar-chart',
     Notifications: 'notifications',
     Map: 'map',
-  };
+  }
 
 const getTabBarIcon = (routeName: string, color: string) => {
-  const iconName = TAB_ICONS[routeName] || 'circle';
+  const iconName = TAB_ICONS[routeName] || 'circle'
 
-  return <MaterialIcons name={iconName} size={25} color={color} />;
-};
+  return <MaterialIcons name={iconName} size={25} color={color} />
+}
 
 const MainTabs = () => {
-  const {t} = useTranslation();
-  const {isDark} = useTheme();
-  const {user} = useAuth();
+  const {t} = useTranslation()
+  const {isDark} = useTheme()
+  const {user} = useAuth()
 
-  const activeColor = isDark ? appColors.primary.light : appColors.primary.dark;
+  const activeColor = isDark ? appColors.primary.light : appColors.primary.dark
   const inactiveColor = isDark
     ? appColors.neutral.gray[200]
-    : appColors.neutral.gray[500];
+    : appColors.neutral.gray[500]
 
   return (
     <Tab.Navigator
@@ -78,7 +78,7 @@ const MainTabs = () => {
         />
       )}
     </Tab.Navigator>
-  );
-};
+  )
+}
 
-export default MainTabs;
+export default MainTabs

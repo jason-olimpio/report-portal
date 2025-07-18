@@ -1,27 +1,27 @@
-import {ComponentProps} from 'react';
-import {View, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {ComponentProps} from 'react'
+import {View, Text} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import {useNavigation} from '@react-navigation/native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import {IconActionButton} from '@components';
-import type {AuthenticatedCompositeNavigationProp} from '@types';
+import {IconActionButton} from '@components'
+import type {AuthenticatedCompositeNavigationProp} from '@types'
 
-import {appColors} from '@config';
-import {useTheme} from '@hooks';
+import {appColors} from '@config'
+import {useTheme} from '@hooks'
 
 export type QuickAction = {
-  icon: ComponentProps<typeof MaterialIcons>['name'];
-  iconColor: string;
-  title: string;
-  bgColor: string;
-  onPress: () => void;
-};
+  icon: ComponentProps<typeof MaterialIcons>['name']
+  iconColor: string
+  title: string
+  bgColor: string
+  onPress: () => void
+}
 
 export const QuickActions = () => {
-  const {t} = useTranslation();
-  const navigation = useNavigation<AuthenticatedCompositeNavigationProp>();
-  const {isDark} = useTheme();
+  const {t} = useTranslation()
+  const navigation = useNavigation<AuthenticatedCompositeNavigationProp>()
+  const {isDark} = useTheme()
 
   const actions: QuickAction[] = [
     {
@@ -61,7 +61,7 @@ export const QuickActions = () => {
           params: {screen: 'Stats'},
         }),
     },
-  ];
+  ]
 
   return (
     <>
@@ -82,5 +82,5 @@ export const QuickActions = () => {
         ))}
       </View>
     </>
-  );
-};
+  )
+}

@@ -1,27 +1,27 @@
-import {View, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {View, Text} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
-import {getPriorityLabel} from '@utils';
+import {getPriorityLabel} from '@utils'
 
-import {PriorityOption} from '@types';
+import {PriorityOption} from '@types'
 
 type ReportPriorityBadgeProps = {
-  priority: PriorityOption;
-  className?: string;
-};
+  priority: PriorityOption
+  className?: string
+}
 
 const ReportPriorityBadge = ({
   priority,
   className,
 }: ReportPriorityBadgeProps) => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
   const colors = {
     bg: 'bg-white',
     text: 'text-black',
-  };
+  }
 
-  const label = getPriorityLabel(priority, t) || t('unknown');
+  const label = getPriorityLabel(priority, t) || t('unknown')
 
   return (
     <View
@@ -31,7 +31,7 @@ const ReportPriorityBadge = ({
         {label}
       </Text>
     </View>
-  );
-};
+  )
+}
 
-export default ReportPriorityBadge;
+export default ReportPriorityBadge

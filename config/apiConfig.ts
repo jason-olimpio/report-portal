@@ -1,4 +1,4 @@
-import {ApiMode, type ApiConfig} from '@types';
+import {ApiMode, type ApiConfig} from '@types'
 
 export const API_CONFIG: ApiConfig = {
   mode: ApiMode.Mock,
@@ -18,10 +18,10 @@ export const API_CONFIG: ApiConfig = {
       Accept: 'application/json',
     },
   },
-} as const;
+} as const
 
 export const getApiDelay = (): number => {
-  const {min, max} = API_CONFIG.mockDelay;
+  const {min, max} = API_CONFIG.mockDelay
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}

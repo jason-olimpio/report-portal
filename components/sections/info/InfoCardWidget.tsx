@@ -1,16 +1,16 @@
-import {ComponentProps} from 'react';
-import {View, Text} from 'react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {ComponentProps} from 'react'
+import {View, Text} from 'react-native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
 type InfoCardWidgetProps = {
-  icon: ComponentProps<typeof MaterialIcons>['name'];
-  iconColor: string;
-  title: string;
-  value: string;
-  subInfo: string;
-  bgColorClass: string;
-  valueColorClass: string;
-};
+  icon: ComponentProps<typeof MaterialIcons>['name']
+  iconColor: string
+  title: string
+  value: string
+  subInfo: string
+  bgColorClass: string
+  valueColorClass: string
+}
 
 const InfoCardWidget = ({
   icon,
@@ -39,7 +39,7 @@ const InfoCardWidget = ({
         </Text>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default InfoCardWidget;
+export default InfoCardWidget

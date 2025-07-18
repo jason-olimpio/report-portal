@@ -74,84 +74,84 @@ const appColors: AppColors = {
       },
     },
   },
-};
+}
 
 type AppColors = {
   primary: {
-    light: string;
-    dark: string;
-  };
+    light: string
+    dark: string
+  }
   background: {
-    light: string;
-    dark: string;
-    secondaryLight: string;
-    secondaryDark: string;
-  };
+    light: string
+    dark: string
+    secondaryLight: string
+    secondaryDark: string
+  }
   text: {
     primary: {
-      light: string;
-      dark: string;
-    };
+      light: string
+      dark: string
+    }
     secondary: {
-      light: string;
-      dark: string;
-    };
-  };
+      light: string
+      dark: string
+    }
+  }
   neutral: {
     gray: {
-      100: string;
-      200: string;
-      300: string;
-      400: string;
-      500: string;
-      600: string;
-      700: string;
-      800: string;
-      900: string;
-    };
-  };
+      100: string
+      200: string
+      300: string
+      400: string
+      500: string
+      600: string
+      700: string
+      800: string
+      900: string
+    }
+  }
   system: {
     red: {
       50: {
-        light: string;
-        dark: string;
-      };
+        light: string
+        dark: string
+      }
       600: {
-        light: string;
-        dark: string;
-      };
-    };
+        light: string
+        dark: string
+      }
+    }
     emerald: {
       50: {
-        light: string;
-        dark: string;
-      };
+        light: string
+        dark: string
+      }
       600: {
-        light: string;
-        dark: string;
-      };
-    };
+        light: string
+        dark: string
+      }
+    }
     orange: {
       50: {
-        light: string;
-        dark: string;
-      };
+        light: string
+        dark: string
+      }
       600: {
-        light: string;
-        dark: string;
-      };
-    };
+        light: string
+        dark: string
+      }
+    }
     teal: {
       50: {
-        light: string;
-        dark: string;
-      };
+        light: string
+        dark: string
+      }
       600: {
-        light: string;
-        dark: string;
-      };
-    };
-  };
-};
+        light: string
+        dark: string
+      }
+    }
+  }
+}
 
-export default appColors;
+export default appColors

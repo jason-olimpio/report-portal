@@ -1,4 +1,4 @@
-import {TFunction} from 'i18next';
+import {TFunction} from 'i18next'
 
 const MONTH_KEYS = [
   'january',
@@ -13,12 +13,12 @@ const MONTH_KEYS = [
   'october',
   'november',
   'december',
-];
+]
 
 const getMonthLabel = (number: number, t: TFunction) => {
-  const key = MONTH_KEYS[number - 1];
+  const key = MONTH_KEYS[number - 1]
 
-  return t(`months.${key}`);
-};
+  return t(`months.${key}`)
+}
 
-export default getMonthLabel;
+export default getMonthLabel

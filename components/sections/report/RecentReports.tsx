@@ -1,21 +1,21 @@
-import {View} from 'react-native';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
+import {View} from 'react-native'
+import {NavigationProp, useNavigation} from '@react-navigation/native'
+import {useTranslation} from 'react-i18next'
 
-import {ReportList, SectionHeader} from '@components';
+import {ReportList, SectionHeader} from '@components'
 
-import {reportData} from '@store';
-import type {MainTabParamList} from '@types';
+import {reportData} from '@store'
+import type {MainTabParamList} from '@types'
 
 const RecentReports = () => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
-  const navigation = useNavigation<NavigationProp<MainTabParamList>>();
+  const navigation = useNavigation<NavigationProp<MainTabParamList>>()
   const recentReports = [...reportData]
     .sort((a, b) => b.date.getTime() - a.date.getTime())
-    .slice(0, 3);
+    .slice(0, 3)
 
-  const navigateToAllReports = () => navigation.navigate('Reports');
+  const navigateToAllReports = () => navigation.navigate('Reports')
 
   return (
     <View className="mb-2">
@@ -28,7 +28,7 @@ const RecentReports = () => {
 
       <ReportList reports={recentReports} />
     </View>
-  );
-};
+  )
+}
 
-export default RecentReports;
+export default RecentReports

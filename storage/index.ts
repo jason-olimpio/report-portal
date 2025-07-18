@@ -1,2 +1,2 @@
-export * from './pendingReportsDb';
-export * from './pendingReportsSync';
+export * from './pendingReportsDb'
+export * from './pendingReportsSync'

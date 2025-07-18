@@ -1,24 +1,24 @@
-import {Text, ScrollView} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {Text, ScrollView} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
 import {
   CommunityImpactSection,
   EnvironmentalStatusSection,
   QuickActions,
   RecentReports,
-} from '@components';
+} from '@components'
 
 const HomeScreen = () => {
-  const {i18n} = useTranslation();
+  const {i18n} = useTranslation()
 
-  const currentDate = new Date();
+  const currentDate = new Date()
 
   const formattedDate = new Intl.DateTimeFormat(i18n.language, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
     year: 'numeric',
-  }).format(currentDate);
+  }).format(currentDate)
 
   return (
     <ScrollView className="flex-1 bg-background-light dark:bg-background-dark px-8 pt-6">
@@ -38,7 +38,7 @@ const HomeScreen = () => {
         successRate={70}
       />
     </ScrollView>
-  );
-};
+  )
+}
 
-export default HomeScreen;
+export default HomeScreen

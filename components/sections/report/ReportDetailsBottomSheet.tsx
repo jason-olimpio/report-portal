@@ -1,33 +1,33 @@
-import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
-import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {Text, TouchableOpacity, StyleSheet, View} from 'react-native'
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet'
+import {useNavigation} from '@react-navigation/native'
+import {useTranslation} from 'react-i18next'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import ReportImageGallery from './ReportImageGallery';
+import ReportImageGallery from './ReportImageGallery'
 
-import {useTheme} from '@hooks';
-import type {ReportCardNavigationProp, Report} from '@types';
-import {appColors} from '@config';
+import {useTheme} from '@hooks'
+import type {ReportCardNavigationProp, Report} from '@types'
+import {appColors} from '@config'
 
 type ReportDetailsBottomSheetProps = {
-  report: Report | null;
-  onClose: () => void;
-};
+  report: Report | null
+  onClose: () => void
+}
 
 const ReportDetailsBottomSheet = ({
   report,
   onClose,
 }: ReportDetailsBottomSheetProps) => {
-  const {t} = useTranslation();
-  const navigation = useNavigation<ReportCardNavigationProp>();
-  const {isDark} = useTheme();
+  const {t} = useTranslation()
+  const navigation = useNavigation<ReportCardNavigationProp>()
+  const {isDark} = useTheme()
 
   if (!report) {
-    return null;
+    return null
   }
 
-  const {id, title, address, description, images} = report;
+  const {id, title, address, description, images} = report
 
   const styles = StyleSheet.create({
     sheetBackground: {
@@ -43,7 +43,7 @@ const ReportDetailsBottomSheet = ({
       marginTop: 8,
       marginBottom: 8,
     },
-  });
+  })
 
   const handleIndicatorStyle = [
     {
@@ -52,10 +52,9 @@ const ReportDetailsBottomSheet = ({
         : appColors.neutral.gray[700],
     },
     styles.handleIndicator,
-  ];
+  ]
 
-  const handlePress = () =>
-    navigation.navigate('ReportDetails', {reportId: id});
+  const handlePress = () => navigation.navigate('ReportDetails', {reportId: id})
 
   return (
     <BottomSheet
@@ -97,7 +96,7 @@ const ReportDetailsBottomSheet = ({
         </TouchableOpacity>
       </BottomSheetScrollView>
     </BottomSheet>
-  );
-};
+  )
+}
 
-export default ReportDetailsBottomSheet;
+export default ReportDetailsBottomSheet

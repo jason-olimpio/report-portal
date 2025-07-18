@@ -1,19 +1,19 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react'
 import {
   ActivityIndicator,
   Alert,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
-import {ZodType} from 'zod';
+} from 'react-native'
+import {ZodType} from 'zod'
 
-import {useTranslation} from 'react-i18next';
-import {useUserLocation} from '@hooks';
+import {useTranslation} from 'react-i18next'
+import {useUserLocation} from '@hooks'
 
-import FieldRenderer from './FieldRenderer';
+import FieldRenderer from './FieldRenderer'
 
-import {extractFieldErrors, createAllTouchedState} from '@utils';
+import {extractFieldErrors, createAllTouchedState} from '@utils'
 
 import {
   type FormErrors,
@@ -21,16 +21,16 @@ import {
   type FieldRenderContext,
   type FieldConfig,
   FieldType,
-} from '@types';
+} from '@types'
 
 type FormHandlerProps<T extends Record<string, any>> = {
-  schema: ZodType<T>;
-  initialState: T;
-  fields: FieldConfig[];
-  onSave?: (data: T) => Promise<void> | void;
-  className?: string;
-  saveButtonLabel?: string;
-};
+  schema: ZodType<T>
+  initialState: T
+  fields: FieldConfig[]
+  onSave?: (data: T) => Promise<void> | void
+  className?: string
+  saveButtonLabel?: string
+}
 
 export const FormHandler = <T extends Record<string, any>>({
   schema,
@@ -40,121 +40,121 @@ export const FormHandler = <T extends Record<string, any>>({
   className,
   saveButtonLabel,
 }: FormHandlerProps<T>) => {
-  const {t} = useTranslation();
-  const {getCurrentPosition} = useUserLocation();
+  const {t} = useTranslation()
+  const {getCurrentPosition} = useUserLocation()
 
-  const [form, setForm] = useState<T>(initialState);
-  const [errors, setErrors] = useState<FormErrors<T>>({});
-  const [touched, setTouched] = useState<FormTouched<T>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] = useState<T>(initialState)
+  const [errors, setErrors] = useState<FormErrors<T>>({})
+  const [touched, setTouched] = useState<FormTouched<T>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const fieldRenderer = new FieldRenderer<T>();
+  const fieldRenderer = new FieldRenderer<T>()
 
   useEffect(() => {
-    setForm(initialState);
+    setForm(initialState)
 
     const hasLocationField = fields.some(
       field => field.type === FieldType.Location,
-    );
+    )
 
     if (hasLocationField) {
-      captureLocation();
+      captureLocation()
     }
-  }, [initialState, fields]);
+  }, [initialState, fields])
 
   const captureLocation = async () => {
     try {
-      const location = await getCurrentPosition();
+      const location = await getCurrentPosition()
 
       const locationField = fields.find(
         field => field.type === FieldType.Location,
-      );
+      )
 
       if (!locationField) {
-        return;
+        return
       }
 
       setForm(currentForm => ({
         ...currentForm,
         [locationField.key]: location,
-      }));
+      }))
     } catch {
-      Alert.alert(t('errors.locationError'));
+      Alert.alert(t('errors.locationError'))
     }
-  };
+  }
 
   const handleChange = (field: keyof T, value: T[keyof T]) => {
-    setForm(currentForm => ({...currentForm, [field]: value}));
-    setTouched(currentTouched => ({...currentTouched, [field]: true}));
-    validate(field, value);
-  };
+    setForm(currentForm => ({...currentForm, [field]: value}))
+    setTouched(currentTouched => ({...currentTouched, [field]: true}))
+    validate(field, value)
+  }
 
   const validate = (field: keyof T, value: T[keyof T]) => {
-    const updatedForm = {...form, [field]: value};
-    const {success, error} = schema.safeParse(updatedForm);
+    const updatedForm = {...form, [field]: value}
+    const {success, error} = schema.safeParse(updatedForm)
 
     if (success) {
-      setErrors(currentErrors => ({...currentErrors, [field]: undefined}));
-      return;
+      setErrors(currentErrors => ({...currentErrors, [field]: undefined}))
+      return
     }
 
     const fieldError =
       error.formErrors.fieldErrors[
         field as keyof typeof error.formErrors.fieldErrors
-      ];
+      ]
 
     setErrors(currentErrors => ({
       ...currentErrors,
       [field]: fieldError ? fieldError[0] : undefined,
-    }));
-  };
+    }))
+  }
 
   const handleSave = async () => {
-    const allTouched = createAllTouchedState<T>(fields);
-    setTouched(allTouched);
+    const allTouched = createAllTouchedState<T>(fields)
+    setTouched(allTouched)
 
-    const {success, error} = schema.safeParse(form);
+    const {success, error} = schema.safeParse(form)
 
     if (!success) {
-      const fieldErrors = error.formErrors.fieldErrors;
-      setErrors(extractFieldErrors(fieldErrors));
+      const fieldErrors = error.formErrors.fieldErrors
+      setErrors(extractFieldErrors(fieldErrors))
 
-      return;
+      return
     }
 
-    setErrors({});
-    setIsSubmitting(true);
+    setErrors({})
+    setIsSubmitting(true)
 
     try {
       if (onSave) {
-        await onSave(form);
-        resetFormState();
+        await onSave(form)
+        resetFormState()
       }
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   const resetFormState = () => {
-    setForm(initialState);
-    setTouched({});
-  };
+    setForm(initialState)
+    setTouched({})
+  }
 
   const renderContext: FieldRenderContext<T> = {
     form,
     touched,
     errors,
     handleChange,
-  };
+  }
 
   return (
     <View
       className={`p-5 mb-6 rounded-xl bg-background-secondaryLight 
       dark:bg-background-secondaryDark ${className || ''}`}>
       {fields.map(field => {
-        const fieldKey = field.key as keyof T;
+        const fieldKey = field.key as keyof T
 
-        return fieldRenderer.render(field, fieldKey, renderContext);
+        return fieldRenderer.render(field, fieldKey, renderContext)
       })}
 
       <TouchableOpacity
@@ -171,5 +171,5 @@ export const FormHandler = <T extends Record<string, any>>({
         )}
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}

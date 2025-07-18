@@ -1,24 +1,24 @@
-import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native'
 import {
   launchImageLibrary,
   launchCamera,
   ImageLibraryOptions,
-} from 'react-native-image-picker';
-import {useTranslation} from 'react-i18next';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+} from 'react-native-image-picker'
+import {useTranslation} from 'react-i18next'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import {IconActionButton, ErrorText, type QuickAction} from '@components';
-import {useTheme} from '@hooks';
+import {IconActionButton, ErrorText, type QuickAction} from '@components'
+import {useTheme} from '@hooks'
 
-import {appColors} from '@config';
+import {appColors} from '@config'
 
 type ImageSliderFieldProps = {
-  label: string;
-  imageUris?: string[];
-  error?: string | false;
-  onImagesSelected: (uris: string[]) => void;
-  maxImages?: number;
-};
+  label: string
+  imageUris?: string[]
+  error?: string | false
+  onImagesSelected: (uris: string[]) => void
+  maxImages?: number
+}
 
 const ImageSliderField = ({
   label,
@@ -27,8 +27,8 @@ const ImageSliderField = ({
   onImagesSelected,
   maxImages = 5,
 }: ImageSliderFieldProps) => {
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
 
   const pickImage = async (source: 'camera' | 'gallery') => {
     const options: ImageLibraryOptions = {
@@ -36,33 +36,33 @@ const ImageSliderField = ({
       quality: 1,
       selectionLimit:
         source === 'gallery' ? Math.max(1, maxImages - imageUris.length) : 1,
-    };
+    }
 
-    const picker = source === 'camera' ? launchCamera : launchImageLibrary;
-    const response = await picker(options);
+    const picker = source === 'camera' ? launchCamera : launchImageLibrary
+    const response = await picker(options)
 
     if (response.didCancel || response.errorCode) {
-      return;
+      return
     }
 
     const selectedUris =
       (response.assets?.map(asset => asset.uri).filter(Boolean) as string[]) ||
-      [];
+      []
 
     if (selectedUris.length < 0) {
-      return;
+      return
     }
 
-    const newUris = [...imageUris, ...selectedUris].slice(0, maxImages);
+    const newUris = [...imageUris, ...selectedUris].slice(0, maxImages)
 
-    onImagesSelected(newUris);
-  };
+    onImagesSelected(newUris)
+  }
 
   const removeImage = (indexToRemove: number) => {
-    const newUris = imageUris.filter((_, index) => index !== indexToRemove);
+    const newUris = imageUris.filter((_, index) => index !== indexToRemove)
 
-    onImagesSelected(newUris);
-  };
+    onImagesSelected(newUris)
+  }
 
   const actions: QuickAction[] = [
     {
@@ -85,9 +85,9 @@ const ImageSliderField = ({
         'bg-background-light dark:bg-background-dark border border-neutral-gray-500 dark:border-neutral-gray-200',
       onPress: () => pickImage('gallery'),
     },
-  ];
+  ]
 
-  const canAddMore = imageUris.length < maxImages;
+  const canAddMore = imageUris.length < maxImages
 
   return (
     <View className="mb-4">
@@ -144,7 +144,7 @@ const ImageSliderField = ({
 
       <ErrorText error={error} className="text-center" />
     </View>
-  );
-};
+  )
+}
 
-export default ImageSliderField;
+export default ImageSliderField

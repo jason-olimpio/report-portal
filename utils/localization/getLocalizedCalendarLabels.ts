@@ -1,4 +1,4 @@
-import {TFunction} from 'i18next';
+import {TFunction} from 'i18next'
 
 const getLocalizedCalendarLabels = (t: TFunction) => ({
   weekdays: [
@@ -24,6 +24,6 @@ const getLocalizedCalendarLabels = (t: TFunction) => ({
     t('months.november'),
     t('months.december'),
   ],
-});
+})
 
-export default getLocalizedCalendarLabels;
+export default getLocalizedCalendarLabels

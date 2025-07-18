@@ -1,20 +1,20 @@
-import {View, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {View, Text} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
-import CalendarReportItem from './CalendarReportItem';
+import CalendarReportItem from './CalendarReportItem'
 
-import type {Report} from '@types';
+import type {Report} from '@types'
 
 type CalendarReportsListProps = {
-  reports: Report[] | null;
-  selectedDate: string | null;
-};
+  reports: Report[] | null
+  selectedDate: string | null
+}
 
 const CalendarReportsList = ({
   reports,
   selectedDate,
 }: CalendarReportsListProps) => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
   if (!selectedDate || !reports || reports.length === 0) {
     return (
@@ -23,7 +23,7 @@ const CalendarReportsList = ({
           {t('calendar.noReports')}
         </Text>
       </View>
-    );
+    )
   }
 
   return (
@@ -32,7 +32,7 @@ const CalendarReportsList = ({
         <CalendarReportItem key={report.id} report={report} />
       ))}
     </View>
-  );
-};
+  )
+}
 
-export default CalendarReportsList;
+export default CalendarReportsList

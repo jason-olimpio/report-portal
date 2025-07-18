@@ -1,17 +1,17 @@
-import {useEffect} from 'react';
-import {ScrollView, View} from 'react-native';
-import {Calendar} from 'react-native-calendars';
-import {useTranslation} from 'react-i18next';
+import {useEffect} from 'react'
+import {ScrollView, View} from 'react-native'
+import {Calendar} from 'react-native-calendars'
+import {useTranslation} from 'react-i18next'
 
-import {BackButton, CalendarReportsList} from '@components';
+import {BackButton, CalendarReportsList} from '@components'
 
-import {useTheme, useCalendar} from '@hooks';
+import {useTheme, useCalendar} from '@hooks'
 
-import {getCalendarTheme} from '@utils';
+import {getCalendarTheme} from '@utils'
 
 const CalendarScreen = () => {
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
 
   const {
     selectedDate,
@@ -19,11 +19,11 @@ const CalendarScreen = () => {
     markedDates,
     handleDayPress,
     configureCalendarLocale,
-  } = useCalendar(t, isDark);
+  } = useCalendar(t, isDark)
 
   useEffect(() => {
-    configureCalendarLocale(t);
-  }, [t, configureCalendarLocale]);
+    configureCalendarLocale(t)
+  }, [t, configureCalendarLocale])
 
   return (
     <ScrollView className="flex-1 p-6 pt-10 bg-background-light dark:bg-background-dark">
@@ -45,7 +45,7 @@ const CalendarScreen = () => {
         />
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 
-export default CalendarScreen;
+export default CalendarScreen

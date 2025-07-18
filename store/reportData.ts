@@ -2,9 +2,9 @@ import {
   BulkyWasteDisposalImage,
   BuildingMaterialsDisposalImage,
   ElectricalWasteDisposalImage,
-} from '@assets';
+} from '@assets'
 
-import {type Report, StatusOption, PriorityOption} from '@types';
+import {type Report, StatusOption, PriorityOption} from '@types'
 
 const REPORTS: Report[] = [
   {
@@ -1825,6 +1825,6 @@ const REPORTS: Report[] = [
     status: StatusOption.Completed,
     priority: PriorityOption.Medium,
   },
-];
+]
 
-export default REPORTS;
+export default REPORTS

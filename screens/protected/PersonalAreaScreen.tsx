@@ -1,22 +1,22 @@
-import {useState} from 'react';
-import {ScrollView, Alert, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {Pressable} from 'react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {z} from 'zod';
+import {useState} from 'react'
+import {ScrollView, Alert, Text} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import {Pressable} from 'react-native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
+import {z} from 'zod'
 
-import {FormHandler, LanguagePicker} from '@components';
-import {useTheme, useAuth} from '@hooks';
+import {FormHandler, LanguagePicker} from '@components'
+import {useTheme, useAuth} from '@hooks'
 
-import {appColors} from '@config';
-import {type FieldConfig, FieldType} from '@types';
+import {appColors} from '@config'
+import {type FieldConfig, FieldType} from '@types'
 
 const PersonalAreaScreen = () => {
-  const {t} = useTranslation();
-  const {isDark, toggleTheme} = useTheme();
-  const {isAuthenticated, user} = useAuth();
+  const {t} = useTranslation()
+  const {isDark, toggleTheme} = useTheme()
+  const {isAuthenticated, user} = useAuth()
 
-  const [languagePickerVisible, setLanguagePickerVisible] = useState(false);
+  const [languagePickerVisible, setLanguagePickerVisible] = useState(false)
 
   const schema = z
     .object({
@@ -45,14 +45,14 @@ const PersonalAreaScreen = () => {
     .refine(data => data.currentPassword === data.confirmPassword, {
       message: t('errors.passwordsMustMatch'),
       path: ['confirmPassword'],
-    });
+    })
 
   const initialState: z.infer<typeof schema> = {
     name: user?.name || '',
     email: user?.email || '',
     currentPassword: '',
     confirmPassword: '',
-  };
+  }
 
   const fields: FieldConfig[] = [
     {
@@ -80,7 +80,7 @@ const PersonalAreaScreen = () => {
       label: t('forms.confirmPassword'),
       inputProps: {secureTextEntry: true},
     },
-  ];
+  ]
 
   return (
     <ScrollView className="flex-1 p-6 bg-background-light dark:bg-background-dark">
@@ -129,7 +129,7 @@ const PersonalAreaScreen = () => {
         />
       )}
     </ScrollView>
-  );
-};
+  )
+}
 
-export default PersonalAreaScreen;
+export default PersonalAreaScreen

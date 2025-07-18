@@ -1,17 +1,17 @@
-import {ActivityIndicator, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {ActivityIndicator, View} from 'react-native'
+import {NavigationContainer} from '@react-navigation/native'
+import {createStackNavigator} from '@react-navigation/stack'
 
-import {useAuth} from '@hooks';
+import {useAuth} from '@hooks'
 
-import {AppDrawer, MainAppStack} from '@components';
+import {AppDrawer, MainAppStack} from '@components'
 
-import type {RootStackParamList} from '@types';
+import type {RootStackParamList} from '@types'
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>()
 
 const AppNavigator = () => {
-  const {isAuthenticated, isLoading} = useAuth();
+  const {isAuthenticated, isLoading} = useAuth()
 
   if (isLoading) {
     return (
@@ -21,7 +21,7 @@ const AppNavigator = () => {
           className="text-primary-light dark:text-primary-dark"
         />
       </View>
-    );
+    )
   }
 
   return (
@@ -33,7 +33,7 @@ const AppNavigator = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
 
-export default AppNavigator;
+export default AppNavigator

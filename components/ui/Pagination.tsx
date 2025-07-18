@@ -1,16 +1,16 @@
-import {Fragment} from 'react';
-import {View, TouchableOpacity, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {Fragment} from 'react'
+import {View, TouchableOpacity, Text} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import {useTheme} from '@hooks';
+import {useTheme} from '@hooks'
 
 type PaginationProps = {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-  className?: string;
-};
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+  className?: string
+}
 
 const Pagination = ({
   currentPage,
@@ -18,42 +18,42 @@ const Pagination = ({
   onPageChange,
   className = '',
 }: PaginationProps) => {
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
 
   const getPageNumbers = (): (number | string)[] => {
-    const maxVisiblePages = 5;
+    const maxVisiblePages = 5
 
     if (totalPages <= maxVisiblePages) {
-      return Array.from({length: totalPages}, (_, i) => i + 1);
+      return Array.from({length: totalPages}, (_, i) => i + 1)
     }
 
-    const pages: (number | string)[] = [];
-    const sidePages = Math.floor((maxVisiblePages - 3) / 2);
+    const pages: (number | string)[] = []
+    const sidePages = Math.floor((maxVisiblePages - 3) / 2)
 
-    pages.push(1);
+    pages.push(1)
 
-    const rangeStart = Math.max(2, currentPage - sidePages);
-    const rangeEnd = Math.min(totalPages - 1, currentPage + sidePages);
+    const rangeStart = Math.max(2, currentPage - sidePages)
+    const rangeEnd = Math.min(totalPages - 1, currentPage + sidePages)
 
     if (rangeStart > 2) {
-      pages.push('...');
+      pages.push('...')
     }
 
     for (let i = rangeStart; i <= rangeEnd; i++) {
-      pages.push(i);
+      pages.push(i)
     }
 
     if (rangeEnd < totalPages - 1) {
-      pages.push('...');
+      pages.push('...')
     }
 
     if (totalPages > 1) {
-      pages.push(totalPages);
+      pages.push(totalPages)
     }
 
-    return pages;
-  };
+    return pages
+  }
 
   return (
     <View
@@ -111,7 +111,7 @@ const Pagination = ({
         />
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

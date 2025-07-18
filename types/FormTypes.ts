@@ -1,5 +1,5 @@
-import {ComponentProps, ReactElement} from 'react';
-import {TextInput} from 'react-native';
+import {ComponentProps, ReactElement} from 'react'
+import {TextInput} from 'react-native'
 
 export enum FieldType {
   Text,
@@ -8,31 +8,31 @@ export enum FieldType {
 }
 
 type BaseFieldConfig = {
-  key: string;
-  label: string;
-};
+  key: string
+  label: string
+}
 
 export type FieldConfig = BaseFieldConfig & {
-  type?: FieldType;
-  inputProps?: Partial<ComponentProps<typeof TextInput>>;
-  maxImages?: number;
-};
+  type?: FieldType
+  inputProps?: Partial<ComponentProps<typeof TextInput>>
+  maxImages?: number
+}
 
-export type FormErrors<T> = Partial<Record<keyof T, string>>;
-export type FormTouched<T> = Partial<Record<keyof T, boolean>>;
+export type FormErrors<T> = Partial<Record<keyof T, string>>
+export type FormTouched<T> = Partial<Record<keyof T, boolean>>
 
 export type FieldRenderContext<T> = {
-  form: T;
-  touched: FormTouched<T>;
-  errors: FormErrors<T>;
-  handleChange: (field: keyof T, value: T[keyof T]) => void;
-};
+  form: T
+  touched: FormTouched<T>
+  errors: FormErrors<T>
+  handleChange: (field: keyof T, value: T[keyof T]) => void
+}
 
 export interface FieldRenderStrategy<T extends Record<string, any>> {
-  canRender(field: FieldConfig): boolean;
+  canRender(field: FieldConfig): boolean
   render(
     field: FieldConfig,
     fieldKey: keyof T,
     context: FieldRenderContext<T>,
-  ): ReactElement;
+  ): ReactElement
 }

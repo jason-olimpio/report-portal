@@ -4,12 +4,12 @@ import {
   type MarkedDates,
   type ReportsByDate,
   type DateString,
-} from '@types';
-import {appColors} from '@config';
+} from '@types'
+import {appColors} from '@config'
 
 export const STATUS_COLORS: {
-  light: Record<Exclude<StatusOption, StatusOption.All>, string>;
-  dark: Record<Exclude<StatusOption, StatusOption.All>, string>;
+  light: Record<Exclude<StatusOption, StatusOption.All>, string>
+  dark: Record<Exclude<StatusOption, StatusOption.All>, string>
 } = {
   light: {
     [StatusOption.Pending]: appColors.system.orange[600].light,
@@ -21,21 +21,21 @@ export const STATUS_COLORS: {
     [StatusOption.Working]: appColors.system.emerald[600].dark,
     [StatusOption.Completed]: appColors.system.teal[600].dark,
   },
-};
+}
 
 export const getMarkedDatesWithSelection = (
   reportsByDate: ReportsByDate,
   isDark: boolean,
   selectedDate?: DateString | null,
 ): MarkedDates => {
-  const markedDates = getMarkedDates(reportsByDate, isDark);
+  const markedDates = getMarkedDates(reportsByDate, isDark)
 
   if (!selectedDate) {
-    return markedDates;
+    return markedDates
   }
 
-  const selectedReports = reportsByDate[selectedDate];
-  const existingMarking = markedDates[selectedDate] || {};
+  const selectedReports = reportsByDate[selectedDate]
+  const existingMarking = markedDates[selectedDate] || {}
 
   markedDates[selectedDate] = {
     ...existingMarking,
@@ -47,18 +47,18 @@ export const getMarkedDatesWithSelection = (
           ? appColors.primary.dark
           : appColors.primary.light,
     selectedTextColor: '#FFFFFF',
-  };
+  }
 
-  return markedDates;
-};
+  return markedDates
+}
 
 const getMarkedDates = (
   reportsByDate: ReportsByDate,
   isDark: boolean,
 ): MarkedDates => {
-  const markedDates: MarkedDates = {};
+  const markedDates: MarkedDates = {}
 
-  (Object.entries(reportsByDate) as [DateString, Report[]][]).forEach(
+  ;(Object.entries(reportsByDate) as [DateString, Report[]][]).forEach(
     ([date, reports]) =>
       (markedDates[date] = {
         dots: reports
@@ -75,22 +75,22 @@ const getMarkedDates = (
           })),
         marked: true,
       }),
-  );
+  )
 
-  return markedDates;
-};
+  return markedDates
+}
 
 const getDateStatusColor = (reports: Report[], isDark: boolean): string => {
   const primaryColors = isDark
     ? appColors.primary.dark
-    : appColors.primary.light;
+    : appColors.primary.light
 
   if (!reports?.length || reports[0].status === StatusOption.All) {
-    return primaryColors;
+    return primaryColors
   }
 
-  const statusColors = isDark ? STATUS_COLORS.dark : STATUS_COLORS.light;
-  const status = reports[0].status as Exclude<StatusOption, StatusOption.All>;
+  const statusColors = isDark ? STATUS_COLORS.dark : STATUS_COLORS.light
+  const status = reports[0].status as Exclude<StatusOption, StatusOption.All>
 
-  return statusColors[status];
-};
+  return statusColors[status]
+}

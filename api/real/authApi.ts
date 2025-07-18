@@ -1,5 +1,5 @@
-import axiosInstance from './apiClient';
-import type {LoginCredentials, RegisterData, AuthResponse} from '@types';
+import axiosInstance from './apiClient'
+import type {LoginCredentials, RegisterData, AuthResponse} from '@types'
 
 export const login = async (
   credentials: LoginCredentials,
@@ -7,10 +7,10 @@ export const login = async (
   const {data} = await axiosInstance.post<AuthResponse>(
     '/auth/login',
     credentials,
-  );
+  )
 
-  return data;
-};
+  return data
+}
 
 export const register = async (
   userData: RegisterData,
@@ -18,10 +18,10 @@ export const register = async (
   const {data} = await axiosInstance.post<AuthResponse>(
     '/auth/register',
     userData,
-  );
+  )
 
-  return data;
-};
+  return data
+}
 
 export const logout = async (): Promise<void> =>
-  await axiosInstance.post('/auth/logout');
+  await axiosInstance.post('/auth/logout')

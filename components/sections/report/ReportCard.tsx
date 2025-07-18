@@ -4,35 +4,35 @@ import {
   View,
   ImageSourcePropType,
   TouchableOpacity,
-} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+} from 'react-native'
+import {useNavigation} from '@react-navigation/native'
 
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {useTranslation} from 'react-i18next';
+import MaterialIcons from '@react-native-vector-icons/material-icons'
+import {useTranslation} from 'react-i18next'
 
-import {ReportStatusBadge} from '@components';
-import {StatusOption, type ReportCardNavigationProp} from '@types';
+import {ReportStatusBadge} from '@components'
+import {StatusOption, type ReportCardNavigationProp} from '@types'
 
-import {getTimeAgo} from '@utils';
+import {getTimeAgo} from '@utils'
 
-import {PlaceholderImage} from '@assets';
+import {PlaceholderImage} from '@assets'
 
 type ReportCardProps = {
-  id: string;
-  images: ImageSourcePropType[];
-  title: string;
-  address: string;
-  date: Date;
-  status: StatusOption;
-};
+  id: string
+  images: ImageSourcePropType[]
+  title: string
+  address: string
+  date: Date
+  status: StatusOption
+}
 
 const getImageSource = (images: ImageSourcePropType[] = []) => {
   if (!Array.isArray(images) || images.length === 0) {
-    return PlaceholderImage;
+    return PlaceholderImage
   }
 
-  return images[0];
-};
+  return images[0]
+}
 
 const ReportCard = ({
   id,
@@ -42,14 +42,13 @@ const ReportCard = ({
   date,
   status,
 }: ReportCardProps) => {
-  const {t, i18n} = useTranslation();
-  const navigation = useNavigation<ReportCardNavigationProp>();
+  const {t, i18n} = useTranslation()
+  const navigation = useNavigation<ReportCardNavigationProp>()
 
-  const handlePress = () =>
-    navigation.navigate('ReportDetails', {reportId: id});
+  const handlePress = () => navigation.navigate('ReportDetails', {reportId: id})
 
-  const timeAgo = getTimeAgo(date, i18n.language, t);
-  const source = getImageSource(images);
+  const timeAgo = getTimeAgo(date, i18n.language, t)
+  const source = getImageSource(images)
 
   return (
     <TouchableOpacity
@@ -88,7 +87,7 @@ const ReportCard = ({
         <ReportStatusBadge status={status} />
       </View>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-export default ReportCard;
+export default ReportCard

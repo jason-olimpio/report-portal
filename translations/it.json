@@ -1,6 +1,6 @@
 {
   "appName": "SOS Segnalazioni",
-  
+
   "navigation": {
     "home": "Home",
     "personalArea": "Area personale",
@@ -11,7 +11,7 @@
     "map": "Mappa",
     "back": "Indietro"
   },
-  
+
   "authentication": {
     "welcome": "Benvenuto",
     "signInToYourAccount": "Accedi al tuo account",
@@ -30,7 +30,7 @@
     "welcomeBack": "Bentornato, {{name}}!",
     "welcomeToApp": "Benvenuto nell'app, {{name}}!"
   },
-  
+
   "forms": {
     "name": "Nome",
     "fullName": "Nome e cognome",
@@ -49,7 +49,7 @@
     "confirm": "Conferma",
     "close": "Chiudi"
   },
-  
+
   "validation": {
     "emailRequired": "L'email è obbligatoria",
     "emailInvalid": "Inserisci un indirizzo email valido",
@@ -64,7 +64,7 @@
     "confirmPasswordRequired": "Conferma la password",
     "passwordsDoNotMatch": "Le password non corrispondono"
   },
-  
+
   "errors": {
     "nameRequired": "Il nome è obbligatorio",
     "emailInvalid": "Indirizzo email non valido",
@@ -80,7 +80,7 @@
     "invalidDate": "Formato data non valido",
     "imagesRequired": "Almeno un'immagine è obbligatoria"
   },
-  
+
   "reports": {
     "recentReports": "Segnalazioni recenti",
     "allReports": "Tutte le segnalazioni",
@@ -91,7 +91,7 @@
     "reportNotFound": "Segnalazione non trovata",
     "viewReport": "Visualizza segnalazione"
   },
-  
+
   "status": {
     "all": "Tutti",
     "open": "Aperte",
@@ -102,13 +102,13 @@
     "solved": "Risolte",
     "unknown": "Sconosciuto"
   },
-  
+
   "priority": {
     "low": "Bassa",
     "medium": "Media",
     "high": "Alta"
   },
-  
+
   "filter": {
     "filter": "Filtra",
     "selectDateRange": "Seleziona un intervallo di date",
@@ -116,7 +116,7 @@
     "filterByStatus": "Filtra per stato",
     "resetFilters": "Resetta filtri"
   },
-  
+
   "location": {
     "location": "Posizione",
     "address": "Indirizzo",
@@ -125,7 +125,7 @@
     "locationNotCaptured": "Posizione non catturata",
     "coordinates": "Coordinate"
   },
-  
+
   "media": {
     "image": "Immagine",
     "imageSource": {
@@ -135,21 +135,21 @@
       "hint": "Seleziona fino a 5 immagini"
     }
   },
-  
+
   "settings": {
     "changeLanguage": "Cambia lingua",
     "selectLanguage": "Seleziona lingua",
     "switchToDarkMode": "Passa alla modalità scura",
     "switchToLightMode": "Passa alla modalità chiara"
   },
-  
+
   "quickActions": {
     "title": "Azioni rapide",
     "addReport": "Agg. segnalazione",
     "calendar": "Calendario",
     "analysis": "Analisi"
   },
-  
+
   "environmentalStatus": {
     "title": "Stato Ambientale",
     "updatedToday": "Aggiornato oggi",
@@ -164,12 +164,12 @@
     "airQuality": "PM 2.5: {{value}}",
     "airQualityValue": "Buona"
   },
-  
+
   "calendar": {
     "today": "Oggi",
     "noReports": "Nessuna segnalazione per questa data"
   },
-  
+
   "weekdays": {
     "monday": "Lunedì",
     "tuesday": "Martedì",
@@ -179,7 +179,7 @@
     "saturday": "Sabato",
     "sunday": "Domenica"
   },
-  
+
   "months": {
     "january": "Gennaio",
     "february": "Febbraio",
@@ -194,23 +194,23 @@
     "november": "Novembre",
     "december": "Dicembre"
   },
-  
+
   "pagination": {
     "previous": "Precedente",
     "next": "Prossimo"
   },
-  
+
   "stats": {
     "communityImpact": "Impatto della Comunità",
     "successRate": "Tasso di successo",
     "statsByMonth": "Report aperti e chiusi per mese"
   },
-  
+
   "general": {
     "noNotifications": "Nessuna notifica",
     "noInternetConnection": "Nessuna connessione a Internet"
   },
-  
+
   "search": {
     "placeholder": "Cerca indirizzo o titolo...",
     "myLocation": "Trova la mia posizione",

@@ -1,26 +1,26 @@
-import {ReactElement} from 'react';
+import {ReactElement} from 'react'
 
 import {
   TextFieldStrategy,
   ImageSliderFieldStrategy,
   LocationFieldStrategy,
-} from '@components';
+} from '@components'
 
 import {
   FieldRenderStrategy,
   type FieldRenderContext,
   type FieldConfig,
-} from '@types';
+} from '@types'
 
 class FieldRenderer<T extends Record<string, any>> {
-  #strategies: FieldRenderStrategy<T>[];
+  #strategies: FieldRenderStrategy<T>[]
 
   constructor() {
     this.#strategies = [
       new TextFieldStrategy<T>(),
       new ImageSliderFieldStrategy<T>(),
       new LocationFieldStrategy<T>(),
-    ];
+    ]
   }
 
   render(
@@ -30,24 +30,24 @@ class FieldRenderer<T extends Record<string, any>> {
   ): ReactElement {
     const strategy = this.#strategies.find(strategy =>
       strategy.canRender(field),
-    );
+    )
 
     if (!strategy) {
-      throw new Error(`No strategy found for field type: ${field.type}`);
+      throw new Error(`No strategy found for field type: ${field.type}`)
     }
 
-    return strategy.render(field, fieldKey, context);
+    return strategy.render(field, fieldKey, context)
   }
 
   addStrategy(strategy: FieldRenderStrategy<T>): void {
-    this.#strategies.push(strategy);
+    this.#strategies.push(strategy)
   }
 
   removeStrategy(strategyType: new () => FieldRenderStrategy<T>): void {
     this.#strategies = this.#strategies.filter(
       strategy => !(strategy instanceof strategyType),
-    );
+    )
   }
 }
 
-export default FieldRenderer;
+export default FieldRenderer

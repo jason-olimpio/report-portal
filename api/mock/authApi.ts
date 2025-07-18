@@ -3,18 +3,18 @@ import {
   type RegisterData,
   type AuthResponse,
   UserRank,
-} from '@types';
-import {getApiDelay} from '@config';
+} from '@types'
+import {getApiDelay} from '@config'
 
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 type MockUser = {
-  id: string;
-  email: string;
-  password: string;
-  name: string;
-  rank: UserRank;
-};
+  id: string
+  email: string
+  password: string
+  name: string
+  rank: UserRank
+}
 
 const mockUsers: MockUser[] = [
   {
@@ -31,33 +31,33 @@ const mockUsers: MockUser[] = [
     name: 'Admin User',
     rank: UserRank.Admin,
   },
-];
+]
 
 export const mockLogin = async (
   credentials: LoginCredentials,
 ): Promise<AuthResponse> => {
-  await delay(getApiDelay());
+  await delay(getApiDelay())
 
   const user = mockUsers.find(
     user =>
       user.email === credentials.email &&
       user.password === credentials.password,
-  );
+  )
 
   if (!user) {
-    const error = new Error('Invalid email or password');
+    const error = new Error('Invalid email or password')
 
-    (error as any).response = {
+    ;(error as any).response = {
       status: 401,
       data: {message: 'Invalid email or password'},
-    };
+    }
 
-    throw error;
+    throw error
   }
 
-  const mockToken = `mock.jwt.token.${user.id}.${Date.now()}`;
+  const mockToken = `mock.jwt.token.${user.id}.${Date.now()}`
 
-  const {id, email, name, rank} = user;
+  const {id, email, name, rank} = user
 
   return {
     token: mockToken,
@@ -67,28 +67,28 @@ export const mockLogin = async (
       name,
       rank,
     },
-  };
-};
+  }
+}
 
 export const mockRegister = async (
   userData: RegisterData,
 ): Promise<AuthResponse> => {
-  await delay(getApiDelay());
+  await delay(getApiDelay())
 
-  const existingUser = mockUsers.find(user => user.email === userData.email);
+  const existingUser = mockUsers.find(user => user.email === userData.email)
 
   if (existingUser) {
-    const error = new Error('Email already registered');
+    const error = new Error('Email already registered')
 
-    (error as any).response = {
+    ;(error as any).response = {
       status: 409,
       data: {message: 'Email already registered'},
-    };
+    }
 
-    throw error;
+    throw error
   }
 
-  const {email, password, name} = userData;
+  const {email, password, name} = userData
 
   const newUser: MockUser = {
     id: (mockUsers.length + 1).toString(),
@@ -96,14 +96,14 @@ export const mockRegister = async (
     password: password,
     name: name,
     rank: UserRank.User,
-  };
+  }
 
-  mockUsers.push(newUser);
+  mockUsers.push(newUser)
 
-  const mockToken = `mock.jwt.token.${newUser.id}.${Date.now()}`;
+  const mockToken = `mock.jwt.token.${newUser.id}.${Date.now()}`
 
   return {
     token: mockToken,
     user: newUser,
-  };
-};
+  }
+}

@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback, useMemo} from 'react';
+import {useState, useEffect, useCallback, useMemo} from 'react'
 import {
   StyleSheet,
   View,
@@ -6,40 +6,36 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Keyboard,
-} from 'react-native';
-import {
-  Camera,
-  MapView,
-  PointAnnotation,
-} from '@maplibre/maplibre-react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+} from 'react-native'
+import {Camera, MapView, PointAnnotation} from '@maplibre/maplibre-react-native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import {useRegion, useTheme, useUserLocation} from '@hooks';
-import {reportData} from '@store';
-import {ReportDetailsBottomSheet} from '@components';
-import {useTranslation} from 'react-i18next';
-import type {Report, Region} from '@types';
-import {appColors, mapConfig} from '@config';
+import {useRegion, useTheme, useUserLocation} from '@hooks'
+import {reportData} from '@store'
+import {ReportDetailsBottomSheet} from '@components'
+import {useTranslation} from 'react-i18next'
+import type {Report, Region} from '@types'
+import {appColors, mapConfig} from '@config'
 
 const MapScreen = () => {
-  const {centerOnUserLocation} = useUserLocation();
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
-  const initialRegion = useRegion();
+  const {centerOnUserLocation} = useUserLocation()
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
+  const initialRegion = useRegion()
 
-  const [search, setSearch] = useState('');
-  const [selectedReport, setSelectedReport] = useState<Report | null>(null);
-  const [regionReady, setRegionReady] = useState(false);
-  const [region, setRegion] = useState<Region>(initialRegion);
+  const [search, setSearch] = useState('')
+  const [selectedReport, setSelectedReport] = useState<Report | null>(null)
+  const [regionReady, setRegionReady] = useState(false)
+  const [region, setRegion] = useState<Region>(initialRegion)
 
   useEffect(() => {
     const initializeRegion = async () => {
-      await centerOnUserLocation(setRegion);
-      setRegionReady(true);
-    };
+      await centerOnUserLocation(setRegion)
+      setRegionReady(true)
+    }
 
-    initializeRegion();
-  }, [centerOnUserLocation]);
+    initializeRegion()
+  }, [centerOnUserLocation])
 
   const visibleReports = useMemo(
     () =>
@@ -50,22 +46,22 @@ const MapScreen = () => {
           address.toLowerCase().includes(search.toLowerCase()),
       ),
     [search],
-  );
+  )
 
   const handleSearchAndMoveToMarker = useCallback((searchTerm: string) => {
-    setSearch(searchTerm);
+    setSearch(searchTerm)
 
     const matchingReport = reportData.find(
       ({title, address}) =>
         title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         address.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
+    )
 
     if (!matchingReport) {
-      return;
+      return
     }
 
-    const {latitude, longitude} = matchingReport.location;
+    const {latitude, longitude} = matchingReport.location
 
     setRegion(currentRegion => ({
       ...currentRegion,
@@ -74,19 +70,19 @@ const MapScreen = () => {
       latitudeDelta: 0.005,
       longitudeDelta:
         0.005 * (currentRegion.longitudeDelta / currentRegion.latitudeDelta),
-    }));
-  }, []);
+    }))
+  }, [])
 
   const handleMyLocationPress = () => {
-    centerOnUserLocation(setRegion);
-    setSelectedReport(null);
-    setSearch('');
-  };
+    centerOnUserLocation(setRegion)
+    setSelectedReport(null)
+    setSearch('')
+  }
 
   const handleMarkerSelect = (report: Report) => {
-    Keyboard.dismiss();
-    setSelectedReport(report);
-  };
+    Keyboard.dismiss()
+    setSelectedReport(report)
+  }
 
   if (!regionReady) {
     return (
@@ -102,7 +98,7 @@ const MapScreen = () => {
           className="text-center text-base bg-transparent border-0 text-primary-dark dark:text-primary-light"
         />
       </View>
-    );
+    )
   }
 
   return (
@@ -167,13 +163,13 @@ const MapScreen = () => {
         onClose={() => setSelectedReport(null)}
       />
     </View>
-  );
-};
+  )
+}
 
-export default MapScreen;
+export default MapScreen
 
 const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-});
+})

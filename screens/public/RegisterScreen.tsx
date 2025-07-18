@@ -5,18 +5,18 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {z} from 'zod';
+} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import {z} from 'zod'
 
-import {FormHandler} from '@components';
-import {useAuth} from '@hooks';
-import {mockRegister} from '@api';
-import {type RegisterData, type FieldConfig, FieldType} from '@types';
+import {FormHandler} from '@components'
+import {useAuth} from '@hooks'
+import {mockRegister} from '@api'
+import {type RegisterData, type FieldConfig, FieldType} from '@types'
 
 const RegisterScreen = () => {
-  const {t} = useTranslation();
-  const {login} = useAuth();
+  const {t} = useTranslation()
+  const {login} = useAuth()
 
   const registerSchema = z
     .object({
@@ -46,14 +46,14 @@ const RegisterScreen = () => {
     .refine(data => data.password === data.confirmPassword, {
       message: t('validation.passwordsDoNotMatch'),
       path: ['confirmPassword'],
-    });
+    })
 
   const initialState: RegisterData = {
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
-  };
+  }
 
   const fields: FieldConfig[] = [
     {
@@ -103,27 +103,27 @@ const RegisterScreen = () => {
         textContentType: 'newPassword',
       },
     },
-  ];
+  ]
 
   const handleRegister = async (userData: RegisterData) => {
     try {
-      const {user, token} = await mockRegister(userData);
+      const {user, token} = await mockRegister(userData)
 
-      await login(user, token);
+      await login(user, token)
 
       Alert.alert(
         t('authentication.registrationSuccess'),
         t('authentication.welcomeToApp', {name: user.name}),
-      );
+      )
     } catch (error) {
       Alert.alert(
         t('authentication.registrationError'),
         error instanceof Error
           ? error.message
           : t('authentication.registrationFailed'),
-      );
+      )
     }
-  };
+  }
 
   return (
     <KeyboardAvoidingView
@@ -154,7 +154,7 @@ const RegisterScreen = () => {
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
-  );
-};
+  )
+}
 
-export default RegisterScreen;
+export default RegisterScreen

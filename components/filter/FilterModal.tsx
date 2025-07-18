@@ -1,18 +1,18 @@
-import {useState} from 'react';
-import {Modal, Pressable} from 'react-native';
+import {useState} from 'react'
+import {Modal, Pressable} from 'react-native'
 
-import {DateRangeSelector, ReportFilterOptions} from '@components';
+import {DateRangeSelector, ReportFilterOptions} from '@components'
 
-import type {DateRange, StatusOption} from '@types';
+import type {DateRange, StatusOption} from '@types'
 
 type FilterModalProps = {
-  visible: boolean;
-  toggleModal: (visible: boolean) => void;
-  selectedStatus: StatusOption;
-  setSelectedStatus: (status: StatusOption) => void;
-  dateRange: DateRange;
-  setDateRange: (range: DateRange) => void;
-};
+  visible: boolean
+  toggleModal: (visible: boolean) => void
+  selectedStatus: StatusOption
+  setSelectedStatus: (status: StatusOption) => void
+  dateRange: DateRange
+  setDateRange: (range: DateRange) => void
+}
 
 const FilterModal = ({
   visible,
@@ -22,9 +22,9 @@ const FilterModal = ({
   dateRange,
   setDateRange,
 }: FilterModalProps) => {
-  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false)
 
-  const toggleDatePicker = () => setShowDatePicker(wasVisible => !wasVisible);
+  const toggleDatePicker = () => setShowDatePicker(wasVisible => !wasVisible)
 
   return (
     <Modal
@@ -57,7 +57,7 @@ const FilterModal = ({
         </Pressable>
       </Pressable>
     </Modal>
-  );
-};
+  )
+}
 
-export default FilterModal;
+export default FilterModal

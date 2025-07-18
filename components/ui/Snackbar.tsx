@@ -1,51 +1,51 @@
-import {useEffect, useState, useRef} from 'react';
-import {useTranslation} from 'react-i18next';
-import {Text, Animated, Pressable} from 'react-native';
+import {useEffect, useState, useRef} from 'react'
+import {useTranslation} from 'react-i18next'
+import {Text, Animated, Pressable} from 'react-native'
 
 type SnackbarProps = {
-  visible: boolean;
-  message: string;
-  onClose?: () => void;
-};
+  visible: boolean
+  message: string
+  onClose?: () => void
+}
 
 const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
-  const [slideAnimation] = useState(() => new Animated.Value(100));
-  const [shouldRender, setShouldRender] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const {t} = useTranslation();
+  const [slideAnimation] = useState(() => new Animated.Value(100))
+  const [shouldRender, setShouldRender] = useState(false)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const {t} = useTranslation()
 
   useEffect(() => {
-    clearTimer();
+    clearTimer()
 
     if (!visible) {
-      hideSnackbar();
-      return;
+      hideSnackbar()
+      return
     }
 
-    setShouldRender(true);
+    setShouldRender(true)
 
     Animated.timing(slideAnimation, {
       toValue: 0,
       duration: 300,
       useNativeDriver: true,
-    }).start();
+    }).start()
 
-    timerRef.current = setTimeout(() => hideSnackbar(onClose), 3000);
+    timerRef.current = setTimeout(() => hideSnackbar(onClose), 3000)
 
-    return clearTimer;
-  }, [visible, onClose, slideAnimation]);
+    return clearTimer
+  }, [visible, onClose, slideAnimation])
 
   const handleClose = () => {
-    clearTimer();
-    hideSnackbar(onClose);
-  };
+    clearTimer()
+    hideSnackbar(onClose)
+  }
 
   const clearTimer = () => {
     if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
+      clearTimeout(timerRef.current)
+      timerRef.current = null
     }
-  };
+  }
 
   const hideSnackbar = (callback?: () => void) =>
     Animated.timing(slideAnimation, {
@@ -53,15 +53,15 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
       duration: 300,
       useNativeDriver: true,
     }).start(() => {
-      setShouldRender(false);
+      setShouldRender(false)
 
       if (callback) {
-        callback();
+        callback()
       }
-    });
+    })
 
   if (!shouldRender) {
-    return null;
+    return null
   }
 
   return (
@@ -82,7 +82,7 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
         <Text className="text-white text-lg font-bold">×</Text>
       </Pressable>
     </Animated.View>
-  );
-};
+  )
+}
 
-export default Snackbar;
+export default Snackbar

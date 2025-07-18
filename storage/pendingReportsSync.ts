@@ -1,80 +1,80 @@
-import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
+import NetInfo, {NetInfoState} from '@react-native-community/netinfo'
 
-import {getPendingReportsFromStorage, removePendingReport} from '@storage';
+import {getPendingReportsFromStorage, removePendingReport} from '@storage'
 
-let isSending = false;
-let isInitialized = false;
+let isSending = false
+let isInitialized = false
 
 export const startNetworkMonitor = async (): Promise<void> => {
   if (isInitialized) {
-    console.warn('PendingReportsSync is already initialized');
-    return;
+    console.warn('PendingReportsSync is already initialized')
+    return
   }
 
   try {
-    setupNetworkListener();
+    setupNetworkListener()
 
-    const {isConnected} = await NetInfo.fetch();
-    await handleConnectionChange(isConnected);
+    const {isConnected} = await NetInfo.fetch()
+    await handleConnectionChange(isConnected)
 
-    isInitialized = true;
+    isInitialized = true
   } catch (error) {
-    console.error('Failed to start PendingReportsSync:', error);
-    throw error;
+    console.error('Failed to start PendingReportsSync:', error)
+    throw error
   }
-};
+}
 
 const setupNetworkListener = (): void => {
   NetInfo.addEventListener(
     async ({isConnected}: NetInfoState) =>
       await handleConnectionChange(isConnected),
-  );
-};
+  )
+}
 
 const handleConnectionChange = async (
   isConnected: boolean | null,
 ): Promise<void> => {
   if (!isConnected) {
-    return;
+    return
   }
 
   try {
-    await flushPendingReports();
+    await flushPendingReports()
   } catch (error) {
-    console.error('Error flushing pending reports:', error);
+    console.error('Error flushing pending reports:', error)
   }
-};
+}
 
 const flushPendingReports = async (): Promise<void> => {
   if (isSending) {
-    return;
+    return
   }
 
-  isSending = true;
+  isSending = true
 
   try {
-    const reports = await getPendingReportsFromStorage();
+    const reports = await getPendingReportsFromStorage()
 
     if (reports.length === 0) {
-      return;
+      return
     }
 
     for (const {id} of reports) {
       try {
-        await simulateReportSync();
-        await removePendingReport(id);
+        await simulateReportSync()
+        await removePendingReport(id)
       } catch (error) {
-        console.error(`Failed to sync report ${id}:`, error);
-        break;
+        console.error(`Failed to sync report ${id}:`, error)
+        break
       }
     }
   } catch (error) {
-    console.error('Error during pending reports flush:', error);
+    console.error('Error during pending reports flush:', error)
   } finally {
-    isSending = false;
+    isSending = false
   }
-};
+}
 
 const simulateReportSync = async (): Promise<void> => {
-  await new Promise(resolve => setTimeout(resolve, 1000));
-};
+  await new Promise(resolve => setTimeout(resolve, 1000))
+}

@@ -4,23 +4,23 @@ import {
   View,
   Text,
   TouchableWithoutFeedback,
-} from 'react-native';
+} from 'react-native'
 
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'react-i18next'
 
 type LanguagePickerProps = {
-  visible: boolean;
-  onClose: () => void;
-};
+  visible: boolean
+  onClose: () => void
+}
 
 type Language = {
-  code: string;
-  label: string;
-  flag: string;
-};
+  code: string
+  label: string
+  flag: string
+}
 
 const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
-  const {t, i18n} = useTranslation();
+  const {t, i18n} = useTranslation()
 
   const languages: Language[] = [
     {
@@ -33,13 +33,13 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
       label: 'Italiano',
       flag: '🇮🇹',
     },
-  ];
+  ]
 
   const handleSwitch = async (language: string) => {
-    await i18n.changeLanguage(language);
+    await i18n.changeLanguage(language)
 
-    onClose();
-  };
+    onClose()
+  }
 
   return (
     <Modal
@@ -80,7 +80,7 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
         </View>
       </TouchableWithoutFeedback>
     </Modal>
-  );
-};
+  )
+}
 
-export default LanguagePicker;
+export default LanguagePicker

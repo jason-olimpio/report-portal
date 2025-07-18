@@ -1,5 +1,5 @@
-import {appColors} from '@config';
-import type {CalendarTheme} from '@types';
+import {appColors} from '@config'
+import type {CalendarTheme} from '@types'
 
 export const getCalendarTheme = (isDark: boolean): CalendarTheme => ({
   backgroundColor: isDark
@@ -29,4 +29,4 @@ export const getCalendarTheme = (isDark: boolean): CalendarTheme => ({
     ? appColors.neutral.gray[200]
     : appColors.neutral.gray[800],
   arrowColor: isDark ? appColors.primary.light : appColors.primary.dark,
-});
+})

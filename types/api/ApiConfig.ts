@@ -4,22 +4,22 @@ export enum ApiMode {
 }
 
 type MockDelayConfig = {
-  readonly min: number;
-  readonly max: number;
-};
+  readonly min: number
+  readonly max: number
+}
 
 type AxiosConfig = {
-  readonly timeout: number;
+  readonly timeout: number
   readonly headers: {
-    readonly 'Content-Type': string;
-    readonly Accept: string;
-  };
-};
+    readonly 'Content-Type': string
+    readonly Accept: string
+  }
+}
 
 export type ApiConfig = {
-  mode: ApiMode;
-  readonly baseUrl: string;
-  readonly timeout: number;
-  readonly mockDelay: MockDelayConfig;
-  readonly axios: AxiosConfig;
-};
+  mode: ApiMode
+  readonly baseUrl: string
+  readonly timeout: number
+  readonly mockDelay: MockDelayConfig
+  readonly axios: AxiosConfig
+}

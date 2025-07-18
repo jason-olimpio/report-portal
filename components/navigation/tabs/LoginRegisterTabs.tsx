@@ -1,17 +1,17 @@
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {useTranslation} from 'react-i18next';
-import {SafeAreaView} from 'react-native';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
+import {useTranslation} from 'react-i18next'
+import {SafeAreaView} from 'react-native'
 
-import {LoginScreen, RegisterScreen} from '@screens';
-import {useTheme} from '@hooks';
-import {appColors} from '@config';
-import type {AuthTabParamList} from '@types';
+import {LoginScreen, RegisterScreen} from '@screens'
+import {useTheme} from '@hooks'
+import {appColors} from '@config'
+import type {AuthTabParamList} from '@types'
 
-const Tab = createMaterialTopTabNavigator<AuthTabParamList>();
+const Tab = createMaterialTopTabNavigator<AuthTabParamList>()
 
 const LoginRegisterTabs = () => {
-  const {t} = useTranslation();
-  const {isDark} = useTheme();
+  const {t} = useTranslation()
+  const {isDark} = useTheme()
 
   return (
     <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark">
@@ -64,7 +64,7 @@ const LoginRegisterTabs = () => {
         />
       </Tab.Navigator>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default LoginRegisterTabs;
+export default LoginRegisterTabs

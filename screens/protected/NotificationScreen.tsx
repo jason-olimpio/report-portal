@@ -1,23 +1,23 @@
-import {View, Text, FlatList} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {View, Text, FlatList} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
-import type {Notification} from '@types';
+import type {Notification} from '@types'
 
-import {BackButton} from '@components';
+import {BackButton} from '@components'
 
-import {notificationData} from '@store';
-import {getTimeAgo} from '@utils';
+import {notificationData} from '@store'
+import {getTimeAgo} from '@utils'
 
 const NotificationScreen = () => {
-  const {t, i18n} = useTranslation();
+  const {t, i18n} = useTranslation()
 
   const sortedNotifications = [...notificationData].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  )
 
   const renderItem = ({item}: {item: Notification; index: number}) => {
-    const {title, description, date} = item;
-    const timeAgo = getTimeAgo(date, i18n.language, t);
+    const {title, description, date} = item
+    const timeAgo = getTimeAgo(date, i18n.language, t)
 
     return (
       <View className="flex-row bg-background-secondaryLight dark:bg-background-secondaryDark items-center py-3 px-4">
@@ -35,8 +35,8 @@ const NotificationScreen = () => {
           {timeAgo}
         </Text>
       </View>
-    );
-  };
+    )
+  }
 
   return (
     <View className="flex-1 bg-background-light dark:bg-background-dark pb-10">
@@ -71,11 +71,11 @@ const NotificationScreen = () => {
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const NotificationSeparator = () => (
   <View className="h-px bg-gray-100 dark:bg-gray-600" />
-);
+)
 
-export default NotificationScreen;
+export default NotificationScreen

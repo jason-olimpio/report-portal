@@ -1,15 +1,15 @@
-import {ComponentProps} from 'react';
-import {TouchableOpacity, Text, View} from 'react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {ComponentProps} from 'react'
+import {TouchableOpacity, Text, View} from 'react-native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
 type IconActionButtonProps = {
-  icon: ComponentProps<typeof MaterialIcons>['name'];
-  iconColor: string;
-  title: string;
-  bgColor: string;
-  onPress: () => void;
-  className?: string;
-};
+  icon: ComponentProps<typeof MaterialIcons>['name']
+  iconColor: string
+  title: string
+  bgColor: string
+  onPress: () => void
+  className?: string
+}
 
 const IconActionButton = ({
   icon,
@@ -32,6 +32,6 @@ const IconActionButton = ({
       {title}
     </Text>
   </View>
-);
+)
 
-export default IconActionButton;
+export default IconActionButton

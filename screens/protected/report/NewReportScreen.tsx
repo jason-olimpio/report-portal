@@ -1,10 +1,10 @@
-import {Alert, ScrollView, type ImageSourcePropType} from 'react-native';
-import {z} from 'zod';
-import {useTranslation} from 'react-i18next';
+import {Alert, ScrollView, type ImageSourcePropType} from 'react-native'
+import {z} from 'zod'
+import {useTranslation} from 'react-i18next'
 
-import {FormHandler, BackButton} from '@components';
+import {FormHandler, BackButton} from '@components'
 
-import {addPendingReport} from '@storage';
+import {addPendingReport} from '@storage'
 
 import {
   type Report,
@@ -12,13 +12,13 @@ import {
   PriorityOption,
   type FieldConfig,
   FieldType,
-} from '@types';
+} from '@types'
 
-import {getAddressFromLocation} from '@api';
-import {isOnline} from '@utils';
+import {getAddressFromLocation} from '@api'
+import {isOnline} from '@utils'
 
 const NewReportScreen = () => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
   const schema = z.object({
     title: z.string().min(3, {message: t('errors.titleTooShort')}),
@@ -34,14 +34,14 @@ const NewReportScreen = () => {
       .refine(location => location.latitude !== 0 && location.longitude !== 0, {
         message: t('errors.locationRequired'),
       }),
-  });
+  })
 
   const initialState: z.infer<typeof schema> = {
     title: '',
     description: '',
     images: [],
     location: {latitude: 0, longitude: 0},
-  };
+  }
 
   const fields: FieldConfig[] = [
     {
@@ -62,7 +62,7 @@ const NewReportScreen = () => {
       key: 'location',
       label: t('location.location'),
     },
-  ];
+  ]
 
   const handleReportSave = async ({
     images,
@@ -71,7 +71,7 @@ const NewReportScreen = () => {
     location,
   }: z.infer<typeof schema>) => {
     try {
-      const address = await getAddressFromLocation(location);
+      const address = await getAddressFromLocation(location)
 
       const report: Report = {
         id: Date.now().toString(),
@@ -83,22 +83,22 @@ const NewReportScreen = () => {
         date: new Date(),
         status: StatusOption.Pending,
         priority: PriorityOption.Medium,
-      };
-
-      if (!(await isOnline())) {
-        await addPendingReport(report);
-        Alert.alert(t('reports.reportSavedOffline'));
-
-        return;
       }
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!(await isOnline())) {
+        await addPendingReport(report)
+        Alert.alert(t('reports.reportSavedOffline'))
 
-      Alert.alert(t('reports.reportSaved'));
+        return
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1000))
+
+      Alert.alert(t('reports.reportSaved'))
     } catch {
-      Alert.alert(t('error'), t('errors.reportSendFailed'));
+      Alert.alert(t('error'), t('errors.reportSendFailed'))
     }
-  };
+  }
 
   return (
     <ScrollView className="p-5 flex-1 bg-background-secondaryLight dark:bg-background-secondaryDark">
@@ -111,7 +111,7 @@ const NewReportScreen = () => {
         onSave={handleReportSave}
       />
     </ScrollView>
-  );
-};
+  )
+}
 
-export default NewReportScreen;
+export default NewReportScreen

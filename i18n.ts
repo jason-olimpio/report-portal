@@ -1,7 +1,7 @@
-import i18n from 'i18next';
-import {initReactI18next} from 'react-i18next';
+import i18n from 'i18next'
+import {initReactI18next} from 'react-i18next'
 
-import {en, it} from '@translations';
+import {en, it} from '@translations'
 
 const resources = {
   en: {
@@ -10,7 +10,7 @@ const resources = {
   it: {
     translation: it,
   },
-} as const;
+} as const
 
 i18n
   .use(initReactI18next)
@@ -24,4 +24,4 @@ i18n
       escapeValue: false,
     },
   })
-  .then(onfulfilled => onfulfilled);
+  .then(onfulfilled => onfulfilled)

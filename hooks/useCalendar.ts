@@ -1,27 +1,27 @@
-import {useState, useMemo} from 'react';
-import {LocaleConfig} from 'react-native-calendars';
-import {TFunction} from 'i18next';
+import {useState, useMemo} from 'react'
+import {LocaleConfig} from 'react-native-calendars'
+import {TFunction} from 'i18next'
 
-import {reportData} from '@store';
-import type {ReportsByDate, DateString} from '@types';
+import {reportData} from '@store'
+import type {ReportsByDate, DateString} from '@types'
 import {
   getReportsByDate,
   getMarkedDatesWithSelection,
   getLocalizedCalendarLabels,
-} from '@utils';
+} from '@utils'
 
 export const useCalendar = (t: TFunction, isDark: boolean) => {
-  const [selectedDate, setSelectedDate] = useState<DateString | null>(null);
+  const [selectedDate, setSelectedDate] = useState<DateString | null>(null)
 
-  const reportsByDate: ReportsByDate = getReportsByDate(reportData);
+  const reportsByDate: ReportsByDate = getReportsByDate(reportData)
 
   const markedDates = useMemo(
     () => getMarkedDatesWithSelection(reportsByDate, isDark, selectedDate),
     [reportsByDate, isDark, selectedDate],
-  );
+  )
 
   const configureCalendarLocale = (t: TFunction) => {
-    const {months, weekdays} = getLocalizedCalendarLabels(t);
+    const {months, weekdays} = getLocalizedCalendarLabels(t)
 
     LocaleConfig.locales['custom'] = {
       monthNames: months,
@@ -29,17 +29,17 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
       dayNames: weekdays,
       dayNamesShort: weekdays.map(day => day.slice(0, 3)),
       today: t('calendar.today'),
-    };
+    }
 
-    LocaleConfig.defaultLocale = 'custom';
-  };
+    LocaleConfig.defaultLocale = 'custom'
+  }
 
   const handleDayPress = (day: {dateString: string}) =>
-    setSelectedDate(day.dateString as DateString);
+    setSelectedDate(day.dateString as DateString)
 
   const selectedReports = selectedDate
     ? reportsByDate[selectedDate] || null
-    : null;
+    : null
 
   return {
     selectedDate,
@@ -47,7 +47,7 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
     markedDates,
     handleDayPress,
     configureCalendarLocale,
-  };
-};
+  }
+}
 
-export default useCalendar;
+export default useCalendar

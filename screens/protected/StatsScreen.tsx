@@ -1,14 +1,14 @@
-import {Fragment, useState, useEffect} from 'react';
-import {Text, ScrollView, Dimensions} from 'react-native';
-import {BarChart} from 'react-native-chart-kit';
-import {useTranslation} from 'react-i18next';
-import type {ChartConfig} from 'react-native-chart-kit/dist/HelperTypes';
+import {Fragment, useState, useEffect} from 'react'
+import {Text, ScrollView, Dimensions} from 'react-native'
+import {BarChart} from 'react-native-chart-kit'
+import {useTranslation} from 'react-i18next'
+import type {ChartConfig} from 'react-native-chart-kit/dist/HelperTypes'
 
-import {reportData} from '@store';
-import {useTheme} from '@hooks';
+import {reportData} from '@store'
+import {useTheme} from '@hooks'
 
-import {appColors} from '@config';
-import {getMonthLabel, getMonthlyReportStats} from '@utils';
+import {appColors} from '@config'
+import {getMonthLabel, getMonthlyReportStats} from '@utils'
 
 const chartConfigBase: ChartConfig = {
   backgroundColor: 'white',
@@ -16,36 +16,36 @@ const chartConfigBase: ChartConfig = {
   backgroundGradientTo: 'white',
   decimalPlaces: 0,
   barPercentage: 0.5,
-};
+}
 
 type ChartSection = {
-  label: string;
-  data: number[];
-  color: string;
-};
+  label: string
+  data: number[]
+  color: string
+}
 
 const StatsScreen = () => {
-  const {t} = useTranslation();
-  const {open, closed, months} = getMonthlyReportStats(reportData);
-  const {isDark} = useTheme();
+  const {t} = useTranslation()
+  const {open, closed, months} = getMonthlyReportStats(reportData)
+  const {isDark} = useTheme()
 
   const [screenWidth, setScreenWidth] = useState(
     Dimensions.get('window').width - 60,
-  );
+  )
 
   useEffect(() => {
     const onChange = ({window}: {window: {width: number}}) =>
-      setScreenWidth(window.width - 60);
+      setScreenWidth(window.width - 60)
 
-    const subscription = Dimensions.addEventListener('change', onChange);
+    const subscription = Dimensions.addEventListener('change', onChange)
 
-    return () => subscription.remove();
-  }, []);
+    return () => subscription.remove()
+  }, [])
 
   const monthLabels = months
     .filter((month): month is number => month !== undefined)
     .map(month => getMonthLabel(month, t))
-    .map(label => label.substring(0, 3));
+    .map(label => label.substring(0, 3))
 
   const renderBarChart = (data: number[], color: string) => (
     <BarChart
@@ -85,7 +85,7 @@ const StatsScreen = () => {
       withHorizontalLabels
       style={styles.chart}
     />
-  );
+  )
 
   const chartSections: ChartSection[] = [
     {
@@ -102,7 +102,7 @@ const StatsScreen = () => {
         ? appColors.system.teal[600].dark
         : appColors.system.teal[600].light,
     },
-  ];
+  ]
 
   return (
     <ScrollView
@@ -122,12 +122,12 @@ const StatsScreen = () => {
         </Fragment>
       ))}
     </ScrollView>
-  );
-};
+  )
+}
 
-export default StatsScreen;
+export default StatsScreen
 
 const styles = {
   chart: {borderRadius: 16, paddingTop: 24, paddingBottom: 20},
   contentContainer: {flexGrow: 1, paddingBottom: 40},
-};
+}

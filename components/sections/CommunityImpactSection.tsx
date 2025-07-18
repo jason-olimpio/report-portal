@@ -1,29 +1,29 @@
-import {useTranslation} from 'react-i18next';
-import {View, Text} from 'react-native';
+import {useTranslation} from 'react-i18next'
+import {View, Text} from 'react-native'
 
 type CommunityImpactSectionProps = {
-  reports: number;
-  solvedReports: number;
-  successRate: number;
-};
+  reports: number
+  solvedReports: number
+  successRate: number
+}
 
 type Stat = {
-  value: number | string;
-  label: string;
-};
+  value: number | string
+  label: string
+}
 
 const CommunityImpactSection = ({
   reports,
   solvedReports,
   successRate,
 }: CommunityImpactSectionProps) => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
   const stats: Stat[] = [
     {value: reports, label: t('navigation.reports')},
     {value: solvedReports, label: t('status.solved')},
     {value: `${successRate}%`, label: t('stats.successRate')},
-  ];
+  ]
 
   return (
     <View className="mb-12">
@@ -54,7 +54,7 @@ const CommunityImpactSection = ({
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default CommunityImpactSection;
+export default CommunityImpactSection

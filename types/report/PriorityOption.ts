@@ -4,4 +4,4 @@ enum PriorityOption {
   High,
 }
 
-export default PriorityOption;
+export default PriorityOption

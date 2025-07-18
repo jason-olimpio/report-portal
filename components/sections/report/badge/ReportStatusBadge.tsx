@@ -1,12 +1,12 @@
-import {View, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {View, Text} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
-import {getStatusLabel} from '@utils';
-import {useTheme} from '@hooks';
+import {getStatusLabel} from '@utils'
+import {useTheme} from '@hooks'
 
-import {StatusOption} from '@types';
+import {StatusOption} from '@types'
 
-type StatusColor = Exclude<StatusOption, StatusOption.All>;
+type StatusColor = Exclude<StatusOption, StatusOption.All>
 
 const REPORT_STATUS_COLORS: Record<
   StatusColor,
@@ -30,15 +30,15 @@ const REPORT_STATUS_COLORS: Record<
     text: 'text-system-teal-600-light',
     textDark: 'text-system-teal-600-dark',
   },
-};
+}
 
 type ReportStatusBadgeProps = {
-  status: StatusOption;
-};
+  status: StatusOption
+}
 
 const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
-  const {t} = useTranslation();
-  const {isDark} = useTheme();
+  const {t} = useTranslation()
+  const {isDark} = useTheme()
 
   const colors =
     status in REPORT_STATUS_COLORS
@@ -48,9 +48,9 @@ const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
           bgDark: 'bg-gray-800',
           text: 'text-white',
           textDark: 'text-white',
-        };
+        }
 
-  const label = getStatusLabel(status, t) || t('unknown');
+  const label = getStatusLabel(status, t) || t('unknown')
 
   return (
     <View
@@ -59,7 +59,7 @@ const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
         {label}
       </Text>
     </View>
-  );
-};
+  )
+}
 
-export default ReportStatusBadge;
+export default ReportStatusBadge

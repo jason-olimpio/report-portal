@@ -1,11 +1,11 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native'
 
 type SectionHeaderProps = {
-  title: string;
-  action: string;
-  onPress: () => void;
-  className?: string;
-};
+  title: string
+  action: string
+  onPress: () => void
+  className?: string
+}
 
 const SectionHeader = ({
   title,
@@ -24,6 +24,6 @@ const SectionHeader = ({
       </Text>
     </TouchableOpacity>
   </View>
-);
+)
 
-export default SectionHeader;
+export default SectionHeader

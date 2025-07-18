@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState} from 'react'
 import {
   Text,
   TouchableOpacity,
@@ -6,68 +6,68 @@ import {
   Dimensions,
   ScrollView,
   StyleSheet,
-} from 'react-native';
-import CalendarPicker, {DateParsable} from 'react-native-calendar-picker';
-import {useTranslation} from 'react-i18next';
+} from 'react-native'
+import CalendarPicker, {DateParsable} from 'react-native-calendar-picker'
+import {useTranslation} from 'react-i18next'
 
-import {useTheme} from '@hooks';
-import {appColors} from '@config';
-import {getLocalizedCalendarLabels} from '@utils';
-import type {DateRange} from '@types';
+import {useTheme} from '@hooks'
+import {appColors} from '@config'
+import {getLocalizedCalendarLabels} from '@utils'
+import type {DateRange} from '@types'
 
 type DateRangeSelectorProps = {
-  dateRange: DateRange;
-  setDateRange: (range: DateRange) => void;
-  toggleDatePicker: () => void;
-};
+  dateRange: DateRange
+  setDateRange: (range: DateRange) => void
+  toggleDatePicker: () => void
+}
 
 const DateRangeSelector = ({
   dateRange,
   setDateRange,
   toggleDatePicker,
 }: DateRangeSelectorProps) => {
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
 
-  const [tempDateRange, setTempDateRange] = useState(dateRange);
+  const [tempDateRange, setTempDateRange] = useState(dateRange)
 
-  const screenWidth = Dimensions.get('window').width;
-  const calendarWidth = Math.min(screenWidth - 75, 350);
-  const calendarHeight = Math.min(calendarWidth, 350);
+  const screenWidth = Dimensions.get('window').width
+  const calendarWidth = Math.min(screenWidth - 75, 350)
+  const calendarHeight = Math.min(calendarWidth, 350)
 
   const handleDateChange = (date: Date, type: 'START_DATE' | 'END_DATE') =>
     setTempDateRange(previousRange => ({
       ...previousRange,
       start: type === 'START_DATE' ? date : previousRange.start,
       end: type === 'START_DATE' ? null : date,
-    }));
+    }))
 
   const confirmDateRange = () => {
-    setDateRange(tempDateRange);
-    toggleDatePicker();
-  };
+    setDateRange(tempDateRange)
+    toggleDatePicker()
+  }
 
-  const {weekdays, months} = getLocalizedCalendarLabels(t);
+  const {weekdays, months} = getLocalizedCalendarLabels(t)
 
   const getTextStyle = () => ({
     ...styles.text,
     color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
-  });
+  })
 
   const getMonthTitleStyle = () => ({
     ...styles.monthTitle,
     color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
-  });
+  })
 
   const getYearTitleStyle = () => ({
     ...styles.yearTitle,
     color: isDark ? appColors.text.primary.dark : appColors.text.primary.light,
-  });
+  })
 
   const getNavigationTitleStyle = () => ({
     ...styles.navigationTitle,
     color: isDark ? appColors.primary.light : appColors.primary.dark,
-  });
+  })
 
   return (
     <ScrollView>
@@ -119,8 +119,8 @@ const DateRangeSelector = ({
         </TouchableOpacity>
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   text: {
@@ -135,6 +135,6 @@ const styles = StyleSheet.create({
   navigationTitle: {
     fontSize: 12,
   },
-});
+})
 
-export default DateRangeSelector;
+export default DateRangeSelector

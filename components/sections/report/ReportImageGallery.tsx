@@ -1,47 +1,47 @@
-import {useState} from 'react';
-import {View, Image, TouchableOpacity, ImageSourcePropType} from 'react-native';
+import {useState} from 'react'
+import {View, Image, TouchableOpacity, ImageSourcePropType} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-} from 'react-native-reanimated';
-import {Gesture, GestureDetector} from 'react-native-gesture-handler';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+} from 'react-native-reanimated'
+import {Gesture, GestureDetector} from 'react-native-gesture-handler'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
 
-import {PlaceholderImage} from '@assets';
-import {useTheme} from '@hooks';
+import {PlaceholderImage} from '@assets'
+import {useTheme} from '@hooks'
 
 type ReportImageGalleryProps = {
-  images: ImageSourcePropType[];
-};
+  images: ImageSourcePropType[]
+}
 
 const getImageSources = (images: ImageSourcePropType[]) =>
-  Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage];
+  Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage]
 
 const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
-  const {isDark} = useTheme();
+  const {isDark} = useTheme()
 
-  const sources = getImageSources(images);
-  const [current, setCurrent] = useState(0);
-  const canGoLeft = current > 0;
-  const canGoRight = current < sources.length - 1;
+  const sources = getImageSources(images)
+  const [current, setCurrent] = useState(0)
+  const canGoLeft = current > 0
+  const canGoRight = current < sources.length - 1
 
-  const scale = useSharedValue(1);
+  const scale = useSharedValue(1)
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{scale: scale.value}],
-  }));
+  }))
 
   const pinchGesture = Gesture.Pinch()
     .onUpdate(event => (scale.value = event.scale))
-    .onEnd(() => (scale.value = withTiming(1)));
+    .onEnd(() => (scale.value = withTiming(1)))
 
-  const goLeft = () => canGoLeft && setCurrent(current - 1);
-  const goRight = () => canGoRight && setCurrent(current + 1);
+  const goLeft = () => canGoLeft && setCurrent(current - 1)
+  const goRight = () => canGoRight && setCurrent(current + 1)
 
-  const iconColor = isDark ? 'white' : 'black';
-  const iconDisabled = 'gray';
-  const imageBg = isDark ? 'bg-neutral-gray-800' : 'bg-neutral-gray-200';
-  const shadow = isDark ? '' : 'shadow-lg';
+  const iconColor = isDark ? 'white' : 'black'
+  const iconDisabled = 'gray'
+  const imageBg = isDark ? 'bg-neutral-gray-800' : 'bg-neutral-gray-200'
+  const shadow = isDark ? '' : 'shadow-lg'
 
   return (
     <View className="z-[9999] w-full mb-4 flex-row items-center justify-center">
@@ -76,7 +76,7 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
         />
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
-export default ReportImageGallery;
+export default ReportImageGallery

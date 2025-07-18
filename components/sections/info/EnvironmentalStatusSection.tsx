@@ -1,26 +1,26 @@
-import {ComponentProps} from 'react';
-import {View} from 'react-native';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {useTranslation} from 'react-i18next';
+import {ComponentProps} from 'react'
+import {View} from 'react-native'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
+import {useTranslation} from 'react-i18next'
 
-import {SectionHeader, InfoCardWidget} from '@components';
+import {SectionHeader, InfoCardWidget} from '@components'
 
-import {useTheme} from '@hooks';
-import {appColors} from '@config';
+import {useTheme} from '@hooks'
+import {appColors} from '@config'
 
 type StatusData = {
-  icon: ComponentProps<typeof MaterialIcons>['name'];
-  iconColor: string;
-  title: string;
-  value: string;
-  subInfo: string;
-  bgColorClass: string;
-  valueColorClass: string;
-};
+  icon: ComponentProps<typeof MaterialIcons>['name']
+  iconColor: string
+  title: string
+  value: string
+  subInfo: string
+  bgColorClass: string
+  valueColorClass: string
+}
 
 const EnvironmentalStatusSection = () => {
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
 
   const statusData: StatusData[] = [
     {
@@ -81,7 +81,7 @@ const EnvironmentalStatusSection = () => {
         ? 'text-system-red-600-dark'
         : 'text-system-red-600-light',
     },
-  ];
+  ]
 
   return (
     <View className="bg-background-secondaryLight dark:bg-background-secondaryDark p-4 rounded-lg shadow-lg">
@@ -117,7 +117,7 @@ const EnvironmentalStatusSection = () => {
         )}
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default EnvironmentalStatusSection;
+export default EnvironmentalStatusSection

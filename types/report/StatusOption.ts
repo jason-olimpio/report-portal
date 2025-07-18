@@ -5,4 +5,4 @@ enum StatusOption {
   Completed,
 }
 
-export default StatusOption;
+export default StatusOption

@@ -1,2 +1,2 @@
-export * from './ApiConfig';
-export * from './ApiTypes';
+export * from './ApiConfig'
+export * from './ApiTypes'

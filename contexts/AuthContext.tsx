@@ -1,95 +1,93 @@
-import {createContext, ReactNode, useEffect, useState} from 'react';
+import {createContext, ReactNode, useEffect, useState} from 'react'
 
-import {AuthUser, UserRank} from '@types';
+import {AuthUser, UserRank} from '@types'
 import {
   getToken,
   isTokenValid,
   getTokenPayload,
   removeToken,
   saveToken,
-} from '@utils';
+} from '@utils'
 
 export type AuthContextType = {
-  user: AuthUser | null;
-  isAuthenticated: boolean;
-  isLoading: boolean;
-  login: (user: AuthUser, token: string) => Promise<void>;
-  logout: () => Promise<void>;
-};
+  user: AuthUser | null
+  isAuthenticated: boolean
+  isLoading: boolean
+  login: (user: AuthUser, token: string) => Promise<void>
+  logout: () => Promise<void>
+}
 
-export const AuthContext = createContext<AuthContextType | undefined>(
-  undefined,
-);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 type AuthProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<AuthUser | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    checkAuthState().then(response => response);
-  }, []);
+    checkAuthState().then(response => response)
+  }, [])
 
   const checkAuthState = async () => {
-    setIsLoading(true);
+    setIsLoading(true)
 
     try {
-      const token = await getToken();
+      const token = await getToken()
 
       if (!token || !isTokenValid(token)) {
-        await clearUserSession();
-        return;
+        await clearUserSession()
+        return
       }
 
-      const payload = getTokenPayload(token);
+      const payload = getTokenPayload(token)
 
       if (!payload) {
-        console.warn('Invalid token payload');
-        await clearUserSession();
+        console.warn('Invalid token payload')
+        await clearUserSession()
 
-        return;
+        return
       }
 
-      const {userId, email, rank = UserRank.User} = payload;
+      const {userId, email, rank = UserRank.User} = payload
 
       setUser({
         id: userId,
         email,
         rank,
-      });
+      })
     } catch (error) {
-      console.error('Error checking auth state:', error);
+      console.error('Error checking auth state:', error)
 
-      await clearUserSession();
+      await clearUserSession()
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   const login = async (authUser: AuthUser, token: string): Promise<void> => {
     try {
-      await saveToken(token);
-      setUser(authUser);
+      await saveToken(token)
+      setUser(authUser)
     } catch (error) {
-      console.error('Error during login:', error);
-      throw error;
+      console.error('Error during login:', error)
+      throw error
     }
-  };
+  }
 
-  const logout = async (): Promise<void> => await clearUserSession();
+  const logout = async (): Promise<void> => await clearUserSession()
 
   const clearUserSession = async () => {
     try {
-      await removeToken();
+      await removeToken()
     } catch (error) {
-      console.error('Error removing token:', error);
+      console.error('Error removing token:', error)
     } finally {
-      setUser(null);
+      setUser(null)
     }
-  };
+  }
 
   const value: AuthContextType = {
     user,
@@ -97,7 +95,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     isLoading,
     login,
     logout,
-  };
+  }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-};
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+}

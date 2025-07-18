@@ -1,15 +1,15 @@
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack'
 
 import {
   NewReportScreen,
   ReportDetailsScreen,
   NotificationScreen,
   CalendarScreen,
-} from '@screens';
-import {AppDrawer} from '@components';
-import type {MainAppStackParamList} from '@types';
+} from '@screens'
+import {AppDrawer} from '@components'
+import type {MainAppStackParamList} from '@types'
 
-const Stack = createStackNavigator<MainAppStackParamList>();
+const Stack = createStackNavigator<MainAppStackParamList>()
 
 const MainAppStack = () => {
   return (
@@ -40,7 +40,7 @@ const MainAppStack = () => {
         options={{presentation: 'modal'}}
       />
     </Stack.Navigator>
-  );
-};
+  )
+}
 
-export default MainAppStack;
+export default MainAppStack

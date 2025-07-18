@@ -1,4 +1,4 @@
-import type {Notification} from '@types';
+import type {Notification} from '@types'
 
 const notifications: Notification[] = [
   {
@@ -113,6 +113,6 @@ const notifications: Notification[] = [
     date: new Date(Date.now() - 1000 * 60 * 60 * 60), // 2 giorni e 12 ore fa
     read: true,
   },
-];
+]
 
-export default notifications;
+export default notifications

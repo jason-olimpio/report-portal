@@ -1,26 +1,26 @@
-import {Text, TouchableOpacity, View} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {ScrollView} from 'react-native-gesture-handler';
+import {Text, TouchableOpacity, View} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import {ScrollView} from 'react-native-gesture-handler'
 
-import {getStatusLabel} from '@utils';
+import {getStatusLabel} from '@utils'
 
-import {type DateRange, StatusOption} from '@types';
+import {type DateRange, StatusOption} from '@types'
 
 type ReportFilterOptionsProps = {
-  selectedStatus: StatusOption;
-  setSelectedStatus: (status: StatusOption) => void;
-  dateRange: DateRange;
-  setDateRange: (range: DateRange) => void;
-  toggleModal: (visible: boolean) => void;
-  toggleDatePicker: () => void;
-};
+  selectedStatus: StatusOption
+  setSelectedStatus: (status: StatusOption) => void
+  dateRange: DateRange
+  setDateRange: (range: DateRange) => void
+  toggleModal: (visible: boolean) => void
+  toggleDatePicker: () => void
+}
 
 const STATUS_OPTIONS: StatusOption[] = [
   StatusOption.All,
   StatusOption.Pending,
   StatusOption.Working,
   StatusOption.Completed,
-];
+]
 
 const ReportFilterOptions = ({
   selectedStatus,
@@ -30,31 +30,31 @@ const ReportFilterOptions = ({
   toggleModal,
   toggleDatePicker,
 }: ReportFilterOptionsProps) => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
-  const hasSelectedDate = dateRange.start !== null && dateRange.end !== null;
+  const hasSelectedDate = dateRange.start !== null && dateRange.end !== null
 
-  const toggleStatus = (status: StatusOption) => setSelectedStatus(status);
+  const toggleStatus = (status: StatusOption) => setSelectedStatus(status)
 
   const getDateRangeText = () => {
-    const {start, end} = dateRange;
+    const {start, end} = dateRange
 
     if (!start || !end) {
-      return t('filter.selectDateRange');
+      return t('filter.selectDateRange')
     }
 
-    const startDate = start.toLocaleDateString('it-IT');
-    const endDate = end.toLocaleDateString('it-IT');
+    const startDate = start.toLocaleDateString('it-IT')
+    const endDate = end.toLocaleDateString('it-IT')
 
-    return `${startDate} - ${endDate}`;
-  };
+    return `${startDate} - ${endDate}`
+  }
 
   const resetFilters = () => {
-    setSelectedStatus(StatusOption.All);
-    resetDateRange();
-  };
+    setSelectedStatus(StatusOption.All)
+    resetDateRange()
+  }
 
-  const resetDateRange = () => setDateRange({start: null, end: null});
+  const resetDateRange = () => setDateRange({start: null, end: null})
 
   return (
     <ScrollView>
@@ -111,7 +111,7 @@ const ReportFilterOptions = ({
         </TouchableOpacity>
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 
-export default ReportFilterOptions;
+export default ReportFilterOptions

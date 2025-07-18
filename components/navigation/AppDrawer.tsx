@@ -1,26 +1,26 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import MaterialIcons from '@react-native-vector-icons/material-icons';
-import {Pressable, Text, View} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer'
+import MaterialIcons from '@react-native-vector-icons/material-icons'
+import {Pressable, Text, View} from 'react-native'
+import {useTranslation} from 'react-i18next'
+import {NavigationProp, useNavigation} from '@react-navigation/native'
 
-import {MainTabs, LoginRegisterTabs} from '@components';
+import {MainTabs, LoginRegisterTabs} from '@components'
 
-import {PersonalAreaScreen} from '@screens';
+import {PersonalAreaScreen} from '@screens'
 
-import {appColors} from '@config';
-import {notificationData} from '@store';
-import {useAuth, useTheme} from '@hooks';
-import type {MainAppStackParamList} from '@types';
+import {appColors} from '@config'
+import {notificationData} from '@store'
+import {useAuth, useTheme} from '@hooks'
+import type {MainAppStackParamList} from '@types'
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator()
 
-const headerRightStyle = {marginRight: 16};
+const headerRightStyle = {marginRight: 16}
 
 const AppDrawer = () => {
-  const {isDark} = useTheme();
-  const {t} = useTranslation();
-  const {logout, isAuthenticated} = useAuth();
+  const {isDark} = useTheme()
+  const {t} = useTranslation()
+  const {logout, isAuthenticated} = useAuth()
 
   return (
     <Drawer.Navigator
@@ -72,33 +72,33 @@ const AppDrawer = () => {
           }}
           listeners={{
             drawerItemPress: event => {
-              event.preventDefault();
+              event.preventDefault()
 
-              logout();
+              logout()
             },
           }}
         />
       )}
     </Drawer.Navigator>
-  );
-};
+  )
+}
 
 const HeaderTitle = () => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
   return (
     <Text className="text-white font-titillium-light text-[20px]">
       {t('appName')}
     </Text>
-  );
-};
+  )
+}
 
 const HeaderRight = () => {
-  const navigation = useNavigation<NavigationProp<MainAppStackParamList>>();
-  const handlePress = () => navigation.navigate('Notifications');
+  const navigation = useNavigation<NavigationProp<MainAppStackParamList>>()
+  const handlePress = () => navigation.navigate('Notifications')
   const unreadCount = notificationData.filter(
     notification => !notification.read,
-  ).length;
+  ).length
 
   return (
     <View className="w-10 items-end justify-center">
@@ -121,9 +121,9 @@ const HeaderRight = () => {
         )}
       </Pressable>
     </View>
-  );
-};
+  )
+}
 
-const EmptyComponent = () => null;
+const EmptyComponent = () => null
 
-export default AppDrawer;
+export default AppDrawer

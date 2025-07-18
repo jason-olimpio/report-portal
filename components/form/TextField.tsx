@@ -1,13 +1,13 @@
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, TextInput} from 'react-native'
 
-import {ErrorText} from '@components';
+import {ErrorText} from '@components'
 
 type TextFieldProps = {
-  label: string;
-  value: string;
-  error?: string | false;
-  onChangeText: (value: string) => void;
-};
+  label: string
+  value: string
+  error?: string | false
+  onChangeText: (value: string) => void
+}
 
 const TextField = ({
   label,
@@ -31,6 +31,6 @@ const TextField = ({
 
     <ErrorText error={error} />
   </View>
-);
+)
 
-export default TextField;
+export default TextField

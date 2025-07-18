@@ -1,21 +1,21 @@
-import {Text, View} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import {Text, View} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
-import {ErrorText} from '@components';
+import {ErrorText} from '@components'
 
-import type {Location} from '@types';
+import type {Location} from '@types'
 
 type LocationFieldProps = {
-  label?: string;
-  location?: Location;
-  error?: string | false;
-};
+  label?: string
+  location?: Location
+  error?: string | false
+}
 
 const LocationField = ({label, location, error}: LocationFieldProps) => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
-  const {latitude, longitude} = location || {};
-  const hasValidLocation = latitude !== 0 && longitude !== 0;
+  const {latitude, longitude} = location || {}
+  const hasValidLocation = latitude !== 0 && longitude !== 0
 
   return (
     <View className="mb-6">
@@ -47,7 +47,7 @@ const LocationField = ({label, location, error}: LocationFieldProps) => {
 
       <ErrorText error={error} />
     </View>
-  );
-};
+  )
+}
 
-export default LocationField;
+export default LocationField

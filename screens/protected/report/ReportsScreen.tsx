@@ -1,48 +1,48 @@
-import {useState, useEffect} from 'react';
-import {useTranslation} from 'react-i18next';
-import {ScrollView} from 'react-native';
+import {useState, useEffect} from 'react'
+import {useTranslation} from 'react-i18next'
+import {ScrollView} from 'react-native'
 
-import {SectionHeader, ReportList, Pagination, FilterModal} from '@components';
-import {reportData} from '@store';
-import {type DateRange, StatusOption} from '@types';
+import {SectionHeader, ReportList, Pagination, FilterModal} from '@components'
+import {reportData} from '@store'
+import {type DateRange, StatusOption} from '@types'
 
 const ReportsScreen = () => {
-  const {t} = useTranslation();
+  const {t} = useTranslation()
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [reportsPerPage] = useState(5);
+  const [modalVisible, setModalVisible] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [reportsPerPage] = useState(5)
 
   const [selectedStatus, setSelectedStatus] = useState<StatusOption>(
     StatusOption.All,
-  );
+  )
   const [dateRange, setDateRange] = useState<DateRange>({
     start: null,
     end: null,
-  });
+  })
 
   const filteredReports = reportData.filter(({status, date}) => {
     const isStatusMatch =
-      selectedStatus === StatusOption.All || status === selectedStatus;
-    const isStartDateValid = !dateRange.start || date >= dateRange.start;
-    const isEndDateValid = !dateRange.end || date <= dateRange.end;
+      selectedStatus === StatusOption.All || status === selectedStatus
+    const isStartDateValid = !dateRange.start || date >= dateRange.start
+    const isEndDateValid = !dateRange.end || date <= dateRange.end
 
-    return isStatusMatch && isStartDateValid && isEndDateValid;
-  });
+    return isStatusMatch && isStartDateValid && isEndDateValid
+  })
 
   useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedStatus, dateRange]);
+    setCurrentPage(1)
+  }, [selectedStatus, dateRange])
 
-  const indexOfLastReport = currentPage * reportsPerPage;
-  const indexOfFirstReport = indexOfLastReport - reportsPerPage;
+  const indexOfLastReport = currentPage * reportsPerPage
+  const indexOfFirstReport = indexOfLastReport - reportsPerPage
   const currentReports = filteredReports.slice(
     indexOfFirstReport,
     indexOfLastReport,
-  );
-  const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
+  )
+  const totalPages = Math.ceil(filteredReports.length / reportsPerPage)
 
-  const toggleModal = (visible: boolean) => setModalVisible(visible);
+  const toggleModal = (visible: boolean) => setModalVisible(visible)
 
   return (
     <ScrollView className="flex-1 dark:bg-background-dark px-8 pt-6">
@@ -73,7 +73,7 @@ const ReportsScreen = () => {
         setDateRange={setDateRange}
       />
     </ScrollView>
-  );
-};
+  )
+}
 
-export default ReportsScreen;
+export default ReportsScreen

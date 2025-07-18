@@ -1,6 +1,6 @@
 {
   "appName": "SOS Reports",
-  
+
   "navigation": {
     "home": "Home",
     "personalArea": "Personal area",
@@ -11,7 +11,7 @@
     "map": "Map",
     "back": "Back"
   },
-  
+
   "authentication": {
     "welcome": "Welcome",
     "signInToYourAccount": "Sign in to your account",
@@ -30,7 +30,7 @@
     "welcomeBack": "Welcome back, {{name}}!",
     "welcomeToApp": "Welcome to the app, {{name}}!"
   },
-  
+
   "forms": {
     "name": "Name",
     "fullName": "Full Name",
@@ -49,7 +49,7 @@
     "confirm": "Confirm",
     "close": "Close"
   },
-  
+
   "validation": {
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email address",
@@ -64,7 +64,7 @@
     "confirmPasswordRequired": "Please confirm your password",
     "passwordsDoNotMatch": "Passwords do not match"
   },
-  
+
   "errors": {
     "nameRequired": "Name is required",
     "emailInvalid": "Invalid email address",
@@ -80,7 +80,7 @@
     "invalidDate": "Invalid date format",
     "imagesRequired": "At least one image is required"
   },
-  
+
   "reports": {
     "recentReports": "Recent reports",
     "allReports": "All reports",
@@ -91,7 +91,7 @@
     "reportNotFound": "Report not found",
     "viewReport": "View report"
   },
-  
+
   "status": {
     "all": "All",
     "open": "Open",
@@ -102,13 +102,13 @@
     "solved": "Solved",
     "unknown": "Unknown"
   },
-  
+
   "priority": {
     "low": "Low",
     "medium": "Medium",
     "high": "High"
   },
-  
+
   "filter": {
     "filter": "Filter",
     "selectDateRange": "Select date range",
@@ -116,7 +116,7 @@
     "filterByStatus": "Filter by status",
     "resetFilters": "Reset filters"
   },
-  
+
   "location": {
     "location": "Location",
     "address": "Address",
@@ -125,7 +125,7 @@
     "locationNotCaptured": "Location not captured",
     "coordinates": "Coordinates"
   },
-  
+
   "media": {
     "image": "Image",
     "imageSource": {
@@ -135,21 +135,21 @@
       "hint": "Please select up to {{value}} images"
     }
   },
-  
+
   "settings": {
     "changeLanguage": "Change language",
     "selectLanguage": "Select language",
     "switchToDarkMode": "Switch to dark mode",
     "switchToLightMode": "Switch to light mode"
   },
-  
+
   "quickActions": {
     "title": "Quick actions",
     "addReport": "Add report",
     "calendar": "Calendar",
     "analysis": "Analysis"
   },
-  
+
   "environmentalStatus": {
     "title": "Environmental Status",
     "updatedToday": "Updated today",
@@ -164,12 +164,12 @@
     "airQuality": "PM 2.5: {{value}}",
     "airQualityValue": "Good"
   },
-  
+
   "calendar": {
     "today": "Today",
     "noReports": "No reports for this date"
   },
-  
+
   "weekdays": {
     "monday": "Monday",
     "tuesday": "Tuesday",
@@ -179,7 +179,7 @@
     "saturday": "Saturday",
     "sunday": "Sunday"
   },
-  
+
   "months": {
     "january": "January",
     "february": "February",
@@ -194,23 +194,23 @@
     "november": "November",
     "december": "December"
   },
-  
+
   "pagination": {
     "previous": "Previous",
     "next": "Next"
   },
-  
+
   "stats": {
     "communityImpact": "Community Impact",
     "successRate": "Success rate",
     "statsByMonth": "Open and closed reports per month"
   },
-  
+
   "general": {
     "noNotifications": "No notifications",
     "noInternetConnection": "No internet connection"
   },
-  
+
   "search": {
     "placeholder": "Search address or title...",
     "myLocation": "Find my location",
