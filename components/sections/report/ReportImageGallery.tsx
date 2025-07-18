@@ -19,11 +19,12 @@ const getImageSources = (images: ImageSourcePropType[]) =>
   Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage];
 
 const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
+  const {isDark} = useTheme();
+
   const sources = getImageSources(images);
   const [current, setCurrent] = useState(0);
   const canGoLeft = current > 0;
   const canGoRight = current < sources.length - 1;
-  const {isDark} = useTheme();
 
   const scale = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => ({
@@ -31,12 +32,8 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
   }));
 
   const pinchGesture = Gesture.Pinch()
-    .onUpdate(event => {
-      scale.value = event.scale;
-    })
-    .onEnd(() => {
-      scale.value = withTiming(1);
-    });
+    .onUpdate(event => (scale.value = event.scale))
+    .onEnd(() => (scale.value = withTiming(1)));
 
   const goLeft = () => canGoLeft && setCurrent(current - 1);
   const goRight = () => canGoRight && setCurrent(current + 1);
