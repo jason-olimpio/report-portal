@@ -1,0 +1,44 @@
+import {createElement, ReactElement} from 'react';
+
+import {ImageSliderField} from '@components';
+
+import {
+  type FieldConfig,
+  FieldRenderStrategy,
+  type FieldRenderContext,
+  FieldType,
+} from '@types';
+
+class ImageSliderFieldStrategy<T extends Record<string, any>>
+  implements FieldRenderStrategy<T>
+{
+  canRender({type}: FieldConfig): boolean {
+    return type === FieldType.ImageSlider;
+  }
+
+  render(
+    field: FieldConfig,
+    fieldKey: keyof T,
+    context: FieldRenderContext<T>,
+  ): ReactElement {
+    if (!this.canRender(field)) {
+      throw new Error('ImageSliderFieldStrategy cannot render this field type');
+    }
+
+    const {form, touched, errors, handleChange} = context;
+    const fieldProps = {
+      label: field.label,
+      error: touched[fieldKey] && errors[fieldKey],
+    };
+
+    return createElement(ImageSliderField, {
+      key: fieldKey as string,
+      ...fieldProps,
+      imageUris: form[fieldKey] as string[] | undefined,
+      onImagesSelected: (uris: string[]) => handleChange(fieldKey, uris),
+      maxImages: field.maxImages,
+    });
+  }
+}
+
+export default ImageSliderFieldStrategy;

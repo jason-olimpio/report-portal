@@ -1,0 +1,219 @@
+{
+  "appName": "SOS Reports",
+  
+  "navigation": {
+    "home": "Home",
+    "personalArea": "Personal area",
+    "reports": "Reports",
+    "stats": "Stats",
+    "notifications": "Notifications",
+    "calendar": "Calendar",
+    "map": "Map",
+    "back": "Back"
+  },
+  
+  "authentication": {
+    "welcome": "Welcome",
+    "signInToYourAccount": "Sign in to your account",
+    "createAccount": "Create Account",
+    "joinUsToday": "Join us today",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "register": "Register",
+    "logout": "Logout",
+    "loginSuccess": "Login Successful",
+    "loginError": "Login Error",
+    "loginFailed": "Login failed. Please try again.",
+    "registrationSuccess": "Registration Successful",
+    "registrationError": "Registration Error",
+    "registrationFailed": "Registration failed. Please try again.",
+    "welcomeBack": "Welcome back, {{name}}!",
+    "welcomeToApp": "Welcome to the app, {{name}}!"
+  },
+  
+  "forms": {
+    "name": "Name",
+    "fullName": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "currentPassword": "Current password",
+    "confirmPassword": "Confirm password",
+    "enterEmail": "Enter your email",
+    "enterPassword": "Enter your password",
+    "enterFullName": "Enter your full name",
+    "confirmYourPassword": "Confirm your password",
+    "title": "Title",
+    "description": "Description",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close"
+  },
+  
+  "validation": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 8 characters long",
+    "passwordMaxLength": "Password cannot exceed 100 characters",
+    "passwordMustContain": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character",
+    "fullNameRequired": "Full name is required",
+    "fullNameMinLength": "Full name must be at least 2 characters long",
+    "fullNameMaxLength": "Full name cannot exceed 50 characters",
+    "fullNameInvalid": "Full name can only contain letters and spaces",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordsDoNotMatch": "Passwords do not match"
+  },
+  
+  "errors": {
+    "nameRequired": "Name is required",
+    "emailInvalid": "Invalid email address",
+    "currentPasswordRequired": "Current password is required",
+    "confirmPasswordRequired": "Confirm password is required",
+    "passwordsMustMatch": "Passwords must match",
+    "titleTooShort": "Title must be at least 3 characters long",
+    "descriptionTooShort": "Description must be at least 10 characters long",
+    "imageRequired": "Image is required",
+    "locationError": "Location not found. Please enable location services.",
+    "locationRequired": "Location is required",
+    "reportSendFailed": "Failed to send report. Please try again later.",
+    "invalidDate": "Invalid date format",
+    "imagesRequired": "At least one image is required"
+  },
+  
+  "reports": {
+    "recentReports": "Recent reports",
+    "allReports": "All reports",
+    "viewAll": "View all",
+    "noReportFound": "No report found.",
+    "reportSavedOffline": "Report saved offline",
+    "reportSaved": "Report saved",
+    "reportNotFound": "Report not found",
+    "viewReport": "View report"
+  },
+  
+  "status": {
+    "all": "All",
+    "open": "Open",
+    "closed": "Closed",
+    "pending": "Pending",
+    "working": "Working",
+    "completed": "Completed",
+    "solved": "Solved",
+    "unknown": "Unknown"
+  },
+  
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  
+  "filter": {
+    "filter": "Filter",
+    "selectDateRange": "Select date range",
+    "filterByDate": "Filter by date",
+    "filterByStatus": "Filter by status",
+    "resetFilters": "Reset filters"
+  },
+  
+  "location": {
+    "location": "Location",
+    "address": "Address",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "locationNotCaptured": "Location not captured",
+    "coordinates": "Coordinates"
+  },
+  
+  "media": {
+    "image": "Image",
+    "imageSource": {
+      "images": "Images",
+      "camera": "Camera",
+      "gallery": "Gallery",
+      "hint": "Please select up to {{value}} images"
+    }
+  },
+  
+  "settings": {
+    "changeLanguage": "Change language",
+    "selectLanguage": "Select language",
+    "switchToDarkMode": "Switch to dark mode",
+    "switchToLightMode": "Switch to light mode"
+  },
+  
+  "quickActions": {
+    "title": "Quick actions",
+    "addReport": "Add report",
+    "calendar": "Calendar",
+    "analysis": "Analysis"
+  },
+  
+  "environmentalStatus": {
+    "title": "Environmental Status",
+    "updatedToday": "Updated today",
+    "greenAreas": "Green areas",
+    "growthThisMonth": "{{value}} this month",
+    "recycling": "Recycling",
+    "monthlyRate": "Monthly rate",
+    "water": "Water",
+    "waterQuality": "Quality: {{value}}",
+    "waterQualityValue": "Excellent",
+    "air": "Air",
+    "airQuality": "PM 2.5: {{value}}",
+    "airQualityValue": "Good"
+  },
+  
+  "calendar": {
+    "today": "Today",
+    "noReports": "No reports for this date"
+  },
+  
+  "weekdays": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  
+  "stats": {
+    "communityImpact": "Community Impact",
+    "successRate": "Success rate",
+    "statsByMonth": "Open and closed reports per month"
+  },
+  
+  "general": {
+    "noNotifications": "No notifications",
+    "noInternetConnection": "No internet connection"
+  },
+  
+  "search": {
+    "placeholder": "Search address or title...",
+    "myLocation": "Find my location",
+    "locatingUser": "Locating your position..."
+  }
+}
