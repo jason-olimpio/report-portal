@@ -8,39 +8,13 @@ import type {MaterialTopTabNavigationProp} from '@react-navigation/material-top-
 import type {DrawerNavigationProp} from '@react-navigation/drawer';
 import type {RouteProp} from '@react-navigation/native';
 
-export type AuthStackParamList = {
-  AuthTabs: undefined;
-};
-
-export type AuthTabParamList = {
-  Login: undefined;
-  Register: undefined;
-};
-
-export type MainTabParamList = {
-  Home: undefined;
-  Reports: undefined;
-  Stats: undefined;
-  Notifications: undefined;
-};
-
-export type DrawerParamList = {
-  Tabs: NavigatorScreenParams<MainTabParamList>;
-  PersonalArea: undefined;
-  Logout: undefined;
-};
-
-export type MainAppStackParamList = {
-  Drawer: NavigatorScreenParams<DrawerParamList>;
-  NewReport: undefined;
-  ReportDetails: {reportId: string};
-  Calendar: undefined;
-  Notifications: undefined;
-};
-
 export type RootStackParamList = {
   Auth: NavigatorScreenParams<AuthStackParamList>;
   Main: NavigatorScreenParams<MainAppStackParamList>;
+};
+
+export type AuthStackParamList = {
+  AuthTabs: undefined;
 };
 
 export type AuthenticatedCompositeNavigationProp = CompositeNavigationProp<
@@ -59,6 +33,11 @@ export type RegisterScreenNavigationProp = MaterialTopTabNavigationProp<
   AuthTabParamList,
   'Register'
 >;
+
+export type AuthTabParamList = {
+  Login: undefined;
+  Register: undefined;
+};
 
 export type HomeScreenNavigationProp = BottomTabNavigationProp<
   MainTabParamList,
@@ -90,6 +69,7 @@ export type PersonalAreaScreenRouteProp = RouteProp<
   DrawerParamList,
   'PersonalArea'
 >;
+
 export type ReportDetailsScreenRouteProp = RouteProp<
   MainAppStackParamList,
   'ReportDetails'
@@ -98,6 +78,27 @@ export type CalendarRouteProp = StackNavigationProp<
   MainAppStackParamList,
   'Calendar'
 >;
+
+export type MainAppStackParamList = {
+  Drawer: NavigatorScreenParams<DrawerParamList>;
+  NewReport: undefined;
+  ReportDetails: {reportId: string};
+  Calendar: undefined;
+  Notifications: undefined;
+};
+
+export type DrawerParamList = {
+  Tabs: NavigatorScreenParams<MainTabParamList>;
+  PersonalArea: undefined;
+  Logout: undefined;
+};
+
+export type MainTabParamList = {
+  Home: undefined;
+  Reports: undefined;
+  Stats: undefined;
+  Notifications: undefined;
+};
 
 export type NavigationAndRoute<
   TNavigation extends object,
