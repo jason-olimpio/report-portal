@@ -6,10 +6,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Geolocation from '@react-native-community/geolocation';
 import {ZodType} from 'zod';
 
 import {useTranslation} from 'react-i18next';
+import {useUserLocation} from '@hooks';
 
 import FieldRenderer from './FieldRenderer';
 
@@ -41,6 +41,8 @@ export const FormHandler = <T extends Record<string, any>>({
   saveButtonLabel,
 }: FormHandlerProps<T>) => {
   const {t} = useTranslation();
+  const {getCurrentPosition} = useUserLocation();
+
   const [form, setForm] = useState<T>(initialState);
   const [errors, setErrors] = useState<FormErrors<T>>({});
   const [touched, setTouched] = useState<FormTouched<T>>({});
@@ -60,28 +62,26 @@ export const FormHandler = <T extends Record<string, any>>({
     }
   }, [initialState, fields]);
 
-  const captureLocation = () =>
-    Geolocation.getCurrentPosition(
-      position => {
-        const {latitude, longitude} = position.coords;
-        const location = {latitude, longitude};
+  const captureLocation = async () => {
+    try {
+      const location = await getCurrentPosition();
 
-        const locationField = fields.find(
-          field => field.type === FieldType.Location,
-        );
+      const locationField = fields.find(
+        field => field.type === FieldType.Location,
+      );
 
-        if (!locationField) {
-          return;
-        }
+      if (!locationField) {
+        return;
+      }
 
-        setForm(currentForm => ({
-          ...currentForm,
-          [locationField.key]: location,
-        }));
-      },
-      () => Alert.alert(t('errors.locationError')),
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-    );
+      setForm(currentForm => ({
+        ...currentForm,
+        [locationField.key]: location,
+      }));
+    } catch {
+      Alert.alert(t('errors.locationError'));
+    }
+  };
 
   const handleChange = (field: keyof T, value: T[keyof T]) => {
     setForm(currentForm => ({...currentForm, [field]: value}));

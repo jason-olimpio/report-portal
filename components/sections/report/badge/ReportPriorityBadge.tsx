@@ -7,9 +7,13 @@ import {PriorityOption} from '@types';
 
 type ReportPriorityBadgeProps = {
   priority: PriorityOption;
+  className?: string;
 };
 
-const ReportPriorityBadge = ({priority}: ReportPriorityBadgeProps) => {
+const ReportPriorityBadge = ({
+  priority,
+  className,
+}: ReportPriorityBadgeProps) => {
   const {t} = useTranslation();
 
   const colors = {
@@ -21,9 +25,9 @@ const ReportPriorityBadge = ({priority}: ReportPriorityBadgeProps) => {
 
   return (
     <View
-      className="flex-row items-center ${colors.bg} px-3 
-    py-1 rounded-full drop-shadow-lg border border-neutral-500">
-      <Text className={`${colors.text} font-titillium-bold text-sm`}>
+      className={`flex-row items-center ${colors.bg} px-3 py-0.5
+    rounded-full drop-shadow-lg border border-neutral-500 ${className}`}>
+      <Text className={`${colors.text} font-titillium-bold text-xs`}>
         {label}
       </Text>
     </View>

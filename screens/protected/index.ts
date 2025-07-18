@@ -1,4 +1,5 @@
 export * from './report';
+export * from './admin';
 
 export {default as CalendarScreen} from './CalendarScreen';
 export {default as HomeScreen} from './HomeScreen';

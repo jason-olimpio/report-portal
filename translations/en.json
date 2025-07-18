@@ -8,6 +8,7 @@
     "stats": "Stats",
     "notifications": "Notifications",
     "calendar": "Calendar",
+    "map": "Map",
     "back": "Back"
   },
   
@@ -87,7 +88,8 @@
     "noReportFound": "No report found.",
     "reportSavedOffline": "Report saved offline",
     "reportSaved": "Report saved",
-    "reportNotFound": "Report not found"
+    "reportNotFound": "Report not found",
+    "viewReport": "View report"
   },
   
   "status": {
@@ -207,5 +209,11 @@
   "general": {
     "noNotifications": "No notifications",
     "noInternetConnection": "No internet connection"
+  },
+  
+  "search": {
+    "placeholder": "Search address or title...",
+    "myLocation": "Find my location",
+    "locatingUser": "Locating your position..."
   }
 }

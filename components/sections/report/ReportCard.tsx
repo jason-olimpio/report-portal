@@ -49,6 +49,7 @@ const ReportCard = ({
     navigation.navigate('ReportDetails', {reportId: id});
 
   const timeAgo = getTimeAgo(date, i18n.language, t);
+  const source = getImageSource(images);
 
   return (
     <TouchableOpacity
@@ -58,7 +59,7 @@ const ReportCard = ({
       <View className="flex-row items-end justify-between">
         <View className="flex-row flex-1 min-w-0">
           <Image
-            source={getImageSource(images)}
+            source={source}
             className="w-16 h-16 mr-4 rounded-full shadow-lg"
           />
 

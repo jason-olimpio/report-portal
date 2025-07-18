@@ -1,6 +1,6 @@
 import {createContext, ReactNode, useEffect, useState} from 'react';
 
-import type {AuthUser} from '@types';
+import {AuthUser, UserRank} from '@types';
 import {
   getToken,
   isTokenValid,
@@ -30,7 +30,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    checkAuthState();
+    checkAuthState().then(response => response);
   }, []);
 
   const checkAuthState = async () => {
@@ -53,12 +53,12 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
         return;
       }
 
-      const {userId, email} = payload;
+      const {userId, email, rank = UserRank.User} = payload;
 
       setUser({
         id: userId,
         email,
-        name: '',
+        rank,
       });
     } catch (error) {
       console.error('Error checking auth state:', error);

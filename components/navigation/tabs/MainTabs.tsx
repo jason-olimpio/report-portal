@@ -3,10 +3,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {useTranslation} from 'react-i18next';
 
-import {HomeScreen, ReportsScreen, StatsScreen} from '@screens';
+import {HomeScreen, ReportsScreen, StatsScreen, MapScreen} from '@screens';
+import {useAuth, useTheme} from '@hooks';
 
 import {appColors} from '@config';
-import {useTheme} from '@hooks';
+import {UserRank} from '@types';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +17,7 @@ const TAB_ICONS: Record<string, ComponentProps<typeof MaterialIcons>['name']> =
     Reports: 'list',
     Stats: 'bar-chart',
     Notifications: 'notifications',
+    Map: 'map',
   };
 
 const getTabBarIcon = (routeName: string, color: string) => {
@@ -27,6 +29,8 @@ const getTabBarIcon = (routeName: string, color: string) => {
 const MainTabs = () => {
   const {t} = useTranslation();
   const {isDark} = useTheme();
+  const {user} = useAuth();
+
   const activeColor = isDark ? appColors.primary.light : appColors.primary.dark;
   const inactiveColor = isDark
     ? appColors.neutral.gray[200]
@@ -65,6 +69,14 @@ const MainTabs = () => {
         component={StatsScreen}
         options={{tabBarLabel: t('navigation.stats')}}
       />
+
+      {user?.rank === UserRank.Admin && (
+        <Tab.Screen
+          name="Map"
+          component={MapScreen}
+          options={{tabBarLabel: t('navigation.map')}}
+        />
+      )}
     </Tab.Navigator>
   );
 };

@@ -2,11 +2,9 @@ import {useState, useRef} from 'react';
 import {
   View,
   Text,
-  Image,
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-  ImageSourcePropType,
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
@@ -20,25 +18,28 @@ import {
 } from '@maplibre/maplibre-react-native';
 
 import {reportData} from '@store';
-import {ReportStatusBadge, BackButton} from '@components';
-import {useTheme} from '@hooks';
-import {PlaceholderImage} from '@assets';
+import {
+  ReportStatusBadge,
+  BackButton,
+  ReportImageGallery,
+  ReportPriorityBadge,
+} from '@components';
 
-import {appColors} from '@config';
+import {useAuth, useTheme} from '@hooks';
 
-import type {ReportDetailsScreenRouteProp} from '@types';
+import {appColors, mapConfig} from '@config';
+
+import {UserRank, type ReportDetailsScreenRouteProp} from '@types';
 import {getLocaleForDateFns} from '@utils';
 
-const getImageSources = (images: ImageSourcePropType[]) =>
-  Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage];
-
 const ReportDetailsScreen = () => {
-  const [zoom, setZoom] = useState(14);
+  const [zoom] = useState(14);
   const cameraRef = useRef<CameraRef | null>(null);
 
   const {isDark} = useTheme();
   const {t, i18n} = useTranslation();
   const route = useRoute<ReportDetailsScreenRouteProp>();
+  const {user} = useAuth();
   const {reportId} = route.params;
 
   const report = reportData.find(item => item.id === reportId);
@@ -53,7 +54,16 @@ const ReportDetailsScreen = () => {
     );
   }
 
-  const {images, title, description, address, location, date, status} = report;
+  const {
+    images,
+    title,
+    description,
+    address,
+    location,
+    date,
+    status,
+    priority,
+  } = report;
   const {latitude, longitude} = location;
 
   const locale = getLocaleForDateFns(i18n.resolvedLanguage);
@@ -67,29 +77,20 @@ const ReportDetailsScreen = () => {
     });
 
   return (
-    <ScrollView
-      className="flex-1 bg-background-light dark:bg-background-dark"
-      contentContainerStyle={styles.scrollViewContent}>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <View className="flex-row justify-between items-center mb-10">
         <BackButton />
 
-        <ReportStatusBadge status={status} />
+        <View className="flex-row items-center">
+          {user?.rank === UserRank.Admin && (
+            <ReportPriorityBadge priority={priority} className="mr-1" />
+          )}
+
+          <ReportStatusBadge status={status} />
+        </View>
       </View>
 
-      <View className="items-center w-full mb-4">
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.imageScrollContent}>
-          {getImageSources(images).map((source, idx) => (
-            <Image
-              key={idx}
-              source={source}
-              className="w-48 h-48 rounded-3xl shadow-lg mx-2 bg-neutral-200"
-            />
-          ))}
-        </ScrollView>
-      </View>
+      <ReportImageGallery images={images} />
 
       <Text className="text-xl mb-2 font-titillium-bold text-neutral-gray-800 text-center dark:text-white">
         {title}
@@ -125,7 +126,7 @@ const ReportDetailsScreen = () => {
         <View className="h-64 rounded-lg overflow-hidden shadow-lg">
           <MapView
             style={styles.mapView}
-            mapStyle="https://api.maptiler.com/maps/basic-v2/style.json?key=Yj0eOO10ncmOC0nfSYY1"
+            mapStyle={mapConfig.maptilerStyleUrl}
             attributionEnabled={false}
             scrollEnabled={true}>
             <Camera
@@ -141,40 +142,16 @@ const ReportDetailsScreen = () => {
             </PointAnnotation>
           </MapView>
 
-          <View className="absolute right-2 top-2 flex-col z-10">
-            <TouchableOpacity
-              onPress={() => setZoom(value => Math.min(value + 1, 20))}
-              className="bg-background-light dark:bg-background-dark rounded-full p-1 
-              mb-2 items-center justify-center shadow">
-              <MaterialIcons
-                name="add"
-                size={15}
-                color={isDark ? 'white' : 'black'}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => setZoom(value => Math.max(value - 1, 1))}
-              className="bg-background-light dark:bg-background-dark rounded-full 
-              p-1 mb-2 items-center justify-center shadow">
-              <MaterialIcons
-                name="remove"
-                size={15}
-                color={isDark ? 'white' : 'black'}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={handleCenterToMarker}
-              className="bg-background-light dark:bg-background-dark rounded-full p-1 
-              items-center justify-center shadow">
-              <MaterialIcons
-                name="my-location"
-                size={15}
-                color={isDark ? 'white' : 'black'}
-              />
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            onPress={handleCenterToMarker}
+            className="absolute right-2 top-2 bg-background-light dark:bg-background-dark 
+            rounded-full p-1 mb-2 items-center justify-center shadow z-10">
+            <MaterialIcons
+              name="my-location"
+              size={15}
+              color={isDark ? 'white' : 'black'}
+            />
+          </TouchableOpacity>
         </View>
 
         <Text className="text-xs text-neutral-gray-500 dark:text-neutral-gray-100 mt-4 text-center">
@@ -182,8 +159,6 @@ const ReportDetailsScreen = () => {
           {longitude.toFixed(4)}
         </Text>
       </View>
-
-      {/*<ReportPriorityBadge priority={priority}/>*/}
     </ScrollView>
   );
 };
@@ -195,11 +170,6 @@ const styles = StyleSheet.create({
   },
   mapView: {
     flex: 1,
-  },
-  imageScrollContent: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
   },
 });
 

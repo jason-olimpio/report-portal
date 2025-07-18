@@ -38,8 +38,8 @@ const LoginScreen = () => {
   });
 
   const initialState: LoginCredentials = {
-    email: 'user@example.com',
-    password: 'Password123!',
+    email: 'admin@example.com',
+    password: 'Admin123!',
   };
 
   const fields: FieldConfig[] = [

@@ -1,20 +1,35 @@
-import type {LoginCredentials, RegisterData, AuthResponse} from '@types';
+import {
+  type LoginCredentials,
+  type RegisterData,
+  type AuthResponse,
+  UserRank,
+} from '@types';
 import {getApiDelay} from '@config';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const mockUsers = [
+type MockUser = {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+  rank: UserRank;
+};
+
+const mockUsers: MockUser[] = [
   {
     id: '1',
     email: 'user@example.com',
     password: 'Password123!',
     name: 'John Doe',
+    rank: UserRank.User,
   },
   {
     id: '2',
     email: 'admin@example.com',
-    password: 'admin123',
+    password: 'Admin123!',
     name: 'Admin User',
+    rank: UserRank.Admin,
   },
 ];
 
@@ -42,12 +57,15 @@ export const mockLogin = async (
 
   const mockToken = `mock.jwt.token.${user.id}.${Date.now()}`;
 
+  const {id, email, name, rank} = user;
+
   return {
     token: mockToken,
     user: {
-      id: user.id,
-      email: user.email,
-      name: user.name,
+      id,
+      email,
+      name,
+      rank,
     },
   };
 };
@@ -70,11 +88,14 @@ export const mockRegister = async (
     throw error;
   }
 
-  const newUser = {
+  const {email, password, name} = userData;
+
+  const newUser: MockUser = {
     id: (mockUsers.length + 1).toString(),
-    email: userData.email,
-    password: userData.password,
-    name: userData.name,
+    email: email,
+    password: password,
+    name: name,
+    rank: UserRank.User,
   };
 
   mockUsers.push(newUser);
@@ -83,10 +104,6 @@ export const mockRegister = async (
 
   return {
     token: mockToken,
-    user: {
-      id: newUser.id,
-      email: newUser.email,
-      name: newUser.name,
-    },
+    user: newUser,
   };
 };
