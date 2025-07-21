@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback, useMemo} from 'react'
+import {useState, useEffect} from 'react'
 import {
   StyleSheet,
   View,
@@ -9,11 +9,11 @@ import {
 } from 'react-native'
 import {Camera, MapView, PointAnnotation} from '@maplibre/maplibre-react-native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
+import {useTranslation} from 'react-i18next'
 
 import {useRegion, useTheme, useUserLocation} from '@hooks'
 import {reportData} from '@store'
 import {ReportDetailsBottomSheet} from '@components'
-import {useTranslation} from 'react-i18next'
 import type {Report, Region} from '@types'
 import {appColors, mapConfig} from '@config'
 
@@ -37,18 +37,14 @@ const MapScreen = () => {
     initializeRegion()
   }, [centerOnUserLocation])
 
-  const visibleReports = useMemo(
-    () =>
-      reportData.filter(
-        ({title, address}: Report) =>
-          search === '' ||
-          title.toLowerCase().includes(search.toLowerCase()) ||
-          address.toLowerCase().includes(search.toLowerCase()),
-      ),
-    [search],
+  const visibleReports = reportData.filter(
+    ({title, address}: Report) =>
+      search === '' ||
+      title.toLowerCase().includes(search.toLowerCase()) ||
+      address.toLowerCase().includes(search.toLowerCase()),
   )
 
-  const handleSearchAndMoveToMarker = useCallback((searchTerm: string) => {
+  const handleSearchAndMoveToMarker = (searchTerm: string) => {
     setSearch(searchTerm)
 
     const matchingReport = reportData.find(
@@ -71,7 +67,7 @@ const MapScreen = () => {
       longitudeDelta:
         0.005 * (currentRegion.longitudeDelta / currentRegion.latitudeDelta),
     }))
-  }, [])
+  }
 
   const handleMyLocationPress = () => {
     centerOnUserLocation(setRegion)
