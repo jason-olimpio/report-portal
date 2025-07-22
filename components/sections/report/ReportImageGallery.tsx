@@ -3,6 +3,7 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  useDerivedValue,
 } from 'react-native-reanimated'
 import {Gesture, GestureDetector} from 'react-native-gesture-handler'
 import Carousel from 'react-native-reanimated-carousel'
@@ -27,6 +28,8 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
     transform: [{scale: scale.value}],
   }))
 
+  const carouselEnabled = useDerivedValue(() => scale.value <= 1.01)
+
   const pinchGesture = Gesture.Pinch()
     .onUpdate(event => (scale.value = event.scale))
     .onEnd(() => (scale.value = withTiming(1)))
@@ -46,6 +49,7 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
         loop={false}
         pagingEnabled
         snapEnabled
+        enabled={carouselEnabled.value}
         renderItem={({item}: {item: ImageSourcePropType; index: number}) => (
           <GestureDetector gesture={pinchGesture}>
             <Animated.View
