@@ -50,7 +50,6 @@ const MainTabs = () => {
               : appColors.background.secondaryLight,
           },
         ],
-        swipeEnabled: true,
       })}>
       <Tab.Screen
         name="Home"
