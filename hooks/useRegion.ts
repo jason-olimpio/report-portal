@@ -1,4 +1,3 @@
-
 import {useWindowDimensions} from 'react-native'
 import {Location} from '@types'
 
