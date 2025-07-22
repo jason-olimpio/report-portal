@@ -4,3 +4,4 @@ export * from './QuickActions'
 
 export {default as CommunityImpactSection} from './CommunityImpactSection'
 export {default as SectionHeader} from './SectionHeader'
+export {default as Leaderboard} from './Leaderboard'

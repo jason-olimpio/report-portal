@@ -80,7 +80,7 @@ const ReportDetailsBottomSheet = ({
             }
           />
 
-          <Text className="text-neutral-gray-400 mb-1 ml-1 dark:text-neutral-gray-200 text-sm">
+          <Text className="text-neutral-gray-400 mb-1 ml-0.5 dark:text-neutral-gray-200 text-sm">
             {address}
           </Text>
         </View>
@@ -88,7 +88,7 @@ const ReportDetailsBottomSheet = ({
         <Text className="mb-4 text-black dark:text-white">{description}</Text>
 
         <TouchableOpacity
-          className="bg-primary-light dark:bg-primary-dark p-3 rounded-2xl"
+          className="bg-primary-light dark:bg-primary-dark p-3 rounded-2xl mb-2"
           onPress={handlePress}>
           <Text className="text-white text-center font-titillium-bold">
             {t('reports.viewReport')}

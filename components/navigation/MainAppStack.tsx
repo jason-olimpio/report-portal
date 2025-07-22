@@ -6,7 +6,9 @@ import {
   NotificationScreen,
   CalendarScreen,
 } from '@screens'
-import {AppDrawer} from '@components'
+
+import AppDrawer from './AppDrawer'
+
 import type {MainAppStackParamList} from '@types'
 
 const Stack = createStackNavigator<MainAppStackParamList>()

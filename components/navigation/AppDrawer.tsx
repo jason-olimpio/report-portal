@@ -4,7 +4,7 @@ import {Pressable, Text, View} from 'react-native'
 import {useTranslation} from 'react-i18next'
 import {NavigationProp, useNavigation} from '@react-navigation/native'
 
-import {MainTabs, LoginRegisterTabs} from '@components'
+import {LoginRegisterTabs, MainTabs} from './tabs'
 
 import {PersonalAreaScreen} from '@screens'
 

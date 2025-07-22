@@ -14,19 +14,37 @@ import {useTranslation} from 'react-i18next'
 import {useRegion, useTheme, useUserLocation} from '@hooks'
 import {reportData} from '@store'
 import {ReportDetailsBottomSheet} from '@components'
-import type {Report, Region} from '@types'
+import type {Report, Region, Location} from '@types'
 import {appColors, mapConfig} from '@config'
 
 const MapScreen = () => {
-  const {centerOnUserLocation} = useUserLocation()
+  const {centerOnUserLocation, getCurrentPosition} = useUserLocation()
   const {isDark} = useTheme()
   const {t} = useTranslation()
   const initialRegion = useRegion()
 
   const [search, setSearch] = useState('')
   const [selectedReport, setSelectedReport] = useState<Report | null>(null)
+
   const [regionReady, setRegionReady] = useState(false)
   const [region, setRegion] = useState<Region>(initialRegion)
+
+  const [zoomLevel, setZoomLevel] = useState(13)
+
+  const [currentLocation, setCurrentLocation] = useState<Location | null>(null)
+
+  useEffect(() => {
+    const fetchCurrentLocation = async () => {
+      try {
+        const location = await getCurrentPosition()
+        setCurrentLocation(location)
+      } catch {
+        setCurrentLocation(null)
+      }
+    }
+
+    fetchCurrentLocation()
+  }, [getCurrentPosition])
 
   useEffect(() => {
     const initializeRegion = async () => {
@@ -69,15 +87,18 @@ const MapScreen = () => {
     }))
   }
 
-  const handleMyLocationPress = () => {
-    centerOnUserLocation(setRegion)
+  const handleMyLocationPress = async () => {
+    await centerOnUserLocation(setRegion)
+    setZoomLevel(13)
     setSelectedReport(null)
     setSearch('')
   }
 
   const handleMarkerSelect = (report: Report) => {
     Keyboard.dismiss()
+
     setSelectedReport(report)
+    setZoomLevel(17)
   }
 
   if (!regionReady) {
@@ -137,8 +158,17 @@ const MapScreen = () => {
         attributionEnabled={false}>
         <Camera
           centerCoordinate={[region.longitude, region.latitude]}
-          zoomLevel={13}
+          zoomLevel={zoomLevel}
         />
+
+        {currentLocation && (
+          <PointAnnotation
+            id="user-location-dot"
+            coordinate={[currentLocation.longitude, currentLocation.latitude]}>
+            <View className="w-4 h-4 rounded-full bg-primary-light dark:bg-primary-dark border-2 border-white" />
+          </PointAnnotation>
+        )}
+
         {visibleReports.map(({id, location, ...rest}) => (
           <PointAnnotation
             key={id}
@@ -146,8 +176,8 @@ const MapScreen = () => {
             coordinate={[location.longitude, location.latitude]}
             onSelected={() => handleMarkerSelect({id, location, ...rest})}>
             <MaterialIcons
-              name="location-on"
-              size={20}
+              name="not-listed-location"
+              size={25}
               color={isDark ? appColors.primary.dark : appColors.primary.light}
             />
           </PointAnnotation>

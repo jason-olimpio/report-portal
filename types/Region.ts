@@ -1,9 +1,8 @@
-export type Region = {
-  latitude: number
-  longitude: number
+import {Location} from './report'
+
+export type Region = Location & {
   latitudeDelta: number
   longitudeDelta: number
-  [key: string]: any
 }
 
 export type RegionPayloadFeature = {

@@ -4,7 +4,8 @@ import {createStackNavigator} from '@react-navigation/stack'
 
 import {useAuth} from '@hooks'
 
-import {AppDrawer, MainAppStack} from '@components'
+import AppDrawer from './AppDrawer'
+import MainAppStack from './MainAppStack'
 
 import type {RootStackParamList} from '@types'
 

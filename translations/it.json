@@ -203,7 +203,16 @@
   "stats": {
     "communityImpact": "Impatto della Comunità",
     "successRate": "Tasso di successo",
-    "statsByMonth": "Report aperti e chiusi per mese"
+    "statsByMonth": "Report aperti e chiusi per mese",
+    "mostActiveCitizens": "Cittadini più attivi",
+    "expand": "Espandi",
+    "collapse": "Comprimi",
+    "points": "punti",
+    "badge": {
+      "expert": "Esperto",
+      "veteran": "Veterano",
+      "active": "Attivo"
+    }
   },
 
   "general": {

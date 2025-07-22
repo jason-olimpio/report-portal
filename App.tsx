@@ -4,13 +4,14 @@ import {useEffect, useState} from 'react'
 
 import {useTranslation} from 'react-i18next'
 import NetInfo from '@react-native-community/netinfo'
-
-import 'react-native-gesture-handler'
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
 
 import './i18n'
 
-import {ThemeProvider, AuthProvider} from '@contexts'
 import {AppNavigator, Snackbar} from '@components'
+
+import {ThemeProvider, AuthProvider} from '@contexts'
+
 import {startNetworkMonitor} from '@storage'
 
 import {isOnline} from '@utils'
@@ -35,16 +36,18 @@ const App = () => {
   }, [])
 
   return (
-    <AuthProvider>
-      <ThemeProvider>
-        <AppNavigator />
+    <GestureHandlerRootView>
+      <AuthProvider>
+        <ThemeProvider>
+          <AppNavigator />
 
-        <Snackbar
-          visible={!isConnected}
-          message={t('general.noInternetConnection')}
-        />
-      </ThemeProvider>
-    </AuthProvider>
+          <Snackbar
+            visible={!isConnected}
+            message={t('general.noInternetConnection')}
+          />
+        </ThemeProvider>
+      </AuthProvider>
+    </GestureHandlerRootView>
   )
 }
 

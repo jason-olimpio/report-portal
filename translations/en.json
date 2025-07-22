@@ -203,7 +203,16 @@
   "stats": {
     "communityImpact": "Community Impact",
     "successRate": "Success rate",
-    "statsByMonth": "Open and closed reports per month"
+    "statsByMonth": "Open and closed reports per month",
+    "mostActiveCitizens": "Most active citizens",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "points": "points",
+    "badge": {
+      "expert": "Expert",
+      "veteran": "Veteran",
+      "active": "Active"
+    }
   },
 
   "general": {

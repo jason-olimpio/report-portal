@@ -1,94 +1,117 @@
-import {Fragment, useState, useEffect} from 'react'
-import {Text, ScrollView, Dimensions} from 'react-native'
-import {BarChart} from 'react-native-chart-kit'
+import {Fragment, useState} from 'react'
+import {Text, ScrollView, View} from 'react-native'
+import {CartesianChart, Bar} from 'victory-native'
 import {useTranslation} from 'react-i18next'
-import type {ChartConfig} from 'react-native-chart-kit/dist/HelperTypes'
 
 import {reportData} from '@store'
-import {useTheme} from '@hooks'
+import {useTheme, useAuth} from '@hooks'
+
+import {Leaderboard} from '@components'
 
 import {appColors} from '@config'
 import {getMonthLabel, getMonthlyReportStats} from '@utils'
+import {UserRank} from '@types'
 
-const chartConfigBase: ChartConfig = {
-  backgroundColor: 'white',
-  backgroundGradientFrom: 'white',
-  backgroundGradientTo: 'white',
-  decimalPlaces: 0,
-  barPercentage: 0.5,
-}
-
-type ChartSection = {
+type ExpandedChartContent = {
+  key: ExpandedChart
+  visible: boolean
   label: string
   data: number[]
   color: string
 }
 
+enum ExpandedChart {
+  Open,
+  Closed,
+  None,
+}
+
 const StatsScreen = () => {
   const {t} = useTranslation()
-  const {open, closed, months} = getMonthlyReportStats(reportData)
   const {isDark} = useTheme()
+  const {user} = useAuth()
 
-  const [screenWidth, setScreenWidth] = useState(
-    Dimensions.get('window').width - 60,
-  )
-
-  useEffect(() => {
-    const onChange = ({window}: {window: {width: number}}) =>
-      setScreenWidth(window.width - 60)
-
-    const subscription = Dimensions.addEventListener('change', onChange)
-
-    return () => subscription.remove()
-  }, [])
+  const {open, closed, months} = getMonthlyReportStats(reportData)
 
   const monthLabels = months
     .filter((month): month is number => month !== undefined)
     .map(month => getMonthLabel(month, t))
     .map(label => label.substring(0, 3))
 
-  const renderBarChart = (data: number[], color: string) => (
-    <BarChart
-      data={{
-        labels: monthLabels,
-        datasets: [{data}],
-      }}
-      width={screenWidth}
-      height={280}
-      yAxisLabel=""
-      yAxisSuffix=""
-      yLabelsOffset={40}
-      chartConfig={{
-        ...chartConfigBase,
-        backgroundColor: isDark
-          ? appColors.background.secondaryDark
-          : appColors.background.secondaryLight,
-        backgroundGradientFrom: isDark
-          ? appColors.background.secondaryDark
-          : appColors.background.secondaryLight,
-        backgroundGradientTo: isDark
-          ? appColors.background.secondaryDark
-          : appColors.background.secondaryLight,
-        color: () => color,
-        labelColor: () =>
-          isDark ? appColors.text.primary.dark : appColors.text.primary.light,
-        propsForVerticalLabels: {
-          fontSize: 10,
-        },
-        propsForHorizontalLabels: {
-          fontSize: 12,
-        },
-      }}
-      fromZero
-      showBarTops
-      showValuesOnTopOfBars
-      withHorizontalLabels
-      style={styles.chart}
-    />
+  const renderBarChart = (data: number[], color: string) => {
+    const chartData = [
+      {x: '', y: 0},
+      ...monthLabels.map((label, i) => ({
+        x: label,
+        y: data[i] ?? 0,
+      })),
+      {x: '', y: 0},
+    ]
+
+    const maxY = Math.max(...data, 5)
+    const minY = 0
+    const steps = 5
+    const stepSize = Math.ceil((maxY - minY) / (steps - 1)) || 1
+    const yTicks = Array.from({length: steps}, (_, i) => maxY - i * stepSize)
+
+    return (
+      <View className="my-4 items-center">
+        <View className="w-full">
+          <View className="bg-white/70 dark:bg-gray-900/60 rounded-2xl shadow-sm py-6 items-center">
+            <View className="flex-row w-full items-center">
+              <View className="h-56 justify-between items-end mr-1 py-2">
+                {yTicks.map((tick, idx) => (
+                  <Text
+                    key={idx}
+                    className="text-xs text-gray-400 dark:text-gray-500 
+                    font-titillium-semibold text-right min-w-[24px]">
+                    {tick}
+                  </Text>
+                ))}
+              </View>
+
+              <View className="h-56 flex-1 px-2">
+                <CartesianChart data={chartData} xKey="x" yKeys={['y']}>
+                  {({points, chartBounds}) => (
+                    <Bar
+                      points={points.y}
+                      chartBounds={chartBounds}
+                      color={color}
+                      barWidth={9}
+                      roundedCorners={{topLeft: 6, topRight: 6}}
+                    />
+                  )}
+                </CartesianChart>
+              </View>
+            </View>
+
+            <View className="flex-row items-center mt-1 w-full">
+              <View className="min-w-[24px] mr-1" />
+              {['', ...monthLabels, ''].map((label, idx) => (
+                <Text
+                  key={idx}
+                  className="flex-1 text-xs text-gray-500 dark:text-gray-300 font-titillium-semibold text-center">
+                  {label}
+                </Text>
+              ))}
+            </View>
+          </View>
+        </View>
+      </View>
+    )
+  }
+
+  const totalOpen = open.reduce((sum, count) => sum + count, 0)
+  const totalClosed = closed.reduce((sum, count) => sum + count, 0)
+
+  const [expandedChart, setExpandedChart] = useState<ExpandedChart>(
+    ExpandedChart.None,
   )
 
-  const chartSections: ChartSection[] = [
+  const expandedChartContent: ExpandedChartContent[] = [
     {
+      key: ExpandedChart.Open,
+      visible: expandedChart === ExpandedChart.Open,
       label: t('status.open'),
       data: open,
       color: isDark
@@ -96,6 +119,8 @@ const StatsScreen = () => {
         : appColors.system.emerald[600].light,
     },
     {
+      key: ExpandedChart.Closed,
+      visible: expandedChart === ExpandedChart.Closed,
       label: t('status.closed'),
       data: closed,
       color: isDark
@@ -112,15 +137,39 @@ const StatsScreen = () => {
         {t('stats.statsByMonth')}
       </Text>
 
-      {chartSections.map(({label, data, color}) => (
-        <Fragment key={label}>
-          <Text className="dark:text-white font-titillium-semibold mt-2">
-            {label}
+      <View className="flex-row justify-center items-center mb-4">
+        <View
+          className="flex-row bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden border 
+        border-gray-300 dark:border-gray-700">
+          <Text
+            className={`px-6 py-2 font-titillium-bold text-center ${
+              expandedChart === ExpandedChart.Open
+                ? 'bg-white dark:bg-emerald-800 text-emerald-700 dark:text-emerald-100 shadow-sm z-10 rounded-l-xl'
+                : 'text-emerald-700 dark:text-emerald-200 opacity-70'
+            }`}
+            onPress={() => setExpandedChart(ExpandedChart.Open)}>
+            {t('status.open')} ({totalOpen})
           </Text>
 
-          {renderBarChart(data, color)}
-        </Fragment>
-      ))}
+          <Text
+            className={`px-6 py-2 font-titillium-bold text-center ${
+              expandedChart === ExpandedChart.Closed
+                ? 'bg-white dark:bg-teal-800 text-teal-700 dark:text-teal-100 shadow-sm z-10 rounded-r-xl'
+                : 'text-teal-700 dark:text-teal-200 opacity-70'
+            }`}
+            onPress={() => setExpandedChart(ExpandedChart.Closed)}>
+            {t('status.closed')} ({totalClosed})
+          </Text>
+        </View>
+      </View>
+
+      {expandedChartContent
+        .filter(item => item.visible)
+        .map(({key, data, color}) => (
+          <Fragment key={key}>{renderBarChart(data, color)}</Fragment>
+        ))}
+
+      {user?.rank === UserRank.Admin && <Leaderboard />}
     </ScrollView>
   )
 }
@@ -128,6 +177,5 @@ const StatsScreen = () => {
 export default StatsScreen
 
 const styles = {
-  chart: {borderRadius: 16, paddingTop: 24, paddingBottom: 20},
   contentContainer: {flexGrow: 1, paddingBottom: 40},
 }

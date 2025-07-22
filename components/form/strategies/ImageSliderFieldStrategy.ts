@@ -35,7 +35,8 @@ class ImageSliderFieldStrategy<T extends Record<string, any>>
       key: fieldKey as string,
       ...fieldProps,
       imageUris: form[fieldKey] as string[] | undefined,
-      onImagesSelected: (uris: string[]) => handleChange(fieldKey, uris),
+      onImagesSelected: (uris: string[]) =>
+        handleChange(fieldKey, uris as T[keyof T]),
       maxImages: field.maxImages,
     })
   }

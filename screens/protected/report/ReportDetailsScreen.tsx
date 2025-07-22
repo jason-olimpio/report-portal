@@ -1,11 +1,5 @@
 import {useState, useRef} from 'react'
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native'
+import {View, Text, ScrollView, StyleSheet} from 'react-native'
 import {useRoute} from '@react-navigation/native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {useTranslation} from 'react-i18next'
@@ -69,15 +63,10 @@ const ReportDetailsScreen = () => {
   const locale = getLocaleForDateFns(i18n.resolvedLanguage)
   const formattedDate = format(date, 'PPP', {locale})
 
-  const handleCenterToMarker = () =>
-    cameraRef.current?.setCamera({
-      centerCoordinate: [longitude, latitude],
-      zoomLevel: zoom,
-      animationDuration: 500,
-    })
-
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContent}>
+    <ScrollView
+      contentContainerStyle={styles.scrollViewContent}
+      className="bg-background-light dark:bg-background-dark">
       <View className="flex-row justify-between items-center mb-10">
         <BackButton />
 
@@ -128,7 +117,10 @@ const ReportDetailsScreen = () => {
             style={styles.mapView}
             mapStyle={mapConfig.maptilerStyleUrl}
             attributionEnabled={false}
-            scrollEnabled={true}>
+            scrollEnabled={false}
+            zoomEnabled={true}
+            pitchEnabled={false}
+            rotateEnabled={false}>
             <Camera
               ref={cameraRef}
               centerCoordinate={[longitude, latitude]}
@@ -138,20 +130,15 @@ const ReportDetailsScreen = () => {
             <PointAnnotation
               id="reportLocation"
               coordinate={[longitude, latitude]}>
-              <MaterialIcons name="report-problem" size={15} color="red" />
+              <MaterialIcons
+                name="location-on"
+                size={25}
+                color={
+                  isDark ? appColors.primary.dark : appColors.primary.light
+                }
+              />
             </PointAnnotation>
           </MapView>
-
-          <TouchableOpacity
-            onPress={handleCenterToMarker}
-            className="absolute right-2 top-2 bg-background-light dark:bg-background-dark 
-            rounded-full p-1 mb-2 items-center justify-center shadow z-10">
-            <MaterialIcons
-              name="my-location"
-              size={15}
-              color={isDark ? 'white' : 'black'}
-            />
-          </TouchableOpacity>
         </View>
 
         <Text className="text-xs text-neutral-gray-500 dark:text-neutral-gray-100 mt-4 text-center">
