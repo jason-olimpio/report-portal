@@ -1,6 +1,8 @@
-import {useWindowDimensions} from 'react-native'
 
-const INITIAL_REGION = {
+import {useWindowDimensions} from 'react-native'
+import {Location} from '@types'
+
+const INITIAL_REGION: Location = {
   latitude: 45.4654,
   longitude: 9.1859,
 }
