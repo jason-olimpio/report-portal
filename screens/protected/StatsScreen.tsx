@@ -23,7 +23,6 @@ type ExpandedChartContent = {
 enum ExpandedChart {
   Open,
   Closed,
-  None,
 }
 
 const StatsScreen = () => {
@@ -105,7 +104,7 @@ const StatsScreen = () => {
   const totalClosed = closed.reduce((sum, count) => sum + count, 0)
 
   const [expandedChart, setExpandedChart] = useState<ExpandedChart>(
-    ExpandedChart.None,
+    ExpandedChart.Open,
   )
 
   const expandedChartContent: ExpandedChartContent[] = [
