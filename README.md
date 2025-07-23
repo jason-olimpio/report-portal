@@ -38,13 +38,17 @@ Assicurati di avere:
 ### Installazione passo-passo:
 
 ```bash
+# 1. Clona il progetto
 git clone https://git.fm-technology.it/sviluppo/staging/sossegnalazioni.git
 cd AppSos
 
+# 2. Installa le dipendenze
 npm install
 
+# 3. Avvia il server di sviluppo
 npm start
 
-npm run android
-npm run ios
+# 4. Esegui l'app (scegli una piattaforma)
+npm run android   # Per Android
+npm run ios       # Per iOS (solo su Mac)
 ```
