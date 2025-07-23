@@ -47,9 +47,7 @@ const ReportFilterOptions = ({
   const getDateRangeText = () => {
     const {start, end} = dateRange
 
-    if (!start || !end) {
-      return t('filter.selectDateRange')
-    }
+    if (!start || !end) return t('filter.selectDateRange')
 
     return `${start.toLocaleDateString('it-IT')} - ${end.toLocaleDateString('it-IT')}`
   }

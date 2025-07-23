@@ -41,17 +41,13 @@ const ImageSliderField = ({
     const picker = source === 'camera' ? launchCamera : launchImageLibrary
     const response = await picker(options)
 
-    if (response.didCancel || response.errorCode) {
-      return
-    }
+    if (response.didCancel || response.errorCode) return
 
     const selectedUris =
       (response.assets?.map(asset => asset.uri).filter(Boolean) as string[]) ||
       []
 
-    if (selectedUris.length < 0) {
-      return
-    }
+    if (selectedUris.length < 0) return
 
     const newUris = [...imageUris, ...selectedUris].slice(0, maxImages)
 

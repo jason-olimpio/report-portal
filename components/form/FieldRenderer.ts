@@ -32,9 +32,8 @@ class FieldRenderer<T extends Record<string, any>> {
       strategy.canRender(field),
     )
 
-    if (!strategy) {
+    if (!strategy)
       throw new Error(`No strategy found for field type: ${field.type}`)
-    }
 
     return strategy.render(field, fieldKey, context)
   }

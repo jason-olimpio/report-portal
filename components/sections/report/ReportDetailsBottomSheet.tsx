@@ -23,9 +23,7 @@ const ReportDetailsBottomSheet = ({
   const navigation = useNavigation<ReportCardNavigationProp>()
   const {isDark} = useTheme()
 
-  if (!report) {
-    return null
-  }
+  if (!report) return null
 
   const {id, title, address, description, images} = report
 

@@ -22,9 +22,8 @@ export class LocationFieldStrategy<T extends Record<string, any>>
     fieldKey: keyof T,
     context: FieldRenderContext<T>,
   ): ReactElement {
-    if (!this.canRender(field)) {
+    if (!this.canRender(field))
       throw new Error('LocationFieldStrategy cannot render this field type')
-    }
 
     const {form, touched, errors} = context
     const fieldProps = {

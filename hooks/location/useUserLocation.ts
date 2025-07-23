@@ -14,9 +14,8 @@ const useUserLocation = () => {
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       )
 
-      if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+      if (granted !== PermissionsAndroid.RESULTS.GRANTED)
         throw new Error('Location permission denied')
-      }
     }
 
     const {coords} = await new Promise<GeolocationResponse>((resolve, reject) =>

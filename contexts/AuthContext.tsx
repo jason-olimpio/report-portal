@@ -55,6 +55,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
 
       setUser({
         id: userId,
+        name: '',
         email,
         rank,
       })

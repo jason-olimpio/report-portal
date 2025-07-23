@@ -6,9 +6,7 @@ type ErrorTextProps = {
 }
 
 const ErrorText = ({error, className = ''}: ErrorTextProps) => {
-  if (!error) {
-    return null
-  }
+  if (!error) return null
 
   return (
     <Text className={`text-red-500 text-sm mt-4 ${className}`.trim()}>

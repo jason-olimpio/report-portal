@@ -11,9 +11,7 @@ const dateFnsLocales: Record<SupportedDateFnsLocale, Locale> = {
 }
 
 const getLocaleForDateFns = (language: string | undefined): Locale => {
-  if (!language) {
-    return enUS
-  }
+  if (!language) return enUS
 
   return dateFnsLocales[language as SupportedDateFnsLocale] || enUS
 }

@@ -13,13 +13,12 @@ type ReportListProps = {
 const ReportList = ({reports, menuOpenId, setMenuOpenId}: ReportListProps) => {
   const {t} = useTranslation()
 
-  if (reports.length === 0) {
+  if (reports.length === 0)
     return (
       <Text className="text-center mt-5 text-base text-gray-500 dark:text-gray-200">
         {t('reports.noReportFound')}
       </Text>
     )
-  }
 
   return (
     <View className="w-full">

@@ -27,7 +27,7 @@ export default [
       'react-native/no-inline-styles': 'warn',
       'react/jsx-uses-react': 'off',
       'react/react-in-jsx-scope': 'off',
-      curly: ['error', 'all'],
+      curly: ['error', 'multi'],
       semi: ['error', 'never'],
       quotes: [
         'error',

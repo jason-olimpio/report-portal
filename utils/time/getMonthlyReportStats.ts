@@ -18,15 +18,11 @@ const getMonthlyReportStats = (reports: Report[]): MonthlyReportStatsResult => {
     const date = new Date(report.date)
     const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
 
-    if (!stats.has(key)) {
-      stats.set(key, {open: 0, closed: 0})
-    }
+    if (!stats.has(key)) stats.set(key, {open: 0, closed: 0})
 
     const entry: MonthlyStats | undefined = stats.get(key)
 
-    if (!entry) {
-      continue
-    }
+    if (!entry) continue
 
     const isClosed: boolean = report.status === StatusOption.Completed
     const isOpen: boolean =

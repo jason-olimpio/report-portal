@@ -34,9 +34,7 @@ const setupNetworkListener = (): void => {
 const handleConnectionChange = async (
   isConnected: boolean | null,
 ): Promise<void> => {
-  if (!isConnected) {
-    return
-  }
+  if (!isConnected) return
 
   try {
     await flushPendingReports()
@@ -46,20 +44,16 @@ const handleConnectionChange = async (
 }
 
 const flushPendingReports = async (): Promise<void> => {
-  if (isSending) {
-    return
-  }
+  if (isSending) return
 
   isSending = true
 
   try {
     const reports = await getPendingReportsFromStorage()
 
-    if (reports.length === 0) {
-      return
-    }
+    if (reports.length === 0) return
 
-    for (const {id} of reports) {
+    for (const {id} of reports)
       try {
         await simulateReportSync()
         await removePendingReport(id)
@@ -67,7 +61,6 @@ const flushPendingReports = async (): Promise<void> => {
         console.error(`Failed to sync report ${id}:`, error)
         break
       }
-    }
   } catch (error) {
     console.error('Error during pending reports flush:', error)
   } finally {

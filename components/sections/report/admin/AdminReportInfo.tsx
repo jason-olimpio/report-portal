@@ -91,9 +91,7 @@ const AdminReportInfo = ({
         className="bg-background-secondaryLight dark:bg-background-secondaryDark 
         flex-row mb-4 rounded-3xl shadow-md p-4 items-center justify-between relative"
         onPress={() => {
-          if (menuOpenId === id) {
-            setMenuOpenId?.(null)
-          }
+          if (menuOpenId === id) setMenuOpenId?.(null)
         }}>
         <View className="flex-1">
           <Text className="font-bold text-base dark:text-white">{title}</Text>

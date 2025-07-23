@@ -71,9 +71,7 @@ const MapScreen = () => {
         address.toLowerCase().includes(searchTerm.toLowerCase()),
     )
 
-    if (!matchingReport) {
-      return
-    }
+    if (!matchingReport) return
 
     const {latitude, longitude} = matchingReport.location
 
@@ -101,7 +99,7 @@ const MapScreen = () => {
     setZoomLevel(17)
   }
 
-  if (!regionReady) {
+  if (!regionReady)
     return (
       <View className="flex-1 justify-center items-center bg-neutral-gray-100 dark:bg-neutral-gray-900">
         <ActivityIndicator
@@ -116,7 +114,6 @@ const MapScreen = () => {
         />
       </View>
     )
-  }
 
   return (
     <View className="flex-1 bg-gray-100">

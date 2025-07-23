@@ -3,7 +3,6 @@ import {useTranslation} from 'react-i18next'
 import {ScrollView} from 'react-native'
 
 import {SectionHeader, ReportList, Pagination, FilterModal} from '@components'
-import {reportData} from '@store'
 import {useReportFilters, usePagination} from '@hooks'
 import {FilterValues} from '@types'
 
@@ -18,7 +17,7 @@ const ReportsScreen = () => {
     setSelectedStatus,
     dateRange,
     setDateRange,
-  } = useReportFilters(reportData)
+  } = useReportFilters()
 
   const filterProps: FilterValues = {
     selectedStatus,

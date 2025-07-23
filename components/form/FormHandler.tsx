@@ -57,9 +57,7 @@ export const FormHandler = <T extends Record<string, any>>({
       field => field.type === FieldType.Location,
     )
 
-    if (hasLocationField) {
-      captureLocation()
-    }
+    if (hasLocationField) captureLocation()
   }, [initialState, fields])
 
   const captureLocation = async () => {
@@ -70,9 +68,7 @@ export const FormHandler = <T extends Record<string, any>>({
         field => field.type === FieldType.Location,
       )
 
-      if (!locationField) {
-        return
-      }
+      if (!locationField) return
 
       setForm(currentForm => ({
         ...currentForm,

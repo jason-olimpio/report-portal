@@ -10,9 +10,7 @@ const usePagination = <T>(items: T[], itemsPerPage: number = 5) => {
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
 
   const goToPage = (page: number) => {
-    if (page < 1 || page > totalPages) {
-      return
-    }
+    if (page < 1 || page > totalPages) return
 
     setCurrentPage(page)
   }

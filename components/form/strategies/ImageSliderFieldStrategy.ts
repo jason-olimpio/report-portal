@@ -21,9 +21,8 @@ class ImageSliderFieldStrategy<T extends Record<string, any>>
     fieldKey: keyof T,
     context: FieldRenderContext<T>,
   ): ReactElement {
-    if (!this.canRender(field)) {
+    if (!this.canRender(field))
       throw new Error('ImageSliderFieldStrategy cannot render this field type')
-    }
 
     const {form, touched, errors, handleChange} = context
     const fieldProps = {

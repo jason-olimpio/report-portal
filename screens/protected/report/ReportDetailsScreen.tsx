@@ -38,7 +38,7 @@ const ReportDetailsScreen = () => {
 
   const report = reportData.find(item => item.id === reportId)
 
-  if (!report) {
+  if (!report)
     return (
       <View className="flex-1 bg-background-light dark:bg-background-dark">
         <Text className="text-center mt-6 text-red-500">
@@ -46,7 +46,6 @@ const ReportDetailsScreen = () => {
         </Text>
       </View>
     )
-  }
 
   const {
     images,

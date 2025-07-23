@@ -22,9 +22,7 @@ interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
     const token = await getToken()
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
+    if (token) config.headers.Authorization = `Bearer ${token}`
 
     return config
   },
@@ -34,9 +32,7 @@ interceptors.request.use(
 interceptors.response.use(
   (response: AxiosResponse) => response,
   async (error: AxiosError) => {
-    if (error.response?.status !== 401) {
-      return Promise.reject(error)
-    }
+    if (error.response?.status !== 401) return Promise.reject(error)
 
     try {
       await removeToken()

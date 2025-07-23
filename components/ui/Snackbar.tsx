@@ -55,14 +55,10 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
     }).start(() => {
       setShouldRender(false)
 
-      if (callback) {
-        callback()
-      }
+      if (callback) callback()
     })
 
-  if (!shouldRender) {
-    return null
-  }
+  if (!shouldRender) return null
 
   return (
     <Animated.View

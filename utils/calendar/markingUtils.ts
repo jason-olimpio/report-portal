@@ -30,9 +30,7 @@ export const getMarkedDatesWithSelection = (
 ): MarkedDates => {
   const markedDates = getMarkedDates(reportsByDate, isDark)
 
-  if (!selectedDate) {
-    return markedDates
-  }
+  if (!selectedDate) return markedDates
 
   const selectedReports = reportsByDate[selectedDate]
   const existingMarking = markedDates[selectedDate] || {}
@@ -85,9 +83,8 @@ const getDateStatusColor = (reports: Report[], isDark: boolean): string => {
     ? appColors.primary.dark
     : appColors.primary.light
 
-  if (!reports?.length || reports[0].status === StatusOption.All) {
+  if (!reports?.length || reports[0].status === StatusOption.All)
     return primaryColors
-  }
 
   const statusColors = isDark ? STATUS_COLORS.dark : STATUS_COLORS.light
   const status = reports[0].status as Exclude<StatusOption, StatusOption.All>

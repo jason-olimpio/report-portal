@@ -14,7 +14,7 @@ const Stack = createStackNavigator<RootStackParamList>()
 const AppNavigator = () => {
   const {isAuthenticated, isLoading} = useAuth()
 
-  if (isLoading) {
+  if (isLoading)
     return (
       <View className="flex-1 justify-center items-center bg-background-light dark:bg-background-dark">
         <ActivityIndicator
@@ -23,7 +23,6 @@ const AppNavigator = () => {
         />
       </View>
     )
-  }
 
   return (
     <NavigationContainer>

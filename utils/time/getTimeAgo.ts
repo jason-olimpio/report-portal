@@ -8,9 +8,7 @@ const getTimeAgo = (
   language: string = 'en',
   t: TFunction,
 ): string => {
-  if (isNaN(reportDate.getTime())) {
-    return t('errors.invalidDate')
-  }
+  if (isNaN(reportDate.getTime())) return t('errors.invalidDate')
 
   const locale = getLocaleForDateFns(language)
 

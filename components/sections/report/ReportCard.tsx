@@ -27,9 +27,7 @@ type ReportCardProps = {
 }
 
 const getImageSource = (images: ImageSourcePropType[] = []) => {
-  if (!Array.isArray(images) || images.length === 0) {
-    return PlaceholderImage
-  }
+  if (!Array.isArray(images) || images.length === 0) return PlaceholderImage
 
   return images[0]
 }
@@ -46,7 +44,7 @@ const ReportCard = ({report, menuOpenId, setMenuOpenId}: ReportCardProps) => {
   const timeAgo = getTimeAgo(date, i18n.language, t)
   const source = getImageSource(images)
 
-  if (user?.rank === UserRank.Admin) {
+  if (user?.rank === UserRank.Admin)
     return (
       <AdminReportInfo
         report={report}
@@ -54,7 +52,6 @@ const ReportCard = ({report, menuOpenId, setMenuOpenId}: ReportCardProps) => {
         setMenuOpenId={setMenuOpenId}
       />
     )
-  }
 
   return (
     <TouchableOpacity

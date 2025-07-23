@@ -24,9 +24,8 @@ const Pagination = ({
   const getPageNumbers = (): (number | string)[] => {
     const maxVisiblePages = 5
 
-    if (totalPages <= maxVisiblePages) {
+    if (totalPages <= maxVisiblePages)
       return Array.from({length: totalPages}, (_, i) => i + 1)
-    }
 
     const pages: (number | string)[] = []
     const sidePages = Math.floor((maxVisiblePages - 3) / 2)
@@ -36,21 +35,13 @@ const Pagination = ({
     const rangeStart = Math.max(2, currentPage - sidePages)
     const rangeEnd = Math.min(totalPages - 1, currentPage + sidePages)
 
-    if (rangeStart > 2) {
-      pages.push('...')
-    }
+    if (rangeStart > 2) pages.push('...')
 
-    for (let i = rangeStart; i <= rangeEnd; i++) {
-      pages.push(i)
-    }
+    for (let i = rangeStart; i <= rangeEnd; i++) pages.push(i)
 
-    if (rangeEnd < totalPages - 1) {
-      pages.push('...')
-    }
+    if (rangeEnd < totalPages - 1) pages.push('...')
 
-    if (totalPages > 1) {
-      pages.push(totalPages)
-    }
+    if (totalPages > 1) pages.push(totalPages)
 
     return pages
   }
