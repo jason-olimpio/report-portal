@@ -3,6 +3,7 @@ import {TFunction} from 'i18next'
 import {PriorityOption} from '@types'
 
 const TRANSLATION_KEYS: Record<PriorityOption, string> = {
+  [PriorityOption.All]: 'priority.all',
   [PriorityOption.Low]: 'priority.low',
   [PriorityOption.Medium]: 'priority.medium',
   [PriorityOption.High]: 'priority.high',

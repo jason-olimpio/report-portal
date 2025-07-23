@@ -89,7 +89,8 @@
     "reportSavedOffline": "Segnalazione salvata offline",
     "reportSaved": "Segnalazione salvata",
     "reportNotFound": "Segnalazione non trovata",
-    "viewReport": "Visualizza segnalazione"
+    "viewReport": "Visualizza segnalazione",
+    "reportManagement": "Gestione segnalazioni"
   },
 
   "status": {
@@ -104,6 +105,7 @@
   },
 
   "priority": {
+    "all": "Tutte",
     "low": "Bassa",
     "medium": "Media",
     "high": "Alta"
@@ -114,7 +116,8 @@
     "selectDateRange": "Seleziona un intervallo di date",
     "filterByDate": "Filtra per data",
     "filterByStatus": "Filtra per stato",
-    "resetFilters": "Resetta filtri"
+    "resetFilters": "Resetta filtri",
+    "filterByPriority": "Filtra per priorità"
   },
 
   "location": {
@@ -224,5 +227,19 @@
     "placeholder": "Cerca indirizzo o titolo...",
     "myLocation": "Trova la mia posizione",
     "locatingUser": "Localizzazione della tua posizione..."
+  },
+
+  "modal": {
+    "confirmCloseReport": "Sei sicuro di voler chiudere la segnalazione?"
+  },
+
+  "menu": {
+    "manage": "Gestisci",
+    "close": "Chiudi"
+  },
+
+  "common": {
+    "yes": "Sì",
+    "no": "No"
   }
 }

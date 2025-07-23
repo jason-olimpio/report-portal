@@ -3,7 +3,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {useTranslation} from 'react-i18next'
 
-import {HomeScreen, ReportsScreen, StatsScreen, MapScreen} from '@screens'
+import {
+  HomeScreen,
+  ReportsScreen,
+  StatsScreen,
+  MapScreen,
+  AdminReportsScreen,
+} from '@screens'
 import {useAuth, useTheme} from '@hooks'
 
 import {appColors} from '@config'
@@ -59,7 +65,9 @@ const MainTabs = () => {
 
       <Tab.Screen
         name="Reports"
-        component={ReportsScreen}
+        component={
+          user?.rank === UserRank.Admin ? AdminReportsScreen : ReportsScreen
+        }
         options={{tabBarLabel: t('navigation.reports')}}
       />
 

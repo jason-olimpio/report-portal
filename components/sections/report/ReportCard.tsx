@@ -10,20 +10,20 @@ import {useNavigation} from '@react-navigation/native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {useTranslation} from 'react-i18next'
 
-import {ReportStatusBadge} from '@components'
-import {StatusOption, type ReportCardNavigationProp} from '@types'
+import {AdminReportInfo, ReportStatusBadge} from '@components'
+
+import {useAuth} from '@hooks'
+
+import {Report, UserRank, type ReportCardNavigationProp} from '@types'
 
 import {getTimeAgo} from '@utils'
 
 import {PlaceholderImage} from '@assets'
 
 type ReportCardProps = {
-  id: string
-  images: ImageSourcePropType[]
-  title: string
-  address: string
-  date: Date
-  status: StatusOption
+  report: Report
+  menuOpenId?: string | null
+  setMenuOpenId?: (id: string | null) => void
 }
 
 const getImageSource = (images: ImageSourcePropType[] = []) => {
@@ -34,21 +34,27 @@ const getImageSource = (images: ImageSourcePropType[] = []) => {
   return images[0]
 }
 
-const ReportCard = ({
-  id,
-  images,
-  title,
-  address,
-  date,
-  status,
-}: ReportCardProps) => {
+const ReportCard = ({report, menuOpenId, setMenuOpenId}: ReportCardProps) => {
   const {t, i18n} = useTranslation()
   const navigation = useNavigation<ReportCardNavigationProp>()
+  const {user} = useAuth()
+
+  const {id, images = [], title, address, date, status} = report
 
   const handlePress = () => navigation.navigate('ReportDetails', {reportId: id})
 
   const timeAgo = getTimeAgo(date, i18n.language, t)
   const source = getImageSource(images)
+
+  if (user?.rank === UserRank.Admin) {
+    return (
+      <AdminReportInfo
+        report={report}
+        menuOpenId={menuOpenId}
+        setMenuOpenId={setMenuOpenId}
+      />
+    )
+  }
 
   return (
     <TouchableOpacity

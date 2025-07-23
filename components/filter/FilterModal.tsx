@@ -3,24 +3,18 @@ import {Modal, Pressable} from 'react-native'
 
 import {DateRangeSelector, ReportFilterOptions} from '@components'
 
-import type {DateRange, StatusOption} from '@types'
+import type {FilterValues} from '@types'
 
 type FilterModalProps = {
   visible: boolean
   toggleModal: (visible: boolean) => void
-  selectedStatus: StatusOption
-  setSelectedStatus: (status: StatusOption) => void
-  dateRange: DateRange
-  setDateRange: (range: DateRange) => void
+  filters: FilterValues
 }
 
-const FilterModal = ({
+export const FilterModal = ({
   visible,
   toggleModal,
-  selectedStatus,
-  setSelectedStatus,
-  dateRange,
-  setDateRange,
+  filters,
 }: FilterModalProps) => {
   const [showDatePicker, setShowDatePicker] = useState(false)
 
@@ -40,17 +34,14 @@ const FilterModal = ({
           onPress={event => event.stopPropagation()}>
           {!showDatePicker ? (
             <ReportFilterOptions
-              selectedStatus={selectedStatus}
-              setSelectedStatus={setSelectedStatus}
-              dateRange={dateRange}
-              setDateRange={setDateRange}
+              filters={filters}
               toggleModal={toggleModal}
               toggleDatePicker={toggleDatePicker}
             />
           ) : (
             <DateRangeSelector
-              dateRange={dateRange}
-              setDateRange={setDateRange}
+              dateRange={filters.dateRange}
+              setDateRange={filters.setDateRange}
               toggleDatePicker={toggleDatePicker}
             />
           )}
@@ -59,5 +50,3 @@ const FilterModal = ({
     </Modal>
   )
 }
-
-export default FilterModal

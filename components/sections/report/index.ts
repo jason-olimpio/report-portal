@@ -1,4 +1,5 @@
 export * from './badge'
+export * from './admin'
 
 export {default as RecentReports} from './RecentReports'
 export {default as ReportCard} from './ReportCard'

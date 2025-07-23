@@ -21,7 +21,7 @@ const BackButton = ({showText = true}: BackButtonProps) => {
       onPress={navigation.goBack}>
       <MaterialIcons
         name="arrow-back-ios"
-        size={15}
+        size={!showText ? 20 : 15}
         color={
           isDark ? appColors.neutral.gray[200] : appColors.neutral.gray[800]
         }

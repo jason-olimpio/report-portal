@@ -2,15 +2,14 @@ import {Text, TouchableOpacity, View} from 'react-native'
 import {useTranslation} from 'react-i18next'
 import {ScrollView} from 'react-native-gesture-handler'
 
-import {getStatusLabel} from '@utils'
+import {useAuth} from '@hooks'
 
-import {type DateRange, StatusOption} from '@types'
+import {getPriorityLabel, getStatusLabel} from '@utils'
+
+import {StatusOption, PriorityOption, UserRank, FilterValues} from '@types'
 
 type ReportFilterOptionsProps = {
-  selectedStatus: StatusOption
-  setSelectedStatus: (status: StatusOption) => void
-  dateRange: DateRange
-  setDateRange: (range: DateRange) => void
+  filters: FilterValues
   toggleModal: (visible: boolean) => void
   toggleDatePicker: () => void
 }
@@ -22,19 +21,35 @@ const STATUS_OPTIONS: StatusOption[] = [
   StatusOption.Completed,
 ]
 
+const PRIORITY_OPTIONS: PriorityOption[] = [
+  PriorityOption.All,
+  PriorityOption.Low,
+  PriorityOption.Medium,
+  PriorityOption.High,
+]
+
 const ReportFilterOptions = ({
-  selectedStatus,
-  setSelectedStatus,
-  dateRange,
-  setDateRange,
+  filters,
   toggleModal,
   toggleDatePicker,
 }: ReportFilterOptionsProps) => {
   const {t} = useTranslation()
+  const {user} = useAuth()
+
+  const {
+    selectedStatus,
+    setSelectedStatus,
+    dateRange,
+    setDateRange,
+    selectedPriority,
+    setSelectedPriority,
+  } = filters
 
   const hasSelectedDate = dateRange.start !== null && dateRange.end !== null
 
   const toggleStatus = (status: StatusOption) => setSelectedStatus(status)
+  const togglePriority = (priority: PriorityOption) =>
+    setSelectedPriority && setSelectedPriority(priority)
 
   const getDateRangeText = () => {
     const {start, end} = dateRange
@@ -52,6 +67,10 @@ const ReportFilterOptions = ({
   const resetFilters = () => {
     setSelectedStatus(StatusOption.All)
     resetDateRange()
+
+    if (setSelectedPriority) {
+      setSelectedPriority(PriorityOption.All)
+    }
   }
 
   const resetDateRange = () => setDateRange({start: null, end: null})
@@ -69,13 +88,30 @@ const ReportFilterOptions = ({
           className={`py-3 px-4 rounded-full ${
             selectedStatus === status && 'bg-gray-200 dark:bg-gray-700'
           }`}>
-          <Text className="dark:text-white">
-            {status === StatusOption.All
-              ? t('status.all')
-              : getStatusLabel(status, t)}
-          </Text>
+          <Text className="dark:text-white">{getStatusLabel(status, t)}</Text>
         </TouchableOpacity>
       ))}
+
+      {user?.rank === UserRank.Admin && (
+        <>
+          <Text className="font-bold mt-6 mb-4 dark:text-white">
+            {t('filter.filterByPriority')}
+          </Text>
+
+          {PRIORITY_OPTIONS.map(priority => (
+            <TouchableOpacity
+              key={priority}
+              onPress={() => togglePriority(priority)}
+              className={`py-3 px-4 rounded-full ${
+                selectedPriority === priority && 'bg-gray-200 dark:bg-gray-700'
+              }`}>
+              <Text className="dark:text-white">
+                {getPriorityLabel(priority, t)}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </>
+      )}
 
       <Text className="font-bold mt-6 mb-4 dark:text-white">
         {t('filter.filterByDate')}

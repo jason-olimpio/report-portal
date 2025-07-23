@@ -1,16 +1,17 @@
-import {useState, useEffect} from 'react'
-import {useTranslation} from 'react-i18next'
+import {useEffect, useState} from 'react'
 import {ScrollView} from 'react-native'
+import {useTranslation} from 'react-i18next'
 
-import {SectionHeader, ReportList, Pagination, FilterModal} from '@components'
 import {reportData} from '@store'
-import {useReportFilters, usePagination} from '@hooks'
+
+import {usePagination, useReportFilters} from '@hooks'
+import {FilterModal, Pagination, ReportList, SectionHeader} from '@components'
 import {FilterValues} from '@types'
 
-const ReportsScreen = () => {
+const AdminReportsScreen = () => {
   const {t} = useTranslation()
-
   const [modalVisible, setModalVisible] = useState(false)
+  const [menuOpenId, setMenuOpenId] = useState<string | null>(null)
 
   const {
     filteredReports,
@@ -18,6 +19,8 @@ const ReportsScreen = () => {
     setSelectedStatus,
     dateRange,
     setDateRange,
+    selectedPriority,
+    setSelectedPriority,
   } = useReportFilters(reportData)
 
   const filterProps: FilterValues = {
@@ -25,25 +28,31 @@ const ReportsScreen = () => {
     setSelectedStatus,
     dateRange,
     setDateRange,
+    selectedPriority,
+    setSelectedPriority,
   }
 
   const {currentPage, setCurrentPage, totalPages, currentItems, reset} =
     usePagination(filteredReports, 5)
 
-  useEffect(() => reset(), [selectedStatus, dateRange])
+  useEffect(() => reset(), [selectedStatus, selectedPriority, dateRange])
 
   const toggleModal = (visible: boolean) => setModalVisible(visible)
 
   return (
     <ScrollView className="flex-1 dark:bg-background-dark px-8 pt-6">
       <SectionHeader
-        title={t('reports.allReports')}
+        title={t('reports.reportManagement')}
         action={t('filter.filter')}
         onPress={() => toggleModal(true)}
         className="mb-6"
       />
 
-      <ReportList reports={currentItems} />
+      <ReportList
+        reports={currentItems}
+        menuOpenId={menuOpenId}
+        setMenuOpenId={setMenuOpenId}
+      />
 
       {filteredReports.length > 0 && (
         <Pagination
@@ -63,4 +72,4 @@ const ReportsScreen = () => {
   )
 }
 
-export default ReportsScreen
+export default AdminReportsScreen

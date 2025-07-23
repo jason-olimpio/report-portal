@@ -6,9 +6,11 @@ import type {Report} from '@types'
 
 type ReportListProps = {
   reports: Report[]
+  menuOpenId?: string | null
+  setMenuOpenId?: (id: string | null) => void
 }
 
-const ReportList = ({reports}: ReportListProps) => {
+const ReportList = ({reports, menuOpenId, setMenuOpenId}: ReportListProps) => {
   const {t} = useTranslation()
 
   if (reports.length === 0) {
@@ -21,15 +23,12 @@ const ReportList = ({reports}: ReportListProps) => {
 
   return (
     <View className="w-full">
-      {reports.map(({id, images, title, address, date, status}) => (
+      {reports.map(report => (
         <ReportCard
-          key={id}
-          id={id}
-          images={images}
-          title={title}
-          address={address}
-          date={date}
-          status={status}
+          key={report.id}
+          report={report}
+          menuOpenId={menuOpenId}
+          setMenuOpenId={setMenuOpenId}
         />
       ))}
     </View>

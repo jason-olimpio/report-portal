@@ -1,4 +1,5 @@
 enum PriorityOption {
+  All,
   Low,
   Medium,
   High,
