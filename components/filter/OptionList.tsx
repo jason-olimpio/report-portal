@@ -17,6 +17,7 @@ const OptionList = <T extends string | number | symbol>({
   <>
     {options.map(option => (
       <TouchableOpacity
+        key={String(option)}
         onPress={() => onSelect && onSelect(option)}
         className={`py-3 px-4 rounded-full ${selected === option && 'bg-gray-200 dark:bg-gray-700'}`}>
         <Text className="dark:text-white">{getLabel(option)}</Text>

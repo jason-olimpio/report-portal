@@ -67,7 +67,6 @@ const ReportFilterOptions = ({
       </Text>
 
       <OptionList
-        key={`status-options-${selectedStatus}`}
         options={STATUS_OPTIONS}
         selected={selectedStatus}
         onSelect={setSelectedStatus}
@@ -81,7 +80,6 @@ const ReportFilterOptions = ({
           </Text>
 
           <OptionList
-            key={`priority-options-${selectedPriority}`}
             options={PRIORITY_OPTIONS}
             selected={selectedPriority}
             onSelect={setSelectedPriority}
