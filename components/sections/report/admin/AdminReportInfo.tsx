@@ -11,8 +11,8 @@ import {
   ReportStatusBadge,
 } from '@components'
 import {type Report, StatusOption, type ReportCardNavigationProp} from '@types'
-import {reportData} from '@store'
-import {useTheme} from '@hooks'
+
+import {useReports, useTheme} from '@hooks'
 import {appColors} from '@config'
 import {getLocaleForDateFns} from '@utils'
 
@@ -29,7 +29,6 @@ const AdminReportInfo = ({
 }: AdminReportInfoProps) => {
   const {t, i18n} = useTranslation()
   const {isDark} = useTheme()
-
   const [modalVisible, setModalVisible] = useState(false)
   const navigation = useNavigation<ReportCardNavigationProp>()
 
@@ -38,9 +37,7 @@ const AdminReportInfo = ({
   const locale = getLocaleForDateFns(i18n.resolvedLanguage)
   const formattedDate = format(date, 'PPP', {locale})
 
-  const handleMenuToggle = () => {
-    setMenuOpenId?.(menuOpenId === id ? null : id)
-  }
+  const handleMenuToggle = () => setMenuOpenId?.(menuOpenId === id ? null : id)
 
   const handleManage = () => {
     setMenuOpenId?.(null)
@@ -52,15 +49,41 @@ const AdminReportInfo = ({
     setModalVisible(true)
   }
 
-  const handleConfirmClose = () => {
-    const report = reportData.find(item => item.id === id)
+  const {setReports} = useReports()
 
-    if (report) {
-      report.status = StatusOption.Completed
-    }
+  const handleConfirmClose = () => {
+    setReports((previousReports: Report[]) =>
+      previousReports.map(item =>
+        item.id === id ? {...item, status: StatusOption.Completed} : item,
+      ),
+    )
 
     setModalVisible(false)
   }
+
+  const renderMenu = () => (
+    <Pressable className="z-[9999]" onPress={handleMenuToggle}>
+      <View
+        style={styles.menuShadow}
+        className="absolute items-center right-4 -top-14 bg-white dark:bg-neutral-800 rounded-xl shadow-lg">
+        <TouchableOpacity
+          className="flex-row items-center px-4 pt-2"
+          onPress={handleManage}>
+          <MaterialIcons name="settings" size={15} />
+
+          <Text className="ml-1 text-sm">{t('menu.manage')}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          className="flex-row items-center px-4 py-2"
+          onPress={handleClose}>
+          <MaterialIcons name="close" size={15} color="red" />
+
+          <Text className="ml-1 text-red-500 text-sm">{t('menu.close')}</Text>
+        </TouchableOpacity>
+      </View>
+    </Pressable>
+  )
 
   return (
     <>
@@ -112,27 +135,14 @@ const AdminReportInfo = ({
       </Pressable>
 
       {menuOpenId === id && (
-        <Pressable className="z-[9999]" onPress={handleMenuToggle}>
-          <View
-            style={styles.menuShadow}
-            className="absolute items-center right-4 -top-14 bg-white dark:bg-neutral-800 rounded-xl shadow-lg">
-            <TouchableOpacity
-              className="flex-row items-center px-4 pt-2"
-              onPress={handleManage}>
-              <MaterialIcons name="settings" size={15} />
-              <Text className="ml-2 text-sm">{t('menu.manage')}</Text>
-            </TouchableOpacity>
+        <>
+          <Pressable
+            className="absolute inset-0 z-[9998]"
+            onPress={() => setMenuOpenId?.(null)}
+          />
 
-            <TouchableOpacity
-              className="flex-row items-center px-4 py-2"
-              onPress={handleClose}>
-              <MaterialIcons name="close" size={15} color="red" />
-              <Text className="ml-2 text-red-500 text-sm">
-                {t('menu.close')}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </Pressable>
+          {renderMenu()}
+        </>
       )}
 
       <ConfirmCloseModal

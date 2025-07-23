@@ -1,8 +1,10 @@
-import {reportData} from '@store'
-import {DateRange, StatusOption, PriorityOption} from '@types'
 import {useState} from 'react'
 
-const useReportFilters = (data: typeof reportData) => {
+import useReports from './useReports'
+import {DateRange, StatusOption, PriorityOption} from '@types'
+
+const useReportFilters = () => {
+  const {reports} = useReports()
   const [selectedStatus, setSelectedStatus] = useState<StatusOption>(
     StatusOption.All,
   )
@@ -14,7 +16,7 @@ const useReportFilters = (data: typeof reportData) => {
     PriorityOption.All,
   )
 
-  const filteredReports = data.filter(({status, date, priority}) => {
+  const filteredReports = reports.filter(({status, date, priority}) => {
     const isStatusMatch =
       selectedStatus === StatusOption.All || status === selectedStatus
     const isStartDateValid = !dateRange.start || date >= dateRange.start

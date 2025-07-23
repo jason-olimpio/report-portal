@@ -2,8 +2,6 @@ import {useEffect, useState} from 'react'
 import {ScrollView} from 'react-native'
 import {useTranslation} from 'react-i18next'
 
-import {reportData} from '@store'
-
 import {usePagination, useReportFilters} from '@hooks'
 import {FilterModal, Pagination, ReportList, SectionHeader} from '@components'
 import {FilterValues} from '@types'
@@ -21,7 +19,7 @@ const AdminReportsScreen = () => {
     setDateRange,
     selectedPriority,
     setSelectedPriority,
-  } = useReportFilters(reportData)
+  } = useReportFilters()
 
   const filterProps: FilterValues = {
     selectedStatus,

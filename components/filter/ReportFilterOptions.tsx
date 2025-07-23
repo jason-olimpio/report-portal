@@ -3,10 +3,10 @@ import {useTranslation} from 'react-i18next'
 import {ScrollView} from 'react-native-gesture-handler'
 
 import {useAuth} from '@hooks'
-
 import {getPriorityLabel, getStatusLabel} from '@utils'
-
 import {StatusOption, PriorityOption, UserRank, FilterValues} from '@types'
+
+import OptionList from './OptionList'
 
 type ReportFilterOptionsProps = {
   filters: FilterValues
@@ -35,7 +35,6 @@ const ReportFilterOptions = ({
 }: ReportFilterOptionsProps) => {
   const {t} = useTranslation()
   const {user} = useAuth()
-
   const {
     selectedStatus,
     setSelectedStatus,
@@ -45,12 +44,6 @@ const ReportFilterOptions = ({
     setSelectedPriority,
   } = filters
 
-  const hasSelectedDate = dateRange.start !== null && dateRange.end !== null
-
-  const toggleStatus = (status: StatusOption) => setSelectedStatus(status)
-  const togglePriority = (priority: PriorityOption) =>
-    setSelectedPriority && setSelectedPriority(priority)
-
   const getDateRangeText = () => {
     const {start, end} = dateRange
 
@@ -58,39 +51,30 @@ const ReportFilterOptions = ({
       return t('filter.selectDateRange')
     }
 
-    const startDate = start.toLocaleDateString('it-IT')
-    const endDate = end.toLocaleDateString('it-IT')
-
-    return `${startDate} - ${endDate}`
-  }
-
-  const resetFilters = () => {
-    setSelectedStatus(StatusOption.All)
-    resetDateRange()
-
-    if (setSelectedPriority) {
-      setSelectedPriority(PriorityOption.All)
-    }
+    return `${start.toLocaleDateString('it-IT')} - ${end.toLocaleDateString('it-IT')}`
   }
 
   const resetDateRange = () => setDateRange({start: null, end: null})
 
+  const resetFilters = () => {
+    setSelectedStatus(StatusOption.All)
+    resetDateRange()
+    setSelectedPriority?.(PriorityOption.All)
+  }
+
   return (
     <ScrollView>
-      <Text className="font-titillium-bold mb-4 dark:text-white">
+      <Text className="font-titillium-bold dark:text-white">
         {t('filter.filterByStatus')}
       </Text>
 
-      {STATUS_OPTIONS.map(status => (
-        <TouchableOpacity
-          key={status}
-          onPress={() => toggleStatus(status)}
-          className={`py-3 px-4 rounded-full ${
-            selectedStatus === status && 'bg-gray-200 dark:bg-gray-700'
-          }`}>
-          <Text className="dark:text-white">{getStatusLabel(status, t)}</Text>
-        </TouchableOpacity>
-      ))}
+      <OptionList
+        key={`status-options-${selectedStatus}`}
+        options={STATUS_OPTIONS}
+        selected={selectedStatus}
+        onSelect={setSelectedStatus}
+        getLabel={(status: StatusOption) => getStatusLabel(status, t)}
+      />
 
       {user?.rank === UserRank.Admin && (
         <>
@@ -98,18 +82,13 @@ const ReportFilterOptions = ({
             {t('filter.filterByPriority')}
           </Text>
 
-          {PRIORITY_OPTIONS.map(priority => (
-            <TouchableOpacity
-              key={priority}
-              onPress={() => togglePriority(priority)}
-              className={`py-3 px-4 rounded-full ${
-                selectedPriority === priority && 'bg-gray-200 dark:bg-gray-700'
-              }`}>
-              <Text className="dark:text-white">
-                {getPriorityLabel(priority, t)}
-              </Text>
-            </TouchableOpacity>
-          ))}
+          <OptionList
+            key={`priority-options-${selectedPriority}`}
+            options={PRIORITY_OPTIONS}
+            selected={selectedPriority}
+            onSelect={setSelectedPriority}
+            getLabel={priority => getPriorityLabel(priority, t)}
+          />
         </>
       )}
 
@@ -119,14 +98,8 @@ const ReportFilterOptions = ({
 
       <TouchableOpacity
         onPress={toggleDatePicker}
-        className=" bg-gray-200 dark:bg-gray-700 rounded-lg p-4 flex-row items-center justify-between">
+        className="bg-gray-200 dark:bg-gray-700 rounded-lg p-4 flex-row items-center justify-between">
         <Text className="dark:text-white">{getDateRangeText()}</Text>
-
-        {hasSelectedDate && (
-          <TouchableOpacity onPress={resetDateRange} className="ml-2">
-            <Text className="text-red-600 text-sm">X</Text>
-          </TouchableOpacity>
-        )}
       </TouchableOpacity>
 
       <View className="flex-row justify-between mt-3">

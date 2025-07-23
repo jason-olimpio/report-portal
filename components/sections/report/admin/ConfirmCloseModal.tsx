@@ -36,7 +36,7 @@ const ConfirmCloseModal = ({
           <View className="flex-row justify-end gap-2">
             <TouchableOpacity
               className="px-6 py-3 mr-2 rounded-full bg-system-red-600-light dark:bg-system-red-600-dark"
-              onPress={onClose}>
+              onPress={onConfirm}>
               <Text className="font-titillium-bold text-white">
                 {t('common.yes')}
               </Text>
@@ -45,7 +45,7 @@ const ConfirmCloseModal = ({
             <TouchableOpacity
               className="px-6 py-3 mr-2 rounded-full border 
               border-system-emerald-600-light dark:border-system-emerald-600-dark"
-              onPress={onConfirm}>
+              onPress={onClose}>
               <Text className="font-titillium-bold text-system-emerald-600-light dark:text-system-emerald-600-dark">
                 {t('common.no')}
               </Text>

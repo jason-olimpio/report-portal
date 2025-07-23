@@ -34,6 +34,7 @@ export const FilterModal = ({
           onPress={event => event.stopPropagation()}>
           {!showDatePicker ? (
             <ReportFilterOptions
+              key={`filter-options-${visible}`}
               filters={filters}
               toggleModal={toggleModal}
               toggleDatePicker={toggleDatePicker}
