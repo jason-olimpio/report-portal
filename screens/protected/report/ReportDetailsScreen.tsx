@@ -41,6 +41,8 @@ const ReportDetailsScreen = () => {
   const {reportId} = route.params
   const report = reports.find(item => item.id === reportId)
 
+  const isAdmin = user?.rank === UserRank.Admin
+
   if (!report)
     return (
       <View className="flex-1 bg-background-light dark:bg-background-dark">
@@ -73,7 +75,7 @@ const ReportDetailsScreen = () => {
         <BackButton />
 
         <View className="flex-row items-center">
-          {user?.rank === UserRank.Admin && (
+          {isAdmin && (
             <ReportPriorityBadge priority={priority} className="mr-1" />
           )}
 
@@ -155,7 +157,7 @@ const ReportDetailsScreen = () => {
         </Text>
       </View>
 
-      <StatusRegionForm reportId={reportId} status={status} />
+      {isAdmin && <StatusRegionForm reportId={reportId} status={status} />}
     </ScrollView>
   )
 }
