@@ -22,10 +22,10 @@ const REPORTS: Report[] = [
       BuildingMaterialsDisposalImage,
       ElectricalWasteDisposalImage,
     ],
-    title: 'Rifiuti ingombranti',
+    title: 'Bulky waste',
     description:
-      'Abbandono di rifiuti ingombranti sul marciapiede. Necessaria rimozione urgente.',
-    address: 'Via Torino 45',
+      'Abandonment of bulky waste on the sidewalk. Urgent removal needed.',
+    address: '45 Turin Street',
     location: {
       latitude: 45.4654,
       longitude: 9.1859,
@@ -37,10 +37,10 @@ const REPORTS: Report[] = [
   {
     id: '2',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Materiali edili',
+    title: 'Building materials',
     description:
-      'Materiali edili abbandonati dopo lavori di ristrutturazione. Occupano parte della strada.',
-    address: 'Piazza Duomo 12',
+      'Building materials abandoned after renovation work. They occupy part of the road.',
+    address: '12 Duomo Square',
     location: {
       latitude: 45.464,
       longitude: 9.19,
@@ -56,10 +56,10 @@ const REPORTS: Report[] = [
       BulkyWasteDisposalImage,
       BuildingMaterialsDisposalImage,
     ],
-    title: 'Rifiuti elettrici',
+    title: 'Electrical waste',
     description:
-      'Elettrodomestici e apparecchiature elettroniche abbandonate. Potenziale rischio ambientale.',
-    address: 'Via Montenapoleone 8',
+      'Abandoned appliances and electronic equipment. Potential environmental risk.',
+    address: '8 Montenapoleone Street',
     location: {
       latitude: 45.4685,
       longitude: 9.195,
@@ -71,10 +71,10 @@ const REPORTS: Report[] = [
   {
     id: '4',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Mobili abbandonati',
+    title: 'Abandoned furniture',
     description:
-      'Divano e altri mobili abbandonati nel parco pubblico. Creano ostacolo al passaggio.',
-    address: 'Via Garibaldi 78',
+      'Sofa and other furniture abandoned in the public park. They obstruct passage.',
+    address: '78 Garibaldi Street',
     location: {
       latitude: 45.4692,
       longitude: 9.1834,
@@ -90,10 +90,10 @@ const REPORTS: Report[] = [
       BulkyWasteDisposalImage,
       BuildingMaterialsDisposalImage,
     ],
-    title: 'Computer e monitor',
+    title: 'Computers and monitors',
     description:
-      'Diversi computer e monitor abbandonati vicino ai cassonetti. Necessaria raccolta speciale.',
-    address: 'Corso Vittorio Emanuele 34',
+      'Several computers and monitors abandoned near the dumpsters. Special collection needed.',
+    address: '34 Vittorio Emanuele Course',
     location: {
       latitude: 45.4655,
       longitude: 9.1921,
@@ -105,10 +105,10 @@ const REPORTS: Report[] = [
   {
     id: '6',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Calcinacci e mattoni',
+    title: 'Rubble and bricks',
     description:
-      'Cumulo di calcinacci e mattoni abbandonati dopo demolizione. Occupano il marciapiede.',
-    address: 'Via Dante 56',
+      'Piles of rubble and bricks abandoned after demolition. They occupy the sidewalk.',
+    address: '56 Dante Street',
     location: {
       latitude: 45.4695,
       longitude: 9.1825,
@@ -120,10 +120,10 @@ const REPORTS: Report[] = [
   {
     id: '7',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Elettrodomestici grandi',
+    title: 'Large appliances',
     description:
-      'Frigorifero e lavatrice abbandonati in strada. Bloccano parzialmente il passaggio pedonale.',
-    address: 'Via Manzoni 23',
+      'Refrigerator and washing machine abandoned in the street. They partially block the pedestrian passage.',
+    address: '23 Manzoni Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -135,10 +135,10 @@ const REPORTS: Report[] = [
   {
     id: '8',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Batterie e pile',
+    title: 'Batteries and accumulators',
     description:
-      'Accumulo di batterie e pile usate abbandonate. Rischio di contaminazione ambientale.',
-    address: 'Piazza Repubblica 5',
+      'Piles of used batteries and accumulators abandoned. Risk of environmental contamination.',
+    address: '5 Republic Square',
     location: {
       latitude: 45.4642,
       longitude: 9.1908,
@@ -150,10 +150,10 @@ const REPORTS: Report[] = [
   {
     id: '9',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Vernici e solventi',
+    title: 'Paints and solvents',
     description:
-      'Barattoli di vernice e solventi abbandonati. Rischio di sversamento e inquinamento.',
-    address: 'Via Leopardi 67',
+      'Cans of paint and solvents abandoned. Risk of spillage and pollution.',
+    address: '67 Leopardi Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -165,10 +165,10 @@ const REPORTS: Report[] = [
   {
     id: '10',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Materassi vecchi',
+    title: 'Old mattresses',
     description:
-      'Tre materassi vecchi abbandonati sul ciglio della strada. Necessaria rimozione.',
-    address: 'Corso Magenta 89',
+      'Three old mattresses abandoned on the side of the road. Removal needed.',
+    address: '89 Magenta Course',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -180,10 +180,10 @@ const REPORTS: Report[] = [
   {
     id: '11',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Cavi elettrici',
+    title: 'Electric cables',
     description:
-      'Matassa di cavi elettrici abbandonati. Potenziale pericolo per i passanti.',
-    address: 'Via Brera 12',
+      'Tangle of abandoned electric cables. Potential danger for passersby.',
+    address: '12 Brera Street',
     location: {
       latitude: 45.4681,
       longitude: 9.1906,
@@ -195,10 +195,10 @@ const REPORTS: Report[] = [
   {
     id: '12',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Piastrelle rotte',
+    title: 'Broken tiles',
     description:
-      'Cumulo di piastrelle rotte abbandonate dopo ristrutturazione. Rischio di ferimento.',
-    address: 'Via Solferino 45',
+      'Piles of broken tiles abandoned after renovation. Risk of injury.',
+    address: '45 Solferino Street',
     location: {
       latitude: 45.469,
       longitude: 9.191,
@@ -210,10 +210,10 @@ const REPORTS: Report[] = [
   {
     id: '13',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Pneumatici usati',
+    title: 'Used tires',
     description:
-      'Diversi pneumatici usati abbandonati. Rischio di ristagno acqua e proliferazione zanzare.',
-    address: 'Viale Certosa 78',
+      'Several used tires abandoned. Risk of water stagnation and mosquito proliferation.',
+    address: '78 Certosa Avenue',
     location: {
       latitude: 45.4825,
       longitude: 9.1645,
@@ -225,10 +225,10 @@ const REPORTS: Report[] = [
   {
     id: '14',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Vecchio frigorifero',
+    title: 'Old refrigerator',
     description:
-      'Frigorifero abbandonato vicino ai cassonetti. Potenziale rischio ambientale.',
-    address: 'Via Roma 12',
+      'Refrigerator abandoned near the dumpsters. Potential environmental risk.',
+    address: '12 Roma Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -240,9 +240,9 @@ const REPORTS: Report[] = [
   {
     id: '15',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Divano rotto',
-    description: 'Divano lasciato sul marciapiede, ostruisce il passaggio.',
-    address: 'Piazza Duomo 1',
+    title: 'Broken sofa',
+    description: 'Sofa left on the sidewalk, obstructs passage.',
+    address: '1 Duomo Square',
     location: {
       latitude: 45.4642,
       longitude: 9.1908,
@@ -254,9 +254,9 @@ const REPORTS: Report[] = [
   {
     id: '16',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Sacchi di cemento',
-    description: 'Sacchi di cemento indurito abbandonati in un parcheggio.',
-    address: 'Via Torino 22',
+    title: 'Cement bags',
+    description: 'Hardened cement bags abandoned in a parking lot.',
+    address: '22 Turin Street',
     location: {
       latitude: 45.4654,
       longitude: 9.1859,
@@ -268,9 +268,9 @@ const REPORTS: Report[] = [
   {
     id: '17',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Televisore rotto',
-    description: 'Televisore lasciato in un parco giochi.',
-    address: 'Via Garibaldi 5',
+    title: 'Broken TV',
+    description: 'TV left in a playground.',
+    address: '5 Garibaldi Street',
     location: {
       latitude: 45.4692,
       longitude: 9.1834,
@@ -282,9 +282,9 @@ const REPORTS: Report[] = [
   {
     id: '18',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Materasso usato',
-    description: 'Materasso abbandonato vicino a una scuola.',
-    address: 'Via Manzoni 33',
+    title: 'Used mattress',
+    description: 'Mattress abandoned near a school.',
+    address: '33 Manzoni Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -296,9 +296,9 @@ const REPORTS: Report[] = [
   {
     id: '19',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tubi in plastica',
-    description: 'Tubi in plastica abbandonati vicino a un cantiere.',
-    address: 'Via Larga 15',
+    title: 'Plastic pipes',
+    description: 'Plastic pipes abandoned near a construction site.',
+    address: '15 Larga Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -310,9 +310,9 @@ const REPORTS: Report[] = [
   {
     id: '20',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Stampante rotta',
-    description: 'Stampante lasciata accanto a una fermata dell’autobus.',
-    address: 'Via Carducci 8',
+    title: 'Broken printer',
+    description: 'Printer left next to a bus stop.',
+    address: '8 Carducci Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -324,9 +324,9 @@ const REPORTS: Report[] = [
   {
     id: '21',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Poltrona usata',
-    description: 'Poltrona abbandonata in un parcheggio pubblico.',
-    address: 'Via Sforza 21',
+    title: 'Used armchair',
+    description: 'Armchair abandoned in a public parking lot.',
+    address: '21 Sforza Street',
     location: {
       latitude: 45.4655,
       longitude: 9.1921,
@@ -338,9 +338,9 @@ const REPORTS: Report[] = [
   {
     id: '22',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Assi di legno',
-    description: 'Assi di legno lasciate vicino a un cassonetto.',
-    address: 'Via Verdi 3',
+    title: 'Wooden planks',
+    description: 'Wooden planks left near a dumpster.',
+    address: '3 Verdi Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -352,9 +352,9 @@ const REPORTS: Report[] = [
   {
     id: '23',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Microonde rotto',
-    description: 'Forno a microonde abbandonato in un’area verde.',
-    address: 'Via Mazzini 19',
+    title: 'Broken microwave',
+    description: 'Microwave oven abandoned in a green area.',
+    address: '19 Mazzini Street',
     location: {
       latitude: 45.4667,
       longitude: 9.1912,
@@ -366,9 +366,9 @@ const REPORTS: Report[] = [
   {
     id: '24',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Letto matrimoniale',
-    description: 'Letto matrimoniale abbandonato vicino a un supermercato.',
-    address: 'Via Fermi 7',
+    title: 'Double bed',
+    description: 'Double bed abandoned near a supermarket.',
+    address: '7 Fermi Street',
     location: {
       latitude: 45.4663,
       longitude: 9.1909,
@@ -380,9 +380,9 @@ const REPORTS: Report[] = [
   {
     id: '25',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Porte vecchie',
-    description: 'Due porte in legno lasciate accanto a un cantiere.',
-    address: 'Via Pasteur 11',
+    title: 'Old doors',
+    description: 'Two wooden doors left next to a construction site.',
+    address: '11 Pasteur Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -394,9 +394,9 @@ const REPORTS: Report[] = [
   {
     id: '26',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Condizionatore rotto',
-    description: 'Condizionatore abbandonato vicino a una scuola.',
-    address: 'Via Archimede 2',
+    title: 'Broken air conditioner',
+    description: 'Air conditioner abandoned near a school.',
+    address: '2 Archimede Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -408,9 +408,9 @@ const REPORTS: Report[] = [
   {
     id: '27',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tavolo da pranzo',
-    description: 'Tavolo da pranzo lasciato in un parcheggio sotterraneo.',
-    address: 'Via Galilei 18',
+    title: 'Dining table',
+    description: 'Dining table left in an underground parking lot.',
+    address: '18 Galilei Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -422,9 +422,9 @@ const REPORTS: Report[] = [
   {
     id: '28',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Finestra rotta',
-    description: 'Finestra in vetro e legno abbandonata vicino a un parco.',
-    address: 'Via Parini 9',
+    title: 'Broken window',
+    description: 'Glass and wood window abandoned near a park.',
+    address: '9 Parini Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -436,9 +436,9 @@ const REPORTS: Report[] = [
   {
     id: '29',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Lavatrice rotta',
-    description: 'Lavatrice abbandonata nel cortile di un condominio.',
-    address: 'Via Newton 14',
+    title: 'Broken washing machine',
+    description: 'Washing machine abandoned in the courtyard of a condominium.',
+    address: '14 Newton Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -450,9 +450,9 @@ const REPORTS: Report[] = [
   {
     id: '30',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Sacchi di detriti',
-    description: 'Sacchi di detriti edili lasciati dopo demolizione.',
-    address: 'Via Edison 6',
+    title: 'Debris bags',
+    description: 'Bags of construction debris left after demolition.',
+    address: '6 Edison Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -464,9 +464,9 @@ const REPORTS: Report[] = [
   {
     id: '31',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Computer portatile',
-    description: 'Laptop rotto abbandonato vicino a una biblioteca.',
-    address: 'Via Marconi 25',
+    title: 'Broken laptop',
+    description: 'Laptop abandoned near a library.',
+    address: '25 Marconi Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -478,9 +478,9 @@ const REPORTS: Report[] = [
   {
     id: '32',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Armadio dismesso',
-    description: 'Armadio in legno lasciato sul marciapiede.',
-    address: 'Via Tesla 12',
+    title: 'Dismantled wardrobe',
+    description: 'Wooden wardrobe left on the sidewalk.',
+    address: '12 Tesla Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -492,9 +492,9 @@ const REPORTS: Report[] = [
   {
     id: '33',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Pannelli solari',
-    description: 'Pannelli solari danneggiati abbandonati.',
-    address: 'Via Volta 8',
+    title: 'Damaged solar panels',
+    description: 'Abandoned damaged solar panels.',
+    address: '8 Volta Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -506,9 +506,9 @@ const REPORTS: Report[] = [
   {
     id: '34',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Ventilatore rotto',
-    description: 'Ventilatore da soffitto abbandonato in un garage.',
-    address: 'Via Curie 19',
+    title: 'Broken fan',
+    description: 'Ceiling fan abandoned in a garage.',
+    address: '19 Curie Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -520,9 +520,9 @@ const REPORTS: Report[] = [
   {
     id: '35',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Scrivania usata',
-    description: 'Scrivania in legno lasciata in un parcheggio.',
-    address: 'Via Fleming 4',
+    title: 'Used desk',
+    description: 'Wooden desk left in a parking lot.',
+    address: '4 Fleming Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -534,9 +534,9 @@ const REPORTS: Report[] = [
   {
     id: '36',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Mattoni rotti',
-    description: 'Cumulo di mattoni rotti dopo ristrutturazione.',
-    address: 'Via Pasteur 27',
+    title: 'Broken bricks',
+    description: 'Piles of broken bricks after renovation.',
+    address: '27 Pasteur Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -548,9 +548,9 @@ const REPORTS: Report[] = [
   {
     id: '37',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Aspirapolvere rotto',
-    description: 'Aspirapolvere abbandonato vicino a un cassonetto.',
-    address: 'Via Darwin 13',
+    title: 'Broken vacuum cleaner',
+    description: 'Vacuum cleaner abandoned near a dumpster.',
+    address: '13 Darwin Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -562,9 +562,9 @@ const REPORTS: Report[] = [
   {
     id: '38',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Sedie rotte',
-    description: 'Tre sedie di plastica rotte lasciate in un parco.',
-    address: 'Via Mendel 22',
+    title: 'Broken chairs',
+    description: 'Three broken plastic chairs left in a park.',
+    address: '22 Mendel Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -576,9 +576,9 @@ const REPORTS: Report[] = [
   {
     id: '39',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tubazioni metalliche',
-    description: 'Tubi metallici abbandonati dopo lavori idraulici.',
-    address: 'Via Planck 16',
+    title: 'Metal pipes',
+    description: 'Abandoned metal pipes after plumbing work.',
+    address: '16 Planck Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -590,9 +590,9 @@ const REPORTS: Report[] = [
   {
     id: '40',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Radio vecchia',
-    description: 'Radio vintage abbandonata vicino a una fermata.',
-    address: 'Via Bohr 9',
+    title: 'Old radio',
+    description: 'Vintage radio abandoned near a bus stop.',
+    address: '9 Bohr Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -604,9 +604,9 @@ const REPORTS: Report[] = [
   {
     id: '41',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Libreria dismessa',
-    description: 'Libreria in legno abbandonata davanti a una scuola.',
-    address: 'Via Heisenberg 7',
+    title: 'Dismantled bookshelf',
+    description: 'Wooden bookshelf abandoned in front of a school.',
+    address: '7 Heisenberg Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -618,9 +618,9 @@ const REPORTS: Report[] = [
   {
     id: '42',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Piastrelle ceramiche',
-    description: 'Scatole di piastrelle ceramiche rotte.',
-    address: 'Via Schrödinger 11',
+    title: 'Ceramic tiles',
+    description: 'Boxes of broken ceramic tiles.',
+    address: '11 Schrödinger Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -632,9 +632,9 @@ const REPORTS: Report[] = [
   {
     id: '43',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Telefono fisso',
-    description: 'Vecchio telefono fisso lasciato in strada.',
-    address: 'Via Fermi 18',
+    title: 'Landline phone',
+    description: 'Old landline phone left in the street.',
+    address: '18 Fermi Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -646,9 +646,9 @@ const REPORTS: Report[] = [
   {
     id: '44',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Materasso singolo',
-    description: 'Materasso singolo abbandonato in un vicolo.',
-    address: 'Via Rutherford 5',
+    title: 'Single mattress',
+    description: 'Single mattress abandoned in an alley.',
+    address: '5 Rutherford Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -660,9 +660,9 @@ const REPORTS: Report[] = [
   {
     id: '45',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Secchi di vernice',
-    description: 'Secchi di vernice vuoti lasciati dopo imbiancatura.',
-    address: 'Via Pauli 23',
+    title: 'Paint buckets',
+    description: 'Empty paint buckets left after painting.',
+    address: '23 Pauli Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -674,9 +674,9 @@ const REPORTS: Report[] = [
   {
     id: '46',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Fotocopiatrice',
-    description: 'Fotocopiatrice rotta abbandonata in un ufficio.',
-    address: 'Via Dirac 15',
+    title: 'Photocopier',
+    description: 'Broken photocopier abandoned in an office.',
+    address: '15 Dirac Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -688,9 +688,9 @@ const REPORTS: Report[] = [
   {
     id: '47',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Comodino vecchio',
-    description: 'Comodino in legno lasciato sul marciapiede.',
-    address: 'Via Hawking 8',
+    title: 'Old bedside table',
+    description: 'Wooden bedside table left on the sidewalk.',
+    address: '8 Hawking Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -702,9 +702,9 @@ const REPORTS: Report[] = [
   {
     id: '48',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Lastre di vetro',
-    description: 'Lastre di vetro rotte da finestra.',
-    address: 'Via Planck 20',
+    title: 'Broken glass sheets',
+    description: 'Broken glass sheets from a window.',
+    address: '20 Planck Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -716,9 +716,9 @@ const REPORTS: Report[] = [
   {
     id: '49',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Lettore DVD',
-    description: 'Lettore DVD rotto abbandonato in un parco.',
-    address: 'Via Maxwell 12',
+    title: 'Broken DVD player',
+    description: 'DVD player abandoned in a park.',
+    address: '12 Maxwell Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -730,9 +730,9 @@ const REPORTS: Report[] = [
   {
     id: '50',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cestino rotto',
-    description: 'Cestino della spazzatura danneggiato.',
-    address: 'Via Faraday 17',
+    title: 'Broken trash can',
+    description: 'Damaged trash can.',
+    address: '17 Faraday Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -744,9 +744,9 @@ const REPORTS: Report[] = [
   {
     id: '51',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Isolante termico',
-    description: 'Pannelli isolanti abbandonati dopo lavori.',
-    address: 'Via Ampère 6',
+    title: 'Thermal insulation',
+    description: 'Insulating panels abandoned after work.',
+    address: '6 Ampère Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -758,9 +758,9 @@ const REPORTS: Report[] = [
   {
     id: '52',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Calcolatrice rotta',
-    description: 'Calcolatrice elettronica danneggiata.',
-    address: 'Via Ohm 24',
+    title: 'Broken calculator',
+    description: 'Damaged electronic calculator.',
+    address: '24 Ohm Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -772,9 +772,9 @@ const REPORTS: Report[] = [
   {
     id: '53',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Panca da giardino',
-    description: 'Panca in ferro arrugginita abbandonata.',
-    address: 'Via Hertz 13',
+    title: 'Garden bench',
+    description: 'Rusty iron bench abandoned.',
+    address: '13 Hertz Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -786,9 +786,9 @@ const REPORTS: Report[] = [
   {
     id: '54',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cartongesso rotto',
-    description: 'Pezzi di cartongesso dopo demolizione.',
-    address: 'Via Gauss 10',
+    title: 'Broken plasterboard',
+    description: 'Pieces of plasterboard after demolition.',
+    address: '10 Gauss Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -800,9 +800,9 @@ const REPORTS: Report[] = [
   {
     id: '55',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Stereo portatile',
-    description: 'Stereo portatile rotto lasciato in piazza.',
-    address: 'Via Coulomb 21',
+    title: 'Broken portable stereo',
+    description: 'Broken portable stereo left in the square.',
+    address: '21 Coulomb Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -814,9 +814,9 @@ const REPORTS: Report[] = [
   {
     id: '56',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Specchio grande',
-    description: 'Specchio rotto da bagno abbandonato.',
-    address: 'Via Joule 7',
+    title: 'Large mirror',
+    description: 'Broken bathroom mirror abandoned.',
+    address: '7 Joule Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -828,9 +828,9 @@ const REPORTS: Report[] = [
   {
     id: '57',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cavi elettrici',
-    description: 'Bobina di cavi elettrici abbandonati.',
-    address: 'Via Watt 14',
+    title: 'Electric cables',
+    description: 'Reel of abandoned electric cables.',
+    address: '14 Watt Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -842,9 +842,9 @@ const REPORTS: Report[] = [
   {
     id: '58',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Console giochi',
-    description: 'Console per videogiochi rotta.',
-    address: 'Via Pascal 19',
+    title: 'Broken game console',
+    description: 'Video game console with damaged controls.',
+    address: '19 Pascal Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -856,9 +856,9 @@ const REPORTS: Report[] = [
   {
     id: '59',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Carrello spesa',
-    description: 'Carrello della spesa abbandonato in strada.',
-    address: 'Via Kelvin 3',
+    title: 'Shopping cart',
+    description: 'Abandoned shopping cart in the street.',
+    address: '3 Kelvin Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -870,9 +870,9 @@ const REPORTS: Report[] = [
   {
     id: '60',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Sanitari rotti',
-    description: 'Water e bidet rotti dopo ristrutturazione.',
-    address: 'Via Bernoulli 26',
+    title: 'Broken sanitary ware',
+    description: 'Toilet and bidet broken after renovation.',
+    address: '26 Bernoulli Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -884,9 +884,9 @@ const REPORTS: Report[] = [
   {
     id: '61',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Macchina caffè',
-    description: 'Macchina per caffè espresso rotta.',
-    address: 'Via Torricelli 9',
+    title: 'Broken coffee machine',
+    description: 'Espresso coffee machine broken.',
+    address: '9 Torricelli Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -898,9 +898,9 @@ const REPORTS: Report[] = [
   {
     id: '62',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Frigorifero piccolo',
-    description: 'Frigobar abbandonato vicino a un bar.',
-    address: 'Via Galileo 15',
+    title: 'Small refrigerator',
+    description: 'Mini fridge abandoned near a bar.',
+    address: '15 Galileo Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -912,9 +912,9 @@ const REPORTS: Report[] = [
   {
     id: '63',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tegole rotte',
-    description: 'Tegole del tetto cadute dopo temporale.',
-    address: 'Via Archimede 22',
+    title: 'Broken roof tiles',
+    description: 'Roof tiles fallen after a storm.',
+    address: '22 Archimede Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -926,9 +926,9 @@ const REPORTS: Report[] = [
   {
     id: '64',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Campanello rotto',
-    description: 'Citofono elettronico danneggiato.',
-    address: 'Via Euclide 8',
+    title: 'Broken doorbell',
+    description: 'Damaged electronic doorbell.',
+    address: '8 Euclide Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -940,9 +940,9 @@ const REPORTS: Report[] = [
   {
     id: '65',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Bicicletta rotta',
-    description: 'Bicicletta danneggiata senza ruote.',
-    address: 'Via Pitagora 11',
+    title: 'Broken bicycle',
+    description: 'Damaged bicycle without wheels.',
+    address: '11 Pitagora Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -954,9 +954,9 @@ const REPORTS: Report[] = [
   {
     id: '66',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Grondaie vecchie',
-    description: 'Pezzi di grondaia metallica arrugginita.',
-    address: 'Via Talete 17',
+    title: 'Old gutters',
+    description: 'Pieces of rusty metal gutter.',
+    address: '17 Talete Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -968,9 +968,9 @@ const REPORTS: Report[] = [
   {
     id: '67',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Router wifi',
-    description: 'Router internet rotto abbandonato.',
-    address: 'Via Apollonio 4',
+    title: 'Broken wifi router',
+    description: 'Abandoned internet router.',
+    address: '4 Apollonio Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -982,9 +982,9 @@ const REPORTS: Report[] = [
   {
     id: '68',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Sedia a rotelle',
-    description: 'Sedia a rotelle danneggiata.',
-    address: 'Via Eratostene 20',
+    title: 'Broken wheelchair',
+    description: 'Damaged wheelchair.',
+    address: '20 Eratostene Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -996,9 +996,9 @@ const REPORTS: Report[] = [
   {
     id: '69',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Pannelli legno',
-    description: 'Pannelli di compensato dopo demolizione.',
-    address: 'Via Ipparco 13',
+    title: 'Wooden panels',
+    description: 'Plywood panels after demolition.',
+    address: '13 Ipparco Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1010,9 +1010,9 @@ const REPORTS: Report[] = [
   {
     id: '70',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Tablet rotto',
-    description: 'Tablet con schermo frantumato.',
-    address: 'Via Aristarco 6',
+    title: 'Broken tablet',
+    description: 'Tablet with shattered screen.',
+    address: '6 Aristarco Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1024,9 +1024,9 @@ const REPORTS: Report[] = [
   {
     id: '71',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cassettiera usata',
-    description: 'Cassettiera in legno con cassetti rotti.',
-    address: 'Via Anassagora 19',
+    title: 'Used dresser',
+    description: 'Wooden dresser with broken drawers.',
+    address: '19 Anassagora Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1038,9 +1038,9 @@ const REPORTS: Report[] = [
   {
     id: '72',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Intonaco caduto',
-    description: 'Pezzi di intonaco caduti dalla facciata.',
-    address: 'Via Democrito 25',
+    title: 'Fallen plaster',
+    description: 'Pieces of plaster fallen from the facade.',
+    address: '25 Democrito Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1052,9 +1052,9 @@ const REPORTS: Report[] = [
   {
     id: '73',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Decoder TV',
-    description: 'Decoder digitale terrestre rotto.',
-    address: 'Via Empedocle 12',
+    title: 'Broken TV decoder',
+    description: 'Digital terrestrial decoder broken.',
+    address: '12 Empedocle Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1066,9 +1066,9 @@ const REPORTS: Report[] = [
   {
     id: '74',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Mensole rotte',
-    description: 'Mensole di legno cadute dal muro.',
-    address: 'Via Zenone 7',
+    title: 'Broken shelves',
+    description: 'Wooden shelves fallen from the wall.',
+    address: '7 Zenone Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1080,9 +1080,9 @@ const REPORTS: Report[] = [
   {
     id: '75',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Blocchi cemento',
-    description: 'Blocchi di cemento armato dopo demolizione.',
-    address: 'Via Parmenide 18',
+    title: 'Concrete blocks',
+    description: 'Reinforced concrete blocks after demolition.',
+    address: '18 Parmenide Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1094,9 +1094,9 @@ const REPORTS: Report[] = [
   {
     id: '76',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Cuffie rotte',
-    description: 'Cuffie stereo danneggiate.',
-    address: 'Via Eraclito 23',
+    title: 'Broken headphones',
+    description: 'Damaged stereo headphones.',
+    address: '23 Eraclito Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1108,9 +1108,9 @@ const REPORTS: Report[] = [
   {
     id: '77',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Ombrellone rotto',
-    description: 'Ombrellone da giardino strappato dal vento.',
-    address: 'Via Leucippo 9',
+    title: 'Broken umbrella',
+    description: 'Garden umbrella torn by the wind.',
+    address: '9 Leucippo Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1122,9 +1122,9 @@ const REPORTS: Report[] = [
   {
     id: '78',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Polvere amianto',
-    description: 'Residui di materiale contenente amianto.',
-    address: 'Via Melisso 14',
+    title: 'Asbestos dust',
+    description: 'Residues of material containing asbestos.',
+    address: '14 Melisso Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1136,9 +1136,9 @@ const REPORTS: Report[] = [
   {
     id: '79',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Hard disk esterno',
-    description: 'Disco rigido esterno danneggiato.',
-    address: 'Via Gorgia 21',
+    title: 'Broken external hard drive',
+    description: 'Damaged external hard drive.',
+    address: '21 Gorgia Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1150,9 +1150,9 @@ const REPORTS: Report[] = [
   {
     id: '80',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Passeggino rotto',
-    description: 'Passeggino per bambini con ruote danneggiate.',
-    address: 'Via Protagora 5',
+    title: 'Broken stroller',
+    description: "Children's stroller with damaged wheels.",
+    address: '5 Protagora Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1164,9 +1164,9 @@ const REPORTS: Report[] = [
   {
     id: '81',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Finestre vecchie',
-    description: 'Infissi in alluminio sostituiti.',
-    address: 'Via Ippia 16',
+    title: 'Old windows',
+    description: 'Aluminum frames replaced.',
+    address: '16 Ippia Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1178,9 +1178,9 @@ const REPORTS: Report[] = [
   {
     id: '82',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Mouse e tastiera',
-    description: 'Periferiche computer danneggiate.',
-    address: 'Via Prodico 22',
+    title: 'Damaged mouse and keyboard',
+    description: 'Damaged computer peripherals.',
+    address: '22 Prodico Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1192,9 +1192,9 @@ const REPORTS: Report[] = [
   {
     id: '83',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tenda da sole',
-    description: 'Tenda da sole strappata dal maltempo.',
-    address: 'Via Antifonte 8',
+    title: 'Torn awning',
+    description: 'Awning torn by bad weather.',
+    address: '8 Antifonte Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1206,9 +1206,9 @@ const REPORTS: Report[] = [
   {
     id: '84',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Rivestimenti bagno',
-    description: 'Piastrelle vecchie del bagno rimosse.',
-    address: 'Via Liside 11',
+    title: 'Bathroom coverings',
+    description: 'Old bathroom tiles removed.',
+    address: '11 Liside Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1220,9 +1220,9 @@ const REPORTS: Report[] = [
   {
     id: '85',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Lampada da terra',
-    description: 'Lampada da terra con base rotta.',
-    address: 'Via Crizia 17',
+    title: 'Broken floor lamp',
+    description: 'Floor lamp with broken base.',
+    address: '17 Crizia Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1234,9 +1234,9 @@ const REPORTS: Report[] = [
   {
     id: '86',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Banco da lavoro',
-    description: 'Banco da lavoro in metallo arrugginito.',
-    address: 'Via Callicle 24',
+    title: 'Rusty workbench',
+    description: 'Metal workbench rusty.',
+    address: '24 Callicle Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1248,9 +1248,9 @@ const REPORTS: Report[] = [
   {
     id: '87',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Coppi danneggiati',
-    description: 'Coppi del tetto caduti durante i lavori.',
-    address: 'Via Trasimaco 6',
+    title: 'Damaged roof tiles',
+    description: 'Roof tiles fallen during work.',
+    address: '6 Trasimaco Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1262,9 +1262,9 @@ const REPORTS: Report[] = [
   {
     id: '88',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Sveglia digitale',
-    description: 'Radiosveglia con display rotto.',
-    address: 'Via Alcidamante 13',
+    title: 'Broken alarm clock',
+    description: 'Alarm clock with broken display.',
+    address: '13 Alcidamante Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1276,9 +1276,9 @@ const REPORTS: Report[] = [
   {
     id: '89',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Appendiabiti rotto',
-    description: 'Appendiabiti in legno con ganci spezzati.',
-    address: 'Via Isocrate 19',
+    title: 'Broken coat rack',
+    description: 'Wooden coat rack with broken hooks.',
+    address: '19 Isocrate Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1290,9 +1290,9 @@ const REPORTS: Report[] = [
   {
     id: '90',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Massetto rovinato',
-    description: 'Pezzi di massetto demolito.',
-    address: 'Via Lisia 25',
+    title: 'Damaged screed',
+    description: 'Pieces of demolished screed.',
+    address: '25 Lisia Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1304,9 +1304,9 @@ const REPORTS: Report[] = [
   {
     id: '91',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Smartphone rotto',
-    description: 'Telefono cellulare con schermo frantumato.',
-    address: 'Via Eschine 7',
+    title: 'Broken smartphone',
+    description: 'Cell phone with shattered screen.',
+    address: '7 Eschine Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1318,9 +1318,9 @@ const REPORTS: Report[] = [
   {
     id: '92',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Sgabello rotto',
-    description: 'Sgabello da bar con gambe spezzate.',
-    address: 'Via Dinarco 12',
+    title: 'Broken stool',
+    description: 'Bar stool with broken legs.',
+    address: '12 Dinarco Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1332,9 +1332,9 @@ const REPORTS: Report[] = [
   {
     id: '93',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cordoli stradali',
-    description: 'Cordoli in cemento rimossi dalla strada.',
-    address: 'Via Iperide 18',
+    title: 'Kerbs',
+    description: 'Concrete kerbs removed from the road.',
+    address: '18 Iperide Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1346,9 +1346,9 @@ const REPORTS: Report[] = [
   {
     id: '94',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Caricabatterie rotto',
-    description: 'Caricabatterie per cellulare danneggiato.',
-    address: 'Via Demostene 23',
+    title: 'Broken charger',
+    description: 'Damaged mobile phone charger.',
+    address: '23 Demostene Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1360,9 +1360,9 @@ const REPORTS: Report[] = [
   {
     id: '95',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tappeto vecchio',
-    description: "Tappeto persiano rovinato dall'umidità.",
-    address: 'Via Licurgo 9',
+    title: 'Old carpet',
+    description: 'Persian carpet damaged by humidity.',
+    address: '9 Licurgo Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1374,9 +1374,9 @@ const REPORTS: Report[] = [
   {
     id: '96',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Mattoni forati',
-    description: 'Mattoni forati da costruzione abbandonati.',
-    address: 'Via Andocide 15',
+    title: 'Hollow bricks',
+    description: 'Hollow bricks for construction abandoned.',
+    address: '15 Andocide Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1388,9 +1388,9 @@ const REPORTS: Report[] = [
   {
     id: '97',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Altoparlanti rotti',
-    description: 'Casse audio con coni danneggiati.',
-    address: 'Via Antifonte 21',
+    title: 'Broken speakers',
+    description: 'Audio speakers with damaged cones.',
+    address: '21 Antifonte Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1402,9 +1402,9 @@ const REPORTS: Report[] = [
   {
     id: '98',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Vaso da fiori',
-    description: 'Vaso in terracotta rotto caduto dal balcone.',
-    address: 'Via Crizia 4',
+    title: 'Flower vase',
+    description: 'Terracotta vase broken and fallen from the balcony.',
+    address: '4 Crizia Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1416,9 +1416,9 @@ const REPORTS: Report[] = [
   {
     id: '99',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Guaine impermeabili',
-    description: 'Rotoli di guaina bituminosa usurata.',
-    address: 'Via Prodico 26',
+    title: 'Waterproof sheaths',
+    description: 'Rolls of worn bituminous sheathing.',
+    address: '26 Prodico Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1430,9 +1430,9 @@ const REPORTS: Report[] = [
   {
     id: '100',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Webcam rotta',
-    description: 'Webcam per computer con lente danneggiata.',
-    address: 'Via Ippia 11',
+    title: 'Broken webcam',
+    description: 'Computer webcam with damaged lens.',
+    address: '11 Ippia Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1444,9 +1444,9 @@ const REPORTS: Report[] = [
   {
     id: '101',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cancelletto rotto',
-    description: 'Cancelletto da giardino con cerniere rotte.',
-    address: 'Via Liside 16',
+    title: 'Broken garden gate',
+    description: 'Garden gate with broken hinges.',
+    address: '16 Liside Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1458,9 +1458,9 @@ const REPORTS: Report[] = [
   {
     id: '102',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Piastrelle bagno',
-    description: 'Rivestimenti ceramici rimossi da bagno.',
-    address: 'Via Callicle 8',
+    title: 'Bathroom tiles',
+    description: 'Ceramic coverings removed from the bathroom.',
+    address: '8 Callicle Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1472,9 +1472,9 @@ const REPORTS: Report[] = [
   {
     id: '103',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Mixer audio',
-    description: 'Console mixer per audio con potenziometri rotti.',
-    address: 'Via Trasimaco 22',
+    title: 'Broken audio mixer',
+    description: 'Audio mixer console with broken potentiometers.',
+    address: '22 Trasimaco Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1486,9 +1486,9 @@ const REPORTS: Report[] = [
   {
     id: '104',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Fioriera rotta',
-    description: 'Fioriera in cemento con crepe profonde.',
-    address: 'Via Alcidamante 19',
+    title: 'Broken flower pot',
+    description: 'Concrete flower pot with deep cracks.',
+    address: '19 Alcidamante Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1500,9 +1500,9 @@ const REPORTS: Report[] = [
   {
     id: '105',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cemento armato',
-    description: 'Blocchi di cemento armato da demolizione.',
-    address: 'Via Isocrate 3',
+    title: 'Reinforced concrete',
+    description: 'Blocks of reinforced concrete from demolition.',
+    address: '3 Isocrate Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1514,9 +1514,9 @@ const REPORTS: Report[] = [
   {
     id: '106',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Telecomando TV',
-    description: 'Telecomando con tasti non funzionanti.',
-    address: 'Via Lisia 14',
+    title: 'Broken TV remote',
+    description: 'Remote control with non-working buttons.',
+    address: '14 Lisia Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1528,9 +1528,9 @@ const REPORTS: Report[] = [
   {
     id: '107',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Poltroncina ufficio',
-    description: 'Sedia da ufficio con ruote rotte.',
-    address: 'Via Eschine 27',
+    title: 'Broken office armchair',
+    description: 'Office chair with broken wheels.',
+    address: '27 Eschine Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1542,9 +1542,9 @@ const REPORTS: Report[] = [
   {
     id: '108',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Scossaline metalliche',
-    description: 'Scossaline del tetto arrugginite.',
-    address: 'Via Dinarco 20',
+    title: 'Rusty flashings',
+    description: 'Rusty roof flashings.',
+    address: '20 Dinarco Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1556,9 +1556,9 @@ const REPORTS: Report[] = [
   {
     id: '109',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Joystick console',
-    description: 'Controller per videogiochi con analogici rotti.',
-    address: 'Via Iperide 5',
+    title: 'Broken game controller',
+    description: 'Game controller with broken analog sticks.',
+    address: '5 Iperide Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1570,9 +1570,9 @@ const REPORTS: Report[] = [
   {
     id: '110',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Contenitore plastica',
-    description: 'Contenitore per raccolta differenziata rotto.',
-    address: 'Via Demostene 12',
+    title: 'Broken plastic container',
+    description: 'Damaged container for waste separation.',
+    address: '12 Demostene Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1584,9 +1584,9 @@ const REPORTS: Report[] = [
   {
     id: '111',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Pali recinzione',
-    description: 'Pali in ferro per recinzione arrugginiti.',
-    address: 'Via Licurgo 25',
+    title: 'Rusty fence posts',
+    description: 'Iron posts for fencing, rusty.',
+    address: '25 Licurgo Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1598,9 +1598,9 @@ const REPORTS: Report[] = [
   {
     id: '112',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Modem internet',
-    description: 'Modem ADSL con alimentatore rotto.',
-    address: 'Via Andocide 7',
+    title: 'Broken internet modem',
+    description: 'ADSL modem with broken power supply.',
+    address: '7 Andocide Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1612,9 +1612,9 @@ const REPORTS: Report[] = [
   {
     id: '113',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Stendibiancheria',
-    description: 'Stendibiancheria in alluminio piegato dal vento.',
-    address: 'Via Antifonte 18',
+    title: 'Broken clothes drying rack',
+    description: 'Aluminum clothes drying rack bent by the wind.',
+    address: '18 Antifonte Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1626,9 +1626,9 @@ const REPORTS: Report[] = [
   {
     id: '114',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Blocchi tufo',
-    description: 'Blocchi di tufo da costruzione abbandonati.',
-    address: 'Via Crizia 21',
+    title: 'Abandoned tuff blocks',
+    description: 'Blocks of tuff for construction abandoned.',
+    address: '21 Crizia Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1640,9 +1640,9 @@ const REPORTS: Report[] = [
   {
     id: '115',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Chiavetta USB',
-    description: 'Dispositivo USB danneggiato.',
-    address: 'Via Prodico 13',
+    title: 'Damaged USB flash drive',
+    description: 'Damaged USB device.',
+    address: '13 Prodico Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1654,9 +1654,9 @@ const REPORTS: Report[] = [
   {
     id: '116',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Tavola da stiro',
-    description: 'Tavola da stiro con gambe instabili.',
-    address: 'Via Ippia 24',
+    title: 'Unstable ironing board',
+    description: 'Ironing board with unstable legs.',
+    address: '24 Ippia Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1668,9 +1668,9 @@ const REPORTS: Report[] = [
   {
     id: '117',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Griglia ventilazione',
-    description: 'Griglie di ventilazione ossidate.',
-    address: 'Via Liside 10',
+    title: 'Rusty ventilation grille',
+    description: 'Ossified ventilation grilles.',
+    address: '10 Liside Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1682,9 +1682,9 @@ const REPORTS: Report[] = [
   {
     id: '118',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Cavo ethernet',
-    description: 'Cavo di rete danneggiato.',
-    address: 'Via Callicle 16',
+    title: 'Damaged ethernet cable',
+    description: 'Damaged network cable.',
+    address: '16 Callicle Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1696,9 +1696,9 @@ const REPORTS: Report[] = [
   {
     id: '119',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Bacinella rotta',
-    description: 'Bacinella in plastica con fondo bucato.',
-    address: 'Via Trasimaco 9',
+    title: 'Broken basin',
+    description: 'Plastic basin with a punctured bottom.',
+    address: '9 Trasimaco Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1710,9 +1710,9 @@ const REPORTS: Report[] = [
   {
     id: '120',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Controtelaio finestra',
-    description: 'Controtelaio in alluminio dopo sostituzione.',
-    address: 'Via Alcidamante 23',
+    title: 'Window frame',
+    description: 'Aluminum window frame after replacement.',
+    address: '23 Alcidamante Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1724,9 +1724,9 @@ const REPORTS: Report[] = [
   {
     id: '121',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Powerbank rotto',
-    description: 'Batteria portatile che non si ricarica.',
-    address: 'Via Isocrate 15',
+    title: 'Broken power bank',
+    description: 'Portable battery that does not recharge.',
+    address: '15 Isocrate Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1738,9 +1738,9 @@ const REPORTS: Report[] = [
   {
     id: '122',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Cassapanca legno',
-    description: 'Cassapanca antica con coperchio rotto.',
-    address: 'Via Lisia 6',
+    title: 'Wooden chest',
+    description: 'Antique chest with a broken lid.',
+    address: '6 Lisia Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1967,
@@ -1752,9 +1752,9 @@ const REPORTS: Report[] = [
   {
     id: '123',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Calcestruzzo rotto',
-    description: 'Pezzi di calcestruzzo da demolizione stradale.',
-    address: 'Via Eschine 17',
+    title: 'Broken concrete',
+    description: 'Pieces of concrete from road demolition.',
+    address: '17 Eschine Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1766,9 +1766,9 @@ const REPORTS: Report[] = [
   {
     id: '124',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Videocamera rotta',
-    description: 'Videocamera digitale con obiettivo bloccato.',
-    address: 'Via Dinarco 28',
+    title: 'Broken video camera',
+    description: 'Digital video camera with a blocked lens.',
+    address: '28 Dinarco Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,
@@ -1780,9 +1780,9 @@ const REPORTS: Report[] = [
   {
     id: '125',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Bidone spazzatura',
-    description: 'Bidone della spazzatura con ruote rotte.',
-    address: 'Via Iperide 12',
+    title: 'Broken trash bin',
+    description: 'Trash bin with broken wheels.',
+    address: '12 Iperide Street',
     location: {
       latitude: 45.466,
       longitude: 9.1905,
@@ -1794,9 +1794,9 @@ const REPORTS: Report[] = [
   {
     id: '126',
     images: [BuildingMaterialsDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Rete metallica',
-    description: 'Rotoli di rete metallica arrugginita.',
-    address: 'Via Demostene 19',
+    title: 'Rusty wire mesh',
+    description: 'Rolls of rusty wire mesh.',
+    address: '19 Demostene Street',
     location: {
       latitude: 45.4672,
       longitude: 9.1834,
@@ -1808,9 +1808,9 @@ const REPORTS: Report[] = [
   {
     id: '127',
     images: [ElectricalWasteDisposalImage, BulkyWasteDisposalImage],
-    title: 'Interruttore rotto',
-    description: 'Interruttore elettrico danneggiato.',
-    address: 'Via Licurgo 4',
+    title: 'Broken switch',
+    description: 'Damaged electrical switch.',
+    address: '4 Lycurgus Street',
     location: {
       latitude: 45.4668,
       longitude: 9.1822,
@@ -1822,9 +1822,9 @@ const REPORTS: Report[] = [
   {
     id: '128',
     images: [BulkyWasteDisposalImage, ElectricalWasteDisposalImage],
-    title: 'Scala a pioli',
-    description: 'Scala in alluminio con gradini piegati.',
-    address: 'Via Andocide 26',
+    title: 'Step ladder',
+    description: 'Aluminum ladder with bent steps.',
+    address: '26 Andocides Street',
     location: {
       latitude: 45.4665,
       longitude: 9.1901,

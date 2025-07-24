@@ -12,16 +12,13 @@ const resources = {
   },
 } as const
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLng: 'it',
-    ns: ['translation'],
-    defaultNS: 'translation',
-    debug: false,
-    interpolation: {
-      escapeValue: false,
-    },
-  })
-  .then(onfulfilled => onfulfilled)
+i18n.use(initReactI18next).init({
+  resources,
+  fallbackLng: 'en',
+  ns: ['translation'],
+  defaultNS: 'translation',
+  debug: false,
+  interpolation: {
+    escapeValue: false,
+  },
+})

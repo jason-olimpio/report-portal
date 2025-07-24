@@ -1,5 +1,4 @@
 import {TouchableOpacity, Text} from 'react-native'
-import React from 'react'
 
 type OptionListProps<T> = {
   options: T[]

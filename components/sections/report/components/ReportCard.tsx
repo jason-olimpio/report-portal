@@ -112,7 +112,8 @@ const ReportCard = ({report}: ReportCardProps) => {
         <View className="flex-row items-center ml-4 justify-center">
           <View className="flex flex-col mr-1 items-center justify-center">
             <ReportStatusBadge status={status} />
-            {isAdmin && priority && (
+
+            {isAdmin && (
               <ReportPriorityBadge
                 priority={priority}
                 className="mt-2 self-center"

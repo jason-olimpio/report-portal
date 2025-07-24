@@ -1,4 +1,3 @@
-import React from 'react'
 import {ActivityIndicator, Text, TouchableOpacity} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

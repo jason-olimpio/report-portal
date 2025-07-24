@@ -1,54 +1,54 @@
-# 🌍 SOS Segnalazioni - La tua app per città più pulite
+# 🌍 SOS Reports - Your app for cleaner cities
 
-Benvenuto in **SOS Segnalazioni**, l'app che ti permette di contribuire attivamente alla pulizia della tua città! Con pochi tocchi, puoi segnalare rifiuti abbandonati e aiutare le autorità a intervenire tempestivamente.
+Welcome to **SOS Reports**, the app that allows you to actively contribute to keeping your city clean! With just a few taps, you can report abandoned waste and help authorities take prompt action.
 
-**Come funziona?**  
-Scatta una foto del problema, aggiungi una descrizione e l'app registrerà automaticamente la posizione. Le segnalazioni vengono poi inviate ai servizi di igiene urbana per la risoluzione.
+**How does it work?**  
+Take a photo of the issue, add a description, and the app will automatically record the location. Reports are then sent to urban sanitation services for resolution.
 
-## ✨ Cosa puoi fare con l'app
+## ✨ What you can do with the app
 
-### Segnalazioni intuitive
+### Intuitive reporting
 
-- 📸 **Foto georeferenziate**: Invia fino a 5 immagini con coordinate precise
-- 🗂️ **Categorie dettagliate**: Rifiuti edili, elettronici, ingombranti e molto altro
-- 📍 **Mappa interattiva**: Visualizza tutte le segnalazioni nella tua zona
+- 📸 **Geotagged photos**: Send up to 5 images with precise coordinates
+- 🗂️ **Detailed categories**: Construction, electronic, bulky waste, and much more
+- 📍 **Interactive map**: View all reports in your area
 
-### Monitoraggio in tempo reale
+### Real-time monitoring
 
-- 📊 **Dashboard personale**: Tieni traccia dello stato delle tue segnalazioni
-- 📅 **Calendario visivo**: Segui l'evoluzione con colori intuitivi (rosso = in attesa, verde = risolto)
-- 🔔 **Notifiche push**: Ricevi aggiornamenti quando c'è un cambiamento
+- 📊 **Personal dashboard**: Track the status of your reports
+- 📅 **Visual calendar**: Follow progress with intuitive colors (red = pending, green = resolved)
+- 🔔 **Push notifications**: Get updates when there’s a change
 
-### Esperienza personalizzata
+### Personalized experience
 
-- 🌙 **Tema chiaro/scuro**: Scegli la modalità che preferisci
-- 🌍 **Italiano/Inglese**: Cambia lingua quando vuoi
-- ♿ **Accessibilità totale**: Progettata per essere usata da tutti
+- 🌙 **Light/Dark theme**: Choose your preferred mode
+- 🌍 **English/Italian**: Switch language anytime
+- ♿ **Full accessibility**: Designed for everyone
 
-## 🛠️ Come iniziare
+## 🛠️ Getting started
 
-### Prerequisiti
+### Prerequisites
 
-Assicurati di avere:
+Make sure you have:
 
-- Node.js (versione 16 o superiore)
-- Android Studio (per Android) o Xcode (per iOS su Mac)
+- Node.js (version 16 or higher)
+- Android Studio (for Android) or Xcode (for iOS on Mac)
 - React Native CLI
 
-### Installazione passo-passo:
+### Installation step-by-step:
 
 ```bash
-# 1. Clona il progetto
+# 1. Clone the project
 git clone https://git.fm-technology.it/sviluppo/staging/sossegnalazioni.git
 cd AppSos
 
-# 2. Installa le dipendenze
+# 2. Install dependencies
 npm install
 
-# 3. Avvia il server di sviluppo
+# 3. Start the development server
 npm start
 
-# 4. Esegui l'app (scegli una piattaforma)
-npm run android   # Per Android
-npm run ios       # Per iOS (solo su Mac)
+# 4. Run the app (choose a platform)
+npm run android   # For Android
+npm run ios       # For iOS (Mac only)
 ```
