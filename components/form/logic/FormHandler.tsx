@@ -1,17 +1,13 @@
 import {useState, useEffect} from 'react'
-import {
-  ActivityIndicator,
-  Alert,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native'
+import {Alert, View} from 'react-native'
 import {ZodType} from 'zod'
 
 import {useTranslation} from 'react-i18next'
 import {useUserLocation} from '@hooks'
 
 import FieldRenderer from './FieldRenderer'
+
+import {SaveButton} from '@components'
 
 import {extractFieldErrors, createAllTouchedState} from '@utils'
 
@@ -32,7 +28,7 @@ type FormHandlerProps<T extends Record<string, any>> = {
   saveButtonLabel?: string
 }
 
-export const FormHandler = <T extends Record<string, any>>({
+const FormHandler = <T extends Record<string, any>>({
   schema,
   initialState,
   fields,
@@ -153,19 +149,14 @@ export const FormHandler = <T extends Record<string, any>>({
         return fieldRenderer.render(field, fieldKey, renderContext)
       })}
 
-      <TouchableOpacity
+      <SaveButton
         onPress={handleSave}
         disabled={isSubmitting}
-        className="rounded-full w-full self-center items-center p-3 bg-primary-light dark:bg-primary-dark"
-        accessibilityLabel={saveButtonLabel || t('forms.save')}>
-        {isSubmitting ? (
-          <ActivityIndicator color="white" />
-        ) : (
-          <Text className="font-titillium-bold text-white">
-            {saveButtonLabel || t('forms.save')}
-          </Text>
-        )}
-      </TouchableOpacity>
+        label={saveButtonLabel}
+        isSubmitting={isSubmitting}
+      />
     </View>
   )
 }
+
+export default FormHandler

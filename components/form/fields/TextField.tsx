@@ -22,7 +22,7 @@ const TextField = ({
     </Text>
 
     <TextInput
-      className="border bg-white dark:bg-background-secondaryDark border-neutral-gray-100
+      className="border bg-white dark:bg-background-secondaryDark border-neutral-gray-100 font-titillium-regular
       dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 p-4 rounded-lg shadow-md"
       value={value}
       onChangeText={onChangeText}

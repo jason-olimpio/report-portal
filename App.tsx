@@ -10,7 +10,7 @@ import './i18n'
 
 import {AppNavigator, Snackbar} from '@components'
 
-import {ThemeProvider, AuthProvider, ReportProvider} from '@contexts'
+import AppProviders from './AppProviders'
 
 import {startNetworkMonitor} from '@storage'
 
@@ -37,18 +37,14 @@ const App = () => {
 
   return (
     <GestureHandlerRootView>
-      <AuthProvider>
-        <ThemeProvider>
-          <ReportProvider>
-            <AppNavigator />
+      <AppProviders>
+        <AppNavigator />
 
-            <Snackbar
-              visible={!isConnected}
-              message={t('general.noInternetConnection')}
-            />
-          </ReportProvider>
-        </ThemeProvider>
-      </AuthProvider>
+        <Snackbar
+          visible={!isConnected}
+          message={t('general.noInternetConnection')}
+        />
+      </AppProviders>
     </GestureHandlerRootView>
   )
 }

@@ -75,7 +75,7 @@ const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
         onPress={handleClose}
         accessibilityLabel={t('close')}
         className="pl-2">
-        <Text className="text-white text-lg font-bold">×</Text>
+        <Text className="text-white text-lg font-titillium-bold">×</Text>
       </Pressable>
     </Animated.View>
   )

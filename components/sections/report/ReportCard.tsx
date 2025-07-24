@@ -6,88 +6,58 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-
-import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {useTranslation} from 'react-i18next'
 
-import {AdminReportInfo, ReportStatusBadge} from '@components'
-
+import ReportInfoContent from './ReportInfoContent'
+import {AdminReportInfo} from '@components'
 import {useAuth} from '@hooks'
-
 import {Report, UserRank, type ReportCardNavigationProp} from '@types'
-
 import {getTimeAgo} from '@utils'
-
 import {PlaceholderImage} from '@assets'
 
 type ReportCardProps = {
   report: Report
-  menuOpenId?: string | null
-  setMenuOpenId?: (id: string | null) => void
 }
 
 const getImageSource = (images: ImageSourcePropType[] = []) => {
   if (!Array.isArray(images) || images.length === 0) return PlaceholderImage
-
   return images[0]
 }
 
-const ReportCard = ({report, menuOpenId, setMenuOpenId}: ReportCardProps) => {
+const ReportCard = ({report}: ReportCardProps) => {
   const {t, i18n} = useTranslation()
   const navigation = useNavigation<ReportCardNavigationProp>()
   const {user} = useAuth()
 
-  const {id, images = [], title, address, date, status} = report
+  const {id, images, date} = report
 
   const handlePress = () => navigation.navigate('ReportDetails', {reportId: id})
-
   const timeAgo = getTimeAgo(date, i18n.language, t)
   const source = getImageSource(images)
 
-  if (user?.rank === UserRank.Admin)
-    return (
-      <AdminReportInfo
-        report={report}
-        menuOpenId={menuOpenId}
-        setMenuOpenId={setMenuOpenId}
-      />
-    )
+  if (user?.rank === UserRank.Admin) return <AdminReportInfo report={report} />
 
   return (
     <TouchableOpacity
-      className="bg-white dark:bg-background-secondaryDark p-4 rounded-lg shadow-lg mb-4"
+      className="bg-white dark:bg-background-secondaryDark p-4 rounded-lg 
+      shadow-lg mb-4 flex-row items-end justify-between"
       onPress={handlePress}
       activeOpacity={0.7}>
-      <View className="flex-row items-end justify-between">
-        <View className="flex-row flex-1 min-w-0">
-          <Image
-            source={source}
-            className="w-16 h-16 mr-4 rounded-full shadow-lg"
-          />
+      <Image
+        source={source}
+        className="w-16 h-16 mr-4 rounded-full shadow-lg"
+      />
 
-          <View className="min-w-0">
-            <Text className="font-titillium-semibold dark:text-white">
-              {title}
-            </Text>
+      <View className="flex-1 min-w-0">
+        <ReportInfoContent
+          report={report}
+          onPress={undefined}
+          rightContent={null}
+        />
 
-            <View className="flex-row items-center flex-wrap">
-              <MaterialIcons name="location-on" size={15} color="gray" />
-
-              <Text
-                className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200 ml-0.5 flex-shrink min-w-0"
-                numberOfLines={1}
-                ellipsizeMode="tail">
-                {address}
-              </Text>
-            </View>
-
-            <Text className="text-sm text-neutral-gray-500 dark:text-neutral-gray-200">
-              {timeAgo}
-            </Text>
-          </View>
-        </View>
-
-        <ReportStatusBadge status={status} />
+        <Text className="font-titillium-regular text-sm text-neutral-gray-500 dark:text-neutral-gray-200">
+          {timeAgo}
+        </Text>
       </View>
     </TouchableOpacity>
   )

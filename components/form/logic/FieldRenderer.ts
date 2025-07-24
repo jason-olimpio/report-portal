@@ -4,7 +4,7 @@ import {
   TextFieldStrategy,
   ImageSliderFieldStrategy,
   LocationFieldStrategy,
-} from '@components'
+} from './strategies'
 
 import {
   FieldRenderStrategy,

@@ -54,8 +54,9 @@ const ReportStatusBadge = ({status}: ReportStatusBadgeProps) => {
 
   return (
     <View
-      className={`flex-row items-center ${isDark ? colors.bgDark : colors.bg} px-3 py-0.5 rounded-full`}>
-      <Text className={`${isDark ? colors.textDark : colors.text} text-xs`}>
+      className={`flex-row items-center justify-center ${isDark ? colors.bgDark : colors.bg} px-3 py-0.5 rounded-full`}>
+      <Text
+        className={`${isDark ? colors.textDark : colors.text} text-xs font-titillium-regular`}>
         {label}
       </Text>
     </View>

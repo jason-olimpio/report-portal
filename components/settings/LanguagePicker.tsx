@@ -59,7 +59,9 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
                 key={code}
                 className="flex-row items-center justify-center mb-3 w-full"
                 onPress={() => handleSwitch(code)}>
-                <Text className="text-xl text-center mr-2">{flag}</Text>
+                <Text className="font-titillium-regular text-xl text-center mr-2">
+                  {flag}
+                </Text>
 
                 <Text className="font-titillium-semibold dark:text-white text-center">
                   {label}

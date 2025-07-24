@@ -25,7 +25,7 @@ const ConfirmCloseModal = ({
         className="flex-1 justify-center items-center bg-black bg-opacity-40"
         onPress={onClose}>
         <View
-          className="bg-white justify-center items-center dark:bg-neutral-800 p-6 rounded-lg w-4/5"
+          className="bg-white justify-center items-center dark:bg-neutral-800 p-6 rounded-3xl w-4/5"
           onStartShouldSetResponder={() => true}>
           <MaterialIcons name="priority-high" size={45} color="red" />
 

@@ -19,7 +19,7 @@ const SectionHeader = ({
     </Text>
 
     <TouchableOpacity onPress={onPress}>
-      <Text className="text-sm text-primary-light dark:text-white">
+      <Text className="font-titillium-regular text-sm text-primary-light dark:text-white">
         {action}
       </Text>
     </TouchableOpacity>

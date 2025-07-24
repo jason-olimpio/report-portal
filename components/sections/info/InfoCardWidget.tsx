@@ -32,7 +32,9 @@ const InfoCardWidget = ({
           </Text>
         </View>
 
-        <Text className={`text-2xl ${valueColorClass}`}>{value}</Text>
+        <Text className={`font-titillium-regular text-2xl ${valueColorClass}`}>
+          {value}
+        </Text>
 
         <Text className="text-xs font-titillium-light text-neutral-gray-600 dark:text-neutral-gray-200">
           {subInfo}

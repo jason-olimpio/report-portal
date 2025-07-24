@@ -26,12 +26,12 @@ const NotificationScreen = () => {
             {title}
           </Text>
 
-          <Text className="text-sm text-gray-500 dark:text-gray-200 mt-1 pr-10">
+          <Text className="font-titillium-regular text-sm text-gray-500 dark:text-gray-200 mt-1 pr-10">
             {description}
           </Text>
         </View>
 
-        <Text className="text-xs text-gray-400 dark:text-gray-200 ml-2 whitespace-nowrap">
+        <Text className="font-titillium-regular text-xs text-gray-400 dark:text-gray-200 ml-2 whitespace-nowrap">
           {timeAgo}
         </Text>
       </View>
@@ -54,7 +54,7 @@ const NotificationScreen = () => {
         <View className="rounded-2xl shadow-lg overflow-hidden mt-2">
           {sortedNotifications.length === 0 ? (
             <View className="py-10 items-center justify-center">
-              <Text className="text-neutral-gray-500 text-base">
+              <Text className="font-titillium-regular text-neutral-gray-500 text-base">
                 {t('general.noNotifications')}
               </Text>
             </View>

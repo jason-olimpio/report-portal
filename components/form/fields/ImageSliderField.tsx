@@ -88,7 +88,7 @@ const ImageSliderField = ({
   return (
     <View className="mb-4">
       {maxImages > 1 && imageUris.length === 0 && (
-        <Text className="text-neutral-gray-500 dark:text-white mb-6 text-center">
+        <Text className="text-neutral-gray-500 dark:text-white mb-6 text-center font-titillium-regular">
           {t('media.imageSource.hint', {value: maxImages})}
         </Text>
       )}
@@ -96,7 +96,7 @@ const ImageSliderField = ({
       {imageUris.length > 0 && (
         <View className="items-center">
           {maxImages > 1 && (
-            <Text className="text-neutral-gray-600 dark:text-white mb-6 font-medium">
+            <Text className="text-neutral-gray-600 dark:text-white mb-6 font-titillium-regular">
               {imageUris.length} / {maxImages} {t('media.imageSource.images')}
             </Text>
           )}

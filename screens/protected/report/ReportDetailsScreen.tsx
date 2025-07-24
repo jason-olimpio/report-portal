@@ -11,15 +11,15 @@ import {
   type CameraRef,
 } from '@maplibre/maplibre-react-native'
 
-import {reportData} from '@store'
 import {
   ReportStatusBadge,
   BackButton,
   ReportImageGallery,
   ReportPriorityBadge,
+  StatusRegionForm,
 } from '@components'
 
-import {useAuth, useTheme} from '@hooks'
+import {useAuth, useReports, useTheme} from '@hooks'
 
 import {appColors, mapConfig} from '@config'
 
@@ -32,16 +32,19 @@ const ReportDetailsScreen = () => {
 
   const {isDark} = useTheme()
   const {t, i18n} = useTranslation()
+
   const route = useRoute<ReportDetailsScreenRouteProp>()
   const {user} = useAuth()
-  const {reportId} = route.params
 
-  const report = reportData.find(item => item.id === reportId)
+  const {reports} = useReports()
+
+  const {reportId} = route.params
+  const report = reports.find(item => item.id === reportId)
 
   if (!report)
     return (
       <View className="flex-1 bg-background-light dark:bg-background-dark">
-        <Text className="text-center mt-6 text-red-500">
+        <Text className="font-titillium-regular text-center mt-6 text-red-500">
           {t('reports.reportNotFound')}
         </Text>
       </View>
@@ -84,7 +87,9 @@ const ReportDetailsScreen = () => {
         {title}
       </Text>
 
-      <Text className="text-sm mx-10 mb-2 text-neutral-gray-500 dark:text-neutral-gray-200 text-center">
+      <Text
+        className="font-titillium-regular text-sm mx-10 mb-2 
+      text-neutral-gray-500 dark:text-neutral-gray-200 text-center">
         {description}
       </Text>
 
@@ -97,12 +102,14 @@ const ReportDetailsScreen = () => {
           }
         />
 
-        <Text className="text-sm ml-1 text-neutral-gray-500 dark:text-neutral-gray-200">
+        <Text className="font-titillium-regular text-sm ml-1 text-neutral-gray-500 dark:text-neutral-gray-200">
           {address}
         </Text>
       </View>
 
-      <Text className="text-sm mb-10 text-neutral-gray-500 dark:text-neutral-gray-200 text-center">
+      <Text
+        className="font-titillium-regular text-sm mb-10 
+      text-neutral-gray-500 dark:text-neutral-gray-200 text-center">
         {formattedDate}
       </Text>
 
@@ -140,11 +147,15 @@ const ReportDetailsScreen = () => {
           </MapView>
         </View>
 
-        <Text className="text-xs text-neutral-gray-500 dark:text-neutral-gray-100 mt-4 text-center">
+        <Text
+          className="font-titillium-regular text-xs text-neutral-gray-500 
+        dark:text-neutral-gray-100 mt-4 text-center">
           {t('location.coordinates')}: {latitude.toFixed(4)},{' '}
           {longitude.toFixed(4)}
         </Text>
       </View>
+
+      <StatusRegionForm reportId={reportId} status={status} />
     </ScrollView>
   )
 }

@@ -39,7 +39,7 @@ const CommunityImpactSection = ({
                 {value}
               </Text>
 
-              <Text className="text-neutral-gray-500 dark:text-neutral-gray-200">
+              <Text className="font-titillium-regular text-neutral-gray-500 dark:text-neutral-gray-200">
                 {label}
               </Text>
             </View>

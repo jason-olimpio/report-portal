@@ -30,16 +30,16 @@ const LocationField = ({label, location, error}: LocationFieldProps) => {
       bg-white dark:bg-background-secondaryDark shadow-sm">
         {hasValidLocation ? (
           <>
-            <Text className="text-neutral-500 dark:text-neutral-300 text-sm">
+            <Text className="text-neutral-500 dark:text-neutral-300 font-titillium-regular text-sm">
               {t('location.latitude')}: {latitude?.toFixed(6)}
             </Text>
 
-            <Text className="text-neutral-500 dark:text-neutral-300 text-sm">
+            <Text className="text-neutral-500 dark:text-neutral-300 font-titillium-regular text-sm">
               {t('location.longitude')}: {longitude?.toFixed(6)}
             </Text>
           </>
         ) : (
-          <Text className="text-neutral-500 dark:text-neutral-300 text-sm italic">
+          <Text className="text-neutral-500 dark:text-neutral-300 font-titillium-regular text-sm italic">
             {t('location.locationNotCaptured')}
           </Text>
         )}

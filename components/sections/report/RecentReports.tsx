@@ -4,14 +4,17 @@ import {useTranslation} from 'react-i18next'
 
 import {ReportList, SectionHeader} from '@components'
 
-import {reportData} from '@store'
-import type {MainTabParamList} from '@types'
+import {useReports} from '@hooks'
+
+import {StatusOption, type MainTabParamList} from '@types'
 
 const RecentReports = () => {
+  const {reports} = useReports()
   const {t} = useTranslation()
 
   const navigation = useNavigation<NavigationProp<MainTabParamList>>()
-  const recentReports = [...reportData]
+  const recentReports = [...reports]
+    .filter(({status}) => status !== StatusOption.Completed)
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .slice(0, 3)
 

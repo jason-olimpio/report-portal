@@ -16,7 +16,9 @@ const Leaderboard = () => {
 
     return (
       <View className="ml-2 px-3 py-0.5 rounded-full bg-system-emerald-50-light dark:bg-system-emerald-50-dark">
-        <Text className="text-xs text-system-emerald-600-light dark:text-system-emerald-600-dark">
+        <Text
+          className="font-titillium-regular text-xs text-system-emerald-600-light 
+        dark:text-system-emerald-600-dark">
           {t(`stats.badge.${badgeKey}`)}
         </Text>
       </View>
@@ -49,7 +51,9 @@ const Leaderboard = () => {
                 <View className="flex-row items-center">
                   <MaterialIcons name="star" size={15} color="#facc15" />
 
-                  <Text className="text-xs ml-0.5 text-neutral-gray-400 dark:text-neutral-gray-200">
+                  <Text
+                    className="font-titillium-regular text-xs ml-0.5 text-neutral-gray-400 
+                  dark:text-neutral-gray-200">
                     {points} {t('stats.points')}
                   </Text>
                 </View>

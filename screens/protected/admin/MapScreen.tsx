@@ -110,7 +110,8 @@ const MapScreen = () => {
         <TextInput
           editable={false}
           value={t('search.locatingUser')}
-          className="text-center text-base bg-transparent border-0 text-primary-dark dark:text-primary-light"
+          className="font-titillium-regular text-center text-base bg-transparent border-0 
+          text-primary-dark dark:text-primary-light"
         />
       </View>
     )
@@ -127,7 +128,7 @@ const MapScreen = () => {
         />
 
         <TextInput
-          className={`flex-1 ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}
+          className={`flex-1 font-titillium-regular ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}
           placeholder={t('search.placeholder')}
           placeholderTextColor={
             isDark ? appColors.neutral.gray[300] : appColors.neutral.gray[500]

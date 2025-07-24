@@ -9,7 +9,6 @@ import {FilterValues} from '@types'
 const AdminReportsScreen = () => {
   const {t} = useTranslation()
   const [modalVisible, setModalVisible] = useState(false)
-  const [menuOpenId, setMenuOpenId] = useState<string | null>(null)
 
   const {
     filteredReports,
@@ -46,11 +45,7 @@ const AdminReportsScreen = () => {
         className="mb-6"
       />
 
-      <ReportList
-        reports={currentItems}
-        menuOpenId={menuOpenId}
-        setMenuOpenId={setMenuOpenId}
-      />
+      <ReportList reports={currentItems} />
 
       {filteredReports.length > 0 && (
         <Pagination

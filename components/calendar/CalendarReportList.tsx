@@ -5,21 +5,21 @@ import CalendarReportItem from './CalendarReportItem'
 
 import type {Report} from '@types'
 
-type CalendarReportsListProps = {
+type CalendarReportListProps = {
   reports: Report[] | null
   selectedDate: string | null
 }
 
-const CalendarReportsList = ({
+const CalendarReportList = ({
   reports,
   selectedDate,
-}: CalendarReportsListProps) => {
+}: CalendarReportListProps) => {
   const {t} = useTranslation()
 
   if (!selectedDate || !reports || reports.length === 0)
     return (
       <View className="w-full mb-16">
-        <Text className="text-center text-neutral-gray-400 mt-6">
+        <Text className="text-center font-titillium-regular text-neutral-gray-400 mt-6">
           {t('calendar.noReports')}
         </Text>
       </View>
@@ -34,4 +34,4 @@ const CalendarReportsList = ({
   )
 }
 
-export default CalendarReportsList
+export default CalendarReportList

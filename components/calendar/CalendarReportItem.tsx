@@ -35,7 +35,7 @@ const CalendarReportItem = ({report}: CalendarReportItemProps) => {
         {title}
       </Text>
 
-      <Text className="text-neutral-gray-600 mb-1 dark:text-neutral-gray-300">
+      <Text className="text-neutral-gray-600 mb-1 font-titillium-regular dark:text-neutral-gray-300">
         {description}
       </Text>
 
@@ -48,7 +48,7 @@ const CalendarReportItem = ({report}: CalendarReportItemProps) => {
           }
         />
 
-        <Text className="text-sm ml-1 text-neutral-gray-400 dark:text-neutral-gray-200">
+        <Text className="text-sm ml-1 font-titillium-regular text-neutral-gray-400 dark:text-neutral-gray-200">
           {address}
         </Text>
       </View>

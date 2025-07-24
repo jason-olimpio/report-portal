@@ -6,16 +6,14 @@ import type {Report} from '@types'
 
 type ReportListProps = {
   reports: Report[]
-  menuOpenId?: string | null
-  setMenuOpenId?: (id: string | null) => void
 }
 
-const ReportList = ({reports, menuOpenId, setMenuOpenId}: ReportListProps) => {
+const ReportList = ({reports}: ReportListProps) => {
   const {t} = useTranslation()
 
   if (reports.length === 0)
     return (
-      <Text className="text-center mt-5 text-base text-gray-500 dark:text-gray-200">
+      <Text className="font-titillium-regular text-center mt-5 text-base text-gray-500 dark:text-gray-200">
         {t('reports.noReportFound')}
       </Text>
     )
@@ -23,12 +21,7 @@ const ReportList = ({reports, menuOpenId, setMenuOpenId}: ReportListProps) => {
   return (
     <View className="w-full">
       {reports.map(report => (
-        <ReportCard
-          key={report.id}
-          report={report}
-          menuOpenId={menuOpenId}
-          setMenuOpenId={setMenuOpenId}
-        />
+        <ReportCard key={report.id} report={report} />
       ))}
     </View>
   )

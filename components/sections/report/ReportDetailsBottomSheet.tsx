@@ -65,7 +65,7 @@ const ReportDetailsBottomSheet = ({
       <BottomSheetScrollView className="flex-1 px-4 bg-white dark:bg-black">
         <ReportImageGallery images={images} />
 
-        <Text className="text-lg font-bold text-black mt-4 dark:text-white">
+        <Text className="text-lg font-titillium-bold text-black mt-4 dark:text-white">
           {title}
         </Text>
 
@@ -78,12 +78,14 @@ const ReportDetailsBottomSheet = ({
             }
           />
 
-          <Text className="text-neutral-gray-400 mb-1 ml-0.5 dark:text-neutral-gray-200 text-sm">
+          <Text className="font-titillium-regular text-neutral-gray-400 mb-1 ml-0.5 dark:text-neutral-gray-200 text-sm">
             {address}
           </Text>
         </View>
 
-        <Text className="mb-4 text-black dark:text-white">{description}</Text>
+        <Text className="font-titillium-regular mb-4 text-black dark:text-white">
+          {description}
+        </Text>
 
         <TouchableOpacity
           className="bg-primary-light dark:bg-primary-dark p-3 rounded-2xl mb-2"

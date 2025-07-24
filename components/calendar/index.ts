@@ -1,2 +1,2 @@
 export {default as CalendarReportItem} from './CalendarReportItem'
-export {default as CalendarReportsList} from './CalendarReportsList'
+export {default as CalendarReportList} from './CalendarReportList'

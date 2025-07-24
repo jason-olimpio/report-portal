@@ -101,7 +101,9 @@ const LoginScreen = () => {
             {t('authentication.welcome')}
           </Text>
 
-          <Text className="text-lg text-center text-text-secondary-light dark:text-text-secondary-dark">
+          <Text
+            className="font-titillium-regular text-lg text-center 
+          text-text-secondary-light dark:text-text-secondary-dark">
             {t('authentication.signInToYourAccount')}
           </Text>
         </View>

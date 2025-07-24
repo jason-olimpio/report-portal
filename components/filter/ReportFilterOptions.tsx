@@ -75,7 +75,7 @@ const ReportFilterOptions = ({
 
       {user?.rank === UserRank.Admin && (
         <>
-          <Text className="font-bold mt-6 mb-4 dark:text-white">
+          <Text className="font-titillium-bold mt-6 mb-4 dark:text-white">
             {t('filter.filterByPriority')}
           </Text>
 
@@ -88,14 +88,16 @@ const ReportFilterOptions = ({
         </>
       )}
 
-      <Text className="font-bold mt-6 mb-4 dark:text-white">
+      <Text className="font-titillium-bold mt-6 mb-4 dark:text-white">
         {t('filter.filterByDate')}
       </Text>
 
       <TouchableOpacity
         onPress={toggleDatePicker}
         className="bg-gray-200 dark:bg-gray-700 rounded-lg p-4 flex-row items-center justify-between">
-        <Text className="dark:text-white">{getDateRangeText()}</Text>
+        <Text className="font-titillium-regular dark:text-white">
+          {getDateRangeText()}
+        </Text>
       </TouchableOpacity>
 
       <View className="flex-row justify-between mt-3">

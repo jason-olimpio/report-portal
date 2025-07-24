@@ -47,7 +47,9 @@
     "save": "Salva",
     "cancel": "Annulla",
     "confirm": "Conferma",
-    "close": "Chiudi"
+    "close": "Chiudi",
+    "successTitle": "Successo",
+    "successMessage": "Modifiche salvate con successo."
   },
 
   "validation": {
@@ -78,7 +80,9 @@
     "locationRequired": "La posizione è obbligatoria",
     "reportSendFailed": "Invio della segnalazione fallito",
     "invalidDate": "Formato data non valido",
-    "imagesRequired": "Almeno un'immagine è obbligatoria"
+    "imagesRequired": "Almeno un'immagine è obbligatoria",
+    "statusRequired": "Lo stato è obbligatorio",
+    "addressRequired": "L'indirizzo è obbligatorio"
   },
 
   "reports": {
@@ -90,7 +94,9 @@
     "reportSaved": "Segnalazione salvata",
     "reportNotFound": "Segnalazione non trovata",
     "viewReport": "Visualizza segnalazione",
-    "reportManagement": "Gestione segnalazioni"
+    "reportManagement": "Gestione segnalazioni",
+    "resendReport": "Rispedisci segnalazione",
+    "noResults": "Nessun risultato trovato"
   },
 
   "status": {
@@ -240,6 +246,7 @@
 
   "common": {
     "yes": "Sì",
-    "no": "No"
+    "no": "No",
+    "ok": "OK"
   }
 }

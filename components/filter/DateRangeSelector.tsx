@@ -107,13 +107,13 @@ const DateRangeSelector = ({
 
       <View className="flex-row justify-between items-center mt-4 px-4">
         <TouchableOpacity onPress={toggleDatePicker} className="flex-1">
-          <Text className="text-center text-medium text-red-500">
+          <Text className="text-center font-titillium-regular text-medium text-red-500">
             {t('forms.cancel')}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={confirmDateRange} className="flex-1">
-          <Text className="text-center text-medium text-primary-dark dark:text-primary-light">
+          <Text className="text-center font-titillium-regular text-medium text-primary-dark dark:text-primary-light">
             {t('forms.confirm')}
           </Text>
         </TouchableOpacity>
