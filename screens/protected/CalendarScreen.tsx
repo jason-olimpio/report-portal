@@ -3,7 +3,7 @@ import {ScrollView, View} from 'react-native'
 import {Calendar} from 'react-native-calendars'
 import {useTranslation} from 'react-i18next'
 
-import {BackButton, CalendarReportsList} from '@components'
+import {BackButton, CalendarReportList} from '@components'
 
 import {useTheme, useCalendar} from '@hooks'
 
@@ -21,9 +21,7 @@ const CalendarScreen = () => {
     configureCalendarLocale,
   } = useCalendar(t, isDark)
 
-  useEffect(() => {
-    configureCalendarLocale(t)
-  }, [t, configureCalendarLocale])
+  useEffect(() => configureCalendarLocale(t), [t, configureCalendarLocale])
 
   return (
     <ScrollView className="flex-1 p-6 pt-10 bg-background-light dark:bg-background-dark">
@@ -39,7 +37,7 @@ const CalendarScreen = () => {
           enableSwipeMonths={true}
         />
 
-        <CalendarReportsList
+        <CalendarReportList
           reports={selectedReports}
           selectedDate={selectedDate}
         />
