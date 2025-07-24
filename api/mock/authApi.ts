@@ -27,7 +27,7 @@ const mockUsers: MockUser[] = [
   {
     id: '2',
     email: 'admin@example.com',
-    password: 'Admin123!',
+    password: 'Password123!',
     name: 'Admin User',
     rank: UserRank.Admin,
   },
