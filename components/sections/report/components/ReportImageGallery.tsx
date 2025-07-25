@@ -35,7 +35,6 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
     .onEnd(() => (scale.value = withTiming(1)))
 
   const imageBg = isDark ? 'bg-neutral-gray-800' : 'bg-neutral-gray-200'
-  const shadow = isDark ? '' : 'shadow-lg'
 
   const carouselWidth = Math.min(useScreenWidth() - 32, 360)
   const carouselHeight = 160
@@ -53,7 +52,7 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
         renderItem={({item}: {item: ImageSourcePropType; index: number}) => (
           <GestureDetector gesture={pinchGesture}>
             <Animated.View
-              className={`rounded-3xl w-full h-full overflow-hidden items-center justify-center ${shadow} ${imageBg}`}
+              className={`rounded-3xl w-full h-full overflow-hidden items-center justify-center shadow-lg ${imageBg}`}
               style={animatedStyle}>
               <Image
                 source={item}
