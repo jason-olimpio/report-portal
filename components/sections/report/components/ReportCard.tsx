@@ -120,6 +120,7 @@ const ReportCard = ({report}: ReportCardProps) => {
               />
             )}
           </View>
+
           {isAdmin && (
             <TouchableOpacity
               className="p-2 self-center"
