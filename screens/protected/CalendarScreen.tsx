@@ -1,7 +1,6 @@
 import {useEffect} from 'react'
 import {ScrollView, View} from 'react-native'
 import {Calendar} from 'react-native-calendars'
-import {useTranslation} from 'react-i18next'
 
 import {BackButton, CalendarReportList} from '@components'
 
@@ -11,7 +10,6 @@ import {getCalendarTheme} from '@utils'
 
 const CalendarScreen = () => {
   const {isDark} = useTheme()
-  const {t} = useTranslation()
 
   const {
     selectedDate,
@@ -19,9 +17,9 @@ const CalendarScreen = () => {
     markedDates,
     handleDayPress,
     configureCalendarLocale,
-  } = useCalendar(t, isDark)
+  } = useCalendar()
 
-  useEffect(() => configureCalendarLocale(t), [t, configureCalendarLocale])
+  useEffect(() => configureCalendarLocale(), [configureCalendarLocale])
 
   return (
     <ScrollView className="flex-1 p-6 pt-10 bg-background-light dark:bg-background-dark">

@@ -1,7 +1,8 @@
 import {useState, useMemo} from 'react'
 import {LocaleConfig} from 'react-native-calendars'
-import {TFunction} from 'i18next'
+import {useTranslation} from 'react-i18next'
 
+import {useTheme} from '@hooks'
 import {reportData} from '@store'
 import type {ReportsByDate, DateString} from '@types'
 import {
@@ -10,7 +11,10 @@ import {
   getLocalizedCalendarLabels,
 } from '@utils'
 
-export const useCalendar = (t: TFunction, isDark: boolean) => {
+export const useCalendar = () => {
+  const {t} = useTranslation()
+  const {isDark} = useTheme()
+
   const [selectedDate, setSelectedDate] = useState<DateString | null>(null)
 
   const reportsByDate: ReportsByDate = getReportsByDate(reportData)
@@ -20,7 +24,7 @@ export const useCalendar = (t: TFunction, isDark: boolean) => {
     [reportsByDate, isDark, selectedDate],
   )
 
-  const configureCalendarLocale = (t: TFunction) => {
+  const configureCalendarLocale = () => {
     const {months, weekdays} = getLocalizedCalendarLabels(t)
 
     LocaleConfig.locales['custom'] = {
