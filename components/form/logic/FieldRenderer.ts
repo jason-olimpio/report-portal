@@ -37,16 +37,6 @@ class FieldRenderer<T extends Record<string, any>> {
 
     return strategy.render(field, fieldKey, context)
   }
-
-  addStrategy(strategy: FieldRenderStrategy<T>): void {
-    this.#strategies.push(strategy)
-  }
-
-  removeStrategy(strategyType: new () => FieldRenderStrategy<T>): void {
-    this.#strategies = this.#strategies.filter(
-      strategy => !(strategy instanceof strategyType),
-    )
-  }
 }
 
 export default FieldRenderer
