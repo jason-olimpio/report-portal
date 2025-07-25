@@ -108,9 +108,11 @@ const FormHandler = <T extends Record<string, any>>({
     const {success, error} = schema.safeParse(form)
 
     if (!success) {
-      const fieldErrors = error.formErrors.fieldErrors
-      setErrors(extractFieldErrors(fieldErrors))
+      const fieldErrors = extractFieldErrors(
+        error.formErrors.fieldErrors,
+      ) as FormErrors<T>
 
+      setErrors(fieldErrors)
       return
     }
 
