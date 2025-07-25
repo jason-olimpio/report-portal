@@ -10,7 +10,7 @@ import Carousel from 'react-native-reanimated-carousel'
 
 import {PlaceholderImage} from '@assets'
 
-import {useTheme, useScreenWidth} from '@hooks'
+import {useScreenWidth} from '@hooks'
 
 type ReportImageGalleryProps = {
   images: ImageSourcePropType[]
@@ -20,7 +20,6 @@ const getImageSources = (images: ImageSourcePropType[]) =>
   Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage]
 
 const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
-  const {isDark} = useTheme()
   const sources = getImageSources(images)
 
   const scale = useSharedValue(1)
