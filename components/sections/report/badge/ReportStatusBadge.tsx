@@ -6,12 +6,7 @@ import {useTheme} from '@hooks'
 
 import {StatusOption} from '@types'
 
-type StatusColor = Exclude<StatusOption, StatusOption.All>
-
-const REPORT_STATUS_COLORS: Record<
-  StatusColor,
-  {bg: string; bgDark: string; text: string; textDark: string}
-> = {
+const REPORT_STATUS_COLORS: Record<StatusColor, ReportStatusBadgeColor> = {
   [StatusOption.Pending]: {
     bg: 'bg-system-orange-50-light',
     bgDark: 'bg-system-orange-50-dark',
@@ -30,6 +25,15 @@ const REPORT_STATUS_COLORS: Record<
     text: 'text-system-teal-600-light',
     textDark: 'text-system-teal-600-dark',
   },
+}
+
+type StatusColor = Exclude<StatusOption, StatusOption.All>
+
+type ReportStatusBadgeColor = {
+  bg: string
+  bgDark: string
+  text: string
+  textDark: string
 }
 
 type ReportStatusBadgeProps = {
