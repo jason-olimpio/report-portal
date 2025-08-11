@@ -1,3 +1,14 @@
+/**
+ * usePagination.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Custom hook for handling pagination logic.
+ * Provides current page tracking, total pages calculation,
+ * and navigation between pages.
+ */
+
 import {useState} from 'react'
 
 const usePagination = <T>(items: T[], itemsPerPage: number = 5) => {

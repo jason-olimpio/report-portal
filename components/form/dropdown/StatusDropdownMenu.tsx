@@ -1,3 +1,13 @@
+/**
+ * StatusDropdownMenu.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Dropdown component for selecting report status options.
+ * Integrates with DropdownItem for rendering options.
+ */
+
 import {useTranslation} from 'react-i18next'
 import {StyleSheet} from 'react-native'
 import {Dropdown} from 'react-native-element-dropdown'

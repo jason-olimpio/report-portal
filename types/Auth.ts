@@ -1,3 +1,12 @@
+/**
+ * Auth.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Type definitions for authentication-related data structures.
+ */
+
 export type LoginCredentials = {
   email: string
   password: string

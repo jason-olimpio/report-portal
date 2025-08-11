@@ -1,3 +1,14 @@
+/**
+ * RegisterScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Registration screen component for the AppSos application.
+ * Provides user registration functionality with form validation for name,
+ * email, password, and password confirmation fields.
+ */
+
 import {
   View,
   Text,
@@ -12,7 +23,7 @@ import {z} from 'zod'
 import {FormHandler} from '@components'
 import {useAuth} from '@hooks'
 import {mockRegister} from '@api'
-import {type RegisterData, type FieldConfig, FieldType} from '@types'
+import {type RegisterData, type FieldConfig, FormField} from '@types'
 
 const RegisterScreen = () => {
   const {t} = useTranslation()
@@ -57,7 +68,7 @@ const RegisterScreen = () => {
 
   const fields: FieldConfig[] = [
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'name',
       label: t('forms.fullName'),
       inputProps: {
@@ -68,7 +79,7 @@ const RegisterScreen = () => {
       },
     },
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'email',
       label: t('forms.email'),
       inputProps: {
@@ -80,7 +91,7 @@ const RegisterScreen = () => {
       },
     },
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'password',
       label: t('forms.password'),
       inputProps: {
@@ -92,7 +103,7 @@ const RegisterScreen = () => {
       },
     },
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'confirmPassword',
       label: t('forms.confirmPassword'),
       inputProps: {

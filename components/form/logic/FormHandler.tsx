@@ -1,3 +1,13 @@
+/**
+ * FormHandler.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for handling form state, validation, and submission.
+ * Manages form data, errors, and touched state.
+ */
+
 import {useState, useEffect} from 'react'
 import {Alert, View} from 'react-native'
 import {ZodType} from 'zod'
@@ -16,7 +26,7 @@ import {
   type FormTouched,
   type FieldRenderContext,
   type FieldConfig,
-  FieldType,
+  FormField,
 } from '@types'
 
 type FormHandlerProps<T extends Record<string, any>> = {
@@ -50,7 +60,7 @@ const FormHandler = <T extends Record<string, any>>({
     setForm(initialState)
 
     const hasLocationField = fields.some(
-      field => field.type === FieldType.Location,
+      field => field.type === FormField.Location,
     )
 
     if (hasLocationField) captureLocation()
@@ -61,7 +71,7 @@ const FormHandler = <T extends Record<string, any>>({
       const location = await getCurrentPosition()
 
       const locationField = fields.find(
-        field => field.type === FieldType.Location,
+        field => field.type === FormField.Location,
       )
 
       if (!locationField) return

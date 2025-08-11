@@ -1,3 +1,14 @@
+/**
+ * LoginScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Login screen component for the AppSos application.
+ * Provides user authentication functionality with email and password validation.
+ * Uses FormHandler for form management and mock API for authentication.
+ */
+
 import {
   View,
   Text,
@@ -15,7 +26,7 @@ import {useAuth} from '@hooks'
 
 import {mockLogin} from '@api'
 
-import {FieldType, type FieldConfig, type LoginCredentials} from '@types'
+import {FormField, type FieldConfig, type LoginCredentials} from '@types'
 
 const LoginScreen = () => {
   const {t} = useTranslation()
@@ -44,7 +55,7 @@ const LoginScreen = () => {
 
   const fields: FieldConfig[] = [
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'email',
       label: t('forms.email'),
       inputProps: {
@@ -56,7 +67,7 @@ const LoginScreen = () => {
       },
     },
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'password',
       label: t('forms.password'),
       inputProps: {

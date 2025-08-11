@@ -1,3 +1,14 @@
+/**
+ * ReportsScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Reports screen component for the AppSos application.
+ * Displays a list of reports with pagination and filtering capabilities.
+ * Allows users to view and filter reports by status and date range.
+ */
+
 import {useState, useEffect} from 'react'
 import {useTranslation} from 'react-i18next'
 import {ScrollView} from 'react-native'

@@ -1,3 +1,14 @@
+/**
+ * CalendarReportList.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying a list of reports for a selected date
+ * in the calendar view. Shows either a message when no reports are available
+ * or a list of CalendarReportItem components.
+ */
+
 import {View, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

@@ -1,3 +1,13 @@
+/**
+ * notificationData.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Mock notification data. Contains sample
+ * notifications with titles, descriptions, dates, and read status.
+ */
+
 import type {Notification} from '@types'
 
 const notifications: Notification[] = [

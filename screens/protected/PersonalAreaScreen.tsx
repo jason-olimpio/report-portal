@@ -1,3 +1,13 @@
+/**
+ * PersonalAreaScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Allows users to manage their profile settings including name, email,
+ * password, profile image, language preference, and theme settings.
+ */
+
 import {useState} from 'react'
 import {ScrollView, Alert, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'
@@ -9,7 +19,7 @@ import {FormHandler, LanguagePicker} from '@components'
 import {useTheme, useAuth} from '@hooks'
 
 import {appColors} from '@config'
-import {type FieldConfig, FieldType} from '@types'
+import {type FieldConfig, FormField} from '@types'
 
 const PersonalAreaScreen = () => {
   const {t} = useTranslation()
@@ -56,26 +66,26 @@ const PersonalAreaScreen = () => {
 
   const fields: FieldConfig[] = [
     {
-      type: FieldType.ImageSlider,
+      type: FormField.ImageSlider,
       key: 'image',
       label: t('media.image'),
       maxImages: 1,
     },
-    {type: FieldType.Text, key: 'name', label: t('forms.name')},
+    {type: FormField.Text, key: 'name', label: t('forms.name')},
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'email',
       label: t('forms.email'),
       inputProps: {keyboardType: 'email-address', autoCapitalize: 'none'},
     },
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'currentPassword',
       label: t('forms.currentPassword'),
       inputProps: {secureTextEntry: true},
     },
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'confirmPassword',
       label: t('forms.confirmPassword'),
       inputProps: {secureTextEntry: true},

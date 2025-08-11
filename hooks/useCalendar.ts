@@ -1,3 +1,13 @@
+/**
+ * useCalendar.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Provides date selection, report data mapping to calendar dates, and localized
+ * calendar configuration.
+ */
+
 import {useState, useMemo} from 'react'
 import {LocaleConfig} from 'react-native-calendars'
 import {useTranslation} from 'react-i18next'

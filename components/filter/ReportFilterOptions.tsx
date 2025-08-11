@@ -1,10 +1,21 @@
+/**
+ * ReportFilterOptions.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying report filter options including
+ * status, priority (admin only), and date range selection. Provides
+ * reset functionality and handles filter state management.
+ */
+
 import {Text, TouchableOpacity, View} from 'react-native'
 import {useTranslation} from 'react-i18next'
 import {ScrollView} from 'react-native-gesture-handler'
 
 import {useAuth} from '@hooks'
 import {getPriorityLabel, getStatusLabel} from '@utils'
-import {StatusOption, PriorityOption, UserRank, FilterValues} from '@types'
+import {StatusOption, PriorityOption, UserRank, type FilterValues} from '@types'
 
 import OptionList from './OptionList'
 

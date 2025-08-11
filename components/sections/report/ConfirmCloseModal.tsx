@@ -1,3 +1,12 @@
+/**
+ * ConfirmCloseModal.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying a confirmation modal when closing a report.
+ */
+
 import {Modal, Pressable, Text, TouchableOpacity, View} from 'react-native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {useTranslation} from 'react-i18next'

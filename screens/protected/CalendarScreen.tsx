@@ -1,3 +1,14 @@
+/**
+ * CalendarScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Calendar screen component for the AppSos application.
+ * Displays a calendar view with report markers and allows users to
+ * select dates to view reports for that day.
+ */
+
 import {useEffect} from 'react'
 import {ScrollView, View} from 'react-native'
 import {Calendar} from 'react-native-calendars'

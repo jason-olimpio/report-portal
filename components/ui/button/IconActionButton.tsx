@@ -1,3 +1,13 @@
+/**
+ * IconActionButton.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying an icon action button.
+ * Shows a circular button with an icon and title label below.
+ */
+
 import {ComponentProps} from 'react'
 import {TouchableOpacity, Text, View} from 'react-native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'

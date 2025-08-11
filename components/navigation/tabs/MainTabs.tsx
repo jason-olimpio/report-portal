@@ -1,3 +1,14 @@
+/**
+ * MainTabs.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for main application tabs navigation.
+ * Provides bottom tab navigation between home, reports, stats, and map screens.
+ * Adapts navigation options based on user role (admin or regular user).
+ */
+
 import {ComponentProps} from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import MaterialIcons from '@react-native-vector-icons/material-icons'

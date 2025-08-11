@@ -1,3 +1,13 @@
+/**
+ * ImageSliderField.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for handling image selection and display in forms.
+ * Displays selected images in a horizontal scrollable slider with remove functionality.
+ */
+
 import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native'
 import {
   launchImageLibrary,

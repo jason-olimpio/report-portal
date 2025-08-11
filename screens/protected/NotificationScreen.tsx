@@ -1,3 +1,13 @@
+/**
+ * NotificationScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Displays a list of notifications sorted by date with time ago formatting.
+ * Shows notification title, description, and relative time.
+ */
+
 import {View, Text, FlatList} from 'react-native'
 import {useTranslation} from 'react-i18next'
 
@@ -8,6 +18,11 @@ import {BackButton} from '@components'
 import {notificationData} from '@store'
 import {getTimeAgo} from '@utils'
 
+type NotificationItem = {
+  item: Notification
+  index: number
+}
+
 const NotificationScreen = () => {
   const {t, i18n} = useTranslation()
 
@@ -15,7 +30,7 @@ const NotificationScreen = () => {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   )
 
-  const renderItem = ({item}: {item: Notification; index: number}) => {
+  const renderItem = ({item}: NotificationItem) => {
     const {title, description, date} = item
     const timeAgo = getTimeAgo(date, i18n.language, t)
 

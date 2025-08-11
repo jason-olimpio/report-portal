@@ -1,3 +1,14 @@
+/**
+ * markingUtils.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Utility functions for calendar marking operations.
+ * Provides functions for marking dates on the calendar based on report status
+ * and handling date selection styling.
+ */
+
 import {
   type Report,
   StatusOption,

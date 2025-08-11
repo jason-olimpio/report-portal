@@ -1,6 +1,17 @@
+/**
+ * AuthContext.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Provides user authentication state management, login/logout functionality,
+ * and token validation. Handles user session persistence and authentication
+ * state across the application.
+ */
+
 import {createContext, ReactNode, useEffect, useState} from 'react'
 
-import {AuthUser, UserRank} from '@types'
+import {type AuthUser, UserRank} from '@types'
 import {
   getToken,
   isTokenValid,

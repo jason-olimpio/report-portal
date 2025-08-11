@@ -1,3 +1,12 @@
+/**
+ * AddressAutoCompleteInput.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for address autocomplete input with dropdown suggestions.
+ */
+
 import {Text, View, StyleSheet} from 'react-native'
 import {useRef} from 'react'
 import {

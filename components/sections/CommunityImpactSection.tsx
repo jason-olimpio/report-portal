@@ -1,3 +1,13 @@
+/**
+ * CommunityImpactSection.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying community impact statistics.
+ * Shows total reports, solved reports, and success rate with a progress bar.
+ */
+
 import {useTranslation} from 'react-i18next'
 import {View, Text} from 'react-native'
 

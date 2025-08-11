@@ -1,10 +1,20 @@
+/**
+ * AdminReportsScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Provides report management functionality for admin users with filtering
+ * by status, priority, and date range.
+ */
+
 import {useEffect, useState} from 'react'
 import {ScrollView} from 'react-native'
 import {useTranslation} from 'react-i18next'
 
 import {usePagination, useReportFilters} from '@hooks'
 import {FilterModal, Pagination, ReportList, SectionHeader} from '@components'
-import {FilterValues} from '@types'
+import type {FilterValues} from '@types'
 
 const AdminReportsScreen = () => {
   const {t} = useTranslation()

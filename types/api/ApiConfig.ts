@@ -1,3 +1,14 @@
+/**
+ * ApiConfig.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Type definitions for API configuration.
+ * Contains enums and types for configuring the application's API behavior,
+ * including mode selection (mock/real), base URL, timeouts, and mock delay settings.
+ */
+
 export enum ApiMode {
   Mock,
   Real,

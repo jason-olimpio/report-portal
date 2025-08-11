@@ -1,5 +1,15 @@
+/**
+ * StatsScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Displays monthly report statistics with bar charts for open and closed reports.
+ * Shows leaderboard for admin users.
+ */
+
 import {Fragment, useState} from 'react'
-import {Text, ScrollView, View} from 'react-native'
+import {Text, ScrollView, View, StyleSheet} from 'react-native'
 import {CartesianChart, Bar} from 'victory-native'
 import {useTranslation} from 'react-i18next'
 
@@ -9,7 +19,7 @@ import {useTheme, useAuth} from '@hooks'
 import {Leaderboard} from '@components'
 
 import {appColors} from '@config'
-import {getMonthLabel, getMonthlyReportStats} from '@utils'
+import {getLocalizedCalendarLabels, getMonthlyReportStats} from '@utils'
 import {UserRank} from '@types'
 
 type ExpandedChartContent = {
@@ -32,10 +42,11 @@ const StatsScreen = () => {
 
   const {open, closed, months} = getMonthlyReportStats(reportData)
 
+  const localizedLabels = getLocalizedCalendarLabels(t)
+
   const monthLabels = months
     .filter((month): month is number => month !== undefined)
-    .map(month => getMonthLabel(month, t))
-    .map(label => label.substring(0, 3))
+    .map(month => localizedLabels.months[month - 1].substring(0, 3))
 
   const renderBarChart = (data: number[], color: string) => {
     const chartData = [
@@ -175,6 +186,6 @@ const StatsScreen = () => {
 
 export default StatsScreen
 
-const styles = {
+const styles = StyleSheet.create({
   contentContainer: {flexGrow: 1, paddingBottom: 40},
-}
+})

@@ -1,3 +1,14 @@
+/**
+ * NewReportScreen.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description New report screen component for the AppSos application.
+ * Allows users to create new reports with images, title, description,
+ * and location. Handles both online and offline report submission.
+ */
+
 import {Alert, ScrollView, type ImageSourcePropType} from 'react-native'
 import {z} from 'zod'
 import {useTranslation} from 'react-i18next'
@@ -11,7 +22,7 @@ import {
   StatusOption,
   PriorityOption,
   type FieldConfig,
-  FieldType,
+  FormField,
 } from '@types'
 
 import {getAddressFromLocation} from '@api'
@@ -45,20 +56,20 @@ const NewReportScreen = () => {
 
   const fields: FieldConfig[] = [
     {
-      type: FieldType.ImageSlider,
+      type: FormField.ImageSlider,
       key: 'images',
       label: t('forms.image'),
       maxImages: 5,
     },
-    {type: FieldType.Text, key: 'title', label: t('forms.title')},
+    {type: FormField.Text, key: 'title', label: t('forms.title')},
     {
-      type: FieldType.Text,
+      type: FormField.Text,
       key: 'description',
       label: t('forms.description'),
       inputProps: {multiline: true, style: {minHeight: 80}},
     },
     {
-      type: FieldType.Location,
+      type: FormField.Location,
       key: 'location',
       label: t('location.location'),
     },

@@ -1,3 +1,14 @@
+/**
+ * AppDrawer.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for the main application drawer navigation.
+ * Provides navigation between tabs.
+ * Includes header with app name and notifications badge.
+ */
+
 import {createDrawerNavigator} from '@react-navigation/drawer'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {Pressable, Text, View} from 'react-native'

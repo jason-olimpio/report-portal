@@ -1,3 +1,12 @@
+/**
+ * ThemeContext.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Provides light/dark theme management and toggle functionality.
+ */
+
 import {createContext, ReactNode} from 'react'
 import {useColorScheme} from 'nativewind'
 

@@ -1,3 +1,13 @@
+/**
+ * Snackbar.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying snackbars/notifications.
+ * Shows animated messages that automatically dismiss after a timeout.
+ */
+
 import {useEffect, useState, useRef} from 'react'
 import {useTranslation} from 'react-i18next'
 import {Text, Animated, Pressable} from 'react-native'

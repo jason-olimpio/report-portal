@@ -1,3 +1,14 @@
+/**
+ * QuickActions.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying quick action buttons.
+ * Provides shortcuts to common app features like adding reports,
+ * viewing calendar, and accessing analytics.
+ */
+
 import {ComponentProps} from 'react'
 import {View, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'

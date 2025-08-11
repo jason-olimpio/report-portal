@@ -1,3 +1,13 @@
+/**
+ * BackButton.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying a back navigation button.
+ * Shows an arrow icon with optional text label.
+ */
+
 import {TouchableOpacity, Text} from 'react-native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
 import {useTranslation} from 'react-i18next'

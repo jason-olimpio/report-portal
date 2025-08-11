@@ -1,3 +1,12 @@
+/**
+ * tailwind.config.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Configures content paths, dark mode, theme extensions, and custom fonts.
+ */
+
 import type {Config} from 'tailwindcss'
 import appColors from './config/colors'
 

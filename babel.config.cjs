@@ -1,3 +1,12 @@
+/**
+ * babel.config.cjs
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Configures Babel presets and plugins for development.
+ */
+
 module.exports = {
   presets: ['module:@react-native/babel-preset', 'nativewind/babel'],
   plugins: [

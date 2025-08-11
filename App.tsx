@@ -1,3 +1,12 @@
+/**
+ * AppSos - Main Application Entry Point
+ *
+ * @author Jason Olimpio
+ * @date August 11, 2025
+ *
+ * @description Root component of the application.
+ */
+
 import './global.css'
 
 import {useEffect, useState} from 'react'

@@ -1,3 +1,12 @@
+/**
+ * ReportPriorityBadge.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying report priority as a badge.
+ */
+
 import {View, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

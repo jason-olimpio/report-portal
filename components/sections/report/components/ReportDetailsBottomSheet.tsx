@@ -1,3 +1,13 @@
+/**
+ * ReportDetailsBottomSheet.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying report details in a bottom sheet.
+ * Shows report images, title, address, description, and a button to view full details.
+ */
+
 import {Text, TouchableOpacity, StyleSheet, View} from 'react-native'
 import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet'
 import {useNavigation} from '@react-navigation/native'

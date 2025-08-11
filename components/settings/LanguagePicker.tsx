@@ -1,3 +1,13 @@
+/**
+ * LanguagePicker.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for selecting application language.
+ * Displays a modal with language options and handles language switching.
+ */
+
 import {
   Modal,
   TouchableOpacity,

@@ -1,3 +1,13 @@
+/**
+ * ReportContext.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Provides report data management and state across the application.
+ * Handles report data initialization from local storage.
+ */
+
 import {
   createContext,
   Dispatch,
@@ -7,7 +17,7 @@ import {
 } from 'react'
 
 import {reportData} from '@store'
-import {Report} from '@types'
+import type {Report} from '@types'
 
 export type ReportContextType = {
   reports: Report[]

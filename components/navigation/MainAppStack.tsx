@@ -1,3 +1,12 @@
+/**
+ * MainAppStack.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Main application stack navigator component.
+ */
+
 import {createStackNavigator} from '@react-navigation/stack'
 
 import {

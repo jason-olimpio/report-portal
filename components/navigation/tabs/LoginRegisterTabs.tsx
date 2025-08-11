@@ -1,3 +1,13 @@
+/**
+ * LoginRegisterTabs.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for authentication tabs navigation.
+ * Provides tab navigation between login and registration screens.
+ */
+
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import {useTranslation} from 'react-i18next'
 import {SafeAreaView} from 'react-native'

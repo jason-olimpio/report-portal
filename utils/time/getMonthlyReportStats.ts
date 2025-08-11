@@ -1,3 +1,13 @@
+/**
+ * getMonthlyReportStats.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Utility function for calculating monthly report statistics.
+ * Groups reports by month and calculates open/closed counts for each month.
+ */
+
 import {type Report, StatusOption} from '@types'
 
 type MonthlyStats = {

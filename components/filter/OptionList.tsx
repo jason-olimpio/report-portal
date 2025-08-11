@@ -1,3 +1,14 @@
+/**
+ * OptionList.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Generic component for rendering a list of selectable options.
+ * Used in filter components to display status and priority options.
+ * Supports generic types and customizable label rendering.
+ */
+
 import {TouchableOpacity, Text} from 'react-native'
 
 type OptionListProps<T> = {

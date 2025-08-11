@@ -1,3 +1,13 @@
+/**
+ * getLocalizedCalendarLabels.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Utility function for getting localized calendar labels.
+ * Provides weekday and month labels for calendar components.
+ */
+
 import {TFunction} from 'i18next'
 
 const getLocalizedCalendarLabels = (t: TFunction) => ({

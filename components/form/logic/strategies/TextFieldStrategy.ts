@@ -1,3 +1,13 @@
+/**
+ * TextFieldStrategy.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Strategy class for rendering text fields in forms.
+ * Implements the FieldRenderStrategy interface to handle text input functionality.
+ */
+
 import {createElement, ReactElement} from 'react'
 
 import {TextField} from '@components'
@@ -6,14 +16,14 @@ import {
   type FieldConfig,
   FieldRenderStrategy,
   type FieldRenderContext,
-  FieldType,
+  FormField,
 } from '@types'
 
 class TextFieldStrategy<T extends Record<string, any>>
   implements FieldRenderStrategy<T>
 {
   canRender({type}: FieldConfig): boolean {
-    return type === FieldType.Text
+    return type === FormField.Text
   }
 
   render(
@@ -34,7 +44,8 @@ class TextFieldStrategy<T extends Record<string, any>>
       key: fieldKey as string,
       ...fieldProps,
       value: form[fieldKey] as string,
-      onChangeText: (value: string) => handleChange(fieldKey, value),
+      onChangeText: (value: string) =>
+        handleChange(fieldKey, value as T[typeof fieldKey]),
       ...field.inputProps,
     })
   }

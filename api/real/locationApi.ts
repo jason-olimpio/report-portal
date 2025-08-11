@@ -1,3 +1,14 @@
+/**
+ * locationApi.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Location API functions.
+ * Provides reverse geocoding functionality using the Nominatim API
+ * to convert coordinates to human-readable addresses.
+ */
+
 import axios from 'axios'
 
 type NominatimResponse = {

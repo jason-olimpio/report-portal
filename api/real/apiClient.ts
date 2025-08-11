@@ -1,3 +1,14 @@
+/**
+ * apiClient.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Axios instance configuration.
+ * Sets up base URL, timeout, headers, and request/response interceptors.
+ * Handles authentication token management and 401 error responses.
+ */
+
 import axios, {
   AxiosInstance,
   AxiosResponse,

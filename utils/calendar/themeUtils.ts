@@ -1,3 +1,14 @@
+/**
+ * themeUtils.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Utility functions for calendar theme configuration.
+ * Provides functions for generating calendar themes based on the app's
+ * light/dark mode settings.
+ */
+
 import {appColors} from '@config'
 import type {CalendarTheme} from '@types'
 

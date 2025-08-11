@@ -1,11 +1,14 @@
-// Mock user data for leaderboard
-export const userData = [
-  {id: '1', name: 'Alice Rossi', points: 120, badge: 'Gold'},
-  {id: '2', name: 'Bob Bianchi', points: 95, badge: 'Silver'},
-  {id: '3', name: 'Carla Verdi', points: 80, badge: 'Bronze'},
-  {id: '4', name: 'Dario Neri', points: 60, badge: ''},
-  {id: '5', name: 'Elena Blu', points: 40, badge: ''},
-]
+/**
+ * reportData.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Mock report data. Contains sample
+ * reports with images, titles, descriptions, addresses, locations,
+ * dates, statuses, and priorities for demonstration purposes.
+ */
+
 import {
   BulkyWasteDisposalImage,
   BuildingMaterialsDisposalImage,

@@ -1,3 +1,14 @@
+/**
+ * ImageSliderFieldStrategy.ts
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Strategy class for rendering image slider fields in forms.
+ * Implements the FieldRenderStrategy interface to handle image selection
+ * and display functionality.
+ */
+
 import {createElement, ReactElement} from 'react'
 
 import {ImageSliderField} from '@components'
@@ -6,14 +17,14 @@ import {
   type FieldConfig,
   FieldRenderStrategy,
   type FieldRenderContext,
-  FieldType,
+  FormField,
 } from '@types'
 
 class ImageSliderFieldStrategy<T extends Record<string, any>>
   implements FieldRenderStrategy<T>
 {
   canRender({type}: FieldConfig): boolean {
-    return type === FieldType.ImageSlider
+    return type === FormField.ImageSlider
   }
 
   render(

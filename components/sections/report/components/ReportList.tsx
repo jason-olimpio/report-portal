@@ -1,3 +1,12 @@
+/**
+ * ReportList.tsx
+ *
+ * @author Jason Olimpio
+ * @date 11 August 2025
+ *
+ * @description Component for displaying a list of reports.
+ */
+
 import {Text, View} from 'react-native'
 import {useTranslation} from 'react-i18next'
 
