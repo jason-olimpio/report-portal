@@ -77,3 +77,91 @@ npm start
 npm run android   # For Android
 npm run ios       # For iOS (Mac only)
 ```
+
+## 🗺️ MapTiler API Key Configuration
+
+The application uses MapTiler for map services. The API key is stored in the `.env` file in the root directory:
+
+```
+MAPTILER_API_KEY=your_api_key_here
+```
+
+To modify the MapTiler API key:
+
+1. Open the `.env` file in the root directory
+2. Replace the value of `MAPTILER_API_KEY` with your new key
+3. Save the file
+4. Restart the development server for the changes to take effect
+
+## 📦 Building Executable Applications
+
+For React Native applications, "executables" are platform-specific builds:
+
+### For Android:
+
+**Development Build (for testing):**
+```bash
+npm run android
+```
+This will:
+- Start the Metro bundler
+- Build and install the app on a connected device or emulator
+- Launch the app
+
+**Debug Build (APK):**
+```bash
+cd android
+./gradlew assembleDebug
+```
+The debug APK will be generated at:
+```
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+Note: Debug builds are larger, slower, and less secure than release builds. They're intended for development and testing purposes only.
+
+**Production Build (APK):**
+```bash
+cd android
+./gradlew assembleRelease
+```
+The APK will be generated at:
+```
+android/app/build/outputs/apk/release/app-release.apk
+```
+
+**Production Build (AAB for Google Play):**
+```bash
+cd android
+./gradlew bundleRelease
+```
+The bundle will be generated at:
+```
+android/app/build/outputs/bundle/release/app-release.aab
+```
+
+### For iOS (requires macOS with Xcode):
+
+**Development Build (for testing):**
+```bash
+npm run ios
+```
+This will:
+- Start the Metro bundler
+- Build and install the app on a simulator
+- Launch the app
+
+**Debug Build:**
+In Xcode:
+- Select your project in the navigator
+- Select "Debug" from the scheme dropdown
+- Select your target device
+- Click the "Build and run" button (or press Cmd+R)
+
+**Production Build:**
+- Open the project in Xcode:
+  ```bash
+  open ios/AppSos.xcworkspace
+  ```
+- Select "Generic iOS Device" as the target
+- Go to Product → Archive
+- Follow the prompts to upload to App Store Connect
