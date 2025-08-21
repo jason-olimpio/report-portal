@@ -65,7 +65,7 @@ After setting these variables, restart your terminal or run `source ~/.bashrc` (
 ```bash
 # 1. Clone the project
 git clone https://git.fm-technology.it/sviluppo/staging/sossegnalazioni.git
-cd AppSos
+cd sossegnalazioni
 
 # 2. Install dependencies
 npm install
