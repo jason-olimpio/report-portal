@@ -34,7 +34,32 @@ Make sure you have:
 - Node.js (version 16 or higher)
 - Android Studio (for Android) or Xcode (for iOS on Mac)
 - React Native CLI
+- Java JDK 17 (required for Android development)
 
+### Environment Variables Setup
+
+Before proceeding with the installation, ensure you have properly configured the following environment variables:
+
+- `JAVA_HOME`: Should point to your Java JDK 17 installation directory
+- `ANDROID_HOME`: Should point to your Android SDK installation directory (usually within Android Studio installation)
+
+On Windows:
+```bash
+# For JAVA_HOME, set it to your JDK installation path, e.g.:
+JAVA_HOME=C:\Program Files\Java\jdk-17
+
+# For ANDROID_HOME, set it to your Android SDK path, e.g.:
+ANDROID_HOME=C:\Users\[YourUsername]\AppData\Local\Android\Sdk
+```
+
+On macOS/Linux:
+```bash
+# Add these lines to your ~/.bashrc or ~/.zshrc file:
+export JAVA_HOME=/path/to/your/jdk-17
+export ANDROID_HOME=/path/to/your/android/sdk
+```
+
+After setting these variables, restart your terminal or run `source ~/.bashrc` (or `source ~/.zshrc` on macOS) to apply the changes.
 ### Installation step-by-step:
 
 ```bash
