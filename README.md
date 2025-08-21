@@ -99,15 +99,6 @@ For React Native applications, "executables" are platform-specific builds:
 
 ### For Android:
 
-**Development Build (for testing):**
-```bash
-npm run android
-```
-This will:
-- Start the Metro bundler
-- Build and install the app on a connected device or emulator
-- Launch the app
-
 **Debug Build (APK):**
 ```bash
 cd android
@@ -140,15 +131,6 @@ android/app/build/outputs/bundle/release/app-release.aab
 ```
 
 ### For iOS (requires macOS with Xcode):
-
-**Development Build (for testing):**
-```bash
-npm run ios
-```
-This will:
-- Start the Metro bundler
-- Build and install the app on a simulator
-- Launch the app
 
 **Debug Build:**
 In Xcode:
