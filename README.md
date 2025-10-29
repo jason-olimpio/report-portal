@@ -1,4 +1,4 @@
-SOS Reports
+# SOS Reports
 
 Welcome to **SOS Reports**, the app that allows you to actively contribute to keeping your city clean! With just a few taps, you can report abandoned waste and help authorities take prompt action.
 
