@@ -1,13 +1,3 @@
-/**
- * userData.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Mock user data. Contains sample user
- * information including IDs, names, and points for leaderboard display.
- */
-
 import type {User} from '@types'
 
 const userData: User[] = [

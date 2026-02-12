@@ -1,14 +1,3 @@
-/**
- * reportData.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Mock report data. Contains sample
- * reports with images, titles, descriptions, addresses, locations,
- * dates, statuses, and priorities for demonstration purposes.
- */
-
 import {
   BulkyWasteDisposalImage,
   BuildingMaterialsDisposalImage,
