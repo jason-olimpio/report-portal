@@ -1,12 +1,3 @@
-/**
- * StatusRegionForm.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Form component for updating report status and address.
- */
-
 import {useState} from 'react'
 import {View, Text, Alert} from 'react-native'
 import {useTranslation} from 'react-i18next'

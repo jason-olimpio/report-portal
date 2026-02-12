@@ -1,14 +1,3 @@
-/**
- * LoginScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Login screen component for the AppSos application.
- * Provides user authentication functionality with email and password validation.
- * Uses FormHandler for form management and mock API for authentication.
- */
-
 import {
   View,
   Text,

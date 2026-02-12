@@ -1,15 +1,3 @@
-/**
- * ReportDetailsScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Report details screen component for the AppSos application.
- * Displays detailed information about a specific report including images,
- * description, location on a map, and status. Allows admin users to update
- * report status.
- */
-
 import {useState, useRef} from 'react'
 import {View, Text, ScrollView, StyleSheet} from 'react-native'
 import {useRoute} from '@react-navigation/native'

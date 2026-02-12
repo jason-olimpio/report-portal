@@ -1,13 +1,3 @@
-/**
- * DropdownItem.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for rendering individual items in a dropdown menu.
- * Supports selection state styling and displays item labels.
- */
-
 import {View, Text} from 'react-native'
 
 type DropdownItemProps = {

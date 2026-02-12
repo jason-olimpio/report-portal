@@ -1,13 +1,3 @@
-/**
- * ReportCard.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying a report card in a list.
- * Shows report image, title, address, date, status, and priority.
- */
-
 import {
   Image,
   View,

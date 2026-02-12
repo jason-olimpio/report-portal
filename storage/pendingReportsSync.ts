@@ -1,14 +1,3 @@
-/**
- * pendingReportsSync.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Network monitoring and synchronization functions for pending reports.
- * Sets up network connectivity listeners and automatically syncs pending reports
- * when the device comes back online. Simulates report synchronization with a delay.
- */
-
 import NetInfo, {NetInfoState} from '@react-native-community/netinfo'
 
 import {getPendingReportsFromStorage, removePendingReport} from '@storage'

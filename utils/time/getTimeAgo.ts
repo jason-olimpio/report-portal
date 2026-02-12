@@ -1,12 +1,3 @@
-/**
- * getTimeAgo.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Utility function for getting time ago formatted strings.
- */
-
 import {formatDistanceToNow} from 'date-fns'
 import {TFunction} from 'i18next'
 

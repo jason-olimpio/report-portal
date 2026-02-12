@@ -1,13 +1,3 @@
-/**
- * MapScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Displays reports on a map with search functionality and user location tracking.
- * Allows users to view report details by selecting map markers.
- */
-
 import {useState, useEffect} from 'react'
 import {
   StyleSheet,

@@ -1,14 +1,3 @@
-/**
- * useReportFilters.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Custom hook for filtering reports based on status,
- * date range, and priority. Provides filtered report data and
- * filter state management.
- */
-
 import {useState} from 'react'
 
 import useReports from './useReports'

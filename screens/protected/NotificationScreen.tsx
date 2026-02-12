@@ -1,13 +1,3 @@
-/**
- * NotificationScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Displays a list of notifications sorted by date with time ago formatting.
- * Shows notification title, description, and relative time.
- */
-
 import {View, Text, FlatList} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

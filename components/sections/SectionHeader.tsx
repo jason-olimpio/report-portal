@@ -1,13 +1,3 @@
-/**
- * SectionHeader.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying section headers with title and action button.
- * Provides a consistent header style across different sections of the app.
- */
-
 import {View, Text, TouchableOpacity} from 'react-native'
 
 type SectionHeaderProps = {

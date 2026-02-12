@@ -1,13 +1,3 @@
-/**
- * RecentReports.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying recent reports in a list.
- * Shows the most recent non-completed reports with a "View All" option.
- */
-
 import {View} from 'react-native'
 import {NavigationProp, useNavigation} from '@react-navigation/native'
 import {useTranslation} from 'react-i18next'

@@ -1,13 +1,3 @@
-/**
- * AppProviders.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Provides a centralized component for wrapping the entire application
- * with all necessary context providers.
- */
-
 import {ReactNode} from 'react'
 
 import {AutocompleteDropdownContextProvider} from 'react-native-autocomplete-dropdown'

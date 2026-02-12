@@ -1,13 +1,3 @@
-/**
- * formUtils.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Utility functions for form operations.
- * Provides functions for extracting field errors and creating touched state objects.
- */
-
 import type {FormErrors, FormTouched, FieldConfig} from '@types'
 
 export const extractFieldErrors = <T extends Record<string, any>>(

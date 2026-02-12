@@ -1,14 +1,3 @@
-/**
- * FormTypes.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Type definitions for form-related data structures and interfaces.
- * Includes field configurations, form validation types, and rendering strategies
- * for dynamic form generation.
- */
-
 import {ComponentProps, ReactElement} from 'react'
 import {TextInput} from 'react-native'
 

@@ -1,13 +1,3 @@
-/**
- * SaveButton.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying a save button with loading state.
- * Shows either a save label or an activity indicator when submitting.
- */
-
 import {ActivityIndicator, Text, TouchableOpacity} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

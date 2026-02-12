@@ -1,20 +1,3 @@
-/**
- * Home Screen Component
- *
- * @author Jason Olimpio
- * @date August 11, 2025
- *
- * @description The main dashboard screen that users see after logging in.
- * Displays the current date, environmental status, quick actions for common tasks,
- * recent reports, and community impact metrics. Serves as the primary navigation
- * hub for the application.
- *
- * @component
- * @example
- * ```tsx
- * <HomeScreen />
- * ```
- */
 import {JSX} from 'react'
 import {Text, ScrollView} from 'react-native'
 import {useTranslation} from 'react-i18next'
@@ -26,18 +9,9 @@ import {
   RecentReports,
 } from '@components'
 
-/**
- * Main home screen component displaying dashboard information
- *
- * @returns {JSX.Element} The home screen with dashboard sections
- */
 const HomeScreen = (): JSX.Element => {
   const {i18n} = useTranslation()
 
-  /**
-   * Get current date formatted according to user's language preference
-   * @type {Date} Formatted date string
-   */
   const currentDate: Date = new Date()
 
   const formattedDate = new Intl.DateTimeFormat(i18n.language, {

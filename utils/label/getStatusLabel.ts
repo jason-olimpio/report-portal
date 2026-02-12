@@ -1,12 +1,3 @@
-/**
- * getStatusLabel.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Utility function for getting localized status labels.
- */
-
 import {TFunction} from 'i18next'
 
 import {StatusOption} from '@types'

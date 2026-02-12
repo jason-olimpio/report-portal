@@ -1,13 +1,3 @@
-/**
- * ReportImageGallery.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying report images in a carousel gallery.
- * Supports pinch-to-zoom gestures and swipe navigation between images.
- */
-
 import {View, Image, ImageSourcePropType} from 'react-native'
 import Animated, {
   useSharedValue,

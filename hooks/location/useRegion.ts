@@ -1,13 +1,3 @@
-/**
- * useRegion.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Custom hook for calculating initial map region based on
- * screen dimensions and aspect ratio.
- */
-
 import {useWindowDimensions} from 'react-native'
 import type {Location} from '@types'
 

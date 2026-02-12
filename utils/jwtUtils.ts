@@ -1,14 +1,3 @@
-/**
- * jwtUtils.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Utility functions for JWT token management.
- * Provides functions for saving, retrieving, removing, validating,
- * and decoding JWT tokens using AsyncStorage.
- */
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {jwtDecode} from 'jwt-decode'
 

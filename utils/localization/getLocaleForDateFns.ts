@@ -1,12 +1,3 @@
-/**
- * getLocaleForDateFns.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Utility function for getting date-fns locale objects.
- */
-
 import {enUS, it, es, fr, de, type Locale} from 'date-fns/locale'
 
 type SupportedDateFnsLocale = 'en' | 'it' | 'es' | 'fr' | 'de'

@@ -1,13 +1,3 @@
-/**
- * ReportContext.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Provides report data management and state across the application.
- * Handles report data initialization from local storage.
- */
-
 import {
   createContext,
   Dispatch,

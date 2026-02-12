@@ -1,13 +1,3 @@
-/**
- * FieldRenderer.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Class responsible for rendering form fields based on their type.
- * Uses strategy pattern to determine which component to render for each field type.
- */
-
 import {ReactElement} from 'react'
 
 import {

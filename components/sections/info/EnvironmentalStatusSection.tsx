@@ -1,13 +1,3 @@
-/**
- * EnvironmentalStatusSection.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying environmental status information.
- * Shows cards for green areas, recycling, water quality, and air quality.
- */
-
 import {ComponentProps} from 'react'
 import {View} from 'react-native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'

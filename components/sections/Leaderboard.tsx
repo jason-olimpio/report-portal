@@ -1,13 +1,3 @@
-/**
- * Leaderboard.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying the community leaderboard.
- * Shows top users based on points with badges and rankings.
- */
-
 import {Fragment} from 'react'
 import {View, Text} from 'react-native'
 import MaterialIcons from '@react-native-vector-icons/material-icons'

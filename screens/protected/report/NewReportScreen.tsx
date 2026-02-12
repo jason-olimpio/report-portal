@@ -1,14 +1,3 @@
-/**
- * NewReportScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description New report screen component for the AppSos application.
- * Allows users to create new reports with images, title, description,
- * and location. Handles both online and offline report submission.
- */
-
 import {Alert, ScrollView, type ImageSourcePropType} from 'react-native'
 import {z} from 'zod'
 import {useTranslation} from 'react-i18next'

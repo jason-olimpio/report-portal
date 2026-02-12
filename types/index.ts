@@ -1,12 +1,3 @@
-/**
- * index.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Export file for types module.
- */
-
 export * from './report'
 export * from './ui'
 export * from './api'

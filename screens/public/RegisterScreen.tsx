@@ -1,14 +1,3 @@
-/**
- * RegisterScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Registration screen component for the AppSos application.
- * Provides user registration functionality with form validation for name,
- * email, password, and password confirmation fields.
- */
-
 import {
   View,
   Text,

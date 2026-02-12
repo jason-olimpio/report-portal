@@ -1,12 +1,3 @@
-/**
- * Calendar.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Type definitions for calendar-related data structures.
- */
-
 import type {Report} from '@types'
 
 export type ReportsByDate = Record<DateString, Report[]>

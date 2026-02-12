@@ -1,13 +1,3 @@
-/**
- * LocationFieldStrategy.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Strategy class for rendering location fields in forms.
- * Implements the FieldRenderStrategy interface to display location coordinates.
- */
-
 import {createElement, ReactElement} from 'react'
 
 import {LocationField} from '@components'

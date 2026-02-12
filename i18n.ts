@@ -1,13 +1,3 @@
-/**
- * i18n.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Sets up i18next with translations, configures fallback
- * language, namespaces, and interpolation settings.
- */
-
 import i18n from 'i18next'
 import {initReactI18next} from 'react-i18next'
 

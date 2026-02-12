@@ -1,13 +1,3 @@
-/**
- * TextFieldStrategy.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Strategy class for rendering text fields in forms.
- * Implements the FieldRenderStrategy interface to handle text input functionality.
- */
-
 import {createElement, ReactElement} from 'react'
 
 import {TextField} from '@components'

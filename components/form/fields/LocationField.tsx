@@ -1,14 +1,3 @@
-/**
- * LocationField.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying location coordinates in forms.
- * Shows latitude and longitude values or a message when location is not captured.
- * Includes error display functionality.
- */
-
 import {Text, View} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

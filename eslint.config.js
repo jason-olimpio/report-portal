@@ -1,12 +1,3 @@
-/**
- * eslint.config.js
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Defines linting rules for development.
- */
-
 import tsEslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import reactPlugin from 'eslint-plugin-react'

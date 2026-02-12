@@ -1,13 +1,3 @@
-/**
- * ReportStatusBadge.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying report status as a badge.
- * Shows status with color-coded styling based on status type and theme.
- */
-
 import {View, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'
 

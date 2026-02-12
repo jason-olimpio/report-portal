@@ -1,14 +1,3 @@
-/**
- * DateRangeSelector.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for selecting a date range in the filter modal.
- * Provides a calendar picker interface with localized labels and
- * dark/light theme support.
- */
-
 import {useState} from 'react'
 import {
   Text,

@@ -1,14 +1,3 @@
-/**
- * authApi.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Authentication API functions.
- * Provides login, register, and logout functionality using the configured
- * axios instance.
- */
-
 import axiosInstance from './apiClient'
 import type {LoginCredentials, RegisterData, AuthResponse} from '@types'
 

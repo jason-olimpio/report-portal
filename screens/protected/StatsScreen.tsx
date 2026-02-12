@@ -1,13 +1,3 @@
-/**
- * StatsScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Displays monthly report statistics with bar charts for open and closed reports.
- * Shows leaderboard for admin users.
- */
-
 import {Fragment, useState} from 'react'
 import {Text, ScrollView, View, StyleSheet} from 'react-native'
 import {CartesianChart, Bar} from 'victory-native'

@@ -1,14 +1,3 @@
-/**
- * authApi.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Mock authentication API functions.
- * Provides mock implementations of login and register functionality for
- * development and testing purposes.
- */
-
 import {
   type LoginCredentials,
   type RegisterData,

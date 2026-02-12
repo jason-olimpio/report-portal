@@ -1,13 +1,3 @@
-/**
- * PersonalAreaScreen.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Allows users to manage their profile settings including name, email,
- * password, profile image, language preference, and theme settings.
- */
-
 import {useState} from 'react'
 import {ScrollView, Alert, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'

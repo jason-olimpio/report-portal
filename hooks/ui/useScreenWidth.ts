@@ -1,14 +1,3 @@
-/**
- * useScreenWidth.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Custom hook for tracking screen width changes.
- * Provides dynamic screen width updates when the device is rotated
- * or the window is resized.
- */
-
 import {useState, useEffect} from 'react'
 import {Dimensions} from 'react-native'
 

@@ -1,14 +1,3 @@
-/**
- * Navigation.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Type definitions for navigation-related data structures.
- * Includes all navigation parameter lists and route types for the application's
- * navigation hierarchy, covering stack, tab, and drawer navigators.
- */
-
 import type {
   NavigatorScreenParams,
   CompositeNavigationProp,

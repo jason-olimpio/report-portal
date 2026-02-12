@@ -1,13 +1,3 @@
-/**
- * TextField.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for text input fields in forms.
- * Includes label, text input with styling, and error display functionality.
- */
-
 import {View, Text, TextInput} from 'react-native'
 
 import {ErrorText} from '@components'

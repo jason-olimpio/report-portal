@@ -1,14 +1,3 @@
-/**
- * pendingReportsDb.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Database functions for managing pending reports in AsyncStorage.
- * Provides functions for adding, removing, and retrieving pending reports that
- * were created while offline and need to be synced with the server when online.
- */
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import {type Report} from '@types'

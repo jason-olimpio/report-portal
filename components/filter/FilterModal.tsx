@@ -1,14 +1,3 @@
-/**
- * FilterModal.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Modal component for displaying report filter options.
- * Contains both the main filter options and date range selector views.
- * Handles modal visibility and date picker toggle state.
- */
-
 import {useState} from 'react'
 import {Modal, Pressable} from 'react-native'
 

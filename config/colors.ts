@@ -1,14 +1,3 @@
-/**
- * colors.ts
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Color palette configuration.
- * Defines primary, background, text, neutral, and system colors for
- * both light and dark themes.
- */
-
 const appColors: AppColors = {
   primary: {
     light: '#0066cc',

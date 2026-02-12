@@ -1,13 +1,3 @@
-/**
- * AppNavigator.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Main application navigator component. Handles initial
- * authentication state and routes to appropriate screens.
- */
-
 import {ActivityIndicator, View} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'

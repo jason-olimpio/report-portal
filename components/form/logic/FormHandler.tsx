@@ -1,13 +1,3 @@
-/**
- * FormHandler.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for handling form state, validation, and submission.
- * Manages form data, errors, and touched state.
- */
-
 import {useState, useEffect} from 'react'
 import {Alert, View} from 'react-native'
 import {ZodType} from 'zod'

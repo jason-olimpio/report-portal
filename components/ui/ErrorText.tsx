@@ -1,13 +1,3 @@
-/**
- * ErrorText.tsx
- *
- * @author Jason Olimpio
- * @date 11 August 2025
- *
- * @description Component for displaying error messages.
- * Shows error text with consistent styling when an error is present.
- */
-
 import {Text} from 'react-native'
 
 type ErrorTextProps = {
