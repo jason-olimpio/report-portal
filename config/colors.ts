@@ -1,8 +1,5 @@
 type AppColors = {
-  primary: {
-    light: string
-    dark: string
-  }
+  primary: {light: string; dark: string}
   background: {
     light: string
     dark: string
@@ -10,14 +7,8 @@ type AppColors = {
     secondaryDark: string
   }
   text: {
-    primary: {
-      light: string
-      dark: string
-    }
-    secondary: {
-      light: string
-      dark: string
-    }
+    primary: {light: string; dark: string}
+    secondary: {light: string; dark: string}
   }
   neutral: {
     gray: {
@@ -33,45 +24,18 @@ type AppColors = {
     }
   }
   system: {
-    red: {
-      50: {
-        light: string
-        dark: string
-      }
-      600: {
-        light: string
-        dark: string
-      }
-    }
+    red: {50: {light: string; dark: string}; 600: {light: string; dark: string}}
     emerald: {
-      50: {
-        light: string
-        dark: string
-      }
-      600: {
-        light: string
-        dark: string
-      }
+      50: {light: string; dark: string}
+      600: {light: string; dark: string}
     }
     orange: {
-      50: {
-        light: string
-        dark: string
-      }
-      600: {
-        light: string
-        dark: string
-      }
+      50: {light: string; dark: string}
+      600: {light: string; dark: string}
     }
     teal: {
-      50: {
-        light: string
-        dark: string
-      }
-      600: {
-        light: string
-        dark: string
-      }
+      50: {light: string; dark: string}
+      600: {light: string; dark: string}
     }
   }
 }
@@ -79,53 +43,53 @@ type AppColors = {
 const appColors: AppColors = {
   primary: {
     light: '#7c3aed',
-    dark: '#a78bfa',
+    dark: '#8b5cf6',
   },
   background: {
-    light: '#fafaf9',
-    dark: '#0c0a09',
-    secondaryLight: '#f5f5f4',
-    secondaryDark: '#1c1917',
+    light: '#ffffff',
+    dark: '#09090b',
+    secondaryLight: '#f4f4f5',
+    secondaryDark: '#18181b',
   },
   text: {
     primary: {
-      light: '#1c1917',
-      dark: '#fafaf9',
+      light: '#09090b',
+      dark: '#fafafa',
     },
     secondary: {
-      light: '#57534e',
-      dark: '#d6d3d1',
+      light: '#71717a',
+      dark: '#a1a1aa',
     },
   },
   neutral: {
     gray: {
-      100: '#f5f5f4',
-      200: '#e7e5e4',
-      300: '#d6d3d1',
-      400: '#a8a29e',
-      500: '#78716c',
-      600: '#57534e',
-      700: '#44403c',
-      800: '#292524',
-      900: '#1c1917',
+      100: '#f4f4f5',
+      200: '#e4e4e7',
+      300: '#d4d4d8',
+      400: '#a1a1aa',
+      500: '#71717a',
+      600: '#52525b',
+      700: '#3f3f46',
+      800: '#27272a',
+      900: '#18181b',
     },
   },
   system: {
     red: {
-      50: {light: '#fff1f2', dark: '#4c0519'},
-      600: {light: '#e11d48', dark: '#fb7185'},
+      50: {light: '#fef2f2', dark: '#450a0a'},
+      600: {light: '#dc2626', dark: '#ef4444'},
     },
     emerald: {
-      50: {light: '#ecfdf5', dark: '#022c22'},
-      600: {light: '#059669', dark: '#34d399'},
+      50: {light: '#ecfdf5', dark: '#064e3b'},
+      600: {light: '#059669', dark: '#10b981'},
     },
     orange: {
-      50: {light: '#fffbeb', dark: '#451a03'},
-      600: {light: '#d97706', dark: '#fbbf24'},
+      50: {light: '#fff7ed', dark: '#7c2d12'},
+      600: {light: '#ea580c', dark: '#f59e0b'},
     },
     teal: {
-      50: {light: '#f0fdfa', dark: '#042f2e'},
-      600: {light: '#0d9488', dark: '#2dd4bf'},
+      50: {light: '#f0fdfa', dark: '#134e4a'},
+      600: {light: '#0d9488', dark: '#14b8a6'},
     },
   },
 }

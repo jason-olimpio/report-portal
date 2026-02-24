@@ -26,7 +26,10 @@
     "registrationError": "Registratiefout",
     "registrationFailed": "Registratie mislukt. Probeer het opnieuw.",
     "welcomeBack": "Welkom terug, {{name}}!",
-    "welcomeToApp": "Welkom in de app, {{name}}!"
+    "welcomeToApp": "Welkom in de app, {{name}}!",
+    "quickAccess": "Snelle toegang",
+    "admin": "Admin",
+    "user": "Melders"
   },
 
   "forms": {

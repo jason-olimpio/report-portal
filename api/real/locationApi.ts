@@ -1,34 +1,44 @@
 import axios from 'axios'
 
-type NominatimResponse = {
-  display_name?: string
-}
-
-type GetAddressFromLocationParams = {
+type Location = {
   latitude: number
   longitude: number
+}
+
+type AddressResponse = {
+  address: {
+    road?: string
+    house_number?: string
+    city?: string
+    town?: string
+    village?: string
+  }
 }
 
 const getAddressFromLocation = async ({
   latitude,
   longitude,
-}: GetAddressFromLocationParams): Promise<string> => {
-  try {
-    const {data} = await axios.get<NominatimResponse>(
-      'https://nominatim.openstreetmap.org/reverse',
-      {
-        params: {
-          format: 'json',
-          lat: latitude,
-          lon: longitude,
-        },
-      },
-    )
+}: Location): Promise<string> => {
+  if (!latitude || !longitude) return ''
 
-    return data.display_name || ''
-  } catch {
-    return ''
-  }
+  const {data} = await axios.get<AddressResponse>(
+    'https://nominatim.openstreetmap.org/reverse',
+    {
+      params: {
+        format: 'jsonv2',
+        lat: latitude,
+        lon: longitude,
+        addressdetails: 1,
+      },
+      headers: {'User-Agent': 'Report-Portal'},
+    },
+  )
+
+  const {road, house_number, city, town, village} = data.address
+
+  return [road, house_number, city || town || village]
+    .filter(Boolean)
+    .join(', ')
 }
 
 export default getAddressFromLocation

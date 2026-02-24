@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import {
   View,
   Text,
@@ -5,21 +6,24 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native'
 import {useTranslation} from 'react-i18next'
 import {z} from 'zod'
 
 import {FormHandler} from '@components'
-
 import {useAuth} from '@hooks'
-
 import {mockLogin} from '@api'
-
 import {FormField, type FieldConfig, type LoginCredentials} from '@types'
 
 const LoginScreen = () => {
   const {t} = useTranslation()
   const {login} = useAuth()
+
+  const [formValues, setFormValues] = useState<LoginCredentials>({
+    email: '',
+    password: '',
+  })
 
   const loginSchema = z.object({
     email: z
@@ -37,11 +41,6 @@ const LoginScreen = () => {
         t('validation.passwordMustContain'),
       ),
   })
-
-  const initialState: LoginCredentials = {
-    email: 'admin@example.com',
-    password: 'Password123!',
-  }
 
   const fields: FieldConfig[] = [
     {
@@ -90,6 +89,21 @@ const LoginScreen = () => {
     }
   }
 
+  const handleQuickFill = (role: 'admin' | 'user') => {
+    const credentials = {
+      admin: {
+        email: 'admin@example.com',
+        password: 'Password123!',
+      },
+      user: {
+        email: 'user@example.com',
+        password: 'Password123!',
+      },
+    }
+
+    setFormValues(credentials[role])
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -98,7 +112,7 @@ const LoginScreen = () => {
         <View className="mb-8">
           <Text
             className="text-3xl font-titillium-bold text-center 
-            text-text-primary-light dark:text-text-primary-dark mb-2">
+          text-text-primary-light dark:text-text-primary-dark mb-2">
             {t('authentication.welcome')}
           </Text>
 
@@ -110,13 +124,40 @@ const LoginScreen = () => {
         </View>
 
         <FormHandler
+          key={`${formValues.email}-${formValues.password}`}
           schema={loginSchema}
-          initialState={initialState}
+          initialState={formValues}
           fields={fields}
           onSave={handleLogin}
           saveButtonLabel={t('authentication.signIn')}
           className="mb-6"
         />
+
+        <View className="mt-4 border-t border-neutral-gray-200 dark:border-neutral-gray-800 pt-6">
+          <Text
+            className="text-center font-titillium-regular 
+          text-text-secondary-light dark:text-text-secondary-dark mb-4">
+            {t('authentication.quickAccess')}
+          </Text>
+
+          <View className="flex-row justify-between gap-x-4">
+            <TouchableOpacity
+              onPress={() => handleQuickFill('admin')}
+              className="flex-1 bg-primary-dark dark:bg-primary-light py-3 rounded-xl items-center">
+              <Text className="text-white dark:text-black font-titillium-bold">
+                {t('authentication.admin')}
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => handleQuickFill('user')}
+              className="flex-1 border border-primary-dark dark:border-primary-light py-3 rounded-xl items-center">
+              <Text className="text-primary-dark dark:text-primary-light font-titillium-bold">
+                {t('authentication.user')}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   )

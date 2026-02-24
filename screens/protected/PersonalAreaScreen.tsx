@@ -21,7 +21,7 @@ const PersonalAreaScreen = () => {
   const schema = z
     .object({
       name: z.string().min(1, t('errors.nameRequired')),
-      email: z.string().email(t('errors.emailInvalid')),
+      email: z.email({message: t('errors.emailInvalid')}),
       currentPassword: z
         .string()
         .min(1, t('validation.passwordRequired'))

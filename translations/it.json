@@ -26,7 +26,10 @@
     "registrationError": "Errore di registrazione",
     "registrationFailed": "Registrazione non riuscita. Riprova.",
     "welcomeBack": "Bentornato, {{name}}!",
-    "welcomeToApp": "Benvenuto nell'app, {{name}}!"
+    "welcomeToApp": "Benvenuto nell'app, {{name}}!",
+    "quickAccess": "Accesso rapido",
+    "admin": "Admin",
+    "user": "Segnalatore"
   },
 
   "forms": {

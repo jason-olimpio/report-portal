@@ -32,11 +32,8 @@ type ReportCardProps = {
   report: Report
 }
 
-const getImageSource = (images: ImageSourcePropType[] = []) => {
-  if (!Array.isArray(images) || images.length === 0) return PlaceholderImage
-
-  return images[0]
-}
+const getImageSource = (images: ImageSourcePropType[] = []) =>
+  images?.[0] ?? PlaceholderImage
 
 const ReportCard = ({report}: ReportCardProps) => {
   const {t, i18n} = useTranslation()

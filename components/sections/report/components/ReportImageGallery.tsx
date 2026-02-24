@@ -1,15 +1,15 @@
+import React, {useState} from 'react'
 import {View, Image, ImageSourcePropType} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-  useDerivedValue,
 } from 'react-native-reanimated'
 import {Gesture, GestureDetector} from 'react-native-gesture-handler'
 import Carousel from 'react-native-reanimated-carousel'
+import {scheduleOnRN} from 'react-native-worklets'
 
 import {PlaceholderImage} from '@assets'
-
 import {useScreenWidth} from '@hooks'
 
 type ReportImageGalleryProps = {
@@ -17,21 +17,28 @@ type ReportImageGalleryProps = {
 }
 
 const getImageSources = (images: ImageSourcePropType[]) =>
-  Array.isArray(images) && images.length > 0 ? images : [PlaceholderImage]
+  images?.length > 0 ? images : [PlaceholderImage]
 
 const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
   const sources = getImageSources(images)
+  const [canScroll, setCanScroll] = useState(true)
 
   const scale = useSharedValue(1)
+
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{scale: scale.value}],
   }))
 
-  const carouselEnabled = useDerivedValue(() => scale.value <= 1.01)
-
   const pinchGesture = Gesture.Pinch()
-    .onUpdate(event => (scale.value = event.scale))
-    .onEnd(() => (scale.value = withTiming(1)))
+    .onUpdate(event => {
+      scale.value = event.scale
+      if (event.scale > 1.01 && canScroll)
+        scheduleOnRN(() => setCanScroll(false))
+    })
+    .onEnd(() => {
+      scale.value = withTiming(1)
+      scheduleOnRN(() => setCanScroll(true))
+    })
 
   const carouselWidth = Math.min(useScreenWidth() - 32, 360)
   const carouselHeight = 160
@@ -45,8 +52,8 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
         loop={false}
         pagingEnabled
         snapEnabled
-        enabled={carouselEnabled.value}
-        renderItem={({item}: {item: ImageSourcePropType; index: number}) => (
+        enabled={canScroll}
+        renderItem={({item}) => (
           <GestureDetector gesture={pinchGesture}>
             <Animated.View
               className="rounded-3xl w-full h-full overflow-hidden items-center 
