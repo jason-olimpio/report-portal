@@ -1,7 +1,7 @@
 import {Alert, ScrollView, type ImageSourcePropType} from 'react-native'
 import {z} from 'zod'
 import {useTranslation} from 'react-i18next'
-import {NavigationProp, useNavigation} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native'
 
 import {FormHandler, BackButton} from '@components'
 
@@ -15,7 +15,6 @@ import {
   PriorityOption,
   type FieldConfig,
   FormField,
-  type MainTabParamList,
 } from '@types'
 
 import {getAddressFromLocation} from '@api'
@@ -24,7 +23,7 @@ import {isOnline} from '@utils'
 const NewReportScreen = () => {
   const {t} = useTranslation()
   const {setReports} = useReports()
-  const navigation = useNavigation<NavigationProp<MainTabParamList>>()
+  const navigation = useNavigation()
 
   const schema = z.object({
     title: z.string().min(3, {message: t('errors.titleTooShort')}),
@@ -95,7 +94,10 @@ const NewReportScreen = () => {
 
       if (!onlineStatus) {
         await addPendingReport(newReport)
-        Alert.alert(t('reports.reportSavedOffline'))
+
+        Alert.alert(t('reports.reportSavedOffline'), '', [
+          {text: 'OK', onPress: navigation.goBack},
+        ])
 
         return
       }
@@ -104,9 +106,12 @@ const NewReportScreen = () => {
 
       setReports(previousReports => [newReport, ...previousReports])
 
-      Alert.alert(t('reports.reportSaved'))
-
-      navigation.navigate('Reports')
+      Alert.alert(t('reports.reportSaved'), '', [
+        {
+          text: 'OK',
+          onPress: navigation.goBack,
+        },
+      ])
     } catch {
       Alert.alert(t('error'), t('errors.reportSendFailed'))
     }

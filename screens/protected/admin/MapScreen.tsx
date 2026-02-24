@@ -153,7 +153,10 @@ const MapScreen = () => {
       <MapView
         style={styles.map}
         mapStyle={mapConfig.maptilerStyleUrl}
-        attributionEnabled={false}>
+        attributionEnabled={false}
+        onDidFailLoadingMap={() => {
+          console.error('Map failed to load style')
+        }}>
         <Camera
           centerCoordinate={[region.longitude, region.latitude]}
           zoomLevel={zoomLevel}
