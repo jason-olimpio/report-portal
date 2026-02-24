@@ -29,6 +29,11 @@ const LanguagePicker = ({visible, onClose}: LanguagePickerProps) => {
       flag: '🇬🇧',
     },
     {
+      code: 'nl',
+      label: 'Nederlands',
+      flag: '🇳🇱',
+    },
+    {
       code: 'it',
       label: 'Italiano',
       flag: '🇮🇹',

@@ -28,7 +28,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    checkAuthState().then(response => response)
+    checkAuthState()
   }, [])
 
   const checkAuthState = async () => {

@@ -47,7 +47,7 @@ const ImageSliderField = ({
       (response.assets?.map(asset => asset.uri).filter(Boolean) as string[]) ||
       []
 
-    if (selectedUris.length < 0) return
+    if (selectedUris.length === 0) return
 
     const newUris = [...imageUris, ...selectedUris].slice(0, maxImages)
 

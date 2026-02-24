@@ -1,6 +1,6 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import {useTranslation} from 'react-i18next'
-import {SafeAreaView} from 'react-native'
+import {SafeAreaProvider} from 'react-native-safe-area-context'
 
 import {LoginScreen, RegisterScreen} from '@screens'
 import {useTheme} from '@hooks'
@@ -14,7 +14,7 @@ const LoginRegisterTabs = () => {
   const {isDark} = useTheme()
 
   return (
-    <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark">
+    <SafeAreaProvider className="flex-1 bg-background-light dark:bg-background-dark">
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: {
@@ -63,7 +63,7 @@ const LoginRegisterTabs = () => {
           }}
         />
       </Tab.Navigator>
-    </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 

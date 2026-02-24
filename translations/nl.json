@@ -1,0 +1,256 @@
+{
+  "navigation": {
+    "home": "Home",
+    "personalArea": "Persoonlijk gebied",
+    "reports": "Meldingen",
+    "stats": "Statistieken",
+    "notifications": "Meldingen",
+    "calendar": "Kalender",
+    "map": "Kaart",
+    "back": "Terug"
+  },
+
+  "authentication": {
+    "welcome": "Welkom",
+    "signInToYourAccount": "Meld je aan bij je account",
+    "createAccount": "Account aanmaken",
+    "joinUsToday": "Doe vandaag nog mee",
+    "signUp": "Registreren",
+    "signIn": "Inloggen",
+    "register": "Registreren",
+    "logout": "Uitloggen",
+    "loginSuccess": "Inloggen geslaagd",
+    "loginError": "Inlogfout",
+    "loginFailed": "Inloggen mislukt. Probeer het opnieuw.",
+    "registrationSuccess": "Registratie geslaagd",
+    "registrationError": "Registratiefout",
+    "registrationFailed": "Registratie mislukt. Probeer het opnieuw.",
+    "welcomeBack": "Welkom terug, {{name}}!",
+    "welcomeToApp": "Welkom in de app, {{name}}!"
+  },
+
+  "forms": {
+    "name": "Naam",
+    "fullName": "Volledige naam",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "currentPassword": "Huidig wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "enterEmail": "Voer je e-mail in",
+    "enterPassword": "Voer je wachtwoord in",
+    "enterFullName": "Voer je volledige naam in",
+    "confirmYourPassword": "Bevestig je wachtwoord",
+    "title": "Titel",
+    "description": "Beschrijving",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "confirm": "Bevestigen",
+    "close": "Sluiten",
+    "successTitle": "Succes",
+    "successMessage": "Wijzigingen succesvol opgeslagen."
+  },
+
+  "validation": {
+    "emailRequired": "E-mail is verplicht",
+    "emailInvalid": "Voer een geldig e-mailadres in",
+    "passwordRequired": "Wachtwoord is verplicht",
+    "passwordMinLength": "Wachtwoord moet minimaal 8 tekens lang zijn",
+    "passwordMaxLength": "Wachtwoord mag niet langer zijn dan 100 tekens",
+    "passwordMustContain": "Wachtwoord moet ten minste één hoofdletter, één kleine letter, één cijfer en één speciaal teken bevatten",
+    "fullNameRequired": "Volledige naam is verplicht",
+    "fullNameMinLength": "Volledige naam moet minimaal 2 tekens lang zijn",
+    "fullNameMaxLength": "Volledige naam mag niet langer zijn dan 50 tekens",
+    "fullNameInvalid": "Volledige naam mag alleen letters en spaties bevatten",
+    "confirmPasswordRequired": "Bevestig je wachtwoord",
+    "passwordsDoNotMatch": "Wachtwoorden komen niet overeen"
+  },
+
+  "errors": {
+    "nameRequired": "Naam is verplicht",
+    "emailInvalid": "Ongeldig e-mailadres",
+    "currentPasswordRequired": "Huidig wachtwoord is verplicht",
+    "confirmPasswordRequired": "Bevestig wachtwoord is verplicht",
+    "passwordsMustMatch": "Wachtwoorden moeten overeenkomen",
+    "titleTooShort": "Titel moet minimaal 3 tekens lang zijn",
+    "descriptionTooShort": "Beschrijving moet minimaal 10 tekens lang zijn",
+    "imageRequired": "Afbeelding is verplicht",
+    "locationError": "Locatie niet gevonden. Schakel locatiediensten in.",
+    "locationRequired": "Locatie is verplicht",
+    "reportSendFailed": "Verzenden van de melding mislukt. Probeer het later opnieuw.",
+    "invalidDate": "Ongeldig datumformaat",
+    "imagesRequired": "Minstens één afbeelding is verplicht",
+    "statusRequired": "Status is verplicht",
+    "addressRequired": "Adres is verplicht"
+  },
+
+  "reports": {
+    "recentReports": "Recente meldingen",
+    "allReports": "Alle meldingen",
+    "viewAll": "Alles bekijken",
+    "noReportFound": "Geen melding gevonden.",
+    "reportSavedOffline": "Melding offline opgeslagen",
+    "reportSaved": "Melding opgeslagen",
+    "reportNotFound": "Melding niet gevonden",
+    "viewReport": "Melding bekijken",
+    "reportManagement": "Meldingen beheren",
+    "resendReport": "Melding opnieuw verzenden",
+    "noResults": "Geen resultaten gevonden"
+  },
+
+  "status": {
+    "all": "Alles",
+    "open": "Open",
+    "closed": "Gesloten",
+    "pending": "In afwachting",
+    "working": "In behandeling",
+    "completed": "Voltooid",
+    "solved": "Opgelost",
+    "unknown": "Onbekend"
+  },
+
+  "priority": {
+    "all": "Alles",
+    "low": "Laag",
+    "medium": "Midden",
+    "high": "Hoog"
+  },
+
+  "filter": {
+    "filter": "Filter",
+    "selectDateRange": "Selecteer datumbereik",
+    "filterByDate": "Filter op datum",
+    "filterByStatus": "Filter op status",
+    "resetFilters": "Filters resetten",
+    "filterByPriority": "Filter op prioriteit"
+  },
+
+  "location": {
+    "location": "Locatie",
+    "address": "Adres",
+    "latitude": "Breedtegraad",
+    "longitude": "Lengtegraad",
+    "locationNotCaptured": "Locatie niet vastgelegd",
+    "coordinates": "Coördinaten"
+  },
+
+  "media": {
+    "image": "Afbeelding",
+    "imageSource": {
+      "images": "Afbeeldingen",
+      "camera": "Camera",
+      "gallery": "Galerij",
+      "hint": "Selecteer maximaal {{value}} afbeeldingen"
+    }
+  },
+
+  "settings": {
+    "changeLanguage": "Taal wijzigen",
+    "selectLanguage": "Selecteer taal",
+    "switchToDarkMode": "Schakel naar donkere modus",
+    "switchToLightMode": "Schakel naar lichte modus"
+  },
+
+  "quickActions": {
+    "title": "Snelle acties",
+    "addReport": "Melding toevoegen",
+    "calendar": "Kalender",
+    "analysis": "Analyse"
+  },
+
+  "reportStatus": {
+    "title": "Overzicht",
+    "updatedToday": "Vandaag bijgewerkt",
+
+    "incidents": "Incidenten",
+    "incidentsValue": "{{value}}",
+    "incidentsSubInfo": "{{value}}",
+
+    "score": "Score",
+    "scoreValue": "{{value}}",
+    "scoreSubInfo": "{{value}}",
+
+    "completion": "Voltooiing",
+    "completionValue": "{{value}}",
+    "completionSubInfo": "{{value}}",
+
+    "avgResolutionTime": "Gem. oplostijd",
+    "avgResolutionTimeValue": "{{value}}",
+    "avgResolutionTimeSubInfo": "{{value}}"
+  },
+
+  "calendar": {
+    "today": "Vandaag",
+    "noReports": "Geen meldingen voor deze datum"
+  },
+
+  "weekdays": {
+    "monday": "Maandag",
+    "tuesday": "Dinsdag",
+    "wednesday": "Woensdag",
+    "thursday": "Donderdag",
+    "friday": "Vrijdag",
+    "saturday": "Zaterdag",
+    "sunday": "Zondag"
+  },
+
+  "months": {
+    "january": "Januari",
+    "february": "Februari",
+    "march": "Maart",
+    "april": "April",
+    "may": "Mei",
+    "june": "Juni",
+    "july": "Juli",
+    "august": "Augustus",
+    "september": "September",
+    "october": "Oktober",
+    "november": "November",
+    "december": "December"
+  },
+
+  "pagination": {
+    "previous": "Vorige",
+    "next": "Volgende"
+  },
+
+  "stats": {
+    "communityImpact": "Impact op de gemeenschap",
+    "successRate": "Succespercentage",
+    "statsByMonth": "Open en gesloten meldingen per maand",
+    "mostActiveUsers": "Meest actieve gebruikers",
+    "expand": "Uitklappen",
+    "collapse": "Inklappen",
+    "points": "punten",
+    "badge": {
+      "expert": "Expert",
+      "veteran": "Veteraan",
+      "active": "Actief"
+    }
+  },
+
+  "general": {
+    "noNotifications": "Geen meldingen",
+    "noInternetConnection": "Geen internetverbinding"
+  },
+
+  "search": {
+    "placeholder": "Zoek adres of titel...",
+    "myLocation": "Vind mijn locatie",
+    "locatingUser": "Je locatie wordt bepaald..."
+  },
+
+  "modal": {
+    "confirmCloseReport": "Weet je zeker dat je de melding wilt sluiten?"
+  },
+
+  "menu": {
+    "manage": "Beheren",
+    "close": "Sluiten"
+  },
+
+  "common": {
+    "yes": "Ja",
+    "no": "Nee",
+    "ok": "OK"
+  }
+}

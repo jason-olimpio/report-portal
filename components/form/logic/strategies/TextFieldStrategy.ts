@@ -9,9 +9,9 @@ import {
   FormField,
 } from '@types'
 
-class TextFieldStrategy<T extends Record<string, any>>
-  implements FieldRenderStrategy<T>
-{
+class TextFieldStrategy<
+  T extends Record<string, any>,
+> implements FieldRenderStrategy<T> {
   canRender({type}: FieldConfig): boolean {
     return type === FormField.Text
   }

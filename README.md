@@ -142,7 +142,7 @@ In Xcode:
 **Production Build:**
 - Open the project in Xcode:
   ```bash
-  open ios/AppSos.xcworkspace
+  open ios/ReportPortal.xcworkspace
   ```
 - Select "Generic iOS Device" as the target
 - Go to Product → Archive

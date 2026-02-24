@@ -2,7 +2,7 @@ import type {
   NavigatorScreenParams,
   CompositeNavigationProp,
 } from '@react-navigation/native'
-import type {StackNavigationProp} from '@react-navigation/stack'
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack'
 import type {BottomTabNavigationProp} from '@react-navigation/bottom-tabs'
 import type {DrawerNavigationProp} from '@react-navigation/drawer'
 import type {RouteProp} from '@react-navigation/native'
@@ -17,7 +17,7 @@ export type AuthStackParamList = {
 }
 
 export type AuthenticatedCompositeNavigationProp = CompositeNavigationProp<
-  StackNavigationProp<MainAppStackParamList>,
+  NativeStackNavigationProp<MainAppStackParamList>,
   CompositeNavigationProp<
     DrawerNavigationProp<DrawerParamList>,
     BottomTabNavigationProp<MainTabParamList>
@@ -30,13 +30,13 @@ export type AuthTabParamList = {
 }
 
 export type ReportCardNavigationProp =
-  StackNavigationProp<MainAppStackParamList>
+  NativeStackNavigationProp<MainAppStackParamList>
 
 export type ReportDetailsScreenRouteProp = RouteProp<
   MainAppStackParamList,
   'ReportDetails'
 >
-export type CalendarRouteProp = StackNavigationProp<
+export type CalendarRouteProp = NativeStackNavigationProp<
   MainAppStackParamList,
   'Calendar'
 >

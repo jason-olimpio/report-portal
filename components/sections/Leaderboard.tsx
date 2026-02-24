@@ -28,7 +28,7 @@ const Leaderboard = () => {
   return (
     <>
       <Text className="text-xl font-titillium-bold dark:text-white mb-4">
-        {t('stats.mostActiveCitizens')}
+        {t('stats.mostActiveUsers')}
       </Text>
 
       <View className="mb-6 py-1 bg-white/80 dark:bg-neutral-gray-900 rounded-lg">

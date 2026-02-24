@@ -1,11 +1,13 @@
 import type {FormErrors, FormTouched, FieldConfig} from '@types'
+import {z} from 'zod'
 
 export const extractFieldErrors = <T extends Record<string, any>>(
-  fieldErrors: Record<string, unknown>,
+  issues: z.core.$ZodIssue[],
 ): FormErrors<T> =>
-  Object.entries(fieldErrors).reduce((accumulator, [fieldKey, errorValue]) => {
-    if (Array.isArray(errorValue) && errorValue.length > 0)
-      accumulator[fieldKey as keyof T] = errorValue[0] as string
+  issues.reduce((accumulator, issue) => {
+    const fieldKey = issue.path[0] as keyof T
+
+    if (!accumulator[fieldKey]) accumulator[fieldKey] = issue.message as any
 
     return accumulator
   }, {} as FormErrors<T>)

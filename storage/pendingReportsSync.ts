@@ -24,12 +24,11 @@ export const startNetworkMonitor = async (): Promise<void> => {
   }
 }
 
-const setupNetworkListener = (): void => {
+const setupNetworkListener = () =>
   NetInfo.addEventListener(
     async ({isConnected}: NetInfoState) =>
       await handleConnectionChange(isConnected),
   )
-}
 
 const handleConnectionChange = async (
   isConnected: boolean | null,
@@ -68,6 +67,5 @@ const flushPendingReports = async (): Promise<void> => {
   }
 }
 
-const simulateReportSync = async (): Promise<void> => {
+const simulateReportSync = async (): Promise<void> =>
   await new Promise(resolve => setTimeout(resolve, 1000))
-}

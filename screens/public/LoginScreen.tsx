@@ -25,7 +25,8 @@ const LoginScreen = () => {
     email: z
       .string()
       .min(1, t('validation.emailRequired'))
-      .email(t('validation.emailInvalid')),
+      .trim()
+      .pipe(z.email({message: t('validation.emailInvalid')})),
     password: z
       .string()
       .min(1, t('validation.passwordRequired'))

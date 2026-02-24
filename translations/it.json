@@ -1,6 +1,4 @@
 {
-  "appName": "SOS Segnalazioni",
-
   "navigation": {
     "home": "Home",
     "personalArea": "Area personale",
@@ -15,18 +13,18 @@
   "authentication": {
     "welcome": "Benvenuto",
     "signInToYourAccount": "Accedi al tuo account",
-    "createAccount": "Crea un Account",
-    "joinUsToday": "Unisciti a noi",
+    "createAccount": "Crea un account",
+    "joinUsToday": "Unisciti a noi oggi",
     "signUp": "Registrati",
     "signIn": "Accedi",
-    "register": "Registrati",
-    "logout": "Logout",
-    "loginSuccess": "Login effettuato con successo",
-    "loginError": "Errore di Login",
-    "loginFailed": "Login fallito. Riprova.",
-    "registrationSuccess": "Registrazione Riuscita",
-    "registrationError": "Errore di Registrazione",
-    "registrationFailed": "Registrazione fallita. Riprova.",
+    "register": "Registra",
+    "logout": "Esci",
+    "loginSuccess": "Accesso riuscito",
+    "loginError": "Errore di accesso",
+    "loginFailed": "Accesso non riuscito. Riprova.",
+    "registrationSuccess": "Registrazione riuscita",
+    "registrationError": "Errore di registrazione",
+    "registrationFailed": "Registrazione non riuscita. Riprova.",
     "welcomeBack": "Bentornato, {{name}}!",
     "welcomeToApp": "Benvenuto nell'app, {{name}}!"
   },
@@ -59,10 +57,10 @@
     "passwordMinLength": "La password deve essere lunga almeno 8 caratteri",
     "passwordMaxLength": "La password non può superare i 100 caratteri",
     "passwordMustContain": "La password deve contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale",
-    "fullNameRequired": "Il nome è obbligatorio",
-    "fullNameMinLength": "Il nome deve essere lungo almeno 2 caratteri",
-    "fullNameMaxLength": "Il nome non può superare i 50 caratteri",
-    "fullNameInvalid": "Il nome può contenere solo lettere e spazi",
+    "fullNameRequired": "Il nome e cognome è obbligatorio",
+    "fullNameMinLength": "Il nome e cognome deve essere lungo almeno 2 caratteri",
+    "fullNameMaxLength": "Il nome e cognome non può superare i 50 caratteri",
+    "fullNameInvalid": "Il nome e cognome può contenere solo lettere e spazi",
     "confirmPasswordRequired": "Conferma la password",
     "passwordsDoNotMatch": "Le password non corrispondono"
   },
@@ -70,17 +68,17 @@
   "errors": {
     "nameRequired": "Il nome è obbligatorio",
     "emailInvalid": "Indirizzo email non valido",
-    "currentPasswordRequired": "La password è obbligatoria",
+    "currentPasswordRequired": "La password attuale è obbligatoria",
     "confirmPasswordRequired": "La conferma della password è obbligatoria",
     "passwordsMustMatch": "Le password devono corrispondere",
     "titleTooShort": "Il titolo deve essere lungo almeno 3 caratteri",
     "descriptionTooShort": "La descrizione deve essere lunga almeno 10 caratteri",
     "imageRequired": "L'immagine è obbligatoria",
-    "locationError": "Errore nel recupero della posizione",
+    "locationError": "Posizione non trovata. Abilita i servizi di localizzazione.",
     "locationRequired": "La posizione è obbligatoria",
-    "reportSendFailed": "Invio della segnalazione fallito",
+    "reportSendFailed": "Invio della segnalazione non riuscito. Riprova più tardi.",
     "invalidDate": "Formato data non valido",
-    "imagesRequired": "Almeno un'immagine è obbligatoria",
+    "imagesRequired": "È richiesta almeno un'immagine",
     "statusRequired": "Lo stato è obbligatorio",
     "addressRequired": "L'indirizzo è obbligatorio"
   },
@@ -100,14 +98,14 @@
   },
 
   "status": {
-    "all": "Tutti",
-    "open": "Aperte",
-    "closed": "Chiuse",
+    "all": "Tutte",
+    "open": "Aperta",
+    "closed": "Chiusa",
     "pending": "In attesa",
     "working": "In lavorazione",
     "completed": "Completata",
-    "solved": "Risolte",
-    "unknown": "Sconosciuto"
+    "solved": "Risolta",
+    "unknown": "Sconosciuta"
   },
 
   "priority": {
@@ -119,10 +117,10 @@
 
   "filter": {
     "filter": "Filtra",
-    "selectDateRange": "Seleziona un intervallo di date",
+    "selectDateRange": "Seleziona intervallo di date",
     "filterByDate": "Filtra per data",
     "filterByStatus": "Filtra per stato",
-    "resetFilters": "Resetta filtri",
+    "resetFilters": "Reimposta filtri",
     "filterByPriority": "Filtra per priorità"
   },
 
@@ -131,7 +129,7 @@
     "address": "Indirizzo",
     "latitude": "Latitudine",
     "longitude": "Longitudine",
-    "locationNotCaptured": "Posizione non catturata",
+    "locationNotCaptured": "Posizione non acquisita",
     "coordinates": "Coordinate"
   },
 
@@ -141,7 +139,7 @@
       "images": "Immagini",
       "camera": "Fotocamera",
       "gallery": "Galleria",
-      "hint": "Seleziona fino a 5 immagini"
+      "hint": "Seleziona fino a {{value}} immagini"
     }
   },
 
@@ -154,24 +152,30 @@
 
   "quickActions": {
     "title": "Azioni rapide",
-    "addReport": "Agg. segnalazione",
+    "addReport": "Aggiungi segnalazione",
     "calendar": "Calendario",
     "analysis": "Analisi"
   },
 
-  "environmentalStatus": {
-    "title": "Stato Ambientale",
+  "reportStatus": {
+    "title": "Panoramica",
     "updatedToday": "Aggiornato oggi",
-    "greenAreas": "Zone verdi",
-    "growthThisMonth": "{{value}} questo mese",
-    "recycling": "Riciclo",
-    "monthlyRate": "Tasso mensile",
-    "water": "Acqua",
-    "waterQuality": "Qualità: {{value}}",
-    "waterQualityValue": "Ottima",
-    "air": "Aria",
-    "airQuality": "PM 2.5: {{value}}",
-    "airQualityValue": "Buona"
+
+    "incidents": "Incidenti",
+    "incidentsValue": "{{value}}",
+    "incidentsSubInfo": "{{value}}",
+
+    "score": "Punteggio",
+    "scoreValue": "{{value}}",
+    "scoreSubInfo": "{{value}}",
+
+    "completion": "Completamento",
+    "completionValue": "{{value}}",
+    "completionSubInfo": "{{value}}",
+
+    "avgResolutionTime": "Risoluzione media",
+    "avgResolutionTimeValue": "{{value}}",
+    "avgResolutionTimeSubInfo": "{{value}}"
   },
 
   "calendar": {
@@ -210,10 +214,10 @@
   },
 
   "stats": {
-    "communityImpact": "Impatto della Comunità",
+    "communityImpact": "Impatto della comunità",
     "successRate": "Tasso di successo",
-    "statsByMonth": "Report aperti e chiusi per mese",
-    "mostActiveCitizens": "Cittadini più attivi",
+    "statsByMonth": "Segnalazioni aperte e chiuse per mese",
+    "mostActiveUsers": "Utenti più attivi",
     "expand": "Espandi",
     "collapse": "Comprimi",
     "points": "punti",
@@ -232,7 +236,7 @@
   "search": {
     "placeholder": "Cerca indirizzo o titolo...",
     "myLocation": "Trova la mia posizione",
-    "locatingUser": "Localizzazione della tua posizione..."
+    "locatingUser": "Ricerca della tua posizione..."
   },
 
   "modal": {

@@ -1,8 +1,10 @@
 import {createDrawerNavigator} from '@react-navigation/drawer'
 import MaterialIcons from '@react-native-vector-icons/material-icons'
-import {Pressable, Text, View} from 'react-native'
+import {Pressable, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {useTranslation} from 'react-i18next'
 import {NavigationProp, useNavigation} from '@react-navigation/native'
+
+import {displayName} from '../../app.json'
 
 import {LoginRegisterTabs, MainTabs} from './tabs'
 
@@ -15,7 +17,14 @@ import type {MainAppStackParamList} from '@types'
 
 const Drawer = createDrawerNavigator()
 
-const headerRightStyle = {marginRight: 16}
+const styles = StyleSheet.create({
+  headerLeftContainer: {
+    marginLeft: 8,
+  },
+  headerRightIcon: {
+    marginRight: 16,
+  },
+})
 
 const AppDrawer = () => {
   const {isDark} = useTheme()
@@ -24,7 +33,7 @@ const AppDrawer = () => {
 
   return (
     <Drawer.Navigator
-      screenOptions={{
+      screenOptions={({navigation}) => ({
         headerTitleAlign: 'center',
         headerStyle: {
           backgroundColor: isDark
@@ -44,9 +53,16 @@ const AppDrawer = () => {
           : appColors.text.primary.light,
         headerTitle: HeaderTitle,
         headerTintColor: 'white',
+        headerLeft: () => (
+          <TouchableOpacity
+            onPress={() => navigation.toggleDrawer()}
+            style={styles.headerLeftContainer}>
+            <MaterialIcons name="menu" size={28} color="white" />
+          </TouchableOpacity>
+        ),
         headerRight: isAuthenticated ? HeaderRight : undefined,
         swipeEnabled: true,
-      }}>
+      })}>
       <Drawer.Screen
         name="Tabs"
         component={isAuthenticated ? MainTabs : LoginRegisterTabs}
@@ -83,15 +99,11 @@ const AppDrawer = () => {
   )
 }
 
-const HeaderTitle = () => {
-  const {t} = useTranslation()
-
-  return (
-    <Text className="text-white font-titillium-light text-[20px]">
-      {t('appName')}
-    </Text>
-  )
-}
+const HeaderTitle = () => (
+  <Text className="text-white font-titillium-light text-[20px]">
+    {displayName}
+  </Text>
+)
 
 const HeaderRight = () => {
   const navigation = useNavigation<NavigationProp<MainAppStackParamList>>()
@@ -107,7 +119,7 @@ const HeaderRight = () => {
           name="notifications"
           color="white"
           size={22}
-          style={headerRightStyle}
+          style={styles.headerRightIcon}
         />
 
         {unreadCount > 0 && (

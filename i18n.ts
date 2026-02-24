@@ -1,11 +1,14 @@
 import i18n from 'i18next'
 import {initReactI18next} from 'react-i18next'
 
-import {en, it} from '@translations'
+import {en, it, nl} from '@translations'
 
 const resources = {
   en: {
     translation: en,
+  },
+  nl: {
+    translation: nl,
   },
   it: {
     translation: it,

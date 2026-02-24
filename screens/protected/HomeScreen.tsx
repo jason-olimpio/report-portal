@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next'
 
 import {
   CommunityImpactSection,
-  EnvironmentalStatusSection,
+  SystemStatusSection,
   QuickActions,
   RecentReports,
 } from '@components'
@@ -12,7 +12,7 @@ import {
 const HomeScreen = (): JSX.Element => {
   const {i18n} = useTranslation()
 
-  const currentDate: Date = new Date()
+  const currentDate = new Date()
 
   const formattedDate = new Intl.DateTimeFormat(i18n.language, {
     weekday: 'long',
@@ -27,7 +27,7 @@ const HomeScreen = (): JSX.Element => {
         {formattedDate}
       </Text>
 
-      <EnvironmentalStatusSection />
+      <SystemStatusSection />
 
       <QuickActions />
 

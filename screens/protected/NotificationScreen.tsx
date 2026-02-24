@@ -20,6 +20,28 @@ const NotificationScreen = () => {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   )
 
+  const renderList = () => {
+    if (sortedNotifications.length === 0)
+      return (
+        <View className="py-10 items-center justify-center">
+          <Text className="font-titillium-regular text-neutral-gray-500 text-base">
+            {t('general.noNotifications')}
+          </Text>
+        </View>
+      )
+
+    return (
+      <View className="py-1">
+        <FlatList
+          data={sortedNotifications}
+          keyExtractor={({id}) => id}
+          renderItem={renderItem}
+          ItemSeparatorComponent={NotificationSeparator}
+        />
+      </View>
+    )
+  }
+
   const renderItem = ({item}: NotificationItem) => {
     const {title, description, date} = item
     const timeAgo = getTimeAgo(date, i18n.language, t)
@@ -57,22 +79,7 @@ const NotificationScreen = () => {
 
       <View className="flex-1 px-4 pt-2">
         <View className="rounded-2xl shadow-lg overflow-hidden mt-2">
-          {sortedNotifications.length === 0 ? (
-            <View className="py-10 items-center justify-center">
-              <Text className="font-titillium-regular text-neutral-gray-500 text-base">
-                {t('general.noNotifications')}
-              </Text>
-            </View>
-          ) : (
-            <View className="py-1">
-              <FlatList
-                data={sortedNotifications}
-                keyExtractor={({id}) => id}
-                renderItem={renderItem}
-                ItemSeparatorComponent={NotificationSeparator}
-              />
-            </View>
-          )}
+          {renderList()}
         </View>
       </View>
     </View>

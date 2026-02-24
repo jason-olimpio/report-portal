@@ -1,6 +1,4 @@
 {
-  "appName": "SOS Reports",
-
   "navigation": {
     "home": "Home",
     "personalArea": "Personal area",
@@ -159,19 +157,25 @@
     "analysis": "Analysis"
   },
 
-  "environmentalStatus": {
-    "title": "Environmental Status",
+  "reportStatus": {
+    "title": "Overview",
     "updatedToday": "Updated today",
-    "greenAreas": "Green areas",
-    "growthThisMonth": "{{value}} this month",
-    "recycling": "Recycling",
-    "monthlyRate": "Monthly rate",
-    "water": "Water",
-    "waterQuality": "Quality: {{value}}",
-    "waterQualityValue": "Excellent",
-    "air": "Air",
-    "airQuality": "PM 2.5: {{value}}",
-    "airQualityValue": "Good"
+
+    "incidents": "Incidents",
+    "incidentsValue": "{{value}}",
+    "incidentsSubInfo": "{{value}}",
+
+    "score": "Score",
+    "scoreValue": "{{value}}",
+    "scoreSubInfo": "{{value}}",
+
+    "completion": "Completion",
+    "completionValue": "{{value}}",
+    "completionSubInfo": "{{value}}",
+
+    "avgResolutionTime": "Avg. resolve",
+    "avgResolutionTimeValue": "{{value}}",
+    "avgResolutionTimeSubInfo": "{{value}}"
   },
 
   "calendar": {
@@ -213,7 +217,7 @@
     "communityImpact": "Community Impact",
     "successRate": "Success rate",
     "statsByMonth": "Open and closed reports per month",
-    "mostActiveCitizens": "Most active citizens",
+    "mostActiveUsers": "Most active users",
     "expand": "Expand",
     "collapse": "Collapse",
     "points": "points",

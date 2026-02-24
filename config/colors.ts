@@ -1,81 +1,3 @@
-const appColors: AppColors = {
-  primary: {
-    light: '#0066cc',
-    dark: '#003366',
-  },
-  background: {
-    light: '#f3f4f6',
-    dark: '#262626',
-    secondaryLight: '#ffffff',
-    secondaryDark: '#1a1a1a',
-  },
-  text: {
-    primary: {
-      light: '#1f2937',
-      dark: '#f1f5f9',
-    },
-    secondary: {
-      light: '#6c6f82',
-      dark: '#cbd5e1',
-    },
-  },
-  neutral: {
-    gray: {
-      100: '#f3f4f6',
-      200: '#e5e7eb',
-      300: '#d1d5db',
-      400: '#9ca3af',
-      500: '#6c6f82',
-      600: '#4b5563',
-      700: '#23272f',
-      800: '#18181b',
-      900: '#111111',
-    },
-  },
-  system: {
-    red: {
-      50: {
-        light: '#fbeff1',
-        dark: '#450a0a',
-      },
-      600: {
-        light: '#cc334d',
-        dark: '#dc2626',
-      },
-    },
-    emerald: {
-      50: {
-        light: '#c8f6e7',
-        dark: '#022c22',
-      },
-      600: {
-        light: '#008055',
-        dark: '#059669',
-      },
-    },
-    orange: {
-      50: {
-        light: '#f6e4c8',
-        dark: '#431407',
-      },
-      600: {
-        light: '#cc7a00',
-        dark: '#ea580c',
-      },
-    },
-    teal: {
-      50: {
-        light: '#ccfffd',
-        dark: '#134e4a',
-      },
-      600: {
-        light: '#089994',
-        dark: '#0d9488',
-      },
-    },
-  },
-}
-
 type AppColors = {
   primary: {
     light: string
@@ -152,6 +74,60 @@ type AppColors = {
       }
     }
   }
+}
+
+const appColors: AppColors = {
+  primary: {
+    light: '#7c3aed',
+    dark: '#a78bfa',
+  },
+  background: {
+    light: '#fafaf9',
+    dark: '#0c0a09',
+    secondaryLight: '#f5f5f4',
+    secondaryDark: '#1c1917',
+  },
+  text: {
+    primary: {
+      light: '#1c1917',
+      dark: '#fafaf9',
+    },
+    secondary: {
+      light: '#57534e',
+      dark: '#d6d3d1',
+    },
+  },
+  neutral: {
+    gray: {
+      100: '#f5f5f4',
+      200: '#e7e5e4',
+      300: '#d6d3d1',
+      400: '#a8a29e',
+      500: '#78716c',
+      600: '#57534e',
+      700: '#44403c',
+      800: '#292524',
+      900: '#1c1917',
+    },
+  },
+  system: {
+    red: {
+      50: {light: '#fff1f2', dark: '#4c0519'},
+      600: {light: '#e11d48', dark: '#fb7185'},
+    },
+    emerald: {
+      50: {light: '#ecfdf5', dark: '#022c22'},
+      600: {light: '#059669', dark: '#34d399'},
+    },
+    orange: {
+      50: {light: '#fffbeb', dark: '#451a03'},
+      600: {light: '#d97706', dark: '#fbbf24'},
+    },
+    teal: {
+      50: {light: '#f0fdfa', dark: '#042f2e'},
+      600: {light: '#0d9488', dark: '#2dd4bf'},
+    },
+  },
 }
 
 export default appColors

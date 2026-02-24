@@ -9,9 +9,9 @@ import {
   FormField,
 } from '@types'
 
-class ImageSliderFieldStrategy<T extends Record<string, any>>
-  implements FieldRenderStrategy<T>
-{
+class ImageSliderFieldStrategy<
+  T extends Record<string, any>,
+> implements FieldRenderStrategy<T> {
   canRender({type}: FieldConfig): boolean {
     return type === FormField.ImageSlider
   }

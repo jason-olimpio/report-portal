@@ -6,7 +6,8 @@ import {
 } from '@types'
 import {getApiDelay} from '@config'
 
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+const delay = (ms: number) =>
+  new Promise(resolve => setTimeout(() => resolve(undefined), ms))
 
 type MockUser = {
   id: string

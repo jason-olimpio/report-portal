@@ -5,7 +5,7 @@ import Geolocation, {
   GeolocationResponse,
 } from '@react-native-community/geolocation'
 
-import {Location, Region} from 'types'
+import {Location, Region} from '@types'
 
 const useUserLocation = () => {
   const getCurrentPosition = useCallback(async (): Promise<Location> => {

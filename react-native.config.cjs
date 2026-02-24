@@ -1,7 +1,9 @@
 module.exports = {
   assets: ['./assets/fonts/', './assets/images/'],
   project: {
-    android: {},
+    android: {
+      packageName: 'com.reportportal',
+    },
     ios: {},
   },
 }

@@ -1,4 +1,4 @@
-import {createStackNavigator} from '@react-navigation/stack'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import {
   NewReportScreen,
@@ -11,7 +11,7 @@ import AppDrawer from './AppDrawer'
 
 import type {MainAppStackParamList} from '@types'
 
-const Stack = createStackNavigator<MainAppStackParamList>()
+const Stack = createNativeStackNavigator<MainAppStackParamList>()
 
 const MainAppStack = () => {
   return (

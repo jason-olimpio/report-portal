@@ -10,9 +10,9 @@ import {
   type Location,
 } from '@types'
 
-export class LocationFieldStrategy<T extends Record<string, any>>
-  implements FieldRenderStrategy<T>
-{
+export class LocationFieldStrategy<
+  T extends Record<string, any>,
+> implements FieldRenderStrategy<T> {
   canRender({type}: FieldConfig): boolean {
     return type === FormField.Location
   }

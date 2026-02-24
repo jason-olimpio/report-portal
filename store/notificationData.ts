@@ -1,112 +1,98 @@
 import type {Notification} from '@types'
 
+const currentTimestamp = Date.now()
+
+const createDateHoursAgo = (hoursAgo: number) =>
+  new Date(currentTimestamp - 1000 * 60 * 60 * hoursAgo)
+
+const createDateDaysAgo = (daysAgo: number) =>
+  new Date(currentTimestamp - 1000 * 60 * 60 * 24 * daysAgo)
+
 const notifications: Notification[] = [
   {
     id: '1',
-    title: 'Welcome!',
-    description: 'Thank you for installing the app.',
-    date: new Date(),
+    title: 'Welcome',
+    description:
+      'Your account is ready. Create your first report to get started.',
+    date: createDateHoursAgo(1),
     read: false,
   },
   {
     id: '2',
-    title: 'New report available',
-    description: 'A new report has been published.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
+    title: 'Report received',
+    description: 'We saved your report and assigned it to the right team.',
+    date: createDateHoursAgo(3),
     read: false,
   },
   {
     id: '3',
-    title: 'System update',
-    description: 'The system will be under maintenance tomorrow from 10:00 PM.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
-    read: true,
+    title: 'Status update',
+    description: 'Your report moved to Working.',
+    date: createDateHoursAgo(6),
+    read: false,
   },
   {
     id: '4',
-    title: 'New feature',
-    description: 'You can now filter reports by date.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 5), // 5 hours ago
-    read: true,
+    title: 'New comment',
+    description: 'An operator asked for more details to confirm the issue.',
+    date: createDateHoursAgo(10),
+    read: false,
   },
   {
     id: '5',
-    title: 'Reminder',
-    description: 'Don’t forget to update your profile.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 48), // 2 days ago
-    read: true,
+    title: 'Action needed',
+    description: 'Please confirm the address to avoid delays.',
+    date: createDateHoursAgo(14),
+    read: false,
   },
   {
     id: '6',
-    title: 'Collection reminder',
-    description: 'Remember that plastic collection is scheduled for tomorrow.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 12), // 12 hours ago
-    read: false,
-  },
-  {
-    id: '7',
-    title: 'Important message',
-    description: 'Please update the app to continue receiving notifications.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 48), // 2 days ago
-    read: false,
-  },
-  {
-    id: '8',
-    title: 'Upcoming event',
-    description:
-      'Join the webinar on environmental sustainability on July 10th.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 72), // 3 days ago
+    title: 'Report resolved',
+    description: 'Good news—your report was marked as Solved.',
+    date: createDateDaysAgo(1),
     read: true,
   },
   {
+    id: '7',
+    title: 'Reminder',
+    description: 'You have a pending report that needs your input.',
+    date: createDateDaysAgo(1.5),
+    read: true,
+  },
+  {
+    id: '8',
+    title: 'Service notice',
+    description: 'Scheduled maintenance tonight from 22:00 to 23:00.',
+    date: createDateDaysAgo(2),
+    read: false,
+  },
+  {
     id: '9',
-    title: 'Privacy update',
-    description: 'We have updated our privacy policy. Read what’s new.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 96), // 4 days ago
+    title: 'New feature',
+    description: 'You can now filter reports by status and date range.',
+    date: createDateDaysAgo(3),
     read: true,
   },
   {
     id: '10',
-    title: 'New badge earned',
-    description:
-      'Congratulations! You have earned the “Virtuous Citizen” badge for your activity.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 8), // 8 hours ago
+    title: 'Badge earned',
+    description: 'You earned “Virtuous Contributor” for consistent reporting.',
+    date: createDateDaysAgo(4),
     read: false,
   },
   {
     id: '11',
-    title: 'Service suspended',
+    title: 'Saved offline',
     description:
-      'Paper collection service will be suspended on July 5th due to a holiday.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 120), // 5 days ago
-    read: false,
-  },
-  {
-    id: '12',
-    title: 'New recycling area',
-    description: 'A new recycling area has opened at 12 Roma Street.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 30), // 1 day and 6 hours ago
-    read: false,
-  },
-  {
-    id: '13',
-    title: 'Special collection',
-    description: 'Special bulky waste collection next Saturday.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 200), // 8 days ago
+      'No connection—your report was saved and will resend automatically.',
+    date: createDateDaysAgo(5),
     read: true,
   },
   {
-    id: '14',
-    title: 'Important notice',
-    description: 'Attention: possible collection delays due to roadworks.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 15), // 15 hours ago
-    read: false,
-  },
-  {
-    id: '15',
-    title: 'Tip',
-    description: 'Check the FAQ section to solve common doubts.',
-    date: new Date(Date.now() - 1000 * 60 * 60 * 60), // 2 days and 12 hours ago
+    id: '12',
+    title: 'Privacy update',
+    description: 'We updated our privacy policy. Tap to review changes.',
+    date: createDateDaysAgo(7),
     read: true,
   },
 ]

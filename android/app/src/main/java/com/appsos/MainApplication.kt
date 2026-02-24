@@ -1,4 +1,4 @@
-package com.appsos
+package com.reportportal
 
 import android.app.Application
 import com.facebook.react.PackageList

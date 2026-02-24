@@ -1,4 +1,5 @@
-export {default as BulkyWasteDisposalImage} from './bulky_waste_disposal.png'
-export {default as BuildingMaterialsDisposalImage} from './building_materials_disposal.png'
-export {default as ElectricalWasteDisposalImage} from './electrical_waste_disposal.png'
+export {default as EquipmentFailureImage} from './equipment_failure.png'
+export {default as SafetyHazardImage} from './safety_hazard.png'
+export {default as FacilityRepairImage} from './facility_repair.png'
+export {default as TechMaintenanceImage} from './tech_maintenance.png'
 export {default as PlaceholderImage} from './placeholder.png'

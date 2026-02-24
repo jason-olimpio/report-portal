@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {Alert, View} from 'react-native'
-import {ZodType} from 'zod'
+import z, {ZodType} from 'zod'
 
 import {useTranslation} from 'react-i18next'
 import {useUserLocation} from '@hooks'
@@ -83,21 +83,19 @@ const FormHandler = <T extends Record<string, any>>({
 
   const validate = (field: keyof T, value: T[keyof T]) => {
     const updatedForm = {...form, [field]: value}
-    const {success, error} = schema.safeParse(updatedForm)
+    const result = schema.safeParse(updatedForm)
 
-    if (success) {
+    if (result.success) {
       setErrors(currentErrors => ({...currentErrors, [field]: undefined}))
       return
     }
 
-    const fieldError =
-      error.formErrors.fieldErrors[
-        field as keyof typeof error.formErrors.fieldErrors
-      ]
+    const tree = z.treeifyError(result.error)
+    const fieldIssues = (tree as any)[field]?._errors
 
     setErrors(currentErrors => ({
       ...currentErrors,
-      [field]: fieldError ? fieldError[0] : undefined,
+      [field]: fieldIssues ? fieldIssues[0] : undefined,
     }))
   }
 
@@ -108,10 +106,7 @@ const FormHandler = <T extends Record<string, any>>({
     const {success, error} = schema.safeParse(form)
 
     if (!success) {
-      const fieldErrors = extractFieldErrors(
-        error.formErrors.fieldErrors,
-      ) as FormErrors<T>
-
+      const fieldErrors = extractFieldErrors<T>(error.issues)
       setErrors(fieldErrors)
       return
     }

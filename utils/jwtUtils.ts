@@ -1,13 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {jwtDecode} from 'jwt-decode'
-
 import type {JWTPayload} from '@types'
 
 const TOKEN_KEY = 'auth_token'
 
 export const saveToken = async (token: string): Promise<void> => {
   try {
-    await AsyncStorage.setItem(TOKEN_KEY, token)
+    const normalized = normalizeToken(token)
+    await AsyncStorage.setItem(TOKEN_KEY, normalized)
   } catch (error) {
     console.error('Error saving token:', error)
     throw error
@@ -16,7 +16,10 @@ export const saveToken = async (token: string): Promise<void> => {
 
 export const getToken = async (): Promise<string | null> => {
   try {
-    return await AsyncStorage.getItem(TOKEN_KEY)
+    const token = await AsyncStorage.getItem(TOKEN_KEY)
+    const normalized = normalizeToken(token)
+
+    return normalized || null
   } catch (error) {
     console.error('Error getting token:', error)
     return null
@@ -32,23 +35,37 @@ export const removeToken = async (): Promise<void> => {
   }
 }
 
-export const isTokenValid = (token: string): boolean => {
-  try {
-    const decoded = jwtDecode<JWTPayload>(token)
-    const currentTime = Date.now() / 1000
+export const isTokenValid = (token: string | null | undefined): boolean => {
+  const payload = getTokenPayload(token)
 
-    return decoded.exp > currentTime
-  } catch (error) {
-    console.error('Error validating token:', error)
-    return false
-  }
+  if (!payload) return false
+
+  const exp = payload.exp
+  if (typeof exp !== 'number') return false
+
+  const now = Date.now() / 1000
+
+  return exp > now
 }
 
-export const getTokenPayload = (token: string): JWTPayload | null => {
+export const getTokenPayload = (
+  token: string | null | undefined,
+): JWTPayload | null => {
+  const normalized = normalizeToken(token)
+  if (!normalized || !looksLikeJwt(normalized)) return null
+
   try {
-    return jwtDecode<JWTPayload>(token)
+    return jwtDecode<JWTPayload>(normalized)
   } catch (error) {
     console.error('Error decoding token:', error)
     return null
   }
 }
+
+const normalizeToken = (raw: unknown): string => {
+  if (typeof raw !== 'string') return ''
+
+  return raw.replace(/^Bearer\s+/i, '').trim()
+}
+
+const looksLikeJwt = (token: string): boolean => token.split('.').length === 3

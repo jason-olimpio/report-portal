@@ -8,7 +8,7 @@ export const API_CONFIG: ApiConfig = {
 
   mockDelay: {
     min: 500,
-    max: 2000,
+    max: 1000,
   },
 
   axios: {

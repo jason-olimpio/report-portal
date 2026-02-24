@@ -85,7 +85,9 @@ const NewReportScreen = () => {
         priority: PriorityOption.Medium,
       }
 
-      if (!(await isOnline())) {
+      const onlineStatus = await isOnline()
+
+      if (!onlineStatus) {
         await addPendingReport(report)
         Alert.alert(t('reports.reportSavedOffline'))
 

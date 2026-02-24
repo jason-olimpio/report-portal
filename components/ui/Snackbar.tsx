@@ -11,7 +11,7 @@ type SnackbarProps = {
 const Snackbar = ({visible, message, onClose}: SnackbarProps) => {
   const [slideAnimation] = useState(() => new Animated.Value(100))
   const [shouldRender, setShouldRender] = useState(false)
-  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const {t} = useTranslation()
 
   useEffect(() => {
