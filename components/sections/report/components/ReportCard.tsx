@@ -32,8 +32,14 @@ type ReportCardProps = {
   report: Report
 }
 
-const getImageSource = (images: ImageSourcePropType[] = []) =>
-  images?.[0] ?? PlaceholderImage
+const getImageSource = (
+  images: string[] | undefined,
+  placeholder: ImageSourcePropType,
+): ImageSourcePropType => {
+  const first = images?.[0]
+
+  return first ? {uri: first} : placeholder
+}
 
 const ReportCard = ({report}: ReportCardProps) => {
   const {t, i18n} = useTranslation()
@@ -50,7 +56,7 @@ const ReportCard = ({report}: ReportCardProps) => {
   const locale = getLocaleForDateFns(i18n.resolvedLanguage)
   const formattedDate = format(date, 'PPP', {locale})
 
-  const source = getImageSource(images)
+  const source = getImageSource(images, PlaceholderImage)
 
   const handlePress = () => navigation.navigate('ReportDetails', {reportId: id})
 

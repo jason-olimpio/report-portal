@@ -1,10 +1,8 @@
-import {ImageSourcePropType} from 'react-native'
-
 import {StatusOption, PriorityOption} from '.'
 
 export type Report = {
   id: string
-  images: ImageSourcePropType[]
+  images: string[]
   title: string
   description: string
   address: string

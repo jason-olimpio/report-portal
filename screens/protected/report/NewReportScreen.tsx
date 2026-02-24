@@ -1,4 +1,4 @@
-import {Alert, ScrollView, type ImageSourcePropType} from 'react-native'
+import {Alert, ScrollView} from 'react-native'
 import {z} from 'zod'
 import {useTranslation} from 'react-i18next'
 import {useNavigation} from '@react-navigation/native'
@@ -18,7 +18,7 @@ import {
 } from '@types'
 
 import {getAddressFromLocation} from '@api'
-import {isOnline} from '@utils'
+import {isOnline, persistImageUris} from '@utils'
 
 const NewReportScreen = () => {
   const {t} = useTranslation()
@@ -28,9 +28,9 @@ const NewReportScreen = () => {
   const schema = z.object({
     title: z.string().min(3, {message: t('errors.titleTooShort')}),
     description: z.string().min(10, {message: t('errors.descriptionTooShort')}),
-    images: z.array(z.custom<ImageSourcePropType>()).min(1, {
-      message: t('errors.imagesRequired'),
-    }),
+    images: z
+      .array(z.string().min(1))
+      .min(1, {message: t('errors.imagesRequired')}),
     location: z
       .object({
         latitude: z.number(),
@@ -76,11 +76,12 @@ const NewReportScreen = () => {
     location,
   }: z.infer<typeof schema>) => {
     try {
+      const persistedImages = await persistImageUris(images)
       const address = await getAddressFromLocation(location)
 
       const newReport: Report = {
         id: Date.now().toString(),
-        images,
+        images: persistedImages,
         title,
         description,
         address,

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, Image, ImageSourcePropType} from 'react-native'
+import {View, Image, type ImageSourcePropType} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -12,19 +12,29 @@ import {scheduleOnRN} from 'react-native-worklets'
 import {PlaceholderImage} from '@assets'
 import {useScreenWidth} from '@hooks'
 
+type GalleryImageInput = string | ImageSourcePropType
 type ReportImageGalleryProps = {
-  images: ImageSourcePropType[]
+  images: GalleryImageInput[]
 }
 
-const getImageSources = (images: ImageSourcePropType[]) =>
-  images?.length > 0 ? images : [PlaceholderImage]
+const getImageSources = (
+  inputs: GalleryImageInput[],
+): ImageSourcePropType[] => {
+  const normalized = (inputs ?? []).map(toImageSource)
+
+  return normalized.length > 0 ? normalized : [PlaceholderImage]
+}
+
+const toImageSource = (input: GalleryImageInput): ImageSourcePropType => {
+  if (typeof input === 'string') return {uri: input}
+  return input
+}
 
 const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
   const sources = getImageSources(images)
   const [canScroll, setCanScroll] = useState(true)
 
   const scale = useSharedValue(1)
-
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{scale: scale.value}],
   }))
@@ -32,6 +42,7 @@ const ReportImageGallery = ({images}: ReportImageGalleryProps) => {
   const pinchGesture = Gesture.Pinch()
     .onUpdate(event => {
       scale.value = event.scale
+
       if (event.scale > 1.01 && canScroll)
         scheduleOnRN(() => setCanScroll(false))
     })
