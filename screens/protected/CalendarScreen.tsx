@@ -27,7 +27,7 @@ const CalendarScreen = () => {
 
       <View className="mt-10">
         <Calendar
-          markingType="multi-dot"
+          markingType="dot"
           markedDates={markedDates}
           onDayPress={handleDayPress}
           theme={getCalendarTheme(isDark)}
