@@ -1,8 +1,7 @@
 import {useEffect, useState} from 'react'
 import {Keyboard} from 'react-native'
 
-import {useRegion, useUserLocation} from '@hooks'
-import {reportData} from '@store'
+import {useRegion, useReports, useUserLocation} from '@hooks'
 import type {Location, Region, Report} from '@types'
 
 const normalize = (_string: string) => _string.trim().toLowerCase()
@@ -10,6 +9,7 @@ const normalize = (_string: string) => _string.trim().toLowerCase()
 const useMapScreenLogic = () => {
   const {centerOnUserLocation, getCurrentPosition} = useUserLocation()
   const initialRegion = useRegion()
+  const {reports} = useReports()
 
   const [search, setSearch] = useState('')
   const [selectedReport, setSelectedReport] = useState<Report | null>(null)
@@ -57,10 +57,11 @@ const useMapScreenLogic = () => {
 
   const visibleReports =
     term === ''
-      ? reportData
-      : reportData.filter(({title, address}: Report) => {
+      ? reports
+      : reports.filter(({title, address}: Report) => {
           const hayTitle = normalize(title)
           const hayAddress = normalize(address)
+
           return hayTitle.includes(term) || hayAddress.includes(term)
         })
 
@@ -70,7 +71,7 @@ const useMapScreenLogic = () => {
     const nextTerm = normalize(searchTerm)
     if (!nextTerm) return
 
-    const match = reportData.find(({title, address}) => {
+    const match = reports.find(({title, address}) => {
       const hayTitle = normalize(title)
       const hayAddress = normalize(address)
 

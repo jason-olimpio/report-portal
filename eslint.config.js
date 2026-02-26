@@ -3,7 +3,6 @@ import tsParser from '@typescript-eslint/parser'
 import reactPlugin from 'eslint-plugin-react'
 import reactNativePlugin from 'eslint-plugin-react-native'
 import prettierPlugin from 'eslint-plugin-prettier'
-import prettierConfig from 'eslint-config-prettier'
 
 export default [
   prettierConfig,

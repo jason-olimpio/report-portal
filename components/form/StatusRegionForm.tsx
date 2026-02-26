@@ -4,7 +4,6 @@ import {useTranslation} from 'react-i18next'
 import {z} from 'zod'
 
 import {useReports} from '@hooks'
-import {reportData} from '@store'
 import {StatusOption} from '@types'
 
 import AddressAutocompleteInput from './AddressAutoCompleteInput'
@@ -20,10 +19,11 @@ type StatusRegionFormProps = {
 const StatusRegionForm = ({reportId, status}: StatusRegionFormProps) => {
   const {setReports} = useReports()
   const {t} = useTranslation()
+  const {reports} = useReports()
 
   const formSchema = z.object({
-    status: z.nativeEnum(StatusOption, {
-      errorMap: () => ({message: t('errors.statusRequired')}),
+    status: z.enum(StatusOption, {
+      error: () => t('errors.statusRequired'),
     }),
     address: z.string().min(1, t('errors.addressRequired')),
   })
@@ -38,7 +38,7 @@ const StatusRegionForm = ({reportId, status}: StatusRegionFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const addressList = Array.from(
-    new Set(reportData.map(({address}) => address).filter(Boolean)),
+    new Set(reports.map(({address}) => address).filter(Boolean)),
   )
 
   const handleSubmitChanges = () => {
@@ -51,7 +51,7 @@ const StatusRegionForm = ({reportId, status}: StatusRegionFormProps) => {
 
     if (!success) {
       const fieldErrors = Object.fromEntries(
-        error.errors.map(err => [err.path[0], err.message]),
+        error.issues.map(issue => [issue.path[0], issue.message]),
       ) as Partial<Record<keyof FormSchema, string>>
 
       setErrors(fieldErrors)
@@ -61,7 +61,7 @@ const StatusRegionForm = ({reportId, status}: StatusRegionFormProps) => {
 
     setErrors({})
 
-    const updatedReports = (previousReports: typeof reportData) =>
+    const updatedReports = (previousReports: typeof reports) =>
       previousReports.map(report =>
         report.id === reportId
           ? {

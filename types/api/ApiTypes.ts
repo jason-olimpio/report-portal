@@ -1,4 +1,4 @@
-import type {LoginCredentials, RegisterData, AuthResponse} from '@types'
+import type {LoginCredentials, RegisterData, AuthResponse, Report} from '@types'
 
 export type AuthAPI = {
   login(credentials: LoginCredentials): Promise<AuthResponse>
@@ -13,7 +13,7 @@ export type UserAPI = {
 
 export type ReportsAPI = {
   getReports(): Promise<any[]>
-  createReport(reportData: any): Promise<any>
-  updateReport(reportId: string, data: any): Promise<any>
+  createReport(reportData: Report): Promise<Report>
+  updateReport(reportId: string, data: Report): Promise<Report>
   deleteReport(reportId: string): Promise<void>
 }

@@ -2,8 +2,7 @@ import {useState, useMemo} from 'react'
 import {LocaleConfig} from 'react-native-calendars'
 import {useTranslation} from 'react-i18next'
 
-import {useTheme} from '@hooks'
-import {reportData} from '@store'
+import {useReports, useTheme} from '@hooks'
 import type {ReportsByDate, DateString} from '@types'
 import {
   getReportsByDate,
@@ -14,10 +13,11 @@ import {
 export const useCalendar = () => {
   const {t} = useTranslation()
   const {isDark} = useTheme()
+  const {reports} = useReports()
 
   const [selectedDate, setSelectedDate] = useState<DateString | null>(null)
 
-  const reportsByDate: ReportsByDate = getReportsByDate(reportData)
+  const reportsByDate: ReportsByDate = getReportsByDate(reports)
 
   const markedDates = useMemo(
     () => getMarkedDatesWithSelection(reportsByDate, isDark, selectedDate),

@@ -1,3 +1,5 @@
+import {appColors} from '@config'
+
 import {
   type Report,
   StatusOption,
@@ -5,7 +7,6 @@ import {
   type ReportsByDate,
   type DateString,
 } from '@types'
-import {appColors} from '@config'
 
 export const STATUS_COLORS: {
   light: Record<Exclude<StatusOption, StatusOption.All>, string>
@@ -37,6 +38,7 @@ export const getMarkedDatesWithSelection = (
   selectedDate?: DateString | null,
 ): MarkedDates => {
   const markedDates = getMarkedDates(reportsByDate, isDark)
+
   if (!selectedDate) return markedDates
 
   const selectedReports = reportsByDate[selectedDate] ?? []

@@ -2,8 +2,7 @@ import React, {useMemo, useState} from 'react'
 import {ScrollView, StyleSheet, Text} from 'react-native'
 import {useTranslation} from 'react-i18next'
 
-import {reportData} from '@store'
-import {useAuth, useTheme} from '@hooks'
+import {useAuth, useReports, useTheme} from '@hooks'
 import {Leaderboard, SegmentedTabs, MonthlyBarChartCard} from '@components'
 import {appColors} from '@config'
 import {getLocalizedCalendarLabels, getMonthlyReportStats} from '@utils'
@@ -15,8 +14,9 @@ const StatsScreen = () => {
   const {t} = useTranslation()
   const {isDark} = useTheme()
   const {user} = useAuth()
+  const {reports} = useReports()
 
-  const {open, closed, months} = getMonthlyReportStats(reportData)
+  const {open, closed, months} = getMonthlyReportStats(reports)
   const localizedLabels = getLocalizedCalendarLabels(t)
 
   const monthLabels = useMemo(
